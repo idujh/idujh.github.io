@@ -1,0 +1,197 @@
+/* 본고딕 웹폰트 가져오기 180124 morenvy.com */ 
+/* Noto Sans KR (korean) http://www.google.com/fonts/earlyaccess */ 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;
+font-size:16px;
+color:#000;}
+
+li{list-style:none;}
+
+a,a:hover{text-decoration:none;
+color:#000;}
+
+img{border:0;
+vertical-align:top;}
+
+.menuwrap{position:absolute;width:100%;background-color:#37393d;z-index:1;
+height:100%;left:100%;opacity:0;display:none;}
+.menuclose{position:absolute;right:0;top:0;z-index:2;}
+.m{display:block;float:left;width:16.66%;border-right:1px solid #4b4d51;height:100%;position:relative;}
+.menuwrap .bd0{border:none;}
+.menuwrap h2{position:absolute;top:20%;left:50%;margin-left:-119px;z-index:2;}
+.m .inner{position:absolute;top:40%;left:20%;}
+.inner h3{color:#fff;font-size:2.4em;font-weight:400;}
+.inner ul{margin-top:1em;line-height:200%;width:100%;}
+.inner ul>li>a{display:block;color:#fff;width:100%;font-size:1.2em;}
+.inner ul>li>a:hover{color:#3eb134;}
+
+.intro{position:absolute;z-index:1;top:80px;width:100%;background:url(image/main_intro_bg.jpg) 0 0 no-repeat;background-size:cover;}
+.introtext{position:absolute;top:50%;left:50%;margin-left:-550px;margin-top:-75px;
+text-align:center;}
+.introtext h2{font-size:5em;color:#fff;font-weight:400;}
+.introtext p{font-size:1.4em;color:#fff;margin-top:20px;}
+.ani{position:relative;top:40%;opacity:0;}
+
+
+.wrap{width:100%;}
+.header{width:100%;position:relative;height:80px;}
+.header>h1{width:100%;text-align:center;padding-top:20px;}
+.menuicon{position:absolute;right:0;top:0px;}
+.content{width:100%;overflow:hidden;}
+#c1{width:33.33%;height:100%;display:block;float:left;background-color:#000;}
+#c2{width:33.33%;height:100%;display:block;float:left;background-color:#000;}
+#c3{width:33.33%;height:100%;display:block;float:left;background-color:#000;}
+#c1>div{background:#000 url(../image/mainCon_bg1.jpg) 25% 0 no-repeat;}
+#c2>div{background:#000 url(../image/mainCon_bg2.jpg) 50% 0 no-repeat;}
+#c3>div{background:#000 url(../image/mainCon_bg3.jpg) 50% 0 no-repeat;}
+.c>div{position:relative;}
+.text{position:absolute;top:55%;left:10%;color:#fff;}
+.text h2{font-size:2.5em;font-weight:400;}
+.text h3{margin-top:10px;font-weight:400;font-size:1.3em;}
+.stroke{margin-top:20px;width:30px;border:1px solid #fff;}
+.text p{margin-top:20px;}
+.footer{width:100%;background-color:#37393d;padding:2%;position: fixed;
+bottom:0;}
+.personal{color:#b9b9b9;font-size:14px;width:50%;float:left;}
+.personal a{display:inline-block;color:#b9b9b9;font-size:16px;}
+.personal .green{color:#57b749;}
+.form{float:left;width:50%;}
+.forminner{float:right;width:20%;position:relative;}
+.forminner>a{color:#999999;background-color:#303135;padding:5%;border:1px solid #58595b;display:block;font-size:14px;width:100%;z-index:2;position:relative;}
+.forminner>a>img{position:absolute;top:50%;right:10px;margin-top:-3px;}
+.formup{position:absolute;bottom:100%;left:0;width:100%;display:none;}
+.formup a{width:100%;background-color:#58595b;color:#b9b9b9;display:block;
+padding:5%;font-size:14px;border-bottom:1px solid #4f4f4f;}
+.formup a:last-child{border:none;}
+
+
+
+@media screen and (max-width:640px){
+
+
+
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;
+font-size:12px;
+color:#000;}
+
+li{list-style:none;}
+
+a,a:hover{text-decoration:none;
+color:#000;}
+
+img{border:0;
+vertical-align:top;}
+.menuwrap{position:absolute;width:100%;background-color:#37393d;z-index:1;
+height:100%;left:100%;opacity:0;display:none;}
+.menuclose{position:absolute;right:0;top:0;}
+.menuclose img{width:60px;float:right;}
+.m{display:block;float:left;width:100%;border-right:0;position:relative;
+padding:1%;border-bottom:1px solid #ddd;}
+#m1{display:none;}
+#m2{border-top:2px solid #ddd;margin-top:14px;height:22%;}
+#m3{height:26%;}
+#m4{height:21%;}
+#m5{border:0;height:21%;}
+#m6{display:none;}
+.menuwrap .bd0{border:none;}
+.menuwrap h2{position:static;top:0;left:0;margin-left:0;z-index:2;
+width:100%;text-align:center;margin-top:10px;}
+.menuwrap h2 img{width:40%;}
+.m .inner{position:static;top:40%;left:20%;}
+.inner h3{color:#fff;font-size:1.6em;font-weight:600;color:#308828;}
+.inner ul{margin-top:4px;line-height:170%;width:100%;}
+.inner ul>li>a{display:block;color:#fff;width:100%;font-size:1em;}
+.inner ul>li>a:hover{color:#3eb134;}
+
+.intro{position:absolute;z-index:1;top:80px;width:100%;background:url(../image/main_intro_bg.jpg) 0 0 no-repeat;background-size:cover;display:none;}
+.introtext{position:absolute;top:50%;left:50%;margin-left:-550px;margin-top:-75px;
+text-align:center;}
+.introtext h2{font-size:5em;color:#fff;font-weight:400;}
+.introtext p{font-size:1.4em;color:#fff;margin-top:20px;}
+.ani{position:relative;top:40%;opacity:0;}
+
+
+.wrap{width:100%;}
+.header{width:100%;position:relative;height:80px;}
+.header>h1{width:100%;text-align:center;padding-top:20px;}
+.menuicon{position:absolute;right:0;top:0px;}
+.content{width:100%;overflow:hidden;}
+#c1{width:100%;display:block;float:left;background-color:#000;}
+#c2{width:100%;display:block;float:left;background-color:#000;}
+#c3{width:100%;display:block;float:left;background-color:#000;}
+#c1>div{background:#000 url(../image/mainCon_bg1.jpg) 0% 0% no-repeat;
+background-size:cover;}
+#c2>div{background:#000 url(../image/mainCon_bg2.jpg) 0% 0% no-repeat;
+background-size:cover;}
+#c3>div{background:#000 url(../image/mainCon_bg3.jpg) 0% 0% no-repeat;
+background-size:cover;}
+.c>div{position:relative;}
+.text{position:absolute;top:55%;left:10%;color:#fff;}
+.text h2{font-size:2.5em;font-weight:400;}
+.text h3{margin-top:0px;font-weight:400;font-size:1.3em;}
+.stroke{margin-top:20px;width:30px;border:1px solid #fff;display:none;}
+.text p{margin-top:20px;display:none;}
+.footer{width:100%;background-color:#37393d;padding:2%;position: fixed;bottom:0;}
+.personal{color:#b9b9b9;font-size:11px;width:100%;float:left;}
+.personal a{display:inline-block;color:#b9b9b9;font-size:11px;}
+.personal .green{color:#57b749;}
+.form{float:right;width:40%;}
+.forminner{float:right;width:100%;position:relative;}
+.forminner>a{color:#999999;background-color:#303135;padding:5%;border:1px solid #58595b;display:block;font-size:11px;width:100%;z-index:2;position:relative;}
+.forminner>a>img{position:absolute;top:50%;right:10px;margin-top:-3px;}
+.formup{position:absolute;bottom:100%;left:0;width:100%;display:none;}
+.formup a{width:100%;background-color:#58595b;color:#b9b9b9;display:block;
+padding:5%;font-size:11px;border-bottom:1px solid #4f4f4f;}
+.formup a:last-child{border:none;}
+
+}

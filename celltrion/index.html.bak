@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+
+<link rel="stylesheet" href="css/css.css">
+<script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
+
+</head>
+ <body>
+<div class='menuwrap'>
+<a href="#" class='menuclose'><img src="image/gnb_close.gif" alt="메뉴닫기아이콘"></a>
+<h2><a href="#"><img src="image/gnb_logo.png" alt="로고2"></a></h2>
+<div class='m' id='m1'></div>
+<div class='m' id='m2'>
+<div class='inner'>
+<h3>재단소개</h3>
+<ul>
+	<li><a href="http://www.celltrionwelfare.com/Info/Greeting">이사장 인사말</a></li>
+	<li><a href="http://www.celltrionwelfare.com/info/Purpose">설립취지</a></li>
+	<li><a href="http://www.celltrionwelfare.com/info/Intro">셀트리온 소개</a></li>
+	<li><a href="http://www.celltrionwelfare.com/info/Direction">위치안내</a></li>
+</ul>
+</div>
+</div>
+
+<div class='m' id='m3'>
+<div class='inner'>
+<h3>사업안내</h3>
+<ul>
+	<li><a href="http://www.celltrionwelfare.com/Business/Apply_info">신청하기</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Business/Living">부식 및 생계지원</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Business/Medical">의료비지원</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Business/School">학자금지원</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Business/Sharing">절기나눔지원</a></li>
+</ul>
+</div>
+</div>
+
+<div class='m' id='m4'>
+<div class='inner'>
+<h3>재단소식</h3>
+<ul>
+	<li><a href="http://www.celltrionwelfare.com/Bbs/Category-NOTICE">공지사항</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Bbs/Category-SHARINGNEWS">나눔소식</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Bbs/Category-activity">활동후기</a></li>
+</ul>
+</div>
+</div>
+
+<div class='m' id='m5'>
+<div class='inner'>
+<h3>재단문의</h3>
+<ul>
+	<li><a href="http://www.celltrionwelfare.com/Bbs/Category-PDS">자료실</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Bbs/Category-FAQ">자주하는질문</a></li>
+	<li><a href="http://www.celltrionwelfare.com/Bbs/Category-QNA">상담문의</a></li>
+</ul>
+</div>
+</div>
+
+<div class='m bd0' id='m6'></div>
+</div><!-- menuwrap -->
+
+<div class='intro'>
+<div class='introtext'>
+<h2 class='ani'>아름다운 동행, 셀트리온복지재단</h2>
+<p class='ani'> 살아가는 아름다운 사회를 위해 셀트리온복지재단이 앞장서겠습니다.</p>
+</div>
+</div>
+
+
+
+<div class='wrap'>
+<div class='header'>
+<h1><a href="#"><img src="image/logo.png" alt="로고1"></a></h1>
+<a href="#" class='menuicon'><img src="image/gnb_btn.gif" alt="메뉴버튼"></a>
+</div><!-- header -->
+<div class='content'>
+
+<a href="#" class='c' id='c1'>
+<div>
+<div class='text'>
+<h2>Sponsorship</h2>
+<h3>후원 사업</h3>
+<div class='stroke'></div>
+<p>도움의 손길이 필요한 우리 주변의 많은 소외된 이웃에게<br />빛이되는 다양한 사업을 진행하고 있습니다.</p>
+</div>
+</div>
+</a>
+
+<a href="#" class='c' id='c2'>
+<div>
+<div class='text'>
+<h2>Story</h2>
+<h3>셀트리온복지재단 이야기</h3>
+<div class='stroke'></div>
+<p>어려운 이웃에게 나눔과 사랑을 주고 더붙어 살아가는 사회,<br />
+셀트리온복지재단이 만들어가고 있습니다.</p>
+</div>
+</div>
+</a>
+
+<a href="#" class='c' id='c3'>
+<div>
+<div class='text'>
+<h2>News</h2>
+<h3>활동 소식</h3>
+<div class='stroke'></div>
+<p>아름다운 사회를 만들기 위해 노력하는 셀트리온복지재단의<br />다양한 소식과 감동의 순간을 전달해드립니다.</p>
+</div>
+</div>
+</a>
+
+</div><!-- content -->
+<div class='footer'>
+<div class='personal'><a href="http://www.celltrionwelfare.com/Utility/PrivacyPolicy" class='green'>개인정보처리방침</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.celltrionwelfare.com/Utility/Sitemap">사이트맵</a>
+<p>인천 연수구 아카데미로 51번길 19&nbsp;&nbsp;|&nbsp;&nbsp;Tel. 032-850-4345, 4346&nbsp;&nbsp;|&nbsp;&nbsp;Fax. 032-850-4347&nbsp;&nbsp;|&nbsp;&nbsp;E-mail. welfare@celltrion.com<br /> 
+COPYRIGHT (C) CELLTRION WELFARE FOUNDATION.ALL RIGHTS RESERVED.
+</p>
+</div>
+<div class='form'>
+<div class='forminner'>
+<a href="#" class='family'>FAMILY SITE<img src="image/family_icon_off.png" alt="off이미지"></a>
+<div class='formup'>
+<a href="https://www.celltrion.com/main.do" target='_blank'>셀트리온</a>
+<a href="http://www.celltrionph.com/" target='_blank'>셀트리온제약</a>
+<a href="http://www.celltrionhealthcare.com/en/index.do;jsessionid=9EF9C0B169D8564D5F21E7C09E02AC69" target='_blank'>셀트리온헬스케어</a>
+<a href="http://www.celltrionskincure.com/main/main.asp" target='_blank'>셀트리온스킨큐어</a>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+</div><!-- wrap -->
+<script src='js/js.js'></script>
+<script type="text/javascript" src='js/animate/jquery.transit.min.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'>
+</script>
+</body>
+</html>
