@@ -1,0 +1,776 @@
+<!doctype html><html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0,user-scalable=yes">
+  <title>Document</title>
+<style type="text/css">
+/* 본고딕 웹폰트 가져오기 180124 morenvy.com */ 
+/* Noto Sans KR (korean) http://www.google.com/fonts/earlyaccess */ 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ }
+*{padding:0;margin:0;box-sizing:border-box;}
+body {font-family:"Noto Sans KR","나눔고딕","돋움",sans-serif; 
+font-size:14px;
+color:#333;}
+
+li{list-style:none;}
+
+a,a:hover{text-decoration:none;
+color:#333;}
+
+img{border:0;
+vertical-align:top;}
+
+.header{width:100%;
+box-shadow:5px 5px 5px #c5c5c5;
+}
+
+.inner{width:1200px;
+margin:0 auto;
+position:relative;
+height:70px;}
+
+.inner h1{float:left;
+margin-top:5px;}
+
+.inner>ul>li>a{float:left;
+margin-left:50px;
+line-height:67px;
+text-align:center;
+height:67px;
+width:100px;
+font-size:16px;
+}
+
+.inner>ul>li>a:hover{border-bottom:3px solid #ffd200;}
+
+.gnbwrap{height:384px;
+width:1200px;
+top:70px;
+z-index:99;
+position:absolute;
+display:none;
+}
+
+.sub{width:600px;
+background-color:#FFF;
+position:absolute;
+left:320px;
+top:0;
+height:384px;
+}
+
+.sub>li>a{margin-top:20px;
+display:inline-block;
+font-size:14px;
+}
+
+.sub1{position:absolute;
+left:320px;
+top:0;
+width:150px;
+text-align:center;
+}
+
+.sub2{position:absolute;
+left:470px;
+top:0;
+width:150px;
+text-align:center;
+}
+
+.sub3{position:absolute;
+left:620px;
+top:0;
+width:150px;
+text-align:center;
+}
+
+.sub4{position:absolute;
+left:770px;
+top:0;
+width:150px;
+text-align:center;
+}
+
+.login{position:absolute;
+top:23px;
+right:0;}
+
+.login>a{margin-right:20px;
+}
+
+.gnbwrap>.guide{position:relative;
+top:0;
+left:320px;
+width:320px;
+height:384px;}
+
+.gnbtitle{position:absolute;
+left:0;
+top:0;
+width:320px;
+height:384px;
+color:white;
+padding:20px 20px;}
+
+.gnb>li>a{display:block;font-weight:500;}
+
+.guide{position:absolute;
+left:920px;
+width:280px;
+top:0;
+height:384px;
+background-color:#eeeeee;
+}
+
+.guide>li>a{margin-top:50px;
+margin-left:70px;
+padding:4px;
+width:160px;
+display:inline-block;
+height:58px;
+line-height:58px;
+}
+
+.guide>li>a>img{margin-right:10px;}
+
+.bg{
+width:100%;
+height:100%;
+background-color:rgba(0,0,0,0.8);
+position:absolute;
+top:0;
+display:none;
+}
+
+.content{width:100%;
+height:100%;
+position:relative;
+background-color:#f3f2f0;
+}
+
+.content1{
+width:1200px;
+margin:0 auto;
+overflow:hidden;}
+
+.event{width:1200px;
+position:relative;
+height:340px;
+margin-top:20px;
+}
+
+.event>ul{position:absolute;}
+
+.event>ul>li{float:left;}
+
+.event>ul>li>a{display:inline-block;
+background-color:#FFF;
+width:400px;}
+
+.event>ul>li>a>strong{margin:10px;
+display:block;}
+
+.prev1{width:50px;
+height:50px;
+background:url(image/ico_main_arrow.png) 15px 13px no-repeat;
+position:absolute;
+left:10px;
+top:120px;
+z-index:9;
+background-color:rgba(0,0,0,0.5);
+border-radius:50%;
+}
+
+.next1{width:50px;
+height:50px;
+background:url(image/ico_main_arrow.png) 20px -38px no-repeat;
+position:absolute;
+left:1140px;
+top:120px;
+z-index:9;
+background-color:rgba(0,0,0,0.5);
+border-radius:50%;
+}
+
+.news{position:absolute;
+top:520px;
+width:280px;
+margin:10px;}
+
+.news>h3{float:left;
+}
+.news>ul{float:left;}
+
+.quick{width:100%;
+margin-top:60px;
+height:100px;
+z-index:1;
+box-shadow:5px 5px 5px#c5c5c5;}
+
+.quick>ul{float:left;}
+
+.quick>ul>li{float:left;}
+
+.quick>ul>li>a{width:299px;
+height:100px;
+line-height:100px;
+display:block;
+text-align:center;
+background-color:#FFF;
+border-right:1px solid #e0e0e0;
+font-size:16px;
+font-weight:bold;
+}
+
+.quick>ul>li>a.right{border-right:0;}
+
+.quick>ul>li>a>img{float:right;
+margin-right:60px;
+margin-top:25px}
+
+.visual{width:6000px;
+height:520px;
+position:relative;}
+
+.visual>ul{
+position:absolute;}
+
+.visual>ul>li{float:left;
+}
+
+.prev{width:50px;
+height:50px;
+background:url(image/ico_main_arrow.png) 15px 13px no-repeat;
+position:absolute;
+left:15px;
+top:260px;
+z-index:9;
+background-color:rgba(0,0,0,0.5);
+border-radius:50%;
+}
+
+.next{width:50px;
+height:50px;
+background:url(image/ico_main_arrow.png) 20px -38px no-repeat;
+position:absolute;
+left:1140px;
+top:260px;
+z-index:9;
+background-color:rgba(0,0,0,0.5);
+border-radius:50%;
+}
+
+.page{position:absolute;
+bottom:0;
+left:0;
+z-index:9;
+display:block;
+background-color:rgba(0,0,0,0.5);
+font-size:30px;
+color:white;}
+
+.carwrap{width:100%;background-color:#e9e5e4;float:left;}
+.carmask{width:1200px;margin:0 auto;margin-top:60px;height:360px;overflow:hidden;}
+.carinner{width:2400px;float:left;position:relative;}
+.car{width:1200px;float:left;}
+.cartext{width:450px;height:360px;float:left;background-color:#f2efec;padding:20px;}
+.cartext h2{font-size:36px;line-height:120%;color:#000;margin-top:40px;
+font-weight:500;}
+.cartext p{margin-top:30px;font-size:16px;font-weight:normal;}
+.cartext a{display:block;width:50%;padding:10px;text-align:center;color:#000;font-size:14px;
+border:1px solid #000;margin-top:30px;font-weight:500;}
+.cartext a:hover{border:none;background-color:#29cb7e;}
+.carimg{width:750px;float:left;}
+.servicewrap{width:100%;background-color:#f3f2f0;float:left;}
+.service{width:1200px;margin:0 auto;}
+.service h2{font-size:26px;line-height:120%;color:#000;margin-top:40px;
+font-weight:500;background-color:#FFF;width:1200px;padding:40px 0 40px 40px;margin-top:40px;}
+.service ul{width:1200px;margin-bottom:40px;float:left;}
+.service ul>li{width:25%;float:left;}
+.service ul>li>a{display:block;position:relative;overflow:hidden;}
+.service ul>li>a>img{
+ transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+.service ul>li>a>img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+} 
+.servicetext1{position:absolute;top:0;left:0;font-size:16px;color:#fff;font-weight:600;text-align:center;margin-top:130px;opacity:1;width:100%;}
+.servicetext2{position:absolute;text-align:center;left:0;top:0;margin-top:150px;
+font-size:16px;font-weight:500;opacity:0;width:100%;}
+.footerwrap{width:100%;background-color:#252525;color:#fff;float:left;font-size:12px;}
+.footer{width:1200px;margin:0 auto;padding:20px;line-height:200%;}
+.license{margin-top:20px;margin-bottom:20px;}
+.license a{color:#fff;font-size:14px;display:inline-block;}
+#select{background-color:#252525;color:#fff;border:none;padding:0 6px;}
+
+
+
+</style>
+<script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$('.guide>li>a').each(function(index){
+	var icon=$(this).find('img').attr('src')
+	$(this).on({
+	mouseenter:function(){
+   $(this).css({color:'#116d75'})
+   $(this).find('img').attr({src:icon.replace('.png','_on.png')})
+	},
+    mouseleave:function(){
+	  $(this).css({color:'#333'})
+   $(this).find('img').attr({src:icon.replace('_on.png','.png')})
+	},
+	})//on
+	})//each
+
+$('.gnb>li>a').each(function(index){
+$(this).on({
+mouseenter:function(){
+$('.gnbwrap').slideDown(500)
+$('.bg').show()
+$('.next1,.prev1').hide()
+$('.next,.prev').hide()
+$('.gnbtitle').css({background:'none'})
+$(this).parent().find('.gnbtitle').css({background:'url(image/bg_gnb'+(index+1)+'.jpg) no-repeat'})
+$('.gnbtitle').find('h2,p').hide()
+$(this).parent().find('.gnbtitle').find('h2,p').show()
+},
+mouseleave:function(){
+$('.gnbwrap').css({width:0})
+},
+
+})//on
+})//each
+
+$('.header').on({
+mouseleave:function(){
+	$('.gnbwrap').css({width:1200})
+$('.gnbwrap').slideUp(500)
+$('.bg').hide()
+$('.next1,.prev1').show()
+$('.next,.prev').show()
+
+},
+})//on
+
+var now=1
+var all=$('.visual>ul>li').length
+
+$('<div class="page"></div>').prependTo('.visual')
+$('.page').html('<b>'+now+'</b>/'+all)
+
+
+$('.next').on('click',function(){
+	$('.visual').stop().animate({left:'-=1200'},50,function(){
+	$('.visual>ul>li').first().appendTo('.visual>ul')
+    $('.visual').css({left:0})
+	})//ani
+if (now==all)
+{
+	now=0
+}
+now++
+$('.page').html('<b>'+now+'</b>/'+all)
+return false
+})//click
+
+$('.prev').on('click',function(){
+$('.visual>ul>li').last().prependTo('.visual>ul')
+$('.visual').css({left:-1200})
+$('.visual').stop().animate({left:'+=1200'},50)
+if (now==1)
+{
+	now=all+1
+}
+now--
+$('.page').html('<b>'+now+'</b>/'+all)
+return false
+})//click
+
+$('.quick>ul>li>a').on({
+mouseenter:function(){
+$(this).css({backgroundColor:'#ffd200'})
+},
+mouseleave:function(){
+$(this).css({backgroundColor:'#fff'})
+},
+})//on
+
+$('.sub>li>a').on({
+mouseenter:function(){
+$(this).css({color:'#ffd200',fontWeight:'bold'})
+},
+mouseleave:function(){
+$(this).css({color:'black',fontWeight:'normal'})
+},
+})//on
+
+$('.next1').on('click',function(){
+$('.event>ul').stop().animate({left:'-=400'},50,function(){
+$('.event>ul>li').first().appendTo('.event>ul')
+$('.event>ul').css({left:0})
+})//ani
+return false
+})//click
+
+$('.prev1').on('click',function(){
+$('.event>ul>li').last().prependTo('.event>ul')
+$('.event>ul').css({left:-400})
+$('.event>ul').stop().animate({left:'+=400'},50)
+return false
+})
+
+var loop=setInterval(function(){$('.visual').stop().animate({left:'-=1200'},1000,function(){
+	$('.visual>ul>li').first().appendTo('.visual>ul')
+    $('.visual').css({left:0})
+	})//ani
+	if (now==all)
+{
+	now=0
+}
+now++
+$('.page').html('<b>'+now+'</b>/'+all)
+},7000)//interval
+
+var move=setInterval(function(){$('.event>ul').stop().animate({left:'-=400'},100,function(){
+$('.event>ul>li').first().appendTo('.event>ul')
+$('.event>ul').css({left:0})
+})//ani
+},8000)//interval
+setInterval(function(){
+$('.carinner').stop().animate({left:'-=1200'},function(){
+$('.car').first().appendTo('.carinner')
+$('.carinner').css({left:0})
+})
+},6000)
+
+$('.service ul>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+$('.service ul>li>a>img').css({opacity:1})
+$(this).find('img').css({opacity:0.1})
+$('.service ul>li>a').css({background:'none'})
+$(this).css({background:'#3db5d8'})
+$('.servicetext1').stop().animate({top:0,opacity:1},400)
+$(this).find('.servicetext1').stop().animate({top:-70,opacity:0},400)
+$('.servicetext2').stop().animate({top:0,opacity:0},400)
+$(this).find('.servicetext2').stop().animate({top:-70,opacity:1},400)
+})
+})
+$('#select>option').on('click',function(){
+var val=$(this).val()
+location.href=val
+})
+$('.language').on('click',function(){
+$('body,html').stop().animate({scrollTop:$(document).height()},800,function(){
+$('#select').css({border:'3px solid red'})
+$('#select').stop().animate({opacity:0.5},2000,function(){
+$('#select').stop().animate({opacity:1},2000,function(){
+$('#select').css({border:'none'})
+})
+})
+})
+})
+
+
+})//ready
+
+</script>
+
+ </head>
+ <body>
+
+ <div class='header'>
+<div class='inner'>
+
+	<div class='login'>
+		<a href="http://motorstudio.hyundai.com/goyang/login.do">로그인</a>
+		<a href="http://motorstudio.hyundai.com/goyang/me/joinIntro.do">회원가입</a>
+		<a href="#" class='language'>Language</a>
+	</div>
+
+	<h1><a href="#"><img src="image/logo.png" alt="로고"></a></h1>
+
+	<ul class='gnb'>
+		<li><a href="#">이용안내</a>
+
+            <div class='gnbwrap'>
+
+            <div class='gnbtitle m1'>
+
+		
+			<h2>이용안내</h2>
+			<p>현대 모터스튜디오 고양을 편리하게 <br />이용하기 위한 정보를 소개합니다.</p>
+
+<ul class='guide'>
+			<li><a href="http://motorstudio.hyundai.com/goyang/ri/bt/vstInfo.do?viewType=SIM"><img src="image/main_info_ico1.png" alt="">상설전시예약</a></li>
+			<li><a href="http://motorstudio.hyundai.com/goyang/ri/bt/vstInfo.do?viewType=GTR"><img src="image/main_info_ico2.png"  alt="">가이드투어예약</a></li>
+			<li><a href="http://motorstudio.hyundai.com/goyang/ri/td/selectKoGIntro.do"><img src="image/main_info_ico3.png"  alt="">테마시승예약</a></li>
+		</ul>
+
+			</div><!-- gnbtitle -->
+			<ul class='sub sub1'>
+				<li><a href="http://motorstudio.hyundai.com/goyang/at/info.do">관람안내</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/at/floor.do">층별안내</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/at/facilities.do">편의시설</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/at/cscenter.do">서비스센터</a></li>
+			</ul>
+			</div><!-- gnbwrap -->
+		</li>
+
+		<li><a href="#">전시</a>
+
+<div class='gnbwrap'>
+<div class='gnbtitle m2'>
+
+			<h2>전시</h2>
+			<p>현대 모터스튜디오 고양에서 전시를 통해 자동차에<br /> 대한 흥미로운 이야기를 만나보세요.</p>
+			<div>
+			<ul class='sub sub2'>
+				<li><a href="http://motorstudio.hyundai.com/goyang/exhb/permanent.do">상설전시</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/exhb/theme.do">테마전시</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/exhb/preview.do">하이라이트</a></li>
+			</ul>
+			</div>
+		</li>
+		<li><a href="#">프로그램</a>
+
+<div class='gnbwrap'>
+<div class='gnbtitle m3'>
+
+			<h2>프로그램</h2>
+			<p>현대 모터스튜디오 고양을 보다 풍부하게 체험할 수 <br />있는 다채로운 프로그램을 만나보세요.</p></div>
+			<ul class='sub sub3'>
+				<li><a href="http://motorstudio.hyundai.com/goyang/exp/driveOut.do">테마시승</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/exp/tourIn.do">가이드투어</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsList.do?blbId=CW003">이벤트</a></li>
+			</ul>
+			</div>
+		</li>
+
+		<li><a href="#">소개</a>
+		<div class='gnbwrap'>
+        <div class='gnbtitle m4'>
+			<h2>소개</h2>
+			<p>현대 모터스튜디오 고양의 어제와 오늘, <br />내일을 알려드립니다.</p>
+			</div>
+			<ul class='sub sub4'>
+				<li><a href="http://motorstudio.hyundai.com/goyang/at/vision.do">비전</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/at/story.do">스토리</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsList.do?blbId=CW001">새소식</a></li>
+				<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsList.do?blbId=CW002">자주찾는질문</a></li>
+			</ul>
+			</div>
+		</li>
+
+		<li><a href="http://motorstudio.hyundai.com/goyang/loginSubMain.do">나만의페이지</a>
+
+              <div class='gnbwrap'>
+        <div class='gnbtitle m5'> 
+			<h2>나만의페이지</h2>
+			<p>나의 정보와 예약정보를 확인할 수 있습니다.</p>
+			</div>
+		
+		</li>
+		
+	</ul>
+
+		
+			</div>
+	
+
+	</div><!-- header -->
+	</div><!-- inner -->
+
+
+<div class='content'>
+<div class='content1'>
+<div class='visual'>
+<a href="#" class='next'></a>
+<a href="#" class='prev'></a>
+
+
+	<ul>
+		<li><a href="http://motorstudio.hyundai.com/goyang/at/vision.do"><img src="image/main_visual1.jpg" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/exhb/permanent.do"><img src="image/main_visual2.jpg" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/exp/driveOut.do?phoneNum=1899-6611&desktopMode=false&appYn=false&curPrenId=AN&moblYn=false&localeInfo=KO&curLang=%2Fko"><img src="image/main_visual3.jpg" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/at/facilities.do#anchor2"><img src="image/main_visual4.jpg" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/at/facilities.do#anchor2"><img src="image/main_visual5.jpg" alt=""></a></li>
+	</ul>
+
+	
+	</div><!-- visual -->
+
+<div class='news'>
+	<h3>새소식</h3>
+	<ul>
+		<li>2017.09.20 <a href="http://motorstudio.hyundai.com/goyang/bb/newsDetail.do?blbId=CW001&blcId=744&seq=0"><b>[공지] 추석연휴 휴관안내</b></a></li>
+	</ul>
+	</div><!-- news -->
+
+<div class='quick'>
+	<ul>
+		<li><a href="http://motorstudio.hyundai.com/goyang/ri/bt/vstInfo.do?viewType=SIM">상설전시예약 <img src="image/main_info_ico1.png" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/ri/bt/vstInfo.do?viewType=GTR">가이드투어예약 <img src="image/main_info_ico2.png" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/ri/td/selectKoGIntro.do?phoneNum=1899-6611&desktopMode=false&appYn=false&curPrenId=AN&moblYn=false&localeInfo=KO&curLang=%2Fko">테마시승예약 <img src="image/main_info_ico3.png" alt=""></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsList.do?blbId=CW003" class='right'>이벤트 <img src="image/main_info_ico4.png" alt=""></a></li>
+	</ul>
+	</div><!-- quick -->
+
+<div class='event'>
+	<ul>
+		<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsDetail.do?blbId=CW003&blcId=770&seq=2"><img src="image/20170823154657152.jpg" alt=""> <strong>EBS와 함께하는 어린이 자동차 여행</strong></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsDetail.do?blbId=CW003&blcId=753&seq=4"><img src="image/20170821172454878.jpg" alt=""> <strong>Drive Out 신차시승 Kona</strong></a></li>
+		<li><a href="http://motorstudio.hyundai.com/goyang/bb/newsDetail.do?blbId=CW003&blcId=601&seq=1"><img src="image/20171103150327163.jpg" alt=""> <strong>Drive Out 신차시승 G70</strong></a></li>
+	</ul>
+	<a href="#" class='next1'></a>
+	<a href="#" class='prev1'></a>
+	</div>
+	</div><!-- content1-->
+<div class='carwrap'>
+<div class='carmask'>
+<div class='carinner'>
+
+<div class='car'>
+<div class='cartext'>
+<h2>상설전시<br />Into the Car</h2>
+<p>지금까지 알지 못했던<br />자동차에 관한 흥미진진한 스토리를<br />상설전시 Into the Car에서 직접 체험해 보세요.</p>
+<a href="http://motorstudio.hyundai.com/goyang/exhb/permanent.do">자세히 보기 ></a>
+</div>
+<div class='carimg'><img src="image/main_permanent.jpg" alt="차사진1"></div>
+</div><!-- car -->
+
+<div class='car'>
+<div class='cartext'>
+<h2>테마전시</h2>
+<p>다양한 테마의 스토리를<br />만날수 있는 열린 공간<br />현대 모터스튜디오 고양의 첫 번째 테마인 WRC 스토리를 만나보세요.</p>
+<a href="http://motorstudio.hyundai.com/goyang/exhb/theme.do">자세히 보기 ></a>
+</div>
+<div class='carimg'><img src="image/main_theme.jpg" alt="차사진2"></div>
+</div><!-- car -->
+
+</div><!-- carinner -->
+</div><!-- carmask -->
+</div><!-- carwrap -->
+<div class='servicewrap'>
+<div class='service'>
+<h2>편의시설 & 정비 서비스센터</h2>
+<ul>
+	<li><a href="http://motorstudio.hyundai.com/goyang/at/facilities.do"><img src="image/main_drv1.jpg"alt="KITCHEN & CAFE">
+	<div class='servicetext1'>KITCHEN & CAFE</div>
+	<div class='servicetext2'>KITCHEN & CAFE<br /><br />
+부담 없이 즐길 수 있는<br />
+현대 모터스튜디오 고양만의 풍요로운<br />
+F&B 서비스 
+</div>
+	</a></li>
+	<li><a href="http://motorstudio.hyundai.com/goyang/at/facilities.do#anchor"><img src="image/main_drv2.jpg"alt="SHOP">
+	<div class='servicetext1'>SHOP</div>
+	<div class='servicetext2'>SHOP<br /><br />
+세련된 라이프 스타일 디자인 제품을<br />
+만날 수 있는 현대 모터스튜디오<br />
+브랜드 컬렉션 
+</div>
+	</a></li>
+	<li><a href="http://motorstudio.hyundai.com/goyang/at/facilities.do#anchor1"><img src="image/main_drv3.jpg"alt="AUDITORIUM">
+	<div class='servicetext1'>AUDITORIUM</div>
+	<div class='servicetext2'>AUDITORIUM<br /><br />
+다양한 행사를 진행할 수 있는<br />
+다목적홀 대관 서비스
+</div>
+	</a></li>
+	<li><a href="http://motorstudio.hyundai.com/goyang/at/cscenter.do"><img src="image/main_drv4.jpg"alt="HYUNDAI SERVICE CENTER">
+	<div class='servicetext1'>HYUNDAI<br />SERVICE CENTER</div>
+	<div class='servicetext2'>HYUNDAI<br />SERVICE CENTER<br /><br />
+고양 서비스센터 에서만<br />
+제공되는 차별화된<br />
+차량정비 서비스
+</div>
+	</a></li>
+</ul>
+</div>
+</div><!-- servicewrap -->
+
+<div class='bg'></div>
+</div><!-- content -->
+<div class='footerwrap'>
+<div class='footer'>
+<div class='license'><a href="http://motorstudio.hyundai.com/goyang/info/service.do">이용약관&nbsp;&nbsp;|</a>
+<a href="http://motorstudio.hyundai.com/goyang/info/privacy.do">&nbsp;&nbsp;개인정보처리방침&nbsp;&nbsp;|</a>
+<a href="http://motorstudio.hyundai.com/goyang/info/appdown.do">&nbsp;&nbsp;모바일 앱&nbsp;&nbsp;|</a>
+<a href="http://motorstudio.hyundai.com/goyang/info/sitemap.do">&nbsp;&nbsp;사이트맵&nbsp;&nbsp;|</a>
+<a href="http://motorstudio.hyundai.com/goyang/at/info.do?tabIdx=3">&nbsp;&nbsp; 찾아오시는 길&nbsp;&nbsp;|</a>
+<select id="select">
+<option selected value='#'>Language</option>
+<option value="http://motorstudio.hyundai.com/goyang/ko/ln/main.do">한국어</option>
+<option value="http://motorstudio.hyundai.com/goyang/en/ln/main.do">English</option>
+<option value="http://motorstudio.hyundai.com/goyang/cn/ln/main.do">汉语</option>
+</select>
+</div>
+<p>대표자 :  이원희  사업자 등록번호 :  293-85-00481  통신판매신고번호 :  2016-고양일산서-0802  현대 모터스튜디오 고양 고객센터 :  1899-6611 <br />경기도 고양시 일산서구 킨텍스로 217-6 현대자동차(주)현대 모터스튜디오 고양 Copyright© Hyundai Motor Company. All Rights Reserved.</p>
+
+</div>
+</div><!-- footerwrap -->
+</body>
+</html>
