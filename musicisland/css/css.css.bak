@@ -105,21 +105,21 @@ background-color:rgba(0,0,0,0.7);color:#fff;font-size:1.3em;}
 .imagelist>div>img{margin-top:50px;padding:5px;border-radius:50%;}
 
 .imagelistwrap #imagelist1,#imagelist2,#imagelist3,#imagelist4{margin-top:0;}
-#imagelist1{background:#000 url(image/image1.jpg) 0 0 no-repeat;
+#imagelist1{background:#000 url(../image/image1.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist2{background:#000 url(image/image2.jpg) 0 0 no-repeat;
+#imagelist2{background:#000 url(../image/image2.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist3{background:#000 url(image/image3.jpg) 0 0 no-repeat;
+#imagelist3{background:#000 url(../image/image3.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist4{background:#000 url(image/image4.jpg) 0 0 no-repeat;
+#imagelist4{background:#000 url(../image/image4.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist5{background:#000 url(image/image5.jpg) 0 0 no-repeat;
+#imagelist5{background:#000 url(../image/image5.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist6{background:#000 url(image/image6.jpg) 0 0 no-repeat;
+#imagelist6{background:#000 url(../image/image6.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist7{background:#000 url(image/image7.jpg) 0 0 no-repeat;
+#imagelist7{background:#000 url(../image/image7.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist8{background:#000 url(image/image8.jpg) 0 0 no-repeat;
+#imagelist8{background:#000 url(../image/image8.jpg) 0 0 no-repeat;
 background-size:cover;}
 .mediawork{width:100%;text-align:center;background-color:#1c1e20;float:left;}
 .mediawork>h2{font-weight:200;font-size:2.3em;margin-top:50px;line-height:100%;
@@ -138,7 +138,7 @@ margin-top:40px;}
 .textwrap>div>h3{font-size:1.4em;font-weight:500;}
 .textwrap>div>h3>span{font-size:0.8rem;color:#656e5e;font-weight:normal;}
 .textwrap>div>p{color:#adadad;margin-bottom:40px;}
-.licenserequest{width:100%;background:url(image/main_request_bg.jpg) 0 0 no-repeat;
+.licenserequest{width:100%;background:url(../image/main_request_bg.jpg) 0 0 no-repeat;
 float:left;}
 .licenserequest_inner{width:80%;margin:0 auto;text-align:center;padding:0 0 4% 0;}
 .licenserequest_inner>h2{font-weight:200;font-size:2.3em;margin-top:50px;
@@ -286,21 +286,21 @@ background-color:rgba(0,0,0,0.7);color:#fff;font-size:1.3em;}
 .imagelist>div>img{margin-top:0px;padding:5px;border-radius:50%;width:40px;}
 
 .imagelistwrap #imagelist1,#imagelist2,#imagelist3,#imagelist4{margin-top:0;}
-#imagelist1{background:#000 url(image/image1.jpg) 0 0 no-repeat;
+#imagelist1{background:#000 url(../image/image1.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist2{background:#000 url(image/image2.jpg) 0 0 no-repeat;
+#imagelist2{background:#000 url(../image/image2.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist3{background:#000 url(image/image3.jpg) 0 0 no-repeat;
+#imagelist3{background:#000 url(../image/image3.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist4{background:#000 url(image/image4.jpg) 0 0 no-repeat;
+#imagelist4{background:#000 url(../image/image4.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist5{background:#000 url(image/image5.jpg) 0 0 no-repeat;
+#imagelist5{background:#000 url(../image/image5.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist6{background:#000 url(image/image6.jpg) 0 0 no-repeat;
+#imagelist6{background:#000 url(../image/image6.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist7{background:#000 url(image/image7.jpg) 0 0 no-repeat;
+#imagelist7{background:#000 url(../image/image7.jpg) 0 0 no-repeat;
 background-size:cover;}
-#imagelist8{background:#000 url(image/image8.jpg) 0 0 no-repeat;
+#imagelist8{background:#000 url(../image/image8.jpg) 0 0 no-repeat;
 background-size:cover;}
 .mediawork{width:100%;text-align:center;background-color:#1c1e20;float:left;}
 .mediawork>h2{font-weight:200;font-size:2.3em;margin-top:20px;line-height:100%;
@@ -318,7 +318,7 @@ color:#fff;border-bottom:1px solid #fff;display:inline-block;}
 .textwrap>div>h3{font-size:1.4em;font-weight:500;}
 .textwrap>div>h3>span{font-size:0.8rem;color:#656e5e;font-weight:normal;}
 .textwrap>div>p{color:#adadad;margin-bottom:40px;}
-.licenserequest{width:100%;background:url(image/main_request_bg.jpg) 0 0 no-repeat;
+.licenserequest{width:100%;background:url(../image/main_request_bg.jpg) 0 0 no-repeat;
 float:left;}
 .licenserequest_inner{width:98%;margin:0 auto;text-align:center;padding:0 0 4% 0;margin-left:1%;}
 .licenserequest_inner>h2{font-weight:200;font-size:2.3em;margin-top:20px;
