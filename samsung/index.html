@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Document</title>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src='js/animate/jquery.transit.min.js'></script>
+<script src='js/js.js'></script>
+<link rel="stylesheet" href="css/css.css">
+
+
+</head>
+<body>
+<div class='wrap'>
+<div class='headerwrap'>
+<div class='header'>
+<h1><a href="#"><img src="image/h1_samsungdisplay.gif" alt="로고1"></a></h1>
+<ul class='gnb'>
+	
+	<li><a href="http://www.samsungdisplay.com/kor/intro/vision.jsp">기업정보</a>
+	<ul class='g1'>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/vision.jsp">VISION</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/message.jsp">CEO 인사말</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/ci.jsp">CI</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/history.jsp">연혁</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/law.jsp">준법경영</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/social_contribution.jsp">사회공헌</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/intro/loc_country.jsp">사업장 정보</a></li>
+	</ul>
+	</li>
+
+	<li><a href="http://www.samsungdisplay.com/kor/product/display_mobile.jsp">제품</a>
+	<ul class='g2'>
+		<li><a href="http://www.samsungdisplay.com/kor/product/display_mobile.jsp">Mobile Display</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/product/display_tv.jsp">TV Display</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/product/display_public_information.jsp">PID</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/product/display_monitor.jsp">IT Display</a></li>
+	</ul>
+	</li>
+
+	<li><a href="http://www.samsungdisplay.com/kor/media/gallery_newsletter.jsp">미디어센터</a>
+		<ul class='g3'>
+		<li><a href="http://www.samsungdisplay.com/kor/media/gallery_newsletter.jsp">Photo</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/media/gallery_movie.jsp">영상</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/media/news.jsp?publishdt=&brdGb=RPT&cpage=1&boardidx=&searchFlag=&searchValue=">보도자료</a></li>
+		<li><a href="http://www.samsungdisplay.com/kor/media/sns.jsp">소셜미디어</a></li>
+	</ul>
+	</li>
+
+	<li><a href="http://www.samsungdisplay.com/recruit/kor/about_us/talented_person.jsp">인재/채용</a>
+	<ul class='g4'>
+		<li><a href="http://www.samsungdisplay.com/recruit/kor/about_us/talented_person.jsp">인재상</a></li>
+		<li><a href="http://www.samsungdisplay.com/recruit/kor/career_info/recruit_step.jsp">채용정보</a></li>
+		<li><a href="http://www.samsungdisplay.com/recruit/kor/career_info/job_introduce.jsp">직무소개</a></li>
+		<li><a href="http://www.samsungdisplay.com/recruit/kor/about_us/working_welfare.jsp">회사생활</a></li>
+	</ul>
+	</li>
+
+	<li><a href="http://www.samsungdisplay.com/kor/customer/faq1.jsp">고객지원</a>
+	<ul class='g5'>
+		<li><a href="http://www.samsungdisplay.com/kor/customer/faq1.jsp">FAQ</a></li>
+		<li><a href="https://www.samsungdisplay.com/kor/customer/voc.jsp">VOC</a></li>
+	</ul>
+	</li>
+
+</ul>
+<div class='language'>
+<a href="#" class='on00'>KOREAN</a>
+<a href="https://www.samsungdisplay.com/eng/index/index.jsp">ENGLISH</a>
+<a href="https://www.samsungdisplay.com/chn/index/index.jsp">CHINESE</a>
+</div>
+</div><!-- wrap -->
+</div><!-- headerwrap -->
+<div class='content'>
+<div class='mask'>
+<ul class='slide'>
+	<li class='f1'><img src="image/img_visual_01.jpg" alt="메인이미지1"></li>
+	<li class='f2'><img src="image/img_visual_02.jpg" alt="메인이미지2"></li>
+	<li class='f3'><img src="image/img_visual_03.jpg" alt="메인이미지3"></li>
+	<li class='f4'><img src="image/img_visual_04.jpg" alt="메인이미지4"></li>
+</ul>
+<div class='maskinner'>
+<div class='slidebtn'>
+<a href="#" class='prev' title='이전'></a>
+<a href="#" class='stop' title='중지'></a>
+<a href="#" class='play' title='계속'></a>
+<a href="#" class='next' title='다음'></a>
+</div>
+<div class='pager'></div>
+</div>
+</div><!-- mask -->
+<div class='mediawrap'>
+<div class='media'>
+
+<div id='medialeft' class='mediainner'>
+<h2>Media center</h2>
+<a href="https://www.samsungdisplay.com/kor/media/news_view.jsp?publishdt=2018-03-02&brdGb=RPT&cpage=1&boardidx=654&searchFlag=&searchValue=">
+<div class='image'><img src="image/media_img01.jpg" alt="미디어센터"></div>
+<div class='text'><span>갤럭시S9, '엑셀런트 A+' 최고 화질 평가</span><br><br>
+최고의 화질과 완벽에 가까운 색 정확도를 갖춘 기록적이고 인상적인 스마트폰 디스플레이</div>
+</a>
+</div>
+
+<div id='mediacenter' class='mediainner'>
+<h2>Place of business</h2>
+<a href="http://www.samsungdisplay.com/kor/intro/loc_country.jsp">
+<div class='image'><img src="image/media_img02.jpg" alt="비지니스"></div>
+<div class='text'>삼성디스플레이의 사업장과 글로벌 네트워크, 연구센터 정보입니다.
+<div class='view'>VIEW<img src="image/icon_away01.png" alt="view"></div>
+</div>
+</a>
+</div>
+
+<div id='mediaright' class='mediainner'>
+<h2><span class='hfirst on77'>News room</span><span class='hlast'>Facebook</span></h2>
+<a href="http://news.samsungdisplay.com/13478" id='news1' class='nw' title='뉴스룸 [새창열기]' target='_blank'>
+<div class='image'><img src="image/thum_newsroom.jpg" alt="뉴스룸"></div>
+<div class='text'><span>삼성디스플레이, 중소형 시장 점유율 역대 최고 44.5% 기록</span><br><br>
+중소형 디스플레이 시장에서 역대 최고의 시장점유율을 기록했습니다.</div>
+</a>
+<a href="https://www.facebook.com/SamsungDisplay/posts/1998189800208880" id='news2' class='nw'  title='페이스북 [새창열기]' target='_blank'>
+<div class='image'><img src="image/thum_facebook.jpg" alt="페이스북"></div>
+<div class='text'><span>삼성디스플레이의 최전방 공격수, OLED 상품기획팀</span><br><br>
+전 세계 중소형 디스플레이 시장 흐름을 OLED로 이끄는데 성공했습니다.</div>
+</a>
+</div>
+
+</div>
+</div><!-- mediawrap -->
+<div class='productwrap'>
+<h2>Product view</h2>
+<ul>
+<li><a href="http://www.samsungdisplay.com/kor/product/display_mobile.jsp"><img src="image/productView_img01.jpg" alt="모바일디스플레이"><br><span class='products1'>Mobile Display</span><br><span class='products2'><img src="image/icon_btn02.png" alt="view"></span></a></li>
+
+<li><a href="http://www.samsungdisplay.com/kor/product/display_tv.jsp"><img src="image/productView_img02.jpg" alt="tv디스플레이"><br><span class='products1'>TV Display</span><br><span class='products2'><img src="image/icon_btn02.png" alt="view"></span></a></li>
+
+<li><a href="http://www.samsungdisplay.com/kor/product/display_public_information.jsp"><img src="image/productView_img03.jpg" alt="pid"><br><span class='products1'>PID<span>&nbsp;(Public Information Display)</span></span><br><span class='products2'><img src="image/icon_btn02.png" alt="view"></span></a></li>
+
+<li><a href="http://www.samsungdisplay.com/kor/product/display_tablet_note_pc.jsp"><img src="image/productView_img04.jpg" alt="it디스플레이"><br><span class='products1'>IT Display</span><br><span class='products2'><img src="image/icon_btn02.png" alt="view"></span></a></li>
+</ul>
+</div><!-- productwrap -->
+<div class='brandwrap'>
+<div class='brand'>
+<h2>Brand site</h2>
+
+<ul>
+	<li><a href="http://www.amoledworld.com/amoledworld2017/en/Am_p_M.html" title='삼성 OLED 디스플레이 [새창열림]' target='_blank'><img src="image/brandImg01.jpg" alt="삼성oled디스플레이">
+	<div class='brandtextwrap'>
+	<span class='brandtext1'>삼성 OLED 디스플레이</span>
+	<span class='brandtext2'>amoledworld.com</span>
+	<span class='brandtext3'>Excellent Colors/Slim Design/Lowpower Technology of AMOLED</span>
+	<span class='brandtext4'><img src="image/icon_btn01.png" alt="바로가기"></span>
+	</div>
+	</a></li>
+
+	<li><a href="http://www.curved4life.com/" title='삼성 커브드 디스플레이 [새창열림]' target='_blank'><img src="image/brandImg02.jpg" alt="삼성커브드디스플레이">
+	<div class='brandtextwrap'>
+	<span class='brandtext1'>삼성 커브드 디스플레이</span>
+	<span class='brandtext2'>curved4life.com</span>
+	<span class='brandtext3'>Accurate colors and contrast ratio of SAMSUNG Curved Technology</span>
+	<span class='brandtext4'><img src="image/icon_btn01.png" alt="바로가기"></span>
+	</div>
+	</a></li>
+
+	<li><a href="https://pid.samsungdisplay.com/ko" title='삼성디스플레이 PID [새창열림]' target='_blank'><img src="image/brandImg03.jpg" alt="삼성디스플레이pid">
+	<div class='brandtextwrap'>
+	<span class='brandtext1'>삼성디스플레이 PID</span>
+	<span class='brandtext2'>pid.samsungdisplay.com</span>
+	<span class='brandtext3'>Best Solution Provider with Trusted PID Products in Your Business</span>
+	<span class='brandtext4'><img src="image/icon_btn01.png" alt="바로가기"></span>
+	</div>
+	</a></li>
+</ul>
+
+</div>
+</div><!--brandwrap-->
+</div><!-- content -->
+<div class='footerwrap'>
+<div class='footer'>
+<h6><img src="image/logo_footer.gif" alt="푸터로고"></h6>
+<div class='personalinformation'>
+<a href="http://www.samsungdisplay.com/CyberAudit/kor/" title='새창' target='_blank'>윤리경영&nbsp;|</a>
+<a href="https://crepasplaza.samsungdisplay.com/content/ko/CrepasVoc.jsp?siteLanguage=ko" title='새창' target='_blank'>&nbsp;협력사신문고&nbsp;|</a>
+<a href="#" title='새창' class='newpage'>&nbsp;보안신고센터&nbsp;|</a>
+<a href="http://www.samsungdisplay.com/kor/footer/privacy1.jsp">&nbsp;개인정보취급방침/개인정보처리방침&nbsp;|</a>
+<a href="http://www.samsungdisplay.com/kor/footer/b2b1.jsp">&nbsp;B2B+대금결제안내&nbsp;|</a>
+<a href="http://www.samsungdisplay.com/kor/footer/guide2.jsp">&nbsp;공정위 4대 실천사항&nbsp;|</a>
+<a href="https://guest.samsungdisplay.com/common/main.do" title='새창' target='_blank'>&nbsp;사외내방신청&nbsp;|</a>
+<a href="#" title='새창' class='newpage1'>&nbsp;신규거래제안(오픈소싱)&nbsp;|</a>
+<a href="http://www.samsungdisplay.com/kor/footer/sitemap.jsp">&nbsp;사이트맵</a>
+<p>본사 : 17113 경기도 용인시 기흥구 삼성로 1 대표번호 : 031-209-8114<br>
+Copyright © SAMSUNG DISPLAY All rights reserved.</p>
+</div>
+<a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" class='webaccessibility' target='_blank' ><img src="image/mark_wa.jpg" alt="웹접근성인증마크"></a>
+</div><!-- footer -->
+</div><!-- footerwrap -->
+</div><!-- wrap -->
+ </body>
+</html>
