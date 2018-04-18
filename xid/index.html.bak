@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;
+font-size:14px;
+color:#000;}
+
+li{list-style:none;}
+
+a,a:hover{text-decoration:none;
+color:#000;}
+
+img{border:0;
+vertical-align:top;}
+.moviewrap{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;display:none;}
+ .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+ .closebtn{position:absolute;top:20px;right:20px;display:block;z-index:1;
+ background-color:rgba(0,0,0,0.6);padding:5px;}
+
+.wrap{width:100%;max-width:1600px;margin:0 auto;}
+.header{width:100%;height:100px;position:fixed;
+background-color:#FFF;max-width:1600px;}
+.header h1{float:left;padding:29px 0;}
+.menu{float:right;line-height: 98px;}
+.menu>li{float:left;}
+.menu>li>a{display:block;margin-left:80px;
+font-size:16px;font-weight:400;}
+.menu>li>a:hover{color:#fd4f00;}
+.menu>li>a.on00{color:#fd4f00;}
+.bg1{background:url(image/bg_video.jpg) 0 0 no-repeat;background-attachment:fixed;
+background-size:cover;padding:8%;height:686px;}
+.bg1 p{font-size:42px;color:#fff;line-height:120%;font-weight:700;letter-spacing:30px;
+margin-top:8%;}
+.bg1 a{color:#fff;margin-top:60px;float:left;line-height:36px;font-size:16px;
+font-weight:500;position:relative;}
+.bg1 a img{vertical-align:middle;}
+.ani{position:relative;top:40px;opacity:0;}
+.bg2{background:url(image/bg_infotxt.jpg) 0 0 no-repeat;background-attachment:fixed;
+background-size:cover;height:720px;}
+.bg2>h2{color:#fff;font-size:30px;font-weight:normal;width:100%;text-align:center;
+padding-top:120px;}
+.cwrap{width:100%;float:left;padding:0 2%;overflow:hidden;}
+.c1{width:50%;float:left;padding:3% 9%;text-align:center;}
+.c1 h3{color:#fff;font-weight:600;font-size:30px;}
+.c1 p{font-size:15px;color:#aaa;font-weight:300;line-height:24px;margin-top:10px;}
+.inner{width:100%;}
+.inner ul{overflow:hidden;}
+.inner ul>li{width:33.33%;float:left;}
+.inner ul>li>a{display:block;position:relative;top:100px;opacity:0;}
+.inner ul>li>a>img{width:100%;}
+.inner ul>li>a .text{position:absolute;bottom:50px;left:55px;color:#fff;font-size:24px;
+font-weight:bold;letter-spacing:6px;}
+.inner ul>li>a .backtext{color:#000;}
+.view{width:100%;text-align:center;padding:3% 0;font-size:16px;font-weight:600;
+position:relative;opacity:0;top:40px;}
+.view a{display:inline-block;}
+.view img{vertical-align:middle;}
+.footer{position:relative;opacity:0;top:40px;width:100%;}
+.footertop{background-color:#fd4f00;padding:2%;overflow:hidden;}
+.footertop h6{float:left;width:25%;margin:20px;}
+.footertop .location{width:25%;float:left;color:#fff;font-weight:500;}
+.social{float:right;}
+.social a{margin-left:15px;}
+.footerbottom{width:100%;text-align:center;color:#aaaaaf;font-size:10px;padding:1%;}
+.footerbottom span{color:#fd4f00;}
+
+
+</style>
+
+<script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(window).on('scroll',function(){
+var ani=$(window).scrollTop()
+if (ani>300)
+{
+
+	$('.ani').each(function(index){
+	$(this).delay(index*200).animate({top:0,opacity:1},400)
+	})
+}
+else if (ani>50)
+{
+	$('.ani1').slideUp(400)
+}else{
+$('.ani1').slideDown(400)
+}
+})
+
+$(window).on('scroll',function(){
+var ani1=$(window).scrollTop()
+	$('.inner1 a').each(function(index){
+		
+if (ani1>500)
+{
+	$(this).delay(index*400).animate({top:0,opacity:1},400)
+}
+})
+$('.inner2 a').each(function(index){
+if (ani1>900)
+{
+	$(this).delay(index*400).animate({top:0,opacity:1},400)
+}
+})
+$('.inner3 a').each(function(index){
+if (ani1>1300)
+{
+	$(this).delay(index*400).animate({top:0,opacity:1},400)
+}
+})
+if (ani1>1600)
+{
+	$('.view').stop().animate({top:0,opacity:1},400)
+	$('.footer').stop().animate({top:0,opacity:1},400)
+}
+})
+setInterval(function(){
+$('.moviestart').stop().animate({top:-10,opacity:0},1000,function(){
+$('.moviestart').stop().animate({top:0,opacity:1},1000)
+})
+},3000)
+$('.moviestart').on('click',function(){
+var src=$('.embed-container iframe').attr('src')
+$('body,html').css({overflow:'hidden'})
+$('.moviewrap').fadeIn()
+$('.embed-container iframe').attr({src:src.replace('autoplay=0','autoplay=1')})
+})
+$('.closebtn').on('click',function(){
+var src=$('.embed-container iframe').attr('src')
+$('body,html').css({overflow:'visible'})
+$('.moviewrap').fadeOut()
+$('.embed-container iframe').attr({src:src.replace('autoplay=1','autoplay=0')})
+})
+
+
+
+
+
+})//ready
+</script>
+
+
+
+</head>
+ <body>
+
+ <div class='moviewrap'>
+<div class='embed-container'>
+<a href="#" class='closebtn'><img src="image/btn_close.png" alt="동영상닫기버튼"></a>
+<iframe src='https://www.youtube.com/embed//yjrbvTCmgOo?rel=0&autoplay=0&controls=0&showinfo=0&autohide=1&mute=0' frameborder='0' allowfullscreen></iframe></div></div>
+
+<div class='wrap'>
+<div class='header ani1'>
+<h1 class='ani1'><a href="#"><img src="image/logo_xid.png" alt="로고1"></a></h1>
+<ul class='menu ani1'>
+	<li><a href="#" class='on00'>XID</a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/work.html">WORKS</a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/inside.html">INSIDE</a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/contact.html" class='mg0'>CONTACT</a></li>
+</ul>
+</div><!-- header -->
+<div class='content'>
+<div class='bg1'><p>EXPERIENCE<br></br>
+INTERGRATION<br></br>
+DESIGN</p><a href="#" class='moviestart'><img src="image/icon_youtube.png" alt="영상플레이이미지">&nbsp;&nbsp;INTRO MOVIE</a></div>
+
+<div class='bg2'><h2 class='ani'>엑스아이디는 고객의 브랜드를 함께 교감하고<br />
+ 더 나은 브랜드가 될 수 있도록 경험과 열정을 통해 새로운 서비스를 제공합니다.</h2> 
+ <div class='cwrap'>
+
+ <div class='c1 ani'><h3>Design Consulting</h3><p>브랜드의 일관성 있는 전달을 위해 기업은 디자인에 대한 컨설팅을 합니다. 기업의 상황을 고려한 합리적이고 효율적인 마케팅의 메시지를 전달하기 위해 노력합니다. </p></div>
+
+ <div class='c1 ani'><h3>Graphic Design</h3><p>통합 마케팅 솔루션을 제공하기 위해 우리는 다양한 경험을 추구합니다. 브랜딩, 이비지니스, 미디어컨텐츠등은 디자인을 통해 고객의 목표를 소비자에게 전달합니다. </p></div>
+
+ <div class='c1 ani'><h3>Maintenance</h3><p>고객의 목표를 위해 우리는 지속적인 파트너 관계를 유지합니다. 단기적인 목표가 아닌 장기적인 목표와 지속적인 아이덴티티를 구현하고 유지하여 기업의 브랜드 가치를 높입니다. </p></div>
+
+ <div class='c1 ani'><h3>Development</h3><p>새로운 기술은 빠르게 변화하는 온라인 비즈니스에 중요한 요소입니다. 오랜경험과 새로움에 대해 끊임없이 노력하여 고객의 성공적이고 안정적인 서비스를 지원합니다. </p></div>
+ </div>
+ </div>
+ <div class='bg3'>
+
+ <div class='inner inner1'>
+<ul>
+	<li><a href="http://www.xidesign.co.kr/sub/work.html"><img src="image/IMG171026165645.jpg" alt="web이미지"><div class='text'>WEB</div></a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/inside.html"><img src="image/IMG171026165709.jpg" alt="uiux이미지"><div class='text'>UI/UX</div></a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/contact.html"><img src="image/IMG171026165726.jpg" alt="print이미지"><div class='text'>PRINT</div></a></li>
+</ul>
+ </div>
+
+  <div class='inner inner2'>
+<ul>
+	<li><a href="http://www.xidesign.co.kr/sub/work.html"><img src="image/IMG171026165742.jpg" alt="web이미지"><div class='text'>PACKAGE</div></a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/inside.html"><img src="image/p_05.jpg" alt="uiux이미지"><div class='text backtext'>INSIDE</div></a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/contact.html"><img src="image/IMG180123144039.jpg" alt="print이미지"><div class='text'>BRAND</div></a></li>
+</ul>
+ </div>
+
+  <div class='inner inner3'>
+<ul>
+	<li><a href="http://www.xidesign.co.kr/sub/work.html"><img src="image/IMG171026170720.jpg" alt="web이미지"><div class='text'>PHOTO</div></a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/inside.html"><img src="image/IMG171026171842.jpg" alt="uiux이미지"><div class='text'>MOTION</div></a></li>
+	<li><a href="http://www.xidesign.co.kr/sub/contact.html"><img src="image/IMG171026165826.jpg" alt="print이미지"><div class='text'>MARKETING</div></a></li>
+</ul>
+ </div>
+
+ </div><!-- bg3 -->
+<div class='view'><a href="http://www.xidesign.co.kr/sub/work.html">View All Work&nbsp;&nbsp;&nbsp;<img src="image/icon_arrow.png" alt="화살표이미지"></a></div>
+</div><!-- content -->
+<div class='footer'>
+<div class='footertop'><h6><a href="#"><img src="image/img_footlogo.png" alt="푸터로고"></a></h6>
+<div class='location'>LOCATION<br /><br />서울특별시 구로구 디지털로 33길 28<br />
+우림이비지센터 1차 909호</div>
+<div class='location'>CONTACT<br /><br />T&nbsp;070.4109.4687<br /> F&nbsp;02.6455.1287</div>
+<div class='social'><a href="https://www.facebook.com/xidesign.co.kr/"><img src="image/icon_facebook.png" alt="페이스북이동"></a><a href="https://www.youtube.com/channel/UC-4k6M15C2ePs4KvwWbM7Xg"><img src="image/icon_youtube.png" alt="유튜브이동"></a></div>
+</div><!-- footertop -->
+<div class='footerbottom'>ⓒ<span>XID</span> ALL RIGHTS RESERVED.</div>
+</div><!-- footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- wrap -->
+</body>
+</html>
