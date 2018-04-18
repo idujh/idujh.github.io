@@ -1,0 +1,15 @@
+[DEFAULT]
+BASEURL=http://ricostacruz.com/jquery.transit/
+[DOC_twitter-widget-1]
+BASEURL=https://platform.twitter.com/widgets/tweet_button.9c00c8ca14a8618c4db8e2c43139b138.en.html
+ORIGURL=https://platform.twitter.com/widgets/tweet_button.9c00c8ca14a8618c4db8e2c43139b138.en.html#dnt=false&id=twitter-widget-1&lang=en&original_referer=http%3A%2F%2Fricostacruz.com%2Fjquery.transit%2F&size=m&text=Transit%20-%20CSS%20transitions%20and%20transformations%20for%20jQuery&time=1515927578377&type=share&url=http%3A%2F%2Fricostacruz.com%2Fjquery.transit%2F
+[DOC_twitter-widget-0]
+BASEURL=https://platform.twitter.com/widgets/follow_button.9c00c8ca14a8618c4db8e2c43139b138.en.html
+ORIGURL=https://platform.twitter.com/widgets/follow_button.9c00c8ca14a8618c4db8e2c43139b138.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=rstacruz&show_count=false&show_screen_name=true&size=m&time=1515927578375
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2
+[InternetShortcut]
+URL=http://ricostacruz.com/jquery.transit/
+IDList=
+IconFile=http://ricostacruz.com/favicon.ico
+IconIndex=1
