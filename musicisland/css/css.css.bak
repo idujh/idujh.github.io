@@ -1,0 +1,363 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+/* 본고딕 웹폰트 가져오기 180124 morenvy.com */ 
+/* Noto Sans KR (korean) http://www.google.com/fonts/earlyaccess */ 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ }
+body{font-family:'Oswald','Noto Sans KR',sans-serif;
+font-size:14px;
+color:#000;}
+
+li{list-style:none;}
+
+a{text-decoration:none;
+color:#fff;}
+
+img{border:0;max-width:100%;vertical-align:top;}
+
+.m_wrap{display:none;}
+.m_menuwrap{display:none;}
+.mainmoviewrap{position:absolute;width:100%;left:0;top:0;
+z-index:-1;height:100%;overflow:hidden;}
+
+.wrap{width:100%;overflow: hidden;}
+.header{width:100%;float:left;}
+.headertop{background-color:#36383b;text-align:center;padding:20px;
+border-bottom:1px solid #4a4c4f;position: relative;}
+.m_menu{display:none;}
+.m_tel{display:none;}
+.headerbottom{background-color:#2e3032;text-align:center;width:100%;float:left;
+position:relative;}
+.gnbbg{position:absolute;left:0;top:49px;background-color:rgba(0,0,0,0.6);
+width:100%;height:350px;display:none;z-index:1;}
+.gnb{width:80%;margin-left:10%;float:left;}
+.gnb>li{float:left;width:11.11%;position:relative;}
+.gnb>li>a{display:block;color:#fff;font-size:16px;font-weight:600;
+line-height:50px;}
+.gnb>li>ul{width:100%;position:absolute;left:0;top:50px;display:none;z-index:2;}
+.gnb>li>ul>li>a{display:block;color:#fff;font-weight:200;margin-top:7px;
+font-size:14px;}
+.content{width:100%;float:left;position:relative;}
+.musicisland_image{width:100%;text-align:center;margin-top:200px;}
+.piano_image{width:100%;float:left;margin-top:160px;text-align:center;}
+.piano_image>image{width:100%;}
+.midmusicwrap{float:left;width:100%;overflow:hidden;
+position:relative;text-align:center;background-color:#2e3032;}
+.midmusicwrap h2{font-weight:200;font-size:2.3em;color:#666;line-height:100%;margin-top:50px;}
+.midmusicwrap h2>span{color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.imagerwrap{margin-top:40px;width:80%;margin-left:10%;}
+.mask{width:30%;overflow:hidden;float:left;margin-bottom:40px;}
+.slide{width:1400%;float:left;position:relative;}
+.slide>li{float:left;}
+.slide>li>a{display:block;width:100%;}
+.slide>li>a>img{width:100%;}
+.imagelistwrap{width:70%;float:left;overflow:hidden;margin-bottom:40px;}
+.imagelist{display:block;width:24%;margin-top:1%;float:left;margin-left:1%;height:49.5%;
+position:relative;}
+.imagelist>div{position:absolute;left:0;top:0;width:100%;height:100%;text-align:center;
+background-color:rgba(0,0,0,0.7);color:#fff;font-size:1.3em;}
+.imagelist>div>span{display:black;}
+.imagelist>div>img{margin-top:50px;padding:5px;border-radius:50%;}
+
+.imagelistwrap #imagelist1,#imagelist2,#imagelist3,#imagelist4{margin-top:0;}
+#imagelist1{background:#000 url(image/image1.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist2{background:#000 url(image/image2.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist3{background:#000 url(image/image3.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist4{background:#000 url(image/image4.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist5{background:#000 url(image/image5.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist6{background:#000 url(image/image6.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist7{background:#000 url(image/image7.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist8{background:#000 url(image/image8.jpg) 0 0 no-repeat;
+background-size:cover;}
+.mediawork{width:100%;text-align:center;background-color:#1c1e20;float:left;}
+.mediawork>h2{font-weight:200;font-size:2.3em;margin-top:50px;line-height:100%;
+color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.mediaworkmovie{width:80%;margin:30px 0 50px 0;margin-left:10%;overflow:hidden;}
+.mediaworkmovie iframe{border:0;}
+.iframe1{width:49%;float:left;margin-right:2%;}
+.iframe2{width:49%;float:left;}
+.newsletter{width:100%;text-align:center;background-color:#2e3032;float:left;
+border-bottom:1px solid #4a4c4f;}
+.newsletter>h2{font-weight:200;font-size:2.3em;margin-top:50px;line-height:100%;
+color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.textwrap{width:80%;margin-left:10%;color:#fff;text-align:left;line-height:180%;
+margin-top:40px;}
+.textwrap>div{width:30.66%;float:left;margin-left:2%;}
+.textwrap>div>h3{font-size:1.4em;font-weight:500;}
+.textwrap>div>h3>span{font-size:0.8rem;color:#656e5e;font-weight:normal;}
+.textwrap>div>p{color:#adadad;margin-bottom:40px;}
+.licenserequest{width:100%;background:url(image/main_request_bg.jpg) 0 0 no-repeat;
+float:left;}
+.licenserequest_inner{width:80%;margin:0 auto;text-align:center;padding:0 0 4% 0;}
+.licenserequest_inner>h2{font-weight:200;font-size:2.3em;margin-top:50px;
+line-height:100%;color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.licenserequest_inner p{color:#adadad;margin-top:20px;line-height:180%;}
+.licenserequest_inner a{display:inline-block;width:10%;border:1px solid #fff;color:#fff;
+padding:5px;margin-top:20px;}
+.licenserequest_inner a>span{float:right;color:#ef4035;font-weight:bold;}
+.licenserequest_inner a:hover{background-color:#ef4035;border-color:transparent;}
+.partner{width:100%;float:left;}
+.partner_inner{width:80%;margin:0 auto;}
+.partner_inner>h2{font-weight:200;font-size:2.3em;margin-top:50px;
+line-height:100%;color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.partner_image{width:100%;margin-top:10px;}
+.partner_image .mr0{margin-right:0;}
+.partner_image>a{width:15.8333%;float:left;margin-right:1%;display:block;padding:1%;}
+.partner_image>a>img{width:100%;}
+.more{display:inline-block;width:10%;border:1px solid #fff;color:#fff;
+padding:5px;margin-top:20px;margin-bottom:40px;}
+.more>span{float:right;color:#ef4035;font-weight:bold;}
+.more:hover{background-color:#ef4035;border-color:transparent;}
+.footer{width:100%;border-top:1px solid #000;background-color:#2e3032;float:left;
+padding:2%;}
+.footerinner{width:80%;margin:0 auto;color:#adadad;}
+.footerinner h6{float:left;width:10%;text-align:right;}
+.footerinner h6>img{margin-top:5px;}
+.ftext1{float:left;width:20%;padding-left:4px;}
+.ftext1>span{color:#fff;font-size:1.2em;}
+.ftext2{float:left;width:70%;line-height:180%;}
+.ftext2>span{color:#ef4035;}
+
+
+
+
+@media screen and (max-width:1400px){
+.m_wrap{display:none;}
+.m_menuwrap{display:none;}
+.m_menu{display:none;}
+.m_tel{display:none;}
+.gnbbg{position:absolute;left:0;top:49px;background-color:rgba(0,0,0,0.6);
+width:100%;height:260px;display:none;z-index:1;}
+.gnb{width:100%;margin-left:0%;float:left;}
+.gnb>li{float:left;width:11.11%;position:relative;}
+.gnb>li>a{display:block;color:#fff;font-size:14px;font-weight:600;
+line-height:50px;}
+.imagelist>div>img{margin-top:40px;padding:5px;border-radius:50%;
+width:70px;}
+.imagelist>div>span{display:none;}
+.gnb>li>ul{width:100%;position:absolute;left:0;top:50px;display:none;z-index:2;}
+.gnb>li>ul>li>a{display:block;color:#fff;font-weight:200;margin-top:3px;
+font-size:12px;}
+.musicisland_image{width:100%;text-align:center;margin-top:100px;}
+.piano_image{width:100%;float:left;margin-top:80px;text-align:center;}
+.licenserequest_inner a{display:inline-block;width:15%;border:1px solid #fff;color:#fff;padding:5px;margin-top:20px;}
+.more{display:inline-block;width:15%;border:1px solid #fff;color:#fff;
+padding:5px;margin-top:20px;margin-bottom:40px;}
+}
+
+
+
+
+@media screen and (max-width:1025px){
+.m_wrap{display:none;z-index:1;}
+.m_menuwrap{display:none;}
+body{font-family:'Oswald','Noto Sans KR',sans-serif;
+font-size:12px;
+color:#000;}
+.m_menu{display:none;}
+.m_tel{display:none;}
+.gnbbg{position:absolute;left:0;top:49px;background-color:rgba(0,0,0,0.6);
+width:100%;height:260px;display:none;z-index:1;}
+.gnb{width:100%;margin-left:0%;float:left;}
+.gnb>li{float:left;width:11.11%;position:relative;}
+.gnb>li>a{display:block;color:#fff;font-size:12px;font-weight:600;
+line-height:50px;}
+.gnb>li>ul{width:100%;position:absolute;left:0;top:50px;display:none;z-index:2;}
+.gnb>li>ul>li>a{display:block;color:#fff;font-weight:200;margin-top:3px;
+font-size:10px;}
+.musicisland_image{width:100%;text-align:center;margin-top:100px;}
+.piano_image{width:100%;float:left;margin-top:80px;text-align:center;}
+.imagelist>div>span{display:none;}
+.imagelist>div>img{margin-top:20px;padding:5px;border-radius:50%;
+width:60px;}
+.licenserequest_inner a{display:inline-block;width:20%;border:1px solid #fff;color:#fff;padding:5px;margin-top:20px;}
+.more{display:inline-block;width:20%;border:1px solid #fff;color:#fff;
+padding:5px;margin-top:20px;margin-bottom:40px;}
+}
+
+@media screen and (max-width:820px){
+.m_wrap{display:none;}
+.m_menuwrap{display:none;}
+.m_menu{display:none;}
+.m_tel{display:none;}
+.gnb>li>a{display:block;color:#fff;font-size:10px;font-weight:600;
+line-height:50px;}
+}
+
+@media screen and (max-width:640px){
+.m_wrap{position:absolute;width:100%;height:100vh;top:0;left:0;
+background-color:rgba(0,0,0,0.8);z-index:1;display:none;}
+.m_menuwrap{width:80%;background-color: #36383b;left:-200%;position: relative;
+display:none;}
+.m_menutop{width:100%;overflow: hidden;padding:4%;}
+.homebtn{float:left;}
+.homebtn>img{width:34px;}
+.closebtn{float:right;}
+.closebtn>img{width:30px;}
+.m_gnb{line-height: 160%;color:#fff;font-size:1.6em;font-weight:600;
+background-color:#2e3032;}
+.m_gnb>li{border-top:1px solid #4a4c4f;}
+.m_gnb>li>a{display:block;padding:4%;}
+.m_gnb>li>a.on{background-color:#ef4035;}
+body{font-size:10px;}
+.m_menu{display:block;width:38px;position: absolute;left:5px;top:6px;}
+.m_menu>img{width:100%;}
+.m_tel{display:block;width:38px;position: absolute;right:5px; top:6px;}
+.m_tel>img{width:100%;float:right;}
+.headertop{background-color:#36383b;text-align:center;padding:6px;
+border-bottom:1px solid #4a4c4f;}
+.headertop>h1>a>img{width:50px;vertical-align: middle;}
+.gnb{width:100%;margin-left:0%;float:left;margin:10px 0;}
+.gnb>li{float:left;width:33.33%;position:relative;}
+.gnb>li>a{display:block;color:#fff;font-size:10px;font-weight:600;
+line-height:200%;}
+.musicisland_image{width:60%;text-align:center;margin-top:80px;
+margin-left:20%;}
+.piano_image{width:100%;float:left;margin-top:100px;text-align:center;}
+.piano_image>image{width:100%;}
+.midmusicwrap{float:left;width:100%;overflow:hidden;
+position:relative;text-align:center;background-color:#2e3032;}
+.midmusicwrap h2{font-weight:200;font-size:2.3em;color:#666;line-height:100%;margin-top:50px;}
+.midmusicwrap h2>span{color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.imagerwrap{margin-top:40px;width:98%;margin-left:1%;}
+.mask{width:30%;overflow:hidden;float:left;margin-bottom:40px;}
+.slide{width:1400%;float:left;position:relative;}
+.slide>li{float:left;}
+.slide>li>a{display:block;width:100%;}
+.slide>li>a>img{width:100%;}
+.imagelistwrap{width:70%;float:left;overflow:hidden;margin-bottom:40px;}
+.imagelist{display:block;width:24%;margin-top:1%;float:left;margin-left:1%;height:49.5%;
+position:relative;}
+.imagelist>div{position:absolute;left:0;top:0;width:100%;height:100%;text-align:center;
+background-color:rgba(0,0,0,0.7);color:#fff;font-size:1.3em;}
+.imagelist>div>span{display:black;}
+.imagelist>div>img{margin-top:0px;padding:5px;border-radius:50%;width:40px;}
+
+.imagelistwrap #imagelist1,#imagelist2,#imagelist3,#imagelist4{margin-top:0;}
+#imagelist1{background:#000 url(image/image1.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist2{background:#000 url(image/image2.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist3{background:#000 url(image/image3.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist4{background:#000 url(image/image4.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist5{background:#000 url(image/image5.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist6{background:#000 url(image/image6.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist7{background:#000 url(image/image7.jpg) 0 0 no-repeat;
+background-size:cover;}
+#imagelist8{background:#000 url(image/image8.jpg) 0 0 no-repeat;
+background-size:cover;}
+.mediawork{width:100%;text-align:center;background-color:#1c1e20;float:left;}
+.mediawork>h2{font-weight:200;font-size:2.3em;margin-top:20px;line-height:100%;
+color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.mediaworkmovie{width:98%;margin:30px 0 40px 0;margin-left:1%;overflow:hidden;}
+.mediaworkmovie iframe{border:0;}
+.iframe1{width:100%;float:left;margin-right:0%;}
+.iframe2{width:100%;float:left;}
+.newsletter{width:100%;text-align:center;background-color:#2e3032;float:left;
+border-bottom:1px solid #4a4c4f;}
+.newsletter>h2{font-weight:200;font-size:2.3em;margin-top:50px;line-height:100%;
+color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.textwrap{width:95%;margin-left:2.5%;color:#fff;text-align:left;line-height:180%;margin-top:40px;}
+.textwrap>div{width:100%;float:left;margin-left:0%;}
+.textwrap>div>h3{font-size:1.4em;font-weight:500;}
+.textwrap>div>h3>span{font-size:0.8rem;color:#656e5e;font-weight:normal;}
+.textwrap>div>p{color:#adadad;margin-bottom:40px;}
+.licenserequest{width:100%;background:url(image/main_request_bg.jpg) 0 0 no-repeat;
+float:left;}
+.licenserequest_inner{width:98%;margin:0 auto;text-align:center;padding:0 0 4% 0;margin-left:1%;}
+.licenserequest_inner>h2{font-weight:200;font-size:2.3em;margin-top:20px;
+line-height:100%;color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.licenserequest_inner p{color:#adadad;margin-top:20px;line-height:180%;}
+.licenserequest_inner a{display:inline-block;width:40%;border:1px solid #fff;color:#fff;
+padding:5px;margin-top:20px;}
+.licenserequest_inner a>span{float:right;color:#ef4035;font-weight:bold;}
+.licenserequest_inner a:hover{background-color:#ef4035;border-color:transparent;}
+.partner{width:100%;float:left;}
+.partner_inner{width:98%;margin:0 auto;margin-left:1%;}
+.partner_inner>h2{font-weight:200;font-size:2.3em;margin-top:20px;
+line-height:100%;color:#fff;border-bottom:1px solid #fff;display:inline-block;}
+.partner_image{width:100%;margin-top:10px;}
+.partner_image .mr0{margin-right:1%;}
+.partner_image>a{width:23.75%;float:left;margin-right:1%;display:block;padding:1%;}
+.partner_image>a>img{width:100%;}
+.more{display:inline-block;width:40%;border:1px solid #fff;color:#fff;
+padding:5px;margin-top:20px;margin-bottom:40px;float:left;
+margin-left:30%;}
+.more>span{float:right;color:#ef4035;font-weight:bold;}
+.more:hover{background-color:#ef4035;border-color:transparent;}
+.footer{width:100%;border-top:1px solid #000;background-color:#2e3032;float:left;
+padding:2%;}
+.footerinner{width:100%;margin:0 auto;color:#adadad;}
+.footerinner h6{float:left;width:20%;text-align:center;}
+.footerinner h6>img{margin-top:5px;}
+.ftext1{float:left;width:80%;padding-left:4px;}
+.ftext1>span{color:#fff;font-size:1.4em;}
+.ftext2{float:left;width:100%;line-height:180%;text-align: left;margin-top:5%;}
+.ftext2>span{color:#ef4035;}
+#my .video-background {
+  background:#2e3032;
+  position:absolute;
+  top: 0;left: 0;right:0;bottom:0;
+  width:100%;height:100%;
+  z-index: -99;
+}
+
+
+
+}

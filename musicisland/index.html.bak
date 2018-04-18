@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+ <meta charset="UTF-8">
+ 
+ <meta name="viewport" content="width=device-width">
+
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Document</title>
+
+<link rel="stylesheet" href="css/css.css">
+<script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
+
+</head>
+<body id='my'>
+<div class='m_wrap'>
+<div class='m_menuwrap'>
+<div class='m_menutop'>
+<a href="index.html" class='homebtn'><img src="image/m_home.png" alt="홈아이콘"></a><a href="#" class='closebtn'><img src="image/m_close.png" alt="닫기아이콘"></a>
+</div>
+<ul class='m_gnb'>
+	<li><a href="http://music-island.kr/about/index.jsp">ABOUT</a></li>
+	<li><a href="http://music-island.kr/mid/index.jsp">MID MUSIC</a></li>
+	<li><a href="http://music-island.kr/music/index.jsp">PARTNERS' MUSIC</a></li>
+	<li><a href="http://music-island.kr/media/index.jsp">MEDIA</a></li>
+	<li><a href="http://music-island.kr/request/index.jsp">ICENSE REQUEST</a></li>
+	<li><a href="http://music-island.kr/news/index.jsp">NEWSLETTER</a></li>
+	<li><a href="http://music-island.kr/contact/index.jsp">CONTACT</a></li>
+	<li><a href="http://music-island.kr/partner/label/index.jsp">PARTNERSHIP</a></li>
+	<li><a href="http://music-island.kr/facebook/index.jsp">FACEBOOK</a></li>
+</ul>
+</div>
+</div><!-- m_wrap -->
+
+<div class='mainmoviewrap'>
+<div class="video-background">
+    <div class="video-foreground">
+ <video src="music/visual.mp4" autoplay loop ></video>   
+    </div>
+  </div>
+ </div>
+
+<div class='wrap'>
+<div class='header'>
+<div class='headertop'><h1><a href="#"><img src="image/logo.png" alt="로고1"></a></h1>
+<a href="#" class='m_menu'><img src="image/m_header_menu.png" alt="모바일메뉴"></a>
+<a href="tel:010-5761-5646" class='m_tel'><img src="image/m_header_tel.png" alt="모바일전화걸기"></a>
+</div>
+<div class='headerbottom'>
+<div class='gnbbg'></div>
+<ul class='gnb'>
+	<li><a href="http://music-island.kr/about/index.jsp">ABOUT</a>
+	<ul>
+		<li><a href="http://music-island.kr/about/index.jsp">MID US</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/mid/index.jsp">MID MUSIC</a>
+	<ul>
+		<li><a href="http://music-island.kr/mid/index.jsp">All</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=1">Classic</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=2">Pop&Rock</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=3">Hip-Hop & R&B</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=4">Dance</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=5">Electro & House</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=6">Jazz</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=7">New Age</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=8">OST</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=9">World</a></li>
+		<li><a href="http://music-island.kr/mid/index.jsp?sgenre=10">Christmas</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/music/index.jsp">PARTNERS' MUSIC</a>
+	<ul>
+		<li><a href="http://music-island.kr/music/index.jsp">All</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=1">Classic</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=2">Pop</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=3">Hip-Hop</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=4">Rock & Metal</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=5">Electro & House</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=6">Jazz</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=7">New Age</a></li>
+		<li><a href="http://music-island.kr/music/index.jsp?sgenre=8">World</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/media/index.jsp">MEDIA</a>
+	<ul>
+		<li><a href="http://music-island.kr/media/index.jsp">Media work</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/request/index.jsp">LICENSE REQUEST</a>
+	<ul>
+		<li><a href="http://music-island.kr/request/index.jsp">License Request</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/news/index.jsp">NEWSLETTER</a>
+	<ul>
+		<li><a href="http://music-island.kr/news/index.jsp">NewsLetter</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/contact/index.jsp">CONTACT</a>
+	<ul>
+		<li><a href="http://music-island.kr/contact/index.jsp">Contact</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/partner/label/index.jsp">PARTNERSHIP</a>
+	<ul>
+		<li><a href="http://music-island.kr/partner/label/index.jsp">Label</a></li>
+		<li><a href="http://music-island.kr/partner/artist/index.jsp">Partnew Story</a></li>
+		<li><a href="http://midc.sanggong.net:8080/" target='_blank'>Reporting System</a></li>
+	</ul>
+	</li>
+	<li><a href="http://music-island.kr/facebook/index.jsp">FACEBOOK</a>
+	<ul>
+		<li><a href="http://music-island.kr/facebook/index.jsp">facebook</a></li>
+	</ul>
+	</li>
+</ul>
+</div>
+</div><!-- header -->
+<div class='content'>
+<div class='musicisland_image'><img src="image/main_visual_txt.png" alt="뮤직아일랜드텍스트이미지"></div>
+<div class='piano_image'><img src="image/main_visual.png" alt="피아노이미지"></div>
+<div class='midmusicwrap'>
+<h2><span>PARTNERS' MUSIC</span><br />OVERSEANS MUSIC GALLERY</h2>
+
+<div class='imagerwrap'>
+<div class='mask'>
+<ul class='slide'>
+	<li><a href="http://music-island.kr/music/view.jsp?no=348"><img src="image/151.jpg" alt="슬라이드이미지1"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=177"><img src="image/152.jpg" alt="슬라이드이미지2"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=177"><img src="image/153.jpg" alt="슬라이드이미지3"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=177"><img src="image/154.jpg" alt="슬라이드이미지4"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=177"><img src="image/155.jpg" alt="슬라이드이미지5"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=177"><img src="image/156.jpg" alt="슬라이드이미지6"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=348"><img src="image/157.jpg" alt="슬라이드이미지7"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=348"><img src="image/158.jpg" alt="슬라이드이미지8"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=348"><img src="image/159.jpg" alt="슬라이드이미지9"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=348"><img src="image/160.jpg" alt="슬라이드이미지10"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=174"><img src="image/161.jpg" alt="슬라이드이미지11"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=174"><img src="image/162.jpg" alt="슬라이드이미지12"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=174"><img src="image/163.jpg" alt="슬라이드이미지13"></a></li>
+	<li><a href="http://music-island.kr/music/view.jsp?no=174"><img src="image/164.jpg" alt="슬라이드이미지14"></a></li>
+</ul>
+</div>
+<div class='imagelistwrap'>
+<a href="http://music-island.kr/music/index.jsp?sgenre=6" class='imagelist' id='imagelist1'><div>
+<img src="image/main_part06.png" alt="재즈이미지"><br /><span>Jazz</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=5" class='imagelist' id='imagelist2'><div>
+<img src="image/main_part05.png" alt="일렉트로이미지"><br /><span>Electro & House</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=4" class='imagelist' id='imagelist3'><div>
+<img src="image/main_part04.png" alt="메탈이미지"><br /><span>Rock & Metal</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=9" class='imagelist' id='imagelist4'><div>
+<img src="image/main_part09.png" alt="월드이미지"><br /><span>World</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=3" class='imagelist' id='imagelist5'><div>
+<img src="image/main_part03.png" alt="힙합이미지"><br /><span>Hip-Hop & R&B</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=7" class='imagelist' id='imagelist6'><div>
+<img src="image/main_part07.png" alt="뉴에이지이미지"><br /><span>New Age</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=2" class='imagelist' id='imagelist7'><div>
+<img src="image/main_part02.png" alt="팝이미지"><br /><span>Pop</span></div></a>
+<a href="http://music-island.kr/music/index.jsp?sgenre=1" class='imagelist' id='imagelist8'><div>
+<img src="image/main_part01.png" alt="클래식이미지"><br /><span>Classic</span></div></a>
+</div><!-- imagelistwrap -->
+</div><!-- imagerwrap -->
+</div><!-- midmusicwrap -->
+<div class='mediawork'>
+<h2>MEDIA WORK</h2>
+<div class='mediaworkmovie'>
+<iframe src="https://www.youtube.com/embed/DtRnVhrgVkE" class='iframe1'></iframe>
+<iframe src="https://www.youtube.com/embed/3EOAXrTrsOE" class='iframe2'></iframe>
+</div>
+</div><!-- mediawork -->
+<div class='newsletter'>
+<h2>NEWS LETTER</h2>
+
+<div class='textwrap'>
+<div>
+<h3>뮤직아일랜드, ‘법무법인 조율’과 법률 고문 계약을 체결 / Music Island, made legal adviser contract with ‘Law Firm Harmony’<br /><span>2017-10-10</span></h3>
+<p>뮤직아일랜드는 20여년 동안 전문가가 엄선한 해외 음원 700만곡 이상을 보유, 음원수뿐만 아니라 질적으로도 수준 높은 음원을국내 멜론을 비롯한 주요 DSP(Digital Ser....</p>
+</div>
+<div>
+<h3>'뮤직아일랜드' 국내 콘텐츠 제휴, 유통 / 홈페이지 리뉴얼 오픈 / ‘Music Island’ website is renewal.<br /><span>2017-10-10</span></h3>
+<p>2017년 새로운 얼굴로 변한 '뮤직아일랜드' 뮤직아일랜드는 전문적이며 체계적인 업무시스템을 갖춘국내외 음원 라이선스 및 퍼블리싱 관리와 유통을 하는 종합 미디어 그룹 입니다. 음....</p>
+</div>
+<div>
+<h3>뮤직아일랜드, 유럽 최대 콘토(Kontor)와 음원 230만여곡 독점계약 체결<br /><span>2017-09-28</span></h3>
+<p>뮤직아일랜드(대표 허버트 리)는유럽의 최대 규모 음원 유통회사인 독일 콘토 뉴 미디어(Kontor New Media)와 음원 유통 독점 계약을 체결했다고 28일 밝혔다. 뮤직....</p>
+</div>
+</div><!-- textwrap -->
+<div class='licenserequest'>
+<div class='licenserequest_inner'>
+<h2>LICENSE REQUEST</h2>
+<p>뮤직아일랜드는 멜론, 벅스뮤직, 엠넷, 네이버 다음, 소리바다 등<br />
+ 국내 대표 OSP를 비롯하여 전 세계 디지털음반을 서비스하고 있습니다.</p>
+ <a href="http://music-island.kr/request/index.jsp">라이센스 의뢰<span>-</span></a>
+ </div>
+</div><!-- licenserequest -->
+<div class='partner'>
+<div class='partner_inner'>
+<h2>PARTNER</h2>
+<div class='partner_image'>
+<a href="#"><img src="image/partner1.jpg" alt="파트너이미지1"></a>
+<a href="#"><img src="image/partner2.jpg" alt="파트너이미지2"></a>
+<a href="#"><img src="image/partner3.jpg" alt="파트너이미지3"></a>
+<a href="#"><img src="image/partner4.jpg" alt="파트너이미지4"></a>
+<a href="#"><img src="image/partner5.jpg" alt="파트너이미지5"></a>
+<a href="#" class='mr0'><img src="image/partner6.jpg" alt="파트너이미지6"></a>
+<a href="#"><img src="image/partner7.jpg" alt="파트너이미지7"></a>
+<a href="#"><img src="image/partner8.jpg" alt="파트너이미지8"></a>
+<a href="#"><img src="image/partner9.jpg" alt="파트너이미지9"></a>
+<a href="#"><img src="image/partner10.jpg" alt="파트너이미지10"></a>
+<a href="#"><img src="image/partner11.jpg" alt="파트너이미지11"></a>
+<a href="#" class='mr0'><img src="image/partner12.jpg" alt="파트너이미지12"></a>
+<a href="#"><img src="image/partner13.jpg" alt="파트너이미지13"></a>
+<a href="#"><img src="image/partner14.jpg" alt="파트너이미지14"></a>
+<a href="#"><img src="image/partner15.jpg" alt="파트너이미지15"></a>
+<a href="#"><img src="image/partner16.jpg" alt="파트너이미지16"></a>
+<a href="#"><img src="image/partner17.jpg" alt="파트너이미지17"></a>
+<a href="#" class='mr0'><img src="image/partner18.jpg" alt="파트너이미지18"></a>
+</div>
+<a href="http://music-island.kr/partner/label/index.jsp" class='more'>more<span>-</span></a>
+</div>
+</div><!-- partner -->
+
+</div><!-- newsletter --><!-- 컨텐츠 하단 영역 -->
+</div><!-- content -->
+<div class='footer'>
+<div class='footerinner'>
+<h6><img src="image/footer_logo.png" alt="로고2"></h6>
+<div class='ftext1'>
+<span>뮤직아일랜드</span><br />
+MUSIC ISLAND</div>
+<div class='ftext2'>
+서울특별시 강남구 봉은사로 24길 12
+12, Bongeunsa-ro 24-gil, Gangnam-gu, Seoul, Republic of Korea
+<span>&nbsp;개인정보취급방침&nbsp;</span>
+Copyright (C) 2017 MUSIC ISLAND. All Rights Reserved.</div>
+</div>
+</div><!-- footer -->
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- wrap -->
+<link rel="stylesheet" href="css/b.css" />
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<script src='js/js.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src='js/animate/jquery.transit.min.js'></script>
+</body>
+</html>
