@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <!-- saved from url=(0013)about:internet -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>건영건설</title>
+<script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
+<script type="text/javascript" src="js/slider.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.gnb>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+$('.gnb>li>ul').stop().slideDown()
+$('.gnbbg').stop().slideDown()
+$('.gnb>li>ul').css({backgroundColor:'#fff'})
+$('.gnb>li>a').eq(index).next().css({backgroundColor:'#c63d4e'})
+$('.gnb>li>ul>li>a').css({color:'#767676'})
+$(this).next().find('a').css({color:'#fff'})
+})//mouseenter
+$(this).on('mouseleave blur',function(){
+$('.gnb>li>a').eq(index).next().css({backgroundColor:'#fff'})
+$(this).next().find('a').css({color:'#767676'})
+})//mouseenter
+})//each
+
+$('.gnb>li>ul').each(function(index){
+$(this).on('mouseenter focus',function(){
+$('.gnb>li>ul').css({backgroundColor:'#fff'})
+$(this).css({backgroundColor:'#c63d4e'})
+$('.gnb>li>ul>li>a').css({color:'#767676'})
+$(this).find('a').css({color:'#fff'})
+})
+})//each
+
+$('.header').on('mouseleave blur',function(){
+$('.gnbbg').stop().slideUp()
+$('.gnb>li>ul').stop().slideUp()
+})//blur
+
+$('.visual>a').hide()
+$('.visual>a').first().show()
+$('.box>ul>li>a').each(function(index){
+var h3=$(this).attr('data-h3')
+var p=$(this).attr('data-p')
+$('.box>ul>li>a:eq(0)').css({background:'url(image/arrow.png)',width:136,zIndex:1,color:'#fff',border:'none',paddingRight:10})
+$(this).on('click',function(){
+$('.box>ul>li>a').css({background:'none',color:'#767676',width:126,
+borderBottom:'1px solid #ddd',padding:0})
+$(this).css({background:'url(image/arrow.png)',width:136,color:'#fff',border:'none',paddingRight:10})
+$('.visual>a').hide()
+$('.visual>a').eq(index).fadeIn(100)
+$('.visual1 h3').html($(this).attr('data-h3'))
+$('.visual1 p').html($(this).attr('data-p'))
+return false
+})
+})//each
+
+$('.gnb>li>ul>li>a').on('mouseenter focus',function(){
+$(this).css({color:'#ffff99'})
+})
+$('.gnb>li>ul>li>a').on('mouseleave blur',function(){
+$(this).css({color:'#fff'})
+})
+$('#select1>option').on('click',function(){
+var src=$(this).val()
+window.open(src)
+})
+$('#select2>option').on('click',function(){
+var src=$(this).val()
+window.open(src)
+})
+
+
+})//ready
+</script>
+
+<style type="text/css">
+/* 본고딕 웹폰트 가져오기 180124 morenvy.com */ 
+/* Noto Sans KR (korean) http://www.google.com/fonts/earlyaccess */ 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family: 'Noto Sans KR', sans-serif;font-size:16px;
+color:#454545;}
+li{list-style:none;}
+a{text-decoration:none;color:#454545;}
+img{vertical-align:top;border:0;border:none;}
+a:hover{color:#c63d4e;}
+a:focus{color:#c63d4e;}
+.gnbbg{position:absolute;top:102px;left:0;width:100%;height:237px;
+background-color:#fff;z-index:3;display:none;}
+.wrap{width:100%;min-width:1000px;}
+.header{width:100%;float:left;text-align:center;border-bottom:3px solid #c63d4e;}
+.headerinner{width:1000px;margin:0 auto;}
+.headerinner h1{float:left;width:169px;}
+.gnb{width:831px;float:left;text-align:center;height:99px;line-height:99px;}
+.gnb>li{float:left;width:16.666%;}
+.gnb>li>a{display:block;font-size:18px;font-weight:500;border-left:1px solid #f5f5f5;font-weight:400;}
+.border_right{border-right:1px solid #f5f5f5;}
+.gnb>li>ul{width:100%;line-height:200%;height:240px;position:relative;border-left:1px solid #f5f5f5;display:none;
+border-top:3px solid #c63d4e;
+z-index:3;}
+.m6{border-right:1px solid #f5f5f5;}
+.gnb>li>ul>li>a{display:block;width:100%;font-size:15px;}
+.sliderwrap{position: relative;
+	width: 100%;
+	height: 498px;
+	float:left;
+	overflow: hidden;}
+
+	#slider{width:500%;
+	height: 498px;
+	position: relative;
+	left: 0;}
+	#slider>li{height: 498px;float: left;overflow: hidden;}
+	#slider>li>a{display: block;height:100%;position: relative;}
+	#slider>li>a>img{position: absolute;
+	left: 50%;
+	top: 0;
+	width: 2000px;
+	height: 498px;
+	margin-left: -1000px;}
+
+	#pager{position: absolute;
+	width: 100%;
+	height: 20px;
+	bottom:20px;
+	text-align: center;}
+
+	#pager>a{display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	text-indent: -999em;
+	font-size: 0;
+	border-radius:15px ;
+	margin: 3px;}
+
+	#pager>a.on{background-color:#f00;}
+
+.content{width:100%;float:left;text-align:center;}
+.businesswrap{width:100%;float:left;margin-top:40px;}
+.business{width:1000px;text-align:center;margin:0 auto;}
+.business>h2{float:left;color:#222222;background:url(image/line1.gif) 0 0 no-repeat;padding-top:5px;margin-left:10px;font-weight:600;}
+.box{width:1000px;height:348px;border:1px solid #eaeaea;float:left;
+margin-top:25px;overflow:hidden;}
+.box>ul{float:left;width:126px;height:348px;position:relative;}
+.box>ul>li>a{height:49.71px;line-height:49.71px;border-bottom:1px solid #ddd;width:100%;display:block;position:absolute;z-index:2;}
+#n1{top:0;}
+#n2{top:50px;}
+#n3{top:100px;}
+#n4{top:150px;}
+#n5{top:200px;}
+#n6{top:250px;}
+#n7{top:300px;}
+.box .bordernone{border:none;}
+.visual{float:left;width:538px;height:348px;position:relative;}
+.visual>a{display:block;width:100%;float:left;position:absolute;
+left:0;top:0;}
+.visual>a>img{width:100%;}
+.visual1{float:left;width:334px;height:348px;
+padding:2%;text-align:left;position:relative;
+background-color:#d73649;color:#fff;}
+.visual1 h2{float:left;font-weight:normal;width:100%;}
+.visual1 h3{float:left;width:100%;margin-top:20px;font-weight:400;}
+.visual1 p{margin-top:10px;float:left;width:100%;}
+.business_icon{width:100%;position:absolute;top:250px;left:0;}
+.business_icon a{width:50%;float:left;text-align:center;}
+.business_icon .marginnone{margin:0;}
+.noticewrap{float:left;width:100%;margin-bottom:40px;}
+.notice{width:1000px;margin:0 auto;overflow:hidden;}
+.noticeinner{width:33.33%;float:left;text-align:left;padding:23px;
+position:relative;margin-top:10px;}
+.noticeinner h2{color:#222222;background:url(image/line2.gif) 0 0 no-repeat;padding-top:5px;font-weight:600;width:100%;float:left;}
+.noticeinner h3{color:#19428f;margin-top:30px;font-weight:400;width:100%;
+float:left;}
+.noticeinner ul{margin-top:30px;font-size:14px;line-height:200%;float:left;
+width:100%;}
+.noticeinner ul>li>a{display:block;width:100%;float:left;}
+.noticeinner ul>li>a>span{float:right;}
+.more{position:absolute;display:block;background-color:#b0b0b0;font-size:10px;
+top:100px;right:23px;color:#fff;padding:2px;}
+.noticeinner p{width:100%;float:left;margin-top:10px; font-size:13px;}
+.noticeinner img{margin-top:10px;float:left;}
+.noticeinner .bici{margin-top:0;}
+.noticeinner .margin0{margin:0;}
+.more1{position:absolute;display:block;background-color:#b0b0b0;font-size:10px;
+top:30px;right:23px;color:#fff;padding:2px;}
+.noticeinner .sun{float:left;margin-top:30px;}
+.footerwrap{float:left;width:100%;background-color:#f3f3f3;}
+.footer{width:1000px;margin:0 auto;overflow:hidden;}
+.footer h6{float:left;width:144px;margin:60px 0;}
+.footer_notice{width:456px;float:left;margin-top:30px;font-size:14px;
+margin-left:30px;}
+.footer_navi{float:left;width:340px;margin-left:30px;margin-top:40px;}
+.footer_naviinner{float:right;}
+.footer_naviinner a{margin-right:5px;}
+.footer_naviinner select{width:135px; height:30px;margin-right:5px;
+margin-top:10px;}
+
+</style>
+
+</head>
+ <body id='my'>
+ <div class='gnbbg'></div>
+<div class='wrap'>
+<div class='header'>
+<div class='headerinner'>
+<h1><a href="http://idujh86.dothome.co.kr/kunyoung/index.html"><img src="image/logo1.gif" alt="로고1"></a></h1>
+<ul class='gnb'>
+	<li><a href="html/sub1.html">회사소개</a>
+	<ul class='m1'>
+		<li><a href="html/sub1.html">CEO소개</a></li>
+		<li><a href="html/sub1.html">주요연혁</a></li>
+		<li><a href="html/sub1.html">경영이념</a></li>
+		<li><a href="html/sub1.html">조직도</a></li>
+		<li><a href="html/sub1.html">오시는길</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub2.html">주요사업</a>
+	<ul class='m2'>
+		<li><a href="html/sub2.html">토목</a></li>
+		<li><a href="html/sub2.html">건축</a></li>
+		<li><a href="html/sub2.html">플랜트</a></li>
+		<li><a href="html/sub2.html">주택</a></li>
+		<li><a href="html/sub2.html">개발</a></li>
+		<li><a href="html/sub2.html">발전설비/에너지</a></li>
+		<li><a href="html/sub2.html">해외사업</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub3.html">지속가능경영</a>
+	<ul class='m3'>
+		<li><a href="html/sub3.html">품질/안전/환경경영</a></li>
+		<li><a href="html/sub3.html">사회공헌</a></li>
+		<li><a href="html/sub3.html">윤리경영</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub4.html">채용정보</a>
+	<ul class='m4'>
+		<li><a href="html/sub4.html">인재상</a></li>
+		<li><a href="html/sub4.html">인사제도/복리후생</a></li>
+		<li><a href="html/sub4.html">채용안내</a></li>
+		<li><a href="html/sub4.html">채용공고</a></li>
+		<li><a href="html/sub4.html">온라인채용</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub5.html">홍보센터</a>
+	<ul class='m5'>
+		<li><a href="html/sub5.html">보도자료</a></li>
+		<li><a href="html/sub5.html">CI/BI</a></li>
+		<li><a href="html/sub5.html">홍보자료</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub6.html" class='border_right'>고객센터</a>
+	<ul class='m6'>
+		<li><a href="html/sub6.html">자주하는질문</a></li>
+		<li><a href="html/sub6.html">온라인상담실</a></li>
+		<li><a href="html/sub6.html">Contact Us</a></li>
+	</ul>
+	</li>
+</ul>
+</div><!-- headerinner -->
+</div><!-- header -->
+
+<div class='content'>
+
+<div class="sliderwrap">
+<ul id='slider'>
+	<li><a href="#"><img src="image/slide1.jpg" alt="슬라이드1"></a></li>
+	<li><a href="#"><img src="image/slide2.jpg" alt="슬라이드2"></a></li>
+	<li><a href="#"><img src="image/slide3.jpg" alt="슬라이드3"></a></li>
+	<li><a href="#"><img src="image/slide4.jpg" alt="슬라이드4"></a></li>
+	<li><a href="#"><img src="image/slide5.jpg" alt="슬라이드5"></a></li>
+	<li><a href="#"><img src="image/slide6.jpg" alt="슬라이드6"></a></li>
+</ul>
+</div><!-- sliderwrap -->
+
+<div class='businesswrap'>
+<div class='business'>
+<h2>사업</h2>
+<div class='box'>
+<ul>
+	<li><a href="#" id='n1' data-h3='토목' data-p='작은 다리 하나가 지형을 바꾸고 경제를 발전시키며 삶의 변화를 가져옵니다. 도시와 도시를 잇고 서로 다른 문화교류의 기반을 조성하는 토목사업은 새로운 역사를 창조합니다.'>토목</a></li>
+    <li><a href="#" id='n2' data-h3='건축' data-p='현대에 있어서 건축은 쾌적한 환경과 효율적인 공간을 넘어 예술작품과도 같은 창조성과 심미성을 요구하고 있습니다.'>건축</a></li>
+	<li><a href="#" id='n3' data-h3='주택' data-p='현대인에게 집은 휴식공간을 넘어 일과 생활, 문화를 향유하는 복합공간입니다.'>주택</a></li>
+	<li><a href="#" id='n4' data-h3='개발' data-p='한발 먼저 미래를 준비하는 건영은 자연에 우리의 미래가 있음을 깊이 인식하고 지속 가능한 성장을 위한 해법을 자연에서 찾고 있습니다.'>개발</a></li>
+	<li><a href="#" id='n5' data-h3='플랜트' data-p='우리 사회에 에너지를 공급하는 플랜트사업은 고도의 첨단기술이 집약된 분야입니다.'>플랜트</a></li>
+	<li><a href="#" id='n6' data-h3='발전설비/에너지' data-p='건영은 우리 사회에 생명을 불어넣는 기초에너지에 많은 관심을 기울여왔습니다.'>발전설비/에너지</a></li>
+	<li><a href="#" id='n7' class='bordernone' data-h3='해외사업' data-p='대한민국 건설 주요 분야에서 풍부한 경험과 노하우를 축적해온 건영은 세계시장에서도 탁월한 역량을 발휘하고 있습니다..'>해외사업</a></li>
+</ul>
+<div class='visual'>
+<a href="#"><img src="image/b1.jpg" alt="토목"></a>
+<a href="#"><img src="image/b2.jpg" alt="건축"></a>
+<a href="#"><img src="image/b3.jpg" alt="플랜트"></a>
+<a href="#"><img src="image/b4.jpg" alt="주택"></a>
+<a href="#"><img src="image/b5.jpg" alt="개발"></a>
+<a href="#"><img src="image/b6.jpg" alt="발전설비/에너지"></a>
+<a href="#"><img src="image/b7.jpg" alt="해외사업"></a>
+</div>
+<div class='visual1'>
+<h2>사업설명</h2>
+<h3>토목</h3>
+<p>작은 다리 하나가 지형을 바꾸고 경제를 발전시키며 삶의 변화를 가져옵니다. 도시와 도시를 잇고 서로 다른 문화교류의 기반을 조성하는 토목사업은 새로운 역사를 창조합니다.</p>
+<div class='business_icon'>
+<a href="#"><img src="image/business_icon1.png" alt="사업자세히보기"></a>
+<a href="#" class='marginnone'><img src="image/business_icon2.png" alt="브로슈어다운받기"></a>
+</div>
+</div>
+
+</div><!-- box -->
+</div><!--business-->
+</div><!-- businesswrap -->
+
+<div class='noticewrap'>
+<div class='notice'>
+
+<div class='noticeinner'>
+<h2>소식</h2>
+<h3>보도자료/회사공고</h3>
+<ul>
+	<li><a href="#">&middot; 연세365병원-㈜건영...<span>2017/07/21</span></a></li>
+	<li><a href="#">&middot; 건영, 베트남 호치민에 주...<span>2017/07/21</span></a></li>
+	<li><a href="#">&middot; 꿈의 학교 석장고 품은...<span>2017/07/21</span></a></li>
+	<li><a href="#">&middot; (주)건영, 해외 아동 초..<span>2017/07/21</span></a></li>
+</ul>
+<a href="html/sub1.html" class='more'>more ></a>
+</div><!-- noticeinner -->
+
+<div class='noticeinner'>
+<h2>윤리</h2>
+<h3>윤리경영</h3>
+<p>사회적 책임을 다하는 기업으로 거듭나겠습니다.</p>
+<img src="image/mb1.jpg" alt="윤리">
+<a href="html/sub2.html" class='more'>more ></a>
+</div><!-- noticeinner -->
+
+<div class='noticeinner'>
+<h2>채용</h2>
+<h3>채용안내</h3>
+<p>건영이 추구하는 인재의 모습입니다.</p>
+<img src="image/mb2.jpg" alt="채용">
+<a href="html/sub3.html" class='more'>more ></a>
+</div><!-- noticeinner -->
+
+<div class='noticeinner'>
+<img src="image/cibi.gif" alt="bici" class='bici'>
+<img src="image/ma2.gif" alt="아기엄마사진" class='sun'>
+</div><!-- noticeinner -->
+
+<div class='noticeinner'>
+<h3 class='margin0'>사회공헌</h3>
+<p>지속적인 노력으로 사회공헌을 실천하고 있습니다.</p>
+<img src="image/mb3.jpg" alt="사회공헌">
+<a href="html/sub4.html" class='more1'>more ></a>
+</div><!-- noticeinner -->
+
+<div class='noticeinner'>
+<h3 class='margin0'>온라인 채용</h3>
+<p>건영의 미래를 기다립니다.</p>
+<img src="image/mb4.jpg" alt="지원하기">
+<a href="html/sub6.html" class='more1'>more ></a>
+</div><!-- noticeinner -->
+
+</div><!-- notice -->
+</div><!-- noticewrap -->
+</div><!-- content -->
+
+
+
+<div class='footerwrap'>
+<div class='footer'>
+<h6><a href="http://idujh86.dothome.co.kr/kunyoung/index.html"><img src="image/logo2.gif" alt="로고2"></a></h6>
+<div class='footer_notice'>
+<a href="http://www.kunyoungenc.com/home/homepage.php?homefile=sub0704.html">개인정보취급방침&nbsp;&nbsp;|</a>
+<a href="http://www.kunyoungenc.com/home/homepage.php?homefile=sub0705.html">&nbsp;&nbsp;이용약관&nbsp;&nbsp;|</a>
+<a href="http://www.kunyoungenc.com/home/homepage.php?homefile=sub0706.html">&nbsp;&nbsp;이메일무단수집거부&nbsp;&nbsp;|</a>
+<a href="http://www.kunyoungenc.com/home/m_login.php">&nbsp;&nbsp;ADMIN</a>
+<p>
+서울특별시 강남구 학동로 401 금하빌딩 10층 | 대표전화: 02-6900-5300<br />
+EMAIL: WEBMASTER@KUNYOUNGENC.COM<br />
+COPYRIGHT (c) 2015 KUNYOUNG CO., LTD. ALL RIGHTS RESERVED<br />
+</p>
+</div><!-- footer_notice -->
+<div class='footer_navi'>
+<div class='footer_naviinner'><a href="http://www.kunyoungenc.com/en/"><img src="image/fbn3.gif" alt="english"></a>
+<a href="http://www.kunyoungenc.com/home/m_board.php?ps_db=calendar"><img src="image/fbn1.gif" alt="분양캘린더"></a></div>
+<div class='footer_naviinner'>
+<select id="select1">
+<option selected value='http://partner.kunyoungenc.com/index.do'>협력사 포털시스템</option>
+</select>
+<select id="select2">
+<option value='http://amoriumapt.co.kr/home/index.php'>아모리움</option>
+<option value='http://www.kunyoungdevelop.com/home/index.php'>건영이엔씨</option>
+<option value='http://www.haoker.co.kr/mall/index.php'>하오커</option>
+<option selected value='#'>계열사 사이트</option>
+</select>
+</div>
+
+</div><!-- navi -->
+
+</div><!-- footer -->
+</div><!-- footerwrap -->
+
+
+</div><!-- wrap -->
+</body>
+</html>
