@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>clear_sub2</title>
+  <script type="text/javascript" src='../js/jquery-1.12.3.js'></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $('.sub3_event>li>a').each(function(index){
+  $('<div class="eventover"></div>').appendTo($(this))
+  $('.eventover').html('+')
+  $(this).on('mouseenter focus',function(){
+  $('.sub3_event>li>a').css({backgroundColor:'#fff'})
+  $(this).css({backgroundColor:'#000'})
+  $('.sub3_event>li>a>img').css({opacity:1})
+  $(this).find('img').css({opacity:0.6})
+  $('.eventover').fadeOut()
+  $('.eventover').eq(index).fadeIn()
+  $('.eventtext').css({backgroundColor:'#fff',color:'#414141'})
+  $('.eventtext').eq(index).css({backgroundColor:'#2472c7',color:'#fff'})
+  })
+  })//each
+  
+  
+  
+  
+  })//ready
+  </script>
+  
+ <style type="text/css">
+ @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+ @font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ } 
+
+ *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family: 'Noto Sans KR',sans-serif;
+  font-size:16px;#414141;}
+  img{max-width:100%;vertical-align:middle;}
+  li{list-style:none;}
+  a{text-decoration:none;color:#414141;}
+
+  .sub3_content{width:100%;float:left;
+  border-bottom:1px solid #ddd;
+  text-align:center;}
+ .sub3_content h2{font-size:3em;font-weight:500;margin:3% 0;}
+.sub3_form{float:left;text-align:center;width:100%;position:relative;margin-bottom:2%;}
+.sub3_forminner{width:530px;margin:0 auto;}
+#sub3_select{width:140px;height:36px;float:left;border:none;border:2px solid #8dd782;}
+.searchbox{width:380px;height:36px;float:left;position:relative;}
+#sub3_search{width:380px;height:36px;border-radius:30px;border:none;background-color:#f5f5f5;margin-left:10px;padding-left:10px;}
+.sub3_searchbtn{display:inline-block;width:36px;height:36px;border-radius:50%;background-color:#8dd782;position:relative;position:absolute;right:-10px;top:0;}
+.sub3_searchbtn img{width:18px;vertical-align:bottom;position:absolute;top:50%;
+left:50%;margin-left:-9px;margin-top:-9px;}
+.contentinner{float:left;width:100%;text-align:center;background-color:#f5f6fa;
+padding-top:3%;}
+.sub3_event{margin:0 auto;width:1046.65px;overflow:hidden;}
+.sub3_event>li{float:left;width:340px;}
+.sub3_event>li>a{display:block;text-align:left;margin-left:5%;margin-bottom:15%;position:relative;box-shadow:1px 2px 3px #414141;}
+.eventtext{background-color:#FFF;width:100%;padding:8%;}
+.eventtext h4{font-weight:normal;}
+.eventtext p{font-size:0.8em;opacity:0.6;margin-top:4%;}
+.eventover{position:absolute;font-size:2em;width:40px;height:40px;line-height:40px;color:#fff;background-color:#2472c7;border-radius:50%;top:50%;left:50%;
+margin-left:-20px;margin-top:-20px;text-align:center;display:none;
+box-shadow:1px 2px 3px #ddd;}
+
+
+@media screen and (max-width:640px){
+
+*{margin:0;padding:0;box-sizing:border-box;}
+  body{font-size:14px;#414141;}
+  img{max-width:100%;vertical-align:middle;}
+  li{list-style:none;}
+  a{text-decoration:none;color:#414141;}
+
+ .sub3_content{width:100%;float:left;
+  border-bottom:1px solid #ddd;
+  text-align:center;}
+ .sub3_content h2{font-size:1.8em;font-weight:400;margin:0;background-color:#2472c7;color:#fff;
+ padding:4%;}
+.sub3_form{float:left;text-align:center;width:100%;position:relative;margin-bottom:4%;margin-top:4%;}
+.sub3_forminner{width:100%;margin:0 auto;}
+#sub3_select{width:20%;height:26px;float:left;margin-left:3%;}
+.searchbox{width:70%;height:26px;float:left;position:relative;}
+#sub3_search{width:100%;height:26px;border-radius:30px;border:none;background-color:#f5f5f5;margin-left:3%;padding-left:10px;}
+.sub3_searchbtn{display:inline-block;width:26px;height:26px;border-radius:50%;background-color:#8dd782;position:relative;position:absolute;right:-6px;top:0;}
+.sub3_searchbtn img{width:14px;vertical-align:bottom;position:absolute;top:50%;
+left:50%;margin-left:-7px;margin-top:-7px;}
+.contentinner{float:left;width:100%;text-align:center;background-color:#f5f6fa;
+padding-top:5%;border-top:3px solid #06aef8;border-bottom:3px solid #06aef8;}
+.sub3_event{margin:0 auto;width:100%;overflow:hidden;}
+.sub3_event>li{float:left;width:47%;margin-left:2%;margin-bottom:10%;}
+.sub3_event>li>a{display:block;text-align:left;margin-left:0;margin-bottom:0;position:relative;box-shadow:1px 2px 3px #414141;}
+.sub3_event>li>a>img{width:100%;}
+.eventtext{background-color:#FFF;width:100%;padding:4%;}
+.eventtext h4{font-weight:normal;letter-spacing:-1px;font-size:0.9em;}
+.eventtext p{font-size:0.8em;opacity:0.6;margin-top:2%;letter-spacing:-1px;}
+.eventover{position:absolute;font-size:2em;width:40px;line-height:40px;color:#fff;background-color:#2472c7;border-radius:50%;top:50%;left:50%;height:40px;
+margin-left:-20px;margin-top:-20px;text-align:center;display:none;
+box-shadow:1px 2px 3px #ddd;}
+ 
+
+}
+
+</style>
+</head>
+<body>
+<?php include'../inc/header.php'?>
+<div class='sub3_content'>
+<h2>세일 및 이벤트</h2>
+<div class='sub3_form'>
+<div class='sub3_forminner'>
+<select id="sub3_select">
+<option value="전체" selected>전체</option>
+<option value="제목">제목</option>
+<option value="내용">내용</option>
+</select>
+<div class='searchbox'>
+<label for="sub3_search"></label>
+<input type="search" id='sub3_search' />
+<a href="#" class='sub3_searchbtn'><img src="../image/search2.png" alt="검색버튼"></a>
+</div>
+</div>
+</div><!-- sub3_form -->
+</div><!-- sub3_content -->
+<div class='contentinner'>
+<ul class='sub3_event'>
+	<li><a href="#"><img src="../image/event1.jpg" alt="이벤트1">
+	<div class='eventtext'>
+	<h4>3월 릴레이세일 코트, 스웨터 20%</h4>
+	<p>2017.03.13 ~ 2017.03.18</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event2.jpg" alt="이벤트2">
+	<div class='eventtext'>
+	<h4>겨울옷 세탁 20% 할인</h4>
+	<p>2016.06.23 ~ 2016.06.25</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event3.jpg" alt="이벤트3">
+	<div class='eventtext'>
+	<h4>11월 겨울옷 세탁 20%세일</h4>
+	<p>2016.11.14 ~ 2016.11.19</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event4.jpg" alt="이벤트4">
+	<div class='eventtext'>
+	<h4>코트, 스웨터 세탁비 20% 할인!</h4>
+	<p>2016.03.14 ~ 2016.03.19</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event5.jpg" alt="이벤트5">
+	<div class='eventtext'>
+	<h4>6주간의 릴레이 세일 - 3주차</h4>
+	<p>2014.02.24 ~ 2014.03.01</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event6.jpg" alt="이벤트6">
+	<div class='eventtext'>
+	<h4>CLEAR 가 토익 수강권을 지원해드립니다</h4>
+	<p>2015.06.03 ~ 2015.06.30</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event7.jpg" alt="이벤트7">
+	<div class='eventtext'>
+	<h4>8월 굿바이 썸머 이벤트</h4>
+	<p>2014.08.18 ~ 2014.08.23</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event8.jpg" alt="이벤트8">
+	<div class='eventtext'>
+	<h4>아웃도어전문세탁서비스 런칭 이벤트</h4>
+	<p>2014.06.18 ~ 2014.06.23</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event9.jpg" alt="이벤트9">
+	<div class='eventtext'>
+	<h4>쓴 만큼 크게 돌아온다.</h4>
+	<p>2014.04.17 ~ 2014.04.27 </p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event10.jpg" alt="이벤트10">
+	<div class='eventtext'>
+	<h4>키친아트와 함께하는 100% 펑펑! BIG선물대잔치</h4>
+	<p>2013.12.26 ~ 2013.12.30</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event11.jpg" alt="이벤트11">
+	<div class='eventtext'>
+	<h4>[1월 이벤트]침구류세탁 1점을 접수하면 1점은 공짜~</h4>
+	<p>2013.01.10 ~ 2013.01.19</p>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="../image/event12.jpg" alt="이벤트12">
+	<div class='eventtext'>
+	<h4>여름맞이 CLEAR 20% 세탁세일 이벤트</h4>
+	<p>2012.06.21 ~ 2012.06.24 </p>
+	</div>
+	</a></li>
+</ul>
+</div><!-- contentinner -->
+<?php include'../inc/footer.php'?>
+</body>
+</html>
