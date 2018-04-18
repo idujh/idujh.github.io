@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Document</title>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+$('.gage1').css({width:0})
+$('.gage1').stop().animate({width:'100%'},20000,'linear')
+
+$('.gnb>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+$('.gnbbg').stop().slideDown()
+$('.gnb>li>ul').stop().slideDown()
+$('.gnb>li>ul').removeClass('on999')
+$(this).next().addClass('on999')
+$('.gnb>li>a').removeClass('on888',100)
+$(this).addClass('on888',200)
+$('.headerwrap').css({backgroundColor:'#fff'})
+$('.gnb>li>a').css({color:'#000'})
+$('.header h1>a>img').attr({src:'image/logo1.png'})
+$('.support1').css({color:'#f59b33'})
+$('.support1>img').attr({src:'image/utill1_on.png'})
+$('.support2').css({color:'#f5b829'})
+$('.support2>img').attr({src:'image/utill2_on.png'})
+$('.support3').css({color:'#c1c1c1',borderColor:'#ddd'})
+
+var src=$(this).attr('data-src')
+var now=1
+var total=15
+
+$('.img1').fadeIn(700)
+
+var loop=setInterval(function(){
+if (now==total-1)
+{
+	clearInterval(loop)
+}
+now++
+//$('.img1').css({background:'url(img/b'+now+'.png) 0 0 no-repeat'})
+//$('.img2').css({background:'url(img/c'+now+'.png) 0 0 no-repeat'})
+//$('.img1').find('img').attr({src:'image/b'+now+'.png'})
+//$('.img2').find('img').attr({src:'image/c'+now+'.png'})
+//$('.img3').find('img').attr({src:'image/b'+now+'.png'})
+//$('.img4').find('img').attr({src:'image/c'+now+'.png'})
+//$('.img5').find('img').attr({src:'image/b'+now+'.png'})
+
+$('.img1>img').attr({src:(src+now)+'.png'})
+},60)
+
+})
+})//gnb>li>a
+
+$('.gnb>li>ul').on('mouseenter focus',function(){
+$('.gnb>li>ul').removeClass('on999')
+$(this).addClass('on999')
+$('.gnb>li>a').removeClass('on888',100)
+$(this).prev().addClass('on888',200)
+var src=$(this).prev().attr('data-src')
+var now=1
+var total=15
+var loop=setInterval(function(){
+if (now==total-1)
+{
+	clearInterval(loop)
+}
+now++
+$('.img1>img').attr({src:(src+now)+'.png'})
+},60)
+})//gnb>li>ul
+
+$('.gnbbg').on('mouseenter focus',function(){
+$('.gnbbg').stop().slideDown()
+$('.gnb>li>ul').stop().slideDown()
+$('.headerwrap').css({backgroundColor:'#fff'})
+$('.gnb>li>a').css({color:'#000'})
+$('.header h1>a>img').attr({src:'image/logo1.png'})
+$('.support1').css({color:'#f59b33'})
+$('.support1>img').attr({src:'image/utill1_on.png'})
+$('.support2').css({color:'#f5b829'})
+$('.support2>img').attr({src:'image/utill2_on.png'})
+$('.support3').css({color:'#c1c1c1',borderColor:'#ddd'})
+})
+
+$('.headerwrap').on('mouseleave blur',function(){
+$('.gnbimg>p').hide()
+$('.gnbbg').stop().slideUp()
+$('.gnb>li>ul').stop().slideUp()
+$('.gnb>li>ul').removeClass('on999')
+$('.gnb>li>a').removeClass('on888')
+$('.headerwrap').css({backgroundColor:'transparent'})
+$('.gnb>li>a').css({color:'#fff'})
+$('.header h1>a>img').attr({src:'image/logo.png'})
+$('.support1').css({color:'#fff'})
+$('.support1>img').attr({src:'image/utill1_off.png'})
+$('.support2').css({color:'#fff'})
+$('.support2>img').attr({src:'image/utill2_off.png'})
+$('.support3').css({color:'#fff',borderColor:'#fff'})
+})
+
+
+
+$('.movie2>video').attr({autoplay:false})
+$('.movie3>video').attr({autoplay:false})
+
+var movie1=$('.movie1>video').attr('src')
+var movie2=$('.movie2>video').attr('src')
+var movie3=$('.movie3>video').attr('src')
+var bgm=new Audio('movie/bgm.mp3')
+bgm.play()
+bgm.loop=true
+
+
+var mmovie=1
+var mtotal=3
+var loop1=setInterval(function(){
+if (mmovie==mtotal)
+{
+	mmovie=0
+}
+mmovie++
+$('.movie').hide()
+$('.movie'+mmovie+'>video').attr({src:'movie/movie'+mmovie+'.mp4'})
+//$('.movie2>video').attr({src:movie2})
+//$('.movie3>video').attr({src:movie3})
+$('.gage').css({width:0})
+$('.gage').hide()
+$('.gage'+mmovie).show()
+$('.gage'+mmovie).stop().animate({width:'100%'},20000,'linear')
+$('.movie'+mmovie).fadeIn()
+$('.movie>video').attr({autoplay:false})
+$('.movie'+mmovie+'>video').attr({autoplay:true})
+},20000)
+
+var stopbtn=true;
+$('.stopbtn').on('click',function(){
+if (stopbtn)
+{
+clearInterval(loop1)
+$('.gage').stop().animate({width:0},400,'linear')
+$('.stopbtn>img').attr({src:'image/btn_play.png'})
+$('.soundbtn>img').attr({src:'image/btn_mute.png'})
+$('.movie'+mmovie+'>video').attr({src:'movie/movie'+mmovie+'.mp4'})
+//$('.movie2>video').attr({src:movie2})
+//$('.movie3>video').attr({src:movie3})
+$('.movie'+mmovie+'>video').attr({autoplay:false})
+//$('.movie2>video').attr({autoplay:false})
+//$('.movie3>video').attr({autoplay:false})
+bgm.pause()
+stopbtn=false
+}else{
+clearInterval(loop1)
+$('.gage'+mmovie).stop().animate({width:'100%'},20000,'linear')
+loop1=setInterval(function(){
+if (mmovie==mtotal)
+{
+	mmovie=0
+}
+mmovie++
+$('.movie').hide()
+$('.movie'+mmovie+'>video').attr({src:'movie/movie'+mmovie+'.mp4'})
+//$('.movie2>video').attr({src:movie2})
+//$('.movie3>video').attr({src:movie3})
+$('.gage').css({width:0})
+$('.gage').hide()
+$('.gage'+mmovie).show()
+$('.gage'+mmovie).stop().animate({width:'100%'},20000,'linear')
+$('.movie'+mmovie).fadeIn()
+$('.movie>video').attr({autoplay:false})
+$('.movie'+mmovie+'>video').attr({autoplay:true})
+},20000)
+
+$('.stopbtn>img').attr({src:'image/btn_pause.png'})
+$('.soundbtn>img').attr({src:'image/btn_sound.png'})
+$('.movie'+mmovie+'>video').attr({src:'movie/movie'+mmovie+'.mp4'})
+//$('.movie2>video').attr({src:movie2})
+//$('.movie3>video').attr({src:movie3})
+$('.movie>video').attr({autoplay:false})
+$('.movie'+mmovie+'>video').attr({autoplay:true})
+//$('.movie2>video').attr({autoplay:true})
+//$('.movie3>video').attr({autoplay:true})
+bgm.play()
+stopbtn=true
+}
+return false
+})//stopbtnclick
+
+var soundbtn=true;
+$('.soundbtn').on('click',function(){
+if (soundbtn)
+{
+$('.soundbtn>img').attr({src:'image/btn_mute.png'})
+bgm.pause()
+soundbtn=false
+}else{
+$('.soundbtn>img').attr({src:'image/btn_sound.png'})
+bgm.play()
+soundbtn=true
+}
+return false
+})//soundbtn
+
+
+var family=true
+$('.family').on('click',function(){
+if (family)
+{
+	$('.family_list').slideDown()
+    $('.family').css({background:'#f5f6f8 url(image/arrowup.png) 95% 50% no-repeat'})
+	family=false
+}else{
+    $('.family_list').slideUp()
+    $('.family').css({background:'#f5f6f8 url(image/arrowdown.png) 95% 50% no-repeat'})
+	family=true
+}
+return false
+})
+
+$('.familywrap').on({
+mouseleave:function(){
+$('.family_list').slideUp()
+$('.family').css({background:'#f5f6f8 url(image/arrowdown.png) 95% 50% no-repeat'})
+family=true
+}
+})
+
+
+
+})//ready
+</script>
+
+<style>
+@import url(http://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'NotoSansKR',sans-serif;font-size:16px;color:#5e5e5e;}
+li{list-style:none;}
+a{text-decoration:none;color:#5e5e5e;}
+img{vertical-align: middle;border:none;border:0;max-width:100%;}
+a:hover{color:#a9b734;}
+a:focus{color:#a9b734;}
+.wrap{width:100%;}
+.headerwrap{border-bottom:1px solid rgba(254,254,254,0.5);width:100%;
+height:80px;padding-top:10px;z-index:1;min-width:1200px;}
+.header{width:1200px;margin:0 auto;height:100%;}
+.header h1{float:left;height:100%;}
+.header h1>a{display:block;}
+.gnbbg{position: absolute;width:100%;background-color:#35383a;height:300px;
+top:80px;left:0;opacity:0.95;display:none;}
+.gnb{float:left;text-align: center;position: relative;margin-left:25px;}
+.gnb>li{float:left;position: relative;}
+.gnb>li>a{display:block;width:155px;line-height: 64px;color:#fff;font-weight:600;}
+.gnb>li>a.on888{border-bottom:6px solid #a9b734;}
+.gnb>li>ul{position: absolute;width:100%;top:70px;height:300px;line-height: 260%;padding-top:30px;display:none;}
+.gnb>li>ul.on999{background-color:rgba(255,255,255,0.1);}
+.gnb>li>ul>li>a{display:block;color:#fff;font-weight:200;}
+.gnb>li>ul>li>a:hover{color:#a9b734;}
+.gnbwrap{position: relative;}
+.gnbimg{position: absolute;top:102.5px;left:0;text-align:left;
+width:200px;height:190px;}
+.gnbimg img{width:180px;}
+.gnbimg>p{width:100%;position: absolute;display:none;}
+.gnbimg>p>img{vertical-align: middle;}
+.support{float:left;width:223px;text-align: center;}
+.support>a{float:left;display:block;width:74.333px;color:#fff;font-size:0.75em;
+font-weight:400;}
+.support .support1{line-height: 140%;margin-top:6px;}
+.support .support2{line-height: 140%;margin-top:6px;}
+.support .support3{border: 1px solid rgba(255,255,255,0.6);border-radius:20px;
+height:40px;line-height: 38px;margin-top:10px;font-weight:400;font-size:0.8em;}
+.content{}
+.moviewrap{height:780px;}
+.movie{position: absolute;left:0;top:0;z-index:-1;display:none;width:100%;overflow: hidden;
+min-width:1200px;}
+.movie1{display:block;}
+.movie video{}
+.controlswrap{width:100%;background-color:#f5f6f8;z-index:1;position: relative;min-width:1200px;}
+.controls{width:1200px;margin:0 auto;padding:4px 0;overflow: hidden;}
+.controls a{float:left;margin-left:14px;display:block;}
+.gage{width:0;height:100%;position: absolute;left:0;top:0;z-index:-1;}
+.gage1{background-color: #6bd198;}
+.gage2{background-color: #bb3242;}
+.gage3{background-color: #b5cb5f;}
+.Information{}
+.Information_inner{width:1200px;margin:0 auto;overflow: hidden;text-align: center;}
+.Information_inner>a{float:left;width:300px;display:block;padding:20px;}
+.Information_inner>a:hover{background-color: #f5f6f8;}
+.Information_inner>a h2{text-align: left;clear:both;font-weight:500;color:#202020;
+font-size:1.2em;}
+.Information_inner>a img{margin-top:20px;height:109px;}
+.Information_inner>a p{margin-top:20px;line-height: 140%;color:#3c3c3c;font-weight:300;}
+.footer{border-top:1px solid #ddd;min-width:1200px;}
+.footerinner{width:1200px ;margin:0 auto;}
+.information{text-align: center;overflow: hidden;border-bottom:1px solid #ddd;}
+.information a{display:block;font-size:15px;float:left;color:#606060;width:9.5%;
+padding:15px 0;}
+.information a:hover{color:#a9b734;}
+.information a:focus{color:#a9b734;}
+.information a>img{vertical-align: bottom;}
+.information .bdl{border-left:1px solid #ddd;width:12%;}
+.information .bdr{border-right:1px solid #ddd;background-color: #f5f6f8;}
+.information .bdr>img{vertical-align:middle;}
+.information .tar{text-align:right;}
+.copyrightwrap{padding:30px;position: relative;}
+.copyright{color:#a2a3a6;font-size:14px;font-weight:400;clear:both;}
+.familywrap{width:288px;position: absolute;right:0;top:30px;}
+.family{display:block;width:288px;padding:10px 0 10px 20px;color:#606060;font-size:15px;font-weight:400;
+background:#f5f6f8 url(image/arrowdown.png) 95% 50% no-repeat;}
+.family:hover{color:#606060;}
+.family:focus{color:#606060;}
+.family_list{position: absolute;bottom:42px;left:0;border: 1px solid #eaeaea;
+width:100%;display:none;}
+.family_list>ul{width:100%;}
+.family_list>ul>li>a{display:block;background-color:#fff;
+padding:6px 0 6px 20px;font-size:14px;}
+
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='headerwrap'>
+<div class='gnbbg'></div>
+<div class='header'>
+<h1><a href="#"><img src="image/logo.png" alt="로고1"></a></h1>
+<div class='gnbwrap'>
+<ul class='gnb'>
+	<li><a href="#" data-src='image/c'>회사소개</a>
+	<ul class='gnb1'>
+		<li><a href="#">회사소개</a></li>
+		<li><a href="#">경영정신</a></li>
+		<li><a href="#">연혁</a></li>
+	</ul>
+	</li>
+	<li><a href="#" data-src='image/b'>사업영역</a>
+	<ul class='gnb2'>
+		<li><a href="#">사업영역</a></li>
+	</ul>
+	</li>
+	<li><a href="#" data-src='image/i'>투자정보</a>
+	<ul class='gnb3'>
+		<li><a href="#">재무정보</a></li>
+		<li><a href="#">기업지배구조</a></li>
+		<li><a href="#">IR자료실</a></li>
+		<li><a href="#">공고</a></li>
+	</ul>
+	</li>
+	<li><a href="#" data-src='image/r'>인재채용</a>
+		<ul class='gnb4'>
+		<li><a href="#">인재상</a></li>
+		<li><a href="#">인재육성</a></li>
+		<li><a href="#">복리후생</a></li>
+		<li><a href="#">직무소개</a></li>
+		<li><a href="#">입사지원</a></li>
+	</ul>
+	</li>
+	<li><a href="#" data-src='image/t'>기업문화</a>
+		<ul class='gnb5'>
+		<li><a href="#">신기문화</a></li>
+		<li><a href="#">사회공헌</a></li>
+		<li><a href="#">윤리경영</a></li>
+	</ul>
+	</li>
+</ul><!-- gnb -->
+<div class='gnbimg'>
+<p class='img1 img'><img src="image/b1.png" alt="애니메이션이미지"></p>
+</div>
+</div>
+<div class='support'>
+<a href="#" class='support1'><img src="image/utill1_off.png" alt="선생님지원"><br>선생님 지원</a>
+<a href="#" class='support2'><img src="image/utill2_off.png" alt="상담신청"><br>상담신청</a>
+<a href="#" class='support3'>ENGLISH</a>
+</div>
+</div><!-- header -->
+</div><!-- headerwrap -->
+<div class='content'>
+<div class='moviewrap'>
+
+<div class='movie1 movie'>
+<video src="movie/movie1.mp4" autoplay='' poster='image/VISUAL_KOR_4.jpg' class='mm1'></video>
+</div>
+
+<div class='movie2 movie'>
+<video src="movie/movie2.mp4" class='mm2' poster='image/VISUAL_KOR_5.jpg'></video>
+</div>
+
+<div class='movie3 movie'>
+<video src="movie/movie3.mp4" class='mm3' poster='image/VISUAL_KOR_6.jpg'></video>
+</div>
+
+</div><!-- moviewrap -->
+<div class='controlswrap'>
+<div class='gage1 gage'></div>
+<div class='gage2 gage'></div>
+<div class='gage3 gage'></div>
+<div class='controls'>
+<a href="#" class='stopbtn'><img src="image/btn_pause.png" alt="영상컨트롤버튼"></a>
+<a href="#" class='soundbtn'><img src="image/btn_sound.png" alt="사운드컨트롤버튼"></a>
+</div>
+</div>
+<div class='Information'>
+<div class='Information_inner'>
+
+<a href="#">
+<h2>경영정신</h2>
+<img src="image/icon1.png" alt="경영정신">
+<p>사랑하고 또 사랑하고<br>
+또 사랑합니다.
+</p>
+</a>
+
+<a href="#">
+<h2>사업영역</h2>
+<img src="image/icon2.png" alt="사업영역">
+<p>생각의 힘을<br>
+가진 아이
+</p>
+</a>
+
+<a href="#">
+<h2>투자정보</h2>
+<img src="image/icon3.png" alt="투자정보">
+<p>안정적인 재무구조로<br>
+지속가능 미래 준비
+</p>
+</a>
+
+<a href="#">
+<h2>인재상</h2>
+<img src="image/icon4.png" alt="인재상">
+<p>사람 또 사람,<br>
+그리고 사랑
+</p>
+</a>
+
+</div>
+</div><!-- Information -->
+
+</div><!-- content -->
+<div class='footer'>
+<div class='footerinner'>
+<div class='information'>
+<a href="#">오시는 길</a>
+<a href="#">개인정보 처리방침</a>
+<a href="#">이용약관</a>
+<a href="#">제휴 및 사업제안</a>
+<a href="#" class='tar'>윤리제보센터</a>
+<a href="#">증명서</a>
+<a href="#">판매인 검색</a>
+<a href="#">전자계약서</a>
+<a href="#" class='bdl'><img src="image/btn_member.png" alt="회원전용서비스"></a>
+<a href="#" class='bdl bdr'><img src="image/btn_wjbookclub.png" alt="웅진북클럽"></a>
+</div>
+<div class='copyrightwrap'>
+<p class='copyright'>
+경기도 파주시 회동길 20(우 10881)&nbsp;|&nbsp;대표이사:윤새봄&nbsp;|&nbsp;사업자등록번호:141-81-09131&nbsp;|&nbsp;고객센터:1577-1500(월~금 09:00 ~ 18:00)<br>COPYRIGHT © WOONGJIN THINKBIG. ALL RIGHTS RESERVED
+</p>
+<div class='familywrap'>
+<a href="#" class='family'>Family Site</a>
+<div class='family_list'>
+<ul>
+	<li><a href="#">웅진북클럽</a></li>
+	<li><a href="#">웅진씽크빅 단행본</a></li>
+	<li><a href="#">선생님 지원</a></li>
+	<li><a href="#">웅진컴퍼스</a></li>
+	<li><a href="#">웅진그룹</a></li>
+</ul>
+</div>
+</div><!-- familywrap-->
+
+</div><!-- copyrightwrap -->
+</div><!-- footerinner -->
+</div><!-- footer -->
+</div><!-- wrap -->
+</body>
+</html>
