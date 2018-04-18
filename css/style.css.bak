@@ -576,7 +576,7 @@ width:100%;background-color:#ffaa55;padding:4px;margin:0;font-weight:400;
 background-image:url(../image/menubg1.png),url(../image/menubg2.png);
 background-position:0 0,100% 100%;background-color: #fff;padding-right:0;
 background-size:cover,cover;line-height: 140%;}
-.character{position:absolute;right:10px;top:-90px;width:25%;}
+.character{position:absolute;right:20px;bottom:20px;width:25%;}
 .charactertext{position:absolute;width:60px;height:60px;left:-70px;top:-60px;
 text-align:center;border-radius:50% 50% 0 50%;background-color:#00468c;
 color:#bc79ff;font-size:12px;font-weight:400;padding-top:10px;line-height:160%;
