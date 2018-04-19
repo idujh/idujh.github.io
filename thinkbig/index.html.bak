@@ -264,7 +264,7 @@ top:80px;left:0;opacity:0.95;display:none;}
 .gnbwrap{position: relative;}
 .gnbimg{position: absolute;top:102.5px;left:0;text-align:left;
 width:200px;height:190px;}
-.gnbimg img{border: 1px solid #000;width:180px;}
+.gnbimg img{width:180px;}
 .gnbimg>p{width:100%;position: absolute;display:none;}
 .gnbimg>p>img{vertical-align: middle;}
 .support{float:left;width:223px;text-align: center;}
