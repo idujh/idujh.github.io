@@ -73,7 +73,7 @@ height:100%;left:100%;opacity:0;display:none;}
 .inner ul>li>a{display:block;color:#fff;width:100%;font-size:1.2em;}
 .inner ul>li>a:hover{color:#3eb134;}
 
-.intro{position:absolute;z-index:1;top:80px;width:100%;background:url(image/main_intro_bg.jpg) 0 0 no-repeat;background-size:cover;}
+.intro{position:absolute;z-index:1;top:80px;width:100%;background:url(../image/main_intro_bg.jpg) 0 0 no-repeat;background-size:cover;}
 .introtext{position:absolute;top:50%;left:50%;margin-left:-550px;margin-top:-75px;
 text-align:center;}
 .introtext h2{font-size:5em;color:#fff;font-weight:400;}
