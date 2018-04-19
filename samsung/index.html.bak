@@ -86,10 +86,10 @@
 </ul>
 <div class='maskinner'>
 <div class='slidebtn'>
-<a href="#" class='prev'></a>
-<a href="#" class='stop'></a>
-<a href="#" class='play'></a>
-<a href="#" class='next'></a>
+<a href="#" class='prev' title='이전'></a>
+<a href="#" class='stop' title='중지'></a>
+<a href="#" class='play' title='계속'></a>
+<a href="#" class='next' title='다음'></a>
 </div>
 <div class='pager'></div>
 </div>

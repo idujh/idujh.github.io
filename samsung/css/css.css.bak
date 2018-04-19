@@ -86,9 +86,9 @@ margin:0 auto;height:600px;overflow: hidden;}
 .slidebtn{position: absolute;bottom:0;right:0;z-index:1;overflow: hidden;}
 .slidebtn>a{float:left;display:block;background:url(../image/btn_visual_cnt.png);
 width:46px;height:46px;background-repeat:no-repeat;}
-.slidebtn>a:hover{border: 1px solid #ecffff;}
-.slidebtn>a:focus{border: 1px solid #ecffff;}
-.slidebtn>a.active{border: 1px solid #ecffff;}
+.slidebtn>a:hover{border: 2px solid #ecffff;opacity:0.7;}
+.slidebtn>a:focus{border: 2px solid #ecffff;opacity:0.7;}
+.slidebtn>a.active{border: 2px solid #ecffff;opacity:0.7;}
 .slidebtn .prev{background-position: 0 0;float:left;}
 .slidebtn .stop{background-position: -46px 0;float:left;}
 .slidebtn .next{background-position: -92px 0;float:right;}
