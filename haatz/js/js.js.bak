@@ -45,7 +45,7 @@ $('.slider').css({left:0})
 $('.gnb>li>a').each(function(index){
 $(this).on('mouseenter focus',function(){
 $('.headerbg').stop().slideDown()
-$('.gnb>li>a').css({color:'#4b4b4b'})
+$('.gnb>li>a').css({color:'#333'})
 $(this).css({color:'#2099d4'})
 $('.gnb>li>ul').stop().fadeIn(1000)
 $('.header_menu>a').css({borderLeftColor:'#ddd'})
