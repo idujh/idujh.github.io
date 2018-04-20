@@ -88,6 +88,7 @@ $(this).find('.text').stop().animate({left:'50%',top:'50%',marginLeft:-$(this).f
 $(this).stop().animate({scale:1.2},600,'easeOutExpo')
 })
 })
+return false
 }//click
 })//on
 }else{
@@ -106,6 +107,7 @@ $(this).find('.text').stop().animate({left:'50%',top:'50%',marginLeft:-$(this).f
 $(this).stop().animate({scale:1.05},600,'easeOutExpo')
 })
 })
+return false
 }//click
 })//on
 }

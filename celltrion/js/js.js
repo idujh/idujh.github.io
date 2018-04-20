@@ -114,6 +114,10 @@ return false
 })
 
 
+$(window).on('load',function(){
+$('.form').show()
+})
+
 
 
 

@@ -103,7 +103,7 @@ bottom:0;}
 .personal{color:#b9b9b9;font-size:14px;width:50%;float:left;}
 .personal a{display:inline-block;color:#b9b9b9;font-size:16px;}
 .personal .green{color:#57b749;}
-.form{float:left;width:50%;}
+.form{float:left;width:50%;display:none;}
 .forminner{float:right;width:20%;position:relative;}
 .forminner>a{color:#999999;background-color:#303135;padding:5%;border:1px solid #58595b;display:block;font-size:14px;width:100%;z-index:2;position:relative;}
 .forminner>a>img{position:absolute;top:50%;right:10px;margin-top:-3px;}
