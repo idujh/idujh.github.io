@@ -11,6 +11,7 @@
   <title>건영건설_sub1</title>
 <script src='https://code.jquery.com/jquery-latest.min.js'></script>
 <script src="js/slider.js"></script>
+<link rel="stylesheet" href="../css/css.css">
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -108,56 +109,6 @@ return false
 </script>
 
 <style type="text/css">
-/* 본고딕 웹폰트 가져오기 180124 morenvy.com */ 
-/* Noto Sans KR (korean) http://www.google.com/fonts/earlyaccess */ 
-@font-face { 
-  font-family: 'Noto Sans KR'; 
-  font-style: normal; 
-  font-weight: 100; 
-  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
-      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
-      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
-} 
-@font-face { 
-  font-family: 'Noto Sans KR'; 
-  font-style: normal; 
-  font-weight: 300; 
-  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
-      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
-      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
-} 
-@font-face { 
-  font-family: 'Noto Sans KR'; 
-  font-style: normal; 
-  font-weight: 400; 
-  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
- } 
-@font-face { 
-  font-family: 'Noto Sans KR'; 
-  font-style: normal; 
-  font-weight: 500; 
-  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
- } 
-@font-face { 
-  font-family: 'Noto Sans KR'; 
-  font-style: normal; 
-  font-weight: 700; 
-  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
- } 
-@font-face { 
-  font-family: 'Noto Sans KR'; 
-  font-style: normal; 
-  font-weight: 900; 
-  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
-        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
- }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family: 'Noto Sans KR', sans-serif;font-size:16px;
 color:#454545;}
@@ -232,66 +183,7 @@ margin-top:10px;}
 </style>
 
 </head>
- <body id='my'>
- <div class='gnbbg'></div>
-<div class='wrap'>
-<div class='header'>
-<div class='headerinner'>
-<h1><a href="../index.html"><img src="../image/logo1.gif" alt="로고1"></a></h1>
-<ul class='gnb'>
-	<li><a href="sub1.html">회사소개</a>
-	<ul class='m1'>
-		<li><a href="sub1.html">CEO소개</a></li>
-		<li><a href="sub1.html">주요연혁</a></li>
-		<li><a href="sub1.html">경영이념</a></li>
-		<li><a href="sub1.html">조직도</a></li>
-		<li><a href="sub1.html">오시는길</a></li>
-	</ul>
-	</li>
-	<li><a href="sub2.html">주요사업</a>
-	<ul class='m2'>
-		<li><a href="sub2.html">토목</a></li>
-		<li><a href="sub2.html">건축</a></li>
-		<li><a href="sub2.html">플랜트</a></li>
-		<li><a href="sub2.html">주택</a></li>
-		<li><a href="sub2.html">개발</a></li>
-		<li><a href="sub2.html">발전설비/에너지</a></li>
-		<li><a href="sub2.html">해외사업</a></li>
-	</ul>
-	</li>
-	<li><a href="sub3.html">지속가능경영</a>
-	<ul class='m3'>
-		<li><a href="sub3.html">품질/안전/환경경영</a></li>
-		<li><a href="sub3.html">사회공헌</a></li>
-		<li><a href="sub3.html">윤리경영</a></li>
-	</ul>
-	</li>
-	<li><a href="sub4.html">채용정보</a>
-	<ul class='m4'>
-		<li><a href="sub4.html">인재상</a></li>
-		<li><a href="sub4.html">인사제도/복리후생</a></li>
-		<li><a href="sub4.html">채용안내</a></li>
-		<li><a href="sub4.html">채용공고</a></li>
-		<li><a href="sub4.html">온라인채용</a></li>
-	</ul>
-	</li>
-	<li><a href="sub5.html">홍보센터</a>
-	<ul class='m5'>
-		<li><a href="sub5.html">보도자료</a></li>
-		<li><a href="sub5.html">CI/BI</a></li>
-		<li><a href="sub5.html">홍보자료</a></li>
-	</ul>
-	</li>
-	<li><a href="sub6.html" class='border_right'>고객센터</a>
-	<ul class='m6'>
-		<li><a href="sub6.html">자주하는질문</a></li>
-		<li><a href="sub6.html">온라인상담실</a></li>
-		<li><a href="sub6.html">Contact Us</a></li>
-	</ul>
-	</li>
-</ul>
-</div><!-- headerinner -->
-</div><!-- header -->
+<?php include'../inc/header.php'?>
 <div class='content'>
 <div class='sub1_visualwrap'>
 <div class='sub1_visual'>
