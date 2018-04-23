@@ -18,7 +18,7 @@ $('.bigimg_content').html($('.thum').first().find('img').attr('alt'))
 $('.next').on('click',function(){
 if (now==total)
 {
-alert('마지막페이지입니다')
+alert('마지막 페이지입니다')
 now=total-1
 }
 now++
@@ -34,7 +34,7 @@ $('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 $('.prev').on('click',function(){
 if (now==1)
 {
-alert('첫번째페이지입니다')
+alert('첫번째 페이지입니다')
 now=2
 }
 now--
@@ -48,23 +48,23 @@ $('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 })
 
 
-$('.next').on('mouseenter focus',function(){
+$('.next').on({
+mouseenter:function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('.png','_on.png')})
-})
-$('.next').on('mouseleave blur',function(){
+$(this).find('img').attr({src:src.replace('_off.png','_on.png')})
+},
+mouseleave:function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('_on.png','.png')})
+$(this).find('img').attr({src:src.replace('_on.png','_off.png')})
+}
 })
+
 
 $('.prev').on('mouseenter focus',function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('.png','_on.png')})
+$(this).find('img').attr({src:src.replace('_off.png','_on.png')})
 })
-$('.prev').on('mouseleave blur',function(){
-var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('_on.png','.png')})
-})
+
 
 $(window).on('load',function(){
 $('.bigimg_content').css({marginLeft:-$('.bigimg_content').width()/2
@@ -100,7 +100,7 @@ text-align: center;}
 
 <div class='view'>
 <div class='thumwrap'>
-<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1<br>중앙정렬1"></a>
+<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1<br>중앙정렬"></a>
 <a href="#" class='thum2 thum'><img src="img/thum2.jpg" alt="thum2"></a>
 <a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="thum3<br>중앙정렬"></a>
 <a href="#" class='thum4 thum'><img src="img/thum4.jpg" alt="thum4"></a>
@@ -110,10 +110,10 @@ text-align: center;}
 <a href="#" class='thum8 thum'><img src="img/thum8.jpg" alt="thum8"></a>
 </div>
 <div class='bigimgwrap'>
-<a href="#" class='prev'><img src="img/btn_prev.png" alt="이전버튼"></a>
+<a href="#" class='prev'><img src="img/prev_off.png" alt="이전버튼"></a>
 <a href="#" class='bigimg'><img src="img/movie1.jpg" alt="큰이미지"></a>
 <p class='bigimg_content'></p>
-<a href="#" class='next'><img src="img/btn_next.png" alt="다음버튼"></a>
+<a href="#" class='next'><img src="img/next_off.png" alt="다음버튼"></a>
 </div>
 
 

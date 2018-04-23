@@ -48,23 +48,29 @@ $('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 })
 
 
-$('.next').on('mouseenter focus',function(){
+$('.next').on({
+mouseenter:function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('.png','_on.png')})
-})
-$('.next').on('mouseleave blur',function(){
+$(this).find('img').attr({src:src.replace('_off.png','_on.png')})
+},
+mouseleave:function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('_on.png','.png')})
+$(this).find('img').attr({src:src.replace('_on.png','_off.png')})
+}
 })
 
-$('.prev').on('mouseenter focus',function(){
+
+$('.prev').on({
+mouseenter:function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('.png','_on.png')})
-})
-$('.prev').on('mouseleave blur',function(){
+$(this).find('img').attr({src:src.replace('_off.png','_on.png')})
+},
+mouseleave:function(){
 var src=$(this).find('img').attr('src')
-$(this).find('img').attr({src:src.replace('_on.png','.png')})
+$(this).find('img').attr({src:src.replace('_on.png','_off.png')})
+}
 })
+
 
 $(window).on('load',function(){
 $('.bigimg_content').css({marginLeft:-$('.bigimg_content').width()/2
@@ -110,10 +116,10 @@ text-align: center;}
 <a href="#" class='thum8 thum'><img src="img/thum8.jpg" alt="thum8"></a>
 </div>
 <div class='bigimgwrap'>
-<a href="#" class='prev'><img src="img/btn_prev.png" alt="이전버튼"></a>
+<a href="#" class='prev'><img src="img/prev_off.png" alt="이전버튼"></a>
 <a href="#" class='bigimg'><img src="img/movie1.jpg" alt="큰이미지"></a>
 <p class='bigimg_content'></p>
-<a href="#" class='next'><img src="img/btn_next.png" alt="다음버튼"></a>
+<a href="#" class='next'><img src="img/next_off.png" alt="다음버튼"></a>
 </div>
 
 
