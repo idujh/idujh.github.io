@@ -18,7 +18,7 @@ $('.bigimg_content').html($('.thum').first().find('img').attr('alt'))
 $('.next').on('click',function(){
 if (now==total)
 {
-alert('마지막페이지입니다')
+alert('마지막 페이지입니다')
 now=total-1
 }
 now++
@@ -27,14 +27,14 @@ $('.thum').removeClass('on')
 $('.thum'+now).addClass('on')
 var alt=$('.thum'+now).find('img').attr('alt')
 $('.bigimg_content').html(alt)
-$('.bigimg_content').css({marginLeft:-$('.bigimg_content').width()/2
+$('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 ,marginTop:-$('.bigimg_content').height()/2})
 })
 
 $('.prev').on('click',function(){
 if (now==1)
 {
-alert('첫번째페이지입니다')
+alert('첫번째 페이지입니다')
 now=2
 }
 now--
@@ -43,16 +43,25 @@ $('.thum').removeClass('on')
 $('.thum'+now).addClass('on')
 var alt=$('.thum'+now).find('img').attr('alt')
 $('.bigimg_content').html(alt)
-$('.bigimg_content').css({marginLeft:-$('.bigimg_content').width()/2
+$('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 ,marginTop:-$('.bigimg_content').height()/2})
 })
 
 
-$('.next,.prev').on('mouseenter focus',function(){
+$('.next').on('mouseenter focus',function(){
 var src=$(this).find('img').attr('src')
 $(this).find('img').attr({src:src.replace('.png','_on.png')})
 })
-$('.next,.prev').on('mouseleave blur',function(){
+$('.next').on('mouseleave blur',function(){
+var src=$(this).find('img').attr('src')
+$(this).find('img').attr({src:src.replace('_on.png','.png')})
+})
+
+$('.prev').on('mouseenter focus',function(){
+var src=$(this).find('img').attr('src')
+$(this).find('img').attr({src:src.replace('.png','_on.png')})
+})
+$('.prev').on('mouseleave blur',function(){
 var src=$(this).find('img').attr('src')
 $(this).find('img').attr({src:src.replace('_on.png','.png')})
 })
@@ -82,7 +91,8 @@ a:focus{}
 .next{position: absolute;top:50%;right:0;margin-top:-50px;display:block;}
 .prev{position: absolute;top:50%;left:0;margin-top:-50px;display:block;}
 .bigimg_content{position: absolute;left:50%;top:50%;font-size:2em;
-background-color:#000;color:#fff;opacity:0.7;padding:10px;}
+background-color:#000;color:#fff;opacity:0.7;padding:10px;
+text-align: center;}
 
 </style>
 </head>
@@ -90,13 +100,13 @@ background-color:#000;color:#fff;opacity:0.7;padding:10px;}
 
 <div class='view'>
 <div class='thumwrap'>
-<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1"></a>
+<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1<br>중앙정렬"></a>
 <a href="#" class='thum2 thum'><img src="img/thum2.jpg" alt="thum2"></a>
-<a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="thum3"></a>
+<a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="thum3<br>중앙정렬"></a>
 <a href="#" class='thum4 thum'><img src="img/thum4.jpg" alt="thum4"></a>
-<a href="#" class='thum5 thum'><img src="img/thum5.jpg" alt="thum5"></a>
+<a href="#" class='thum5 thum'><img src="img/thum5.jpg" alt="thum5<br>중앙정렬"></a>
 <a href="#" class='thum6 thum'><img src="img/thum6.jpg" alt="thum6"></a>
-<a href="#" class='thum7 thum'><img src="img/thum7.jpg" alt="thum7"></a>
+<a href="#" class='thum7 thum'><img src="img/thum7.jpg" alt="thum7<br>중앙정렬"></a>
 <a href="#" class='thum8 thum'><img src="img/thum8.jpg" alt="thum8"></a>
 </div>
 <div class='bigimgwrap'>

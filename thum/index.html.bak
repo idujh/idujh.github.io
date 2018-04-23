@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width">
 <!-- saved from url=(0013)about:internet -->
 <!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@ $('.thum').removeClass('on')
 $('.thum'+now).addClass('on')
 var alt=$('.thum'+now).find('img').attr('alt')
 $('.bigimg_content').html(alt)
-$('.bigimg_content').css({marginLeft:-$('.bigimg_content').width()/2
+$('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 ,marginTop:-$('.bigimg_content').height()/2})
 })
 
@@ -43,16 +43,25 @@ $('.thum').removeClass('on')
 $('.thum'+now).addClass('on')
 var alt=$('.thum'+now).find('img').attr('alt')
 $('.bigimg_content').html(alt)
-$('.bigimg_content').css({marginLeft:-$('.bigimg_content').width()/2
+$('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 ,marginTop:-$('.bigimg_content').height()/2})
 })
 
 
-$('.next,.prev').on('mouseenter focus',function(){
+$('.next').on('mouseenter focus',function(){
 var src=$(this).find('img').attr('src')
 $(this).find('img').attr({src:src.replace('.png','_on.png')})
 })
-$('.next,.prev').on('mouseleave blur',function(){
+$('.next').on('mouseleave blur',function(){
+var src=$(this).find('img').attr('src')
+$(this).find('img').attr({src:src.replace('_on.png','.png')})
+})
+
+$('.prev').on('mouseenter focus',function(){
+var src=$(this).find('img').attr('src')
+$(this).find('img').attr({src:src.replace('.png','_on.png')})
+})
+$('.prev').on('mouseleave blur',function(){
 var src=$(this).find('img').attr('src')
 $(this).find('img').attr({src:src.replace('_on.png','.png')})
 })
@@ -79,10 +88,11 @@ a:focus{}
 .thumwrap>a{float:left;display:block;opacity:0.5;}
 .thumwrap>a.on{opacity:1;}
 .bigimgwrap{width:100%;position: relative;}
-.next{position: absolute;top:50%;right:0;margin-top:-50px;}
-.prev{position: absolute;top:50%;left:0;margin-top:-50px;}
+.next{position: absolute;top:50%;right:0;margin-top:-50px;display:block;}
+.prev{position: absolute;top:50%;left:0;margin-top:-50px;display:block;}
 .bigimg_content{position: absolute;left:50%;top:50%;font-size:2em;
-background-color:#000;color:#fff;opacity:0.7;padding:10px;}
+background-color:#000;color:#fff;opacity:0.7;padding:10px;
+text-align: center;}
 
 </style>
 </head>
@@ -90,13 +100,13 @@ background-color:#000;color:#fff;opacity:0.7;padding:10px;}
 
 <div class='view'>
 <div class='thumwrap'>
-<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1"></a>
+<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1<br>중앙정렬1"></a>
 <a href="#" class='thum2 thum'><img src="img/thum2.jpg" alt="thum2"></a>
-<a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="thum3"></a>
+<a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="thum3<br>중앙정렬"></a>
 <a href="#" class='thum4 thum'><img src="img/thum4.jpg" alt="thum4"></a>
-<a href="#" class='thum5 thum'><img src="img/thum5.jpg" alt="thum5"></a>
+<a href="#" class='thum5 thum'><img src="img/thum5.jpg" alt="thum5<br>중앙정렬"></a>
 <a href="#" class='thum6 thum'><img src="img/thum6.jpg" alt="thum6"></a>
-<a href="#" class='thum7 thum'><img src="img/thum7.jpg" alt="thum7"></a>
+<a href="#" class='thum7 thum'><img src="img/thum7.jpg" alt="thum7<br>중앙정렬"></a>
 <a href="#" class='thum8 thum'><img src="img/thum8.jpg" alt="thum8"></a>
 </div>
 <div class='bigimgwrap'>
