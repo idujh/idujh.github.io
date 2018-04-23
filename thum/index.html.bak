@@ -60,9 +60,15 @@ $(this).find('img').attr({src:src.replace('_on.png','_off.png')})
 })
 
 
-$('.prev').on('mouseenter focus',function(){
+$('.prev').on({
+mouseenter:function(){
 var src=$(this).find('img').attr('src')
 $(this).find('img').attr({src:src.replace('_off.png','_on.png')})
+},
+mouseleave:function(){
+var src=$(this).find('img').attr('src')
+$(this).find('img').attr({src:src.replace('_on.png','_off.png')})
+}
 })
 
 
