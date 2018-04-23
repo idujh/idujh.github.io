@@ -91,14 +91,14 @@ background-color:#000;color:#fff;opacity:0.7;padding:10px;}
 
 <div class='view'>
 <div class='thumwrap'>
-<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="택시운전사1"></a>
-<a href="#" class='thum2 thum'><img src="img/thum2.jpg" alt="택시운전사22"></a>
-<a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="택시운전사333"></a>
-<a href="#" class='thum4 thum'><img src="img/thum4.jpg" alt="택시운전사4444"></a>
-<a href="#" class='thum5 thum'><img src="img/thum5.jpg" alt="택시운전사55555"></a>
-<a href="#" class='thum6 thum'><img src="img/thum6.jpg" alt="택시운전사666666"></a>
-<a href="#" class='thum7 thum'><img src="img/thum7.jpg" alt="택시운전사7777777"></a>
-<a href="#" class='thum8 thum'><img src="img/thum8.jpg" alt="택시운전사88888888"></a>
+<a href="#" class='thum1 thum on'><img src="img/thum1.jpg" alt="thum1"></a>
+<a href="#" class='thum2 thum'><img src="img/thum2.jpg" alt="thum2"></a>
+<a href="#" class='thum3 thum'><img src="img/thum3.jpg" alt="thum3"></a>
+<a href="#" class='thum4 thum'><img src="img/thum4.jpg" alt="thum4"></a>
+<a href="#" class='thum5 thum'><img src="img/thum5.jpg" alt="thum5"></a>
+<a href="#" class='thum6 thum'><img src="img/thum6.jpg" alt="thum6"></a>
+<a href="#" class='thum7 thum'><img src="img/thum7.jpg" alt="thum7"></a>
+<a href="#" class='thum8 thum'><img src="img/thum8.jpg" alt="thum8"></a>
 </div>
 <div class='bigimgwrap'>
 <a href="#" class='prev'><img src="img/btn_prev.png" alt="이전버튼"></a>
