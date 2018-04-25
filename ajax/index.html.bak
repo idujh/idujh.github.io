@@ -23,6 +23,26 @@ $('.content').html(data);
 }
 })
 })
+$('.gnb2').on('click',function(){
+$.ajax({
+url:'sub2.html',
+type:'post',
+data:$('.sub2_content').serialize(),
+success:function(data){
+$('.content').html(data);
+}
+})
+})
+$('.gnb3').on('click',function(){
+$.ajax({
+url:'sub3.html',
+type:'post',
+data:$('.sub3_content').serialize(),
+success:function(data){
+$('.content').html(data);
+}
+})
+})
 
 
 
