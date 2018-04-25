@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Document</title>
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src='jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
@@ -18,7 +18,7 @@ $(this).on('click',function(){
 $.ajax({
 url:'sub'+(index+1)+'.html',
 type:'post',
-data:$('.sub'+(index+1)+'_content').serialize(),
+data:$('.sub'+(index+1)+'_content').html(),
 success:function(data){
 $('.content').html(data);
 }
@@ -36,7 +36,7 @@ $('.content').html(data);
 </script>
 
 <style>
-@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+@import url(http://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'NotoSansKR',sans-serif;font-size:14px;color:#333;}
 li{list-style:none;}
@@ -45,12 +45,15 @@ img{vertical-align: middle;border:none;border:0;max-width:100%;}
 a:hover{}
 a:focus{}
 .header{background-color: #ddd;text-align: center;padding:40px 0;}
-.gnb{clear:both;}
+.logo{border: 1px solid #666;padding:10px;display:inline-block;
+background-color: #fff;}
+.gnb{clear:both;width:600px;margin:0 auto;}
 .gnb>li{width:33.33%;float:left;}
+.gnb>li>a{display:inline-block;padding:4px;}
+.gnb>li>a:hover{border-bottom:2px solid #333;}
 .content{background-color:#333;text-align: center;color:#fff;}
 .footer{padding:40px 0;background-color: #ddd;
 text-align: center;}
-
 
 
 </style>
@@ -59,45 +62,47 @@ text-align: center;}
 
 
 
-<div class='header'>header
+<div class='header'>
+<h1 class='logo'><a href="http://idujh.dothome.co.kr/ajax/">logo [홈으로]</a></h1>
 <ul class='gnb'>
-	<li><a href="#" class='gnb1'>메뉴1</a></li>
-	<li><a href="#" class='gnb2'>메뉴2</a></li>
-	<li><a href="#" class='gnb3'>메뉴3</a></li>
+	<li><a href="#" class='gnb1'>sub1 btn</a></li>
+	<li><a href="#" class='gnb2'>sub2 btn</a></li>
+	<li><a href="#" class='gnb3'>sub3 btn</a></li>
 </ul>
 </div>
 
 <div class='content'>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
-메인컨텐츠<br>
+북코아에서 회원들을 대상으로 Reading Spark 서평 이벤트를 다음과 같이 개최합니다.<br><br>
+
+기간: 2014년 1월 21일~2월 19일<br><br>
+
+대상: 북코아 회원 중에서 영어 학습에 관심이 많은 분, 또는 그들의 중고생 자녀<br><br>
+
+절차:  아래 댓글로 서평 지원 (1월 28일까지).  댓글로 1~6권 중 한 권을 신청해주세요.<br><br>
+
+è  1/29일 서평단 발표(10명)<br><br>
+
+(회원가입시 기재하셨던 주소를 확인해 주십시요)<br><br>
+
+è  설 명절 이후 2/3일 도서 일괄발송.<br><br>
+
+è  지원자들이 책을 읽고 서평을 작성하여 4대 인터넷서점(교보, 예스24, 인터파크, 알라딘)에 모두 서평을 올린 후 해당url을 아래 댓글로 남기시면 됩니다(2월16일까지).<br><br>
+
+è  이벤트 담당자가 서평을 평가한 후에 시상함<br><br><br><br>
+
+ 
+
+시상: 완성도 높은 서평을 쓰신 지원자에게 시상함 (2월 19일 시상자 발표)<br><br>
+
+1등: 북코아 마일리지(B머니) 5만원<br><br>
+
+2등 북코아 마일리지(B머니) 4만원<br><br>
+
+3등: 북코아 마일리지(B머니) 3만원<br><br>
+
+4등~10등: 북코아 마일리지(B머니) 1만원<br><br>
+
+(북코아 마일리지는 사용기간의 제한없이 북코아의 도서를 이용하실 수 있는 북코아 가상머니입니다)
 </div>
 <div class='footer'>footer</div>
 
