@@ -1,0 +1,14 @@
+@import url(http://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'NotoSansKR',sans-serif;font-size:14px;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: middle;border:none;border:0;max-width:100%;}
+a:hover{}
+a:focus{}
+.wrap{background-color:green;}
+.header{padding:10px 0;text-align: center;border-bottom:1px solid #333;}
+/* 헤더css */
+
+.footer{padding:10px 0;text-align: center;border-top:1px solid #333;}
+/* 푸터css */
