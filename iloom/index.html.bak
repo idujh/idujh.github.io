@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<!-- saved from url=(0013)about:internet -->
 <!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Document</title>
@@ -18,17 +17,12 @@ $('.slide>li').first().show()
 var min=1
 var max=$('.slide>li').length
 var loop=setInterval(function(){
-$('.pager').css({color:'#333'})
 if (min==max)
 {
 	min=0
-}else if (min==max-1)
-{
-$('.pager').css({color:'#ddd'})
 }
 min++
-$('.slide>li').stop().fadeOut(1000)
-$('.slider'+min).stop().fadeIn(1200)
+$('.slider').fadeOut(1000)
 $('.pager>span').html(min)
 },6000)
 
@@ -53,8 +47,7 @@ img{vertical-align: middle;max-width:100%;border:none;}
 a:hover{color:#d00b17;}
 a:focus{color:#d00b17;}
 .wrap{}
-.header{position: absolute;width:100%;z-index:1;
-border: 1px solid #000;margin-left:-960px;left:50%;}
+.header{position: absolute;width:100%;z-index:1;}
 .headerinner{padding:10px 0;text-align: center;overflow: hidden;min-width:1200px;}
 .gnb{float:left;margin-left:40px;}
 .gnb>li{float:left;}
