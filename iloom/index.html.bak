@@ -24,7 +24,7 @@ if (min==max)
 	min=0
 }else if (min==max-1)
 {
-$('.pager').css({color:'#666'})
+$('.pager').css({color:'#ddd'})
 }
 min++
 $('.slide>li').fadeOut(1000)
