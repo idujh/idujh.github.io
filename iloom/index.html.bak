@@ -34,9 +34,6 @@ $('.pager>span').html(min)
 //헤더 스크롤이벤트
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
-setTimeout(function(){
-$('#headerinner2').css({top:top,position:'absolute'})
-},4000)
 if (top>100)
 {
 $('#headerinner1').fadeOut()
