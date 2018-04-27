@@ -10,8 +10,11 @@
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/jquery-ui.min.js'></script>
+<script src='js/jquery.transit.min.js'></script>
 <script>
 $(document).ready(function(){
+
+//메인비주얼인터발
 $('.slide>li>a').hide()
 $('.slide>li>a').first().show()
 
@@ -28,19 +31,31 @@ $('.slider'+min).fadeIn(1200)
 $('.pager>span').html(min)
 },6000)
 
+//헤더 스크롤이벤트
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
+setTimeout(function(){
+$('#headerinner2').css({top:top,position:'absolute'})
+},4000)
 if (top>100)
 {
-$('#headerinner1').fadeOut(1000)
-$('#headerinner2').fadeIn(1000)
+$('#headerinner1').fadeOut()
+$('#headerinner2').fadeIn()
 }else{
-$('#headerinner2').fadeOut(1000)
-$('#headerinner1').fadeIn(1000)
+$('#headerinner2').fadeOut()
+$('#headerinner1').fadeIn()
 }
 })
 
-
+//메인 카드섹션 마우스오버
+$('.gallery1 ul>li>a').on({
+mouseenter:function(){
+$(this).find('img').stop().animate({scale:1.03})
+},
+mouseleave:function(){
+$(this).find('img').stop().animate({scale:1})
+}
+})
 
 
 
@@ -58,11 +73,11 @@ a{text-decoration:none;color:#333;}
 img{vertical-align: middle;max-width:100%;border:none;}
 a:hover{color:#d00b17;}
 a:focus{color:#d00b17;}
-.wrap{}
-.header{position: absolute;width:100%;z-index:1;}
-.headerinner{padding:10px 0;text-align: center;overflow: hidden;min-width:1200px;}
-#headerinner2{display:none;background-color:#fff;opacity:0.9;
-position: fixed;top:0;width:100%;}
+.wrap{min-width:1500px;}
+.header{position: absolute;z-index:1;min-width:1500px;width:100%;}
+.headerinner{padding:10px 0;text-align: center;overflow: hidden;}
+#headerinner2{display:none;background-color:#fff;opacity:0.9;width:100%;top:0;
+position: fixed;min-width:1500px;}
 .gnb{margin-left:40px;float:left;}
 .gnb>li{float:left;}
 .gnb>li>a{display:block;margin-right:20px;font-weight:600;font-size:1.5rem;}
@@ -74,15 +89,27 @@ position: fixed;top:0;width:100%;}
 
 
 .content{}
-.mask{height:790px;position: relative;overflow: hidden;}
+.mask{height:790px;position: relative;}
+.slide>li>a{position: absolute;display:block;z-index:-99;left:50%;margin-left:-960px;}
+.slide>li>a>img{height:790px;}
 .pager{position: absolute;bottom:40px;left:60px;font-weight:600;font-size:1.6rem;
 letter-spacing:1px;z-index:1;}
 .pager>span{color:#d00b17;font-size:2.0rem;font-weight:bold;}
-.slide{}
-.slide>li{}
-.slide>li>a{position: absolute;display:block;left:50%;margin-left:-960px;z-index:-99}
-
-
+.gallery1{padding:70px 0;}
+.gallery1 ul{width:1500px;margin:0 auto;padding:0 20px;overflow: hidden;}
+.gallery1 ul>li{float:left;}
+.gallery1 ul>li>a{display:block;width:473.333px;margin-right:20px;overflow: hidden;}
+.gallery1 ul>li>a>img{width:100%;}
+.content .mr0{margin:0;}
+.gallery2{padding:50px 0;background-color: #f0f0f0;}
+.gallery2 h2{text-align: center;margin-bottom:30px;}
+.gallery2 ul{width:1500px;margin:0 auto;padding:0 20px;overflow: hidden;}
+.gallery2 ul>li{float:left;}
+.gallery2 ul>li>a{display:block;width:284px;margin-right:10px;}
+.readmore{margin-top:20px;text-align: center;}
+.readmore a{display:inline-block;border-bottom:1px solid #000;font-weight:200;
+font-size:1.2rem;color:#000;letter-spacing:0px;}
+.readmore a:hover{border-bottom-color:#d00b17;color:#d00b17;}
 
 
 
@@ -156,8 +183,24 @@ letter-spacing:1px;z-index:1;}
 <li><a href="#"  class='slider slider5'><img src="image/mainvisual5.png" alt="메인이미지5"></a></li>
 </ul>
 </div><!-- mask -->
-
-dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>
+<div class='gallery1'>
+<ul>
+<li><a href="#"><img src="image/_7f1c0cc6-2ee1-4b3c-bafc-b773b8ca11b3.jpg" alt="이벤트"></a></li>
+<li><a href="#"><img src="image/_4e5091f4-59e1-4330-9a66-d3f84cccd25f.jpg" alt="라이프스타일"></a></li>
+<li><a href="#" class='mr0'><img src="image/_18e9eb0e-e8b5-47ec-a739-c74bf9290ac0.jpg" alt="디자인어워드"></a></li>
+</ul>
+</div><!-- gallery1 -->
+<div class='gallery2'>
+<h2><img src="image/instagram.png" alt="인스타그램"></h2>
+<ul>
+	<li><a href="#"><img src="image/30592165_1928275874150380_268884086808903680_n.jpg" alt="인스타그램1"></a></li>
+	<li><a href="#"><img src="image/30084378_780900632119732_6915106678971039744_n.jpg" alt="인스타그램2"></a></li>
+	<li><a href="#"><img src="image/30076891_239749286573048_940548261016502272_n.jpg" alt="인스타그램3"></a></li>
+	<li><a href="#"><img src="image/30084284_174183656571167_8875781652144455680_n.jpg" alt="인스타그램4"></a></li>
+	<li><a href="#" class='mr0'><img src="image/29739851_573085329745173_5687372844137185280_n.jpg" alt="인스타그램5"></a></li>
+</ul>
+<div class='readmore'><a href="#">Read More</a></div>
+</div><!-- gallery2 -->
 
 </div><!-- content -->
 
