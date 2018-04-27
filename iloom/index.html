@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
+<!-- saved from url=(0013)about:internet -->
 <!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Document</title>
@@ -27,7 +28,17 @@ $('.slider'+min).fadeIn(1200)
 $('.pager>span').html(min)
 },6000)
 
-
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top>100)
+{
+$('#headerinner1').fadeOut(800)
+$('#headerinner2').fadeIn(800)
+}else{
+$('#headerinner2').fadeOut(800)
+$('#headerinner1').fadeIn(800)
+}
+})
 
 
 
@@ -50,12 +61,13 @@ a:focus{color:#d00b17;}
 .wrap{}
 .header{position: absolute;width:100%;z-index:1;}
 .headerinner{padding:10px 0;text-align: center;overflow: hidden;min-width:1200px;}
-.gnb{float:left;margin-left:40px;}
+#headerinner2{display:none;background-color:#fff;opacity:0.9;
+position: fixed;top:0;width:100%;}
+.gnb{margin-left:40px;float:left;}
 .gnb>li{float:left;}
 .gnb>li>a{display:block;margin-right:20px;font-weight:600;font-size:1.5rem;}
 .gnb>li>a>img{padding-bottom:4px;}
-.headerinner h1{position: absolute;top:0;width:100%;text-align: center;
-min-width:1200px;}
+.headerinner h1{position: absolute;top:0;left:50%;margin-left:-42.5px;}
 .login1{float:right;margin-right:40px;}
 .login1 a{margin-left:10px;font-size:1.2rem;font-weight:300;}
 .search_cart{clear:both;float:right;margin-right:40px;margin-top:10px;}
@@ -68,7 +80,7 @@ letter-spacing:1px;z-index:1;}
 .pager>span{color:#d00b17;font-size:2.0rem;font-weight:bold;}
 .slide{}
 .slide>li{}
-.slide>li>a{position: absolute;display:block;left:50%;margin-left:-960px;}
+.slide>li>a{position: absolute;display:block;left:50%;margin-left:-960px;z-index:-99}
 
 
 
@@ -79,7 +91,7 @@ letter-spacing:1px;z-index:1;}
 <body>
 <div class='wrap'>
 <div class='header'>
-<div class='headerinner'>
+<div class='headerinner' id='headerinner1'>
 <ul class='gnb'>
 <li><a href="#"><img src="image/icon_gnb_menu.png" alt="전체">&nbsp;&nbsp;전체</a></li>
 <li><a href="#">침실</a></li>
@@ -103,8 +115,33 @@ letter-spacing:1px;z-index:1;}
 <a href="#">회사소개</a>
 </div>
 <div class='search_cart'>
-<img src="image/gnb_search_3.png" alt="검색">
+<a href="#"><img src="image/gnb_search_3.png" alt="검색"></a>
 <a href="#"><img src="image/gnb_cart.png" alt="장바구니"></a>
+</div>
+</div><!-- headerinner -->
+<div class='headerinner' id='headerinner2'>
+<ul class='gnb'>
+<li><a href="#"><img src="image/icon_gnb_menu.png" alt="전체">&nbsp;&nbsp;전체</a></li>
+<li><a href="#">침실</a></li>
+<li><a href="#">드레스룸</a></li>
+<li><a href="#">거실</a></li>
+<li><a href="#">주방</a></li>
+<li><a href="#">키즈룸</a></li>
+<li><a href="#">학생방</a></li>
+<li><a href="#">서재</a></li>
+<li><a href="#">시리즈</a></li>
+</ul>
+<h1><a href="#"><img src="image/gnb_logo.png" alt="일룸메인로고"></a></h1>
+<div class='login1'>
+<a href="#">로그인</a>
+<a href="#">회원가입</a>
+<a href="#">주문/배송</a>
+<a href="#">이벤트</a>
+<a href="#">뉴스</a>
+<a href="#">고객센터</a>
+<a href="#">매장안내</a>
+<a href="#"><img src="image/gnb_search.png" alt="검색"></a>
+<a href="#"><img src="image/gnb_cart_3.png" alt="장바구니"></a>
 </div>
 </div><!-- headerinner -->
 </div><!-- header -->
@@ -118,10 +155,10 @@ letter-spacing:1px;z-index:1;}
 <li><a href="#"  class='slider slider4'><img src="image/mainvisual4.png" alt="메인이미지4"></a></li>
 <li><a href="#"  class='slider slider5'><img src="image/mainvisual5.png" alt="메인이미지5"></a></li>
 </ul>
-</div>
-<div class='oo'>
-ㅇㅇ <br>
-ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br></div>
+</div><!-- mask -->
+
+dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>dd <br>
+
 </div><!-- content -->
 
 
