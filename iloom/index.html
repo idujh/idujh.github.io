@@ -27,8 +27,8 @@ if (min==max)
 $('.pager').css({color:'#ddd'})
 }
 min++
-$('.slide>li').fadeOut(1000)
-$('.slider'+min).fadeIn(1200)
+$('.slide>li').stop().fadeOut(1000)
+$('.slider'+min).stop().fadeIn(1200)
 $('.pager>span').html(min)
 },6000)
 
@@ -67,7 +67,7 @@ min-width:1200px;}
 
 
 .content{}
-.mask{height:790px;position: relative;}
+.mask{height:790px;position: relative;overflow: hidden;}
 .pager{position: absolute;bottom:40px;left:60px;font-weight:600;font-size:1.6rem;
 letter-spacing:1px;z-index:1;}
 .pager>span{color:#d00b17;font-size:2.0rem;font-weight:bold;}
@@ -124,8 +124,9 @@ letter-spacing:1px;z-index:1;}
 <li class='slider slider5'><a href="#"><img src="image/mainvisual5.png" alt="메인이미지5"></a></li>
 </ul>
 </div>
+<div class='oo'>
 ㅇㅇ <br>
-ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>
+ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br>ㅇㅇ <br></div>
 </div><!-- content -->
 
 
