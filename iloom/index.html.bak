@@ -88,7 +88,7 @@ position: fixed;min-width:1500px;}
 .content{}
 .mask{height:790px;position: relative;}
 .slide>li>a{position: absolute;display:block;z-index:-99;left:50%;margin-left:-960px;}
-.slide>li>a>img{height:790px;}
+.slide>li>a>img{height:790px;width:1920px;}
 .pager{position: absolute;bottom:40px;left:60px;font-weight:600;font-size:1.6rem;
 letter-spacing:1px;z-index:1;}
 .pager>span{color:#d00b17;font-size:2.0rem;font-weight:bold;}
@@ -182,9 +182,9 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 </div><!-- mask -->
 <div class='gallery1'>
 <ul>
-<li><a href="#"><img src="image/_7f1c0cc6-2ee1-4b3c-bafc-b773b8ca11b3.jpg" alt="이벤트"></a></li>
-<li><a href="#"><img src="image/_4e5091f4-59e1-4330-9a66-d3f84cccd25f.jpg" alt="라이프스타일"></a></li>
-<li><a href="#" class='mr0'><img src="image/_18e9eb0e-e8b5-47ec-a739-c74bf9290ac0.jpg" alt="디자인어워드"></a></li>
+<li><a href="#"><img src="image/7f1c0cc6-2ee1-4b3c-bafc-b773b8ca11b3.jpg" alt="이벤트"></a></li>
+<li><a href="#"><img src="image/4e5091f4-59e1-4330-9a66-d3f84cccd25f.jpg" alt="라이프스타일"></a></li>
+<li><a href="#" class='mr0'><img src="image/18e9eb0e-e8b5-47ec-a739-c74bf9290ac0.jpg" alt="디자인어워드"></a></li>
 </ul>
 </div><!-- gallery1 -->
 <div class='gallery2'>
