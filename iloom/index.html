@@ -47,12 +47,28 @@ $('#headerinner1').fadeIn()
 //메인 카드섹션 마우스오버
 $('.gallery1 ul>li>a').on({
 mouseenter:function(){
-$(this).find('img').stop().animate({scale:1.03})
+$(this).find('img').stop().animate({scale:1.03},800)
 },
 mouseleave:function(){
-$(this).find('img').stop().animate({scale:1})
+$(this).find('img').stop().animate({scale:1},800)
 }
 })
+
+//보더애니메이션 + 텍스트 및 경로 동적컨트롤
+$(window).on('load resize',function(){
+$('.pinkbd').height($('.gallery2 ul>li>a').height()-6)
+$('.pinkbd>a').html($('.gallery2 ul>li>a').first().find('img').attr('alt')+'<br>[바로가기]')
+$('.pinkbd>a').attr({href:$('.gallery2 ul>li>a').first().attr('href')})
+$('.gallery2 ul>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+var pos=$(this).position()
+var href=$(this).attr('href')
+$('.pinkbd>a').html($(this).find('img').attr('alt')+'<br>[바로가기]')
+$('.pinkbd>a').attr({href:href})
+$('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
+})//enter
+})//each
+})//load resize
 
 
 
@@ -72,10 +88,11 @@ a:hover{color:#d00b17;}
 a:focus{color:#d00b17;}
 .wrap{min-width:1500px;}
 .header{position: absolute;z-index:1;min-width:1500px;width:100%;}
-.headerinner{padding:10px 0;text-align: center;overflow: hidden;}
+.headerinner{padding:10px 0;text-align: center;}
+.headerinner::after{content:'';clear:both;display:block;}
 #headerinner2{display:none;background-color:#fff;opacity:0.9;width:100%;top:0;
 position: fixed;min-width:1500px;}
-.gnb{margin-left:40px;float:left;}
+.gnb{margin-left:40px;}
 .gnb>li{float:left;}
 .gnb>li>a{display:block;margin-right:20px;font-weight:600;font-size:1.5rem;}
 .gnb>li>a>img{padding-bottom:4px;}
@@ -100,9 +117,15 @@ letter-spacing:1px;z-index:1;}
 .content .mr0{margin:0;}
 .gallery2{padding:50px 0;background-color: #f0f0f0;}
 .gallery2 h2{text-align: center;margin-bottom:30px;}
-.gallery2 ul{width:1500px;margin:0 auto;padding:0 20px;overflow: hidden;}
+.gallery2 ul{width:1500px;margin:0 auto;padding:0 20px;overflow: hidden;
+position: relative;}
 .gallery2 ul>li{float:left;}
-.gallery2 ul>li>a{display:block;width:284px;margin-right:10px;}
+.gallery2 ul>li>a{display:block;width:284px;margin-right:10px;position: relative;}
+.pinkbd{position: absolute;left:20px;top:0;width:284px;
+border: 3px solid #ffdfef;background-color:rgba(0,0,0,0.4);text-align: center;
+display:table-cell;vertical-align: middle;}
+.pinkbd>a{display:inline-block;margin:45% auto;height:10%;color:#fff;
+padding:10px;}
 .readmore{margin-top:20px;text-align: center;}
 .readmore a{display:inline-block;border-bottom:1px solid #000;font-weight:200;
 font-size:1.2rem;color:#000;letter-spacing:0px;}
@@ -190,11 +213,12 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 <div class='gallery2'>
 <h2><img src="image/instagram.png" alt="인스타그램"></h2>
 <ul>
-	<li><a href="#"><img src="image/30592165_1928275874150380_268884086808903680_n.jpg" alt="인스타그램1"></a></li>
-	<li><a href="#"><img src="image/30084378_780900632119732_6915106678971039744_n.jpg" alt="인스타그램2"></a></li>
-	<li><a href="#"><img src="image/30076891_239749286573048_940548261016502272_n.jpg" alt="인스타그램3"></a></li>
-	<li><a href="#"><img src="image/30084284_174183656571167_8875781652144455680_n.jpg" alt="인스타그램4"></a></li>
-	<li><a href="#" class='mr0'><img src="image/29739851_573085329745173_5687372844137185280_n.jpg" alt="인스타그램5"></a></li>
+	<li><a href="https://www.daum.net/"><img src="image/30592165_1928275874150380_268884086808903680_n.jpg" alt="인스타그램 1"></a></li>
+	<li><a href="https://www.google.co.kr/?gws_rd=ssl"><img src="image/30084378_780900632119732_6915106678971039744_n.jpg" alt="인스타그램 2"></a></li>
+	<li><a href="https://www.dothome.co.kr/"><img src="image/30076891_239749286573048_940548261016502272_n.jpg" alt="인스타그램 3"></a></li>
+	<li><a href="http://www.11st.co.kr/"><img src="image/30084284_174183656571167_8875781652144455680_n.jpg" alt="인스타그램 4"></a></li>
+	<li><a href="http://naver.com" class='mr0'><img src="image/29739851_573085329745173_5687372844137185280_n.jpg" alt="인스타그램 5"></a></li>
+<div class='pinkbd'><a href='#' target='_blank'></a></div>
 </ul>
 <div class='readmore'><a href="#">Read More</a></div>
 </div><!-- gallery2 -->
