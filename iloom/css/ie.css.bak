@@ -1,0 +1,5 @@
+.pinkbd{position: absolute;left:20px;top:0;width:284px;
+border: 3px solid #ffdfef;background-color:none;text-align: center;
+display:table-cell;vertical-align: middle;}
+.pinkbd>a{display:inline-block;margin:45% auto;height:10%;color:#fb9797;
+padding:10px;font-weight:bold;font-size:20px;}

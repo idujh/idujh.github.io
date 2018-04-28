@@ -14,6 +14,25 @@
 <script>
 $(document).ready(function(){
 
+//전체메뉴 보더스타일 동적생성
+$('.allmenu>ul>li>ul').each(function(index){
+$(this).find('a').last().each(function(index){
+$('<div class="allmenu_stroke"></div>').appendTo($(this))
+})
+})
+//전체메뉴버튼 이벤트
+$('.allmenu_btn').on('click',function(){
+$('.allmenu').hide()
+$('.allmenu').fadeIn()
+$('.pager').hide()
+return false
+})
+$('.allmenu_close').click(function(){
+$('.allmenu').fadeOut()
+$('.pager').show()
+return false
+})
+
 //메인비주얼인터발
 $('.slide>li>a').hide()
 $('.slide>li>a').first().show()
@@ -34,23 +53,23 @@ $('.pager>span').html(min)
 //헤더 스크롤이벤트
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
-if (top>100)
+if (top>200)
 {
-$('#headerinner1').fadeOut()
-$('#headerinner2').fadeIn()
+$('#headerinner1').hide()
+$('#headerinner2').show()
 }else{
 $('#headerinner2').fadeOut()
-$('#headerinner1').fadeIn()
+$('#headerinner1').show()
 }
 })
 
 //메인 카드섹션 마우스오버
 $('.gallery1 ul>li>a').on({
 mouseenter:function(){
-$(this).find('img').stop().animate({scale:1.03},800)
+$(this).find('img').stop().animate({scale:1.03},400)
 },
 mouseleave:function(){
-$(this).find('img').stop().animate({scale:1},800)
+$(this).find('img').stop().animate({scale:1},400)
 }
 })
 
@@ -76,10 +95,57 @@ $('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
 </script>
 
 <style>
-@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:62.5%;}
-body{font-family:'NotoSansKR',sans-serif;color:#333;font-size:1.4em;
+body{font-family:'Noto Sans KR',sans-serif;color:#333;font-size:1.4em;
 letter-spacing:-1px;}
 li{list-style:none;}
 a{text-decoration:none;color:#333;}
@@ -90,21 +156,45 @@ a:focus{color:#d00b17;}
 .header{position: absolute;z-index:1;min-width:1500px;width:100%;}
 .headerinner{padding:10px 0;text-align: center;}
 .headerinner::after{content:'';clear:both;display:block;}
-#headerinner2{display:none;background-color:#fff;opacity:0.9;width:100%;top:0;
-position: fixed;min-width:1500px;}
+#headerinner2{display:none;background-color:rgba(255,255,255,0.9);
+width:100%;top:0;position: fixed;min-width:1500px;}
 .gnb{margin-left:40px;}
-.gnb>li{float:left;}
+.gnb>li{float:left;position: relative;}
 .gnb>li>a{display:block;margin-right:20px;font-weight:600;font-size:1.5rem;}
 .gnb>li>a>img{padding-bottom:4px;}
 .headerinner h1{position: absolute;top:0;left:50%;margin-left:-42.5px;}
 .login1{float:right;margin-right:40px;}
 .login1 a{margin-left:10px;font-size:1.2rem;font-weight:300;}
 .search_cart{clear:both;float:right;margin-right:40px;margin-top:10px;}
-
+.allmenu{position: fixed;top:10px;left:10px;background-color: #fff;
+width:1000px;z-index:1;box-shadow:0 0 5px #333;display:none;}
+.allmenu::after{display:block;clear:both;content:'';}
+.allmenu>ul{width:83%;float:left;}
+.allmenu>ul>li{float:left;width:14.2857%;position: relative;}
+.allmenu>ul>li>a::after{content:'';position: absolute;height:680px;
+right:0;top:70px;width:1px;background-color: #e0e0e0;}
+.allmenu>ul>li>a{display:block;font-size:1.7rem;padding:10px 0;
+font-weight:500;letter-spacing:0;}
+.allmenu>ul>li>ul{line-height: 180%;margin:20px 0 40px 0;}
+.allmenu>ul>li>ul>li>a>h2{font-size:1.5rem;font-weight:500;margin-bottom:6px;}
+.allmenu>ul>li>ul>li>a{display:block;font-weight:300;font-size:1.3rem;
+letter-spacing:-0.5px;position: relative;}
+.allmenu_stroke{position: absolute;bottom:-20px;left:50%;margin-left:-6%;
+width:12%;height:1px;background-color: #e0e0e0;}
+.allmenu_close{position: absolute;right:20px;top:10px;padding:0 5px;}
+.allmenu_bigstroke{position: absolute;left:82%;top:0;
+width:2%;height:100%;background-color: #f0f0f0;}
+.allmenu_gnbstroke{position: absolute;top:50px;left:0;margin-left:1%;
+width:80%;height:1px;background-color: #aaa;}
+.allmenu_lastlist{float:left;width:17%;line-height: 300%;margin-top:200px;}
+.allmenu_lastlist>ul>li>a{display:inline-block;font-size:1.4rem;padding:10px 0;
+font-weight:500;letter-spacing:0;}
+.allmenu_lastlist>li>a>h2{font-size:1.7rem;font-weight:500;margin-bottom:6px;}
+.allmenu_lastlist>li>a>h2>span{color:#e0e0e0;font-weight:400;}
 
 .content{}
 .mask{height:790px;position: relative;}
-.slide>li>a{position: absolute;display:block;z-index:-99;left:50%;margin-left:-960px;}
+.slide>li>a{position: absolute;display:block;left:50%;margin-left:-960px;}
 .slide>li>a>img{height:790px;width:100%;}
 .pager{position: absolute;bottom:40px;left:60px;font-weight:600;font-size:1.6rem;
 letter-spacing:1px;z-index:1;}
@@ -122,7 +212,7 @@ position: relative;}
 .gallery2 ul>li{float:left;}
 .gallery2 ul>li>a{display:block;width:284px;margin-right:10px;position: relative;}
 .pinkbd{position: absolute;left:20px;top:0;width:284px;
-border: 3px solid #ffdfef;background-color:rgba(0,0,0,0.4);text-align: center;
+border: 3px solid #d00b17;background-color:rgba(0,0,0,0.4);text-align: center;
 display:table-cell;vertical-align: middle;}
 .pinkbd>a{display:inline-block;margin:45% auto;height:10%;color:#fff;
 padding:10px;}
@@ -140,7 +230,186 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 <div class='header'>
 <div class='headerinner' id='headerinner1'>
 <ul class='gnb'>
-<li><a href="#"><img src="image/icon_gnb_menu.png" alt="전체">&nbsp;&nbsp;전체</a></li>
+<li><a href="#" class='allmenu_btn'><img src="image/icon_gnb_menu.png" alt="전체">&nbsp;&nbsp;전체</a>
+<div class='allmenu'>
+<ul>
+
+	<li><a href="#">침실</a>
+	<ul>
+		<li><a href="#"><h2>침대</h2></a></li>
+		<li><a href="#">일반침대</a></li>
+		<li><a href="#">패밀리침대</a></li>
+		<li><a href="#">액세서리</a></li>
+		<li><a href="#">매트릭스</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>옷장</h2></a></li>
+		<li><a href="#">조합형</a></li>
+		<li><a href="#">포인트형</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">협탁</a></li>
+		<li><a href="#">서랍장</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>화장대</h2></a></li>
+		<li><a href="#">화장대</a></li>
+		<li><a href="#">스툴</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">드레스룸</a>
+	<ul>
+		<li><a href="#"><h2>옷장</h2></a></li>
+		<li><a href="#">조합형</a></li>
+		<li><a href="#">포인트형</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">거실</a>
+	<ul>
+		<li><a href="#"><h2>테이블</h2></a></li>
+		<li><a href="#">소파 테이블</a></li>
+		<li><a href="#">패밀리 테이블</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>거실장</h2></a></li>
+		<li><a href="#">거실장</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>소파</h2></a></li>
+		<li><a href="#">일자형</a></li>
+		<li><a href="#">카우치/코너</a></li>
+		<li><a href="#">1인/소파베드</a></li>
+		<li><a href="#">리클라이너</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">서랍장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">주방</a>
+	<ul>
+		<li><a href="#"><h2>식탁</h2></a></li>
+		<li><a href="#">식탁세트</a></li>
+		<li><a href="#">식탁</a></li>
+		<li><a href="#">의자</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">수납장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">키즈룸</a>
+	<ul>
+		<li><a href="#"><h2>침대</h2></a></li>
+		<li><a href="#">침대</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>책상</h2></a></li>
+		<li><a href="#">책상</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">서랍/수납장</a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">옷장/행거</a></li>
+		<li><a href="#">놀이장</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>소파/의자</h2></a></li>
+		<li><a href="#">소파</a></li>
+		<li><a href="#">의자</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>액세서리</h2></a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">학생방</a>
+	<ul>
+		<li><a href="#"><h2>책상</h2></a></li>
+		<li><a href="#">일반형</a></li>
+		<li><a href="#">기능형</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>책장</h2></a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">서랍장</a></li>
+		<li><a href="#">옷장/행거</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>의자</h2></a></li>
+		<li><a href="#">의자</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>침대</h2></a></li>
+		<li><a href="#">일반침대</a></li>
+		<li><a href="#">수납침대</a></li>
+		<li><a href="#">모션침대</a></li>
+		<li><a href="#">매트리스</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">서재</a>
+	<ul>
+		<li><a href="#"><h2>책상</h2></a></li>
+		<li><a href="#">일반형</a></li>
+		<li><a href="#">모션형</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>책장</h2></a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>서랍장</h2></a></li>
+		<li><a href="#">책장서랍</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>의자</h2></a></li>
+		<li><a href="#">테스크의자</a></li>
+		<li><a href="#">프리미엄의자</a></li>
+		<li><a href="#">보조의자</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">장식장</a></li>
+	</ul>
+	</li>
+
+</ul>
+<a href="#" class='allmenu_close'><img src="image/close_w13.png" alt="전체메뉴닫기"></a>
+<div class='allmenu_gnbstroke'></div>
+<div class='allmenu_bigstroke'></div>
+<ol class='allmenu_lastlist'>
+	<li><a href="#"><h2>시리즈<br><span>ㅡ</span></h2></a></li>
+	<li><a href="#">공간제안서비스</a></li>
+	<li><a href="#">매장안내</a></li>
+	<li><a href="#">공지사항</a></li>
+	<li><a href="#">전시품 판매</a></li>
+</ol>
+</div><!-- allmenu -->
+</li>
 <li><a href="#">침실</a></li>
 <li><a href="#">드레스룸</a></li>
 <li><a href="#">거실</a></li>
@@ -168,7 +437,186 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 </div><!-- headerinner -->
 <div class='headerinner' id='headerinner2'>
 <ul class='gnb'>
-<li><a href="#"><img src="image/icon_gnb_menu.png" alt="전체">&nbsp;&nbsp;전체</a></li>
+<li><a href="#" class='allmenu_btn'><img src="image/icon_gnb_menu.png" alt="전체">&nbsp;&nbsp;전체</a>
+<div class='allmenu'>
+<ul>
+
+	<li><a href="#">침실</a>
+	<ul>
+		<li><a href="#"><h2>침대</h2></a></li>
+		<li><a href="#">일반침대</a></li>
+		<li><a href="#">패밀리침대</a></li>
+		<li><a href="#">액세서리</a></li>
+		<li><a href="#">매트릭스</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>옷장</h2></a></li>
+		<li><a href="#">조합형</a></li>
+		<li><a href="#">포인트형</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">협탁</a></li>
+		<li><a href="#">서랍장</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>화장대</h2></a></li>
+		<li><a href="#">화장대</a></li>
+		<li><a href="#">스툴</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">드레스룸</a>
+	<ul>
+		<li><a href="#"><h2>옷장</h2></a></li>
+		<li><a href="#">조합형</a></li>
+		<li><a href="#">포인트형</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">거실</a>
+	<ul>
+		<li><a href="#"><h2>테이블</h2></a></li>
+		<li><a href="#">소파 테이블</a></li>
+		<li><a href="#">패밀리 테이블</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>거실장</h2></a></li>
+		<li><a href="#">거실장</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>소파</h2></a></li>
+		<li><a href="#">일자형</a></li>
+		<li><a href="#">카우치/코너</a></li>
+		<li><a href="#">1인/소파베드</a></li>
+		<li><a href="#">리클라이너</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">서랍장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">주방</a>
+	<ul>
+		<li><a href="#"><h2>식탁</h2></a></li>
+		<li><a href="#">식탁세트</a></li>
+		<li><a href="#">식탁</a></li>
+		<li><a href="#">의자</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">수납장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">키즈룸</a>
+	<ul>
+		<li><a href="#"><h2>침대</h2></a></li>
+		<li><a href="#">침대</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>책상</h2></a></li>
+		<li><a href="#">책상</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">서랍/수납장</a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">옷장/행거</a></li>
+		<li><a href="#">놀이장</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>소파/의자</h2></a></li>
+		<li><a href="#">소파</a></li>
+		<li><a href="#">의자</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>액세서리</h2></a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">학생방</a>
+	<ul>
+		<li><a href="#"><h2>책상</h2></a></li>
+		<li><a href="#">일반형</a></li>
+		<li><a href="#">기능형</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>책장</h2></a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">서랍장</a></li>
+		<li><a href="#">옷장/행거</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>의자</h2></a></li>
+		<li><a href="#">의자</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>침대</h2></a></li>
+		<li><a href="#">일반침대</a></li>
+		<li><a href="#">수납침대</a></li>
+		<li><a href="#">모션침대</a></li>
+		<li><a href="#">매트리스</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	</li>
+
+	<li><a href="#">서재</a>
+	<ul>
+		<li><a href="#"><h2>책상</h2></a></li>
+		<li><a href="#">일반형</a></li>
+		<li><a href="#">모션형</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>책장</h2></a></li>
+		<li><a href="#">책장</a></li>
+		<li><a href="#">액세서리</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>서랍장</h2></a></li>
+		<li><a href="#">책장서랍</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>의자</h2></a></li>
+		<li><a href="#">테스크의자</a></li>
+		<li><a href="#">프리미엄의자</a></li>
+		<li><a href="#">보조의자</a></li>
+	</ul>
+	<ul>
+		<li><a href="#"><h2>수납장</h2></a></li>
+		<li><a href="#">장식장</a></li>
+	</ul>
+	</li>
+
+</ul>
+<a href="#" class='allmenu_close'><img src="image/close_w13.png" alt="전체메뉴닫기"></a>
+<div class='allmenu_gnbstroke'></div>
+<div class='allmenu_bigstroke'></div>
+<ol class='allmenu_lastlist'>
+	<li><a href="#"><h2>시리즈<br><span>ㅡ</span></h2></a></li>
+	<li><a href="#">공간제안서비스</a></li>
+	<li><a href="#">매장안내</a></li>
+	<li><a href="#">공지사항</a></li>
+	<li><a href="#">전시품 판매</a></li>
+</ol>
+</div><!-- allmenu -->
+</li>
 <li><a href="#">침실</a></li>
 <li><a href="#">드레스룸</a></li>
 <li><a href="#">거실</a></li>
@@ -262,5 +710,6 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 
 
 </div><!-- wrap -->
+<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css"><![endif]-->
 </body>
 </html>
