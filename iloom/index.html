@@ -26,10 +26,15 @@ a:focus{color:#d00b17;}
 .headerinner::after{content:'';clear:both;display:block;}
 #headerinner2{display:none;background-color:rgba(255,255,255,0.9);
 width:100%;top:0;position: fixed;min-width:1500px;}
-.gnb{margin-left:40px;}
+.gnb{margin-left:40px;float:left;}
 .gnb>li{float:left;position: relative;}
-.gnb>li>a{display:block;margin-right:20px;font-weight:500;font-size:1.5rem;}
+.gnb>li>a{display:block;font-weight:500;font-size:1.5rem;
+width:52px;}
 .gnb>li>a>img{padding-bottom:4px;}
+.gnb>li>ul{width:80px;box-shadow:0 0 5px #666;position: absolute;top:22px;
+left:-10px;background-color: #fff;padding:10px;line-height: 300%;display:none;}
+.gnb>li>ul>li>a{display:block;}
+.gnb>li>ul>li>a:hover{border-bottom:1px solid #d00b17;}
 .headerinner h1{position: absolute;top:0;left:50%;margin-left:-42.5px;}
 .login1{float:right;margin-right:40px;}
 .login1 a{margin-left:10px;font-size:1.2rem;font-weight:300;}
@@ -88,6 +93,28 @@ padding:10px;}
 .readmore a{display:inline-block;border-bottom:1px solid #000;font-weight:200;
 font-size:1.2rem;color:#000;letter-spacing:0px;}
 .readmore a:hover{border-bottom-color:#d00b17;color:#d00b17;}
+.quick{text-align: center;padding:70px 0;}
+.quick h3{display:inline-block;}
+.quick ul{width:1200px;margin:0 auto;margin-top:40px;height:300px;}
+.quick ul::after{clear:both;display:block;content:'';}
+.quick ul>li{float:left;}
+.quick ul>li>a{display:block;width:200px;height:200px;margin-left:80px;float:left;
+position: relative;}
+.quick ul>li>a>span{display:block;margin-top:220px;letter-spacing:0;
+font-size:1.5rem;font-weight:300;line-height: 220%;}
+.quick ul>li>a>span>span{font-weight:400;font-size:1.7rem;}
+.quick .quick1{background:url(image/quick_menu_1.png) 0 0 no-repeat;
+-webkit-background-size:cover;
+background-size:cover;}
+.quick .quick2{background:url(image/quick_menu_2.png) 0 0 no-repeat;
+-webkit-background-size:cover;
+background-size:cover;}
+.quick .quick3{background:url(image/quick_menu_3.png) 0 0 no-repeat;
+-webkit-background-size:cover;
+background-size:cover;}
+.quick .quick4{background:url(image/quick_menu_4.png) 0 0 no-repeat;
+-webkit-background-size:cover;
+background-size:cover;}
 
 
 
@@ -278,14 +305,61 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 </ol>
 </div><!-- allmenu -->
 </li>
-<li><a href="#">침실</a></li>
-<li><a href="#">드레스룸</a></li>
-<li><a href="#">거실</a></li>
-<li><a href="#">주방</a></li>
-<li><a href="#">키즈룸</a></li>
-<li><a href="#">학생방</a></li>
-<li><a href="#">서재</a></li>
-<li><a href="#">시리즈</a></li>
+<li><a href="#" class='gnb_ani'>침실</a>
+<ul>
+	<li><a href="#">침대</a></li>
+	<li><a href="#">옷장</a></li>
+	<li><a href="#">수납장</a></li>
+	<li><a href="#">화장대</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>드레스룸</a>
+<ul>
+	<li><a href="#">옷장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>거실</a>
+<ul>
+	<li><a href="#">테이블</a></li>
+	<li><a href="#">거실장</a></li>
+	<li><a href="#">소파</a></li>
+	<li><a href="#">수납장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>주방</a>
+<ul>
+	<li><a href="#">식탁</a></li>
+	<li><a href="#">수납장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>키즈룸</a>
+<ul>
+	<li><a href="#">침대</a></li>
+	<li><a href="#">책상</a></li>
+	<li><a href="#">수납장</a></li>
+	<li><a href="#">소파/의자</a></li>
+	<li><a href="#">액세서리</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>학생방</a>
+<ul>
+	<li><a href="#">책상</a></li>
+	<li><a href="#">책장</a></li>
+	<li><a href="#">수납장</a></li>
+	<li><a href="#">의자</a></li>
+	<li><a href="#">침대</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>서재</a>
+<ul>
+	<li><a href="#">책상</a></li>
+	<li><a href="#">책장</a></li>
+	<li><a href="#">서랍장</a></li>
+	<li><a href="#">의자</a></li>
+	<li><a href="#">수납장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>시리즈</a></li>
 </ul>
 <h1><a href="#"><img src="image/gnb_logo.png" alt="일룸메인로고"></a></h1>
 <div class='login1'>
@@ -485,14 +559,61 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 </ol>
 </div><!-- allmenu -->
 </li>
-<li><a href="#">침실</a></li>
-<li><a href="#">드레스룸</a></li>
-<li><a href="#">거실</a></li>
-<li><a href="#">주방</a></li>
-<li><a href="#">키즈룸</a></li>
-<li><a href="#">학생방</a></li>
-<li><a href="#">서재</a></li>
-<li><a href="#">시리즈</a></li>
+<li><a href="#" class='gnb_ani'>침실</a>
+<ul>
+	<li><a href="#">침대</a></li>
+	<li><a href="#">옷장</a></li>
+	<li><a href="#">수납장</a></li>
+	<li><a href="#">화장대</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>드레스룸</a>
+<ul>
+	<li><a href="#">옷장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>거실</a>
+<ul>
+	<li><a href="#">테이블</a></li>
+	<li><a href="#">거실장</a></li>
+	<li><a href="#">소파</a></li>
+	<li><a href="#">수납장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>주방</a>
+<ul>
+	<li><a href="#">식탁</a></li>
+	<li><a href="#">수납장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>키즈룸</a>
+<ul>
+	<li><a href="#">침대</a></li>
+	<li><a href="#">책상</a></li>
+	<li><a href="#">수납장</a></li>
+	<li><a href="#">소파/의자</a></li>
+	<li><a href="#">액세서리</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>학생방</a>
+<ul>
+	<li><a href="#">책상</a></li>
+	<li><a href="#">책장</a></li>
+	<li><a href="#">수납장</a></li>
+	<li><a href="#">의자</a></li>
+	<li><a href="#">침대</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>서재</a>
+<ul>
+	<li><a href="#">책상</a></li>
+	<li><a href="#">책장</a></li>
+	<li><a href="#">서랍장</a></li>
+	<li><a href="#">의자</a></li>
+	<li><a href="#">수납장</a></li>
+</ul>
+</li>
+<li><a href="#" class='gnb_ani'>시리즈</a></li>
 </ul>
 <h1><a href="#"><img src="image/gnb_logo.png" alt="일룸메인로고"></a></h1>
 <div class='login1'>
@@ -538,7 +659,20 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 </ul>
 <div class='readmore'><a href="#">Read More</a></div>
 </div><!-- gallery2 -->
-
+<div class="quick">
+<h3><img src="image/quick_menu.png" alt="퀵메뉴"></h3>
+<ul>
+	<li><a href="#" class="quick1"><span>Consulting<br>
+<span>공간제안 서비스</span></span></a></li>
+	<li><a href="#" class="quick2"><span>Store<br>
+<span>매장안내</span></span></a></li>
+	<li><a href="#" class="quick3"><span>Notice<br>
+<span>공지사항</span></span></a></li>
+	<li><a href="#" class="quick4"><span>Outlet<br>
+<span>전시품판매</span></span></a></li>
+</ul>
+    
+</div><!--quick-->
 </div><!-- content -->
 
 
@@ -609,6 +743,15 @@ $('#headerinner2').fadeOut()
 $('#headerinner1').show()
 }
 })
+//gnb 오버시
+$('.gnb>li>a').not($('.allmenu_btn')).on('mouseenter focus',function(){
+$('.gnb>li>ul').stop().slideUp(800,'easeOutExpo')
+$(this).next().stop().slideDown(800,'easeOutExpo')
+})
+$('.gnb').on('mouseleave blur',function(){
+$('.gnb>li>ul').stop().slideUp(800,'easeOutExpo')
+})
+
 
 //메인 카드섹션 마우스오버
 $('.gallery1 ul>li>a').on({
@@ -635,6 +778,13 @@ $('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
 })//enter
 })//each
 })//load resize
+
+//퀵메뉴 오버 이벤트
+$('.quick ul>li>a').on('mouseenter focus',function(){
+$('.quick ul>li>a').stop().animate({backgroundPositionY:'0'},400,'easeOutBack')
+$(this).stop().animate({backgroundPositionY:'-200px'},400,'easeOutBack')
+})
+
 
 
 
