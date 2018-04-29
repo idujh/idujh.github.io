@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>웹퍼블리셔/ui개발/엄재환</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/b.css">
+<link rel="stylesheet" href="js/fullPage.js-master/jquery.fullPage.css">
+<link rel="shortcut icon" href="image/favicon.ico">
+<link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css" />
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
+<script src='js/js.js'></script>
+
+</head>
+ <body id='my'>
+ <div id="header">
+	 <ul id="menu">
+		<li data-menuanchor="firstpage" ><a href="#firstpage" data-title='Profile' data-num='<b>1</b>'>프로필</a></li>
+		<li data-menuanchor="secondpage"><a href="#secondpage" data-title='Responsive Type' data-num='<b>2</b>' class='per1'>반응형</a></li>
+		<li data-menuanchor="3rdpage"><a href="#3rdpage" data-title='Enterprise Type' data-num='<b>3</b>' class='per2'>기업형</a></li>
+		<li data-menuanchor="4thpage"><a href="#4thpage" data-title='Event' data-num='<b>4</b>'>이벤트</a></li>
+		<li data-menuanchor="5thpage"><a href="#5thpage" data-title='Bi / Ci' data-num='<b>5</b>'>BI / CI</a></li>
+		<li data-menuanchor="6thpage"><a href="#6thpage" data-title='Movie' data-num='<b>6</b>'>MOVIE</a></li>
+	</ul>
+</div>
+  <div id="fullpage">
+
+ <div class="video-background">
+    <div class="video-foreground">
+	<div class='blackbg'></div>
+      <iframe src="https://www.youtube.com/embed/GMi0dCxcjLY?controls=0&showinfo=0&rel=0&autoplay=1&mute=0"></iframe>
+    </div>
+  </div>
+<p class='count'><span>10</span>&nbsp;초후에 영상을 건너뛸수 있습니다</p>
+<a href="#" class='skip'>SKIP</a>
+<ul class='introtext'>
+	<li><a href="#">Web publisher</a></li>
+	<li><a href="#">Cross Browsing</a></li>
+	<li><a href="#">Web Standard</a></li>
+	<li><a href="#">HTML5/CSS3/JS</a></li>
+</ul>
+<!-- <div id="vidtop-content">
+<div class="vid-info">
+<h1><img src="image/movietitle.png" alt="무비타이틀"></h1>
+<a href="#">This is EomJaehwan Portfolio</a>
+  </div>
+</div> -->
+	<div class="section" id='page1'>
+	<h1 class='move'>Chapter 01 . 프로필</h1>
+	<h2><img src="image/1th_title.png" alt="1페이지 타이틀"></h2>
+	<a href="gallery/profile.jpg" target="_blank" id='firstimg1' class='ov' title='새창열기'><img src="image/page_1.png" alt=""></a>
+	<p class='scroll s1'><img src="image/if_one_finger_scroll_gestureworks_80718.png" alt="스크롤아이콘"></p>
+
+<div class='mywrap'>
+<div class='my ui-widget-content'>
+<div class='kakaowrap'>
+<img src="image/KakaoTalk_20180112_114304954.jpg" alt="카카오사진">
+<h3>드래그이동 / 사이즈조절</h3>
+<div class='character'><img src="image/ch1.png" alt="케릭터사진">
+<div class='charactertext'>제품소개</div></div>
+</div>
+<ul class='list_m'>
+	<li class='list_first'><a href="#" data-title='제품소개'>제품소개<span>+</span></a>
+	<ul>
+		<li><a href="#" class='on'>생후</a>
+		</li>
+		<li><a href="#">식별</a>
+		</li>
+		<li><a href="#">서식지</a>
+		</li>
+	</ul>
+	<div class='tab' id='tab1'>
+	<ul>
+		<li><a href="#">-계란한판+3년차</a></li>
+		<li><a href="#">-12000일</a></li>
+	</ul>
+	</div><!-- tab1 -->
+	<div class='tab' id='tab2'>
+	<ul>
+        <li><a href="#">-수컷</a></li>
+		<li><a href="#">-대한민국건아</a></li>
+	</ul>
+	</div><!-- tab2 -->
+	<div class='tab' id='tab3'>
+	<ul>
+		<li><a href="#">-서울시 노원구</a></li>
+		<li><a href="#">-상계3.4동 47-5</a></li>
+	</ul>
+	</div><!-- tab3 -->
+	</li>
+
+	<li><a href="#" data-title='제품정보'>제품정보<span>+</span></a>
+	<ul>
+		<li class='w25'><a href="#" class='on'>직업</a></li>
+		<li class='w25'><a href="#">취미</a></li>
+		<li class='w25'><a href="#">특기</a></li>
+		<li class='w25'><a href="#">병역사항</a></li>
+	</ul>
+	<div class='tab' id='tab4'>
+	<ul>
+		<li><a href="#">-취업준비생</a></li>
+		<li><a href="#">-혹은 백수</a></li>
+	</ul>
+	</div><!-- tab4 -->
+	<div class='tab' id='tab5'>
+	<ul>
+		<li><a href="#">-"독서"</a></li>
+		<li><a href="#">-이고싶은 게임+음주가무</a></li>
+	</ul>
+	</div><!-- tab5 -->
+	<div class='tab' id='tab6'>
+	<ul>
+		<li><a href="#">-축구</a></li>
+		<li><a href="#">-게임</a></li>
+	</ul>
+	</div><!-- tab6 -->
+	<div class='tab' id='tab7'>
+	<ul>
+		<li><a href="#">-군필 [ 장갑차 조종수 ]</a></li>
+		<li><a href="#">-군복이 필요치 않은 민방위</a></li>
+	</ul>
+	</div><!-- tab7 -->
+	</li>
+
+	<li class='list_first'><a href="#" data-title='회사소개'>회사소개<span>+</span></a>
+	<ul>
+		<li><a href="#" class='on'>자격증</a></li>
+		<li><a href="#">경력</a></li>
+	</ul>
+    <div class='tab' id='tab8'>
+	<ul>
+		<li><a href="#">-웹디자인기능사</a></li>
+		<li><a href="#">-GTQ 1급</a></li>
+		<li><a href="#">-공조냉동기계기능사</a></li>
+		<li><a href="#">-방화관리자2급</a></li>
+		<li><a href="#">-온수온돌 기능사</a></li>
+	</ul>
+	</div><!-- tab8 -->
+	 <div class='tab' id='tab9'>
+	<ul>
+		<li><a href="#">-은곡직업전문학교 NCS 과정이수</a></li>
+		<li><a href="#">멀티미디어 웹 퍼블리싱 [10개월]</a></li>
+		<li><a href="#">-산업현장 기기 자동제어 [3년]</a></li>
+		<li><a href="#">유지보수 [2년]</a></li>
+	</ul>
+	</div><!-- tab9 -->
+	</li>
+
+	<li><a href="#" data-title='고객센터'>고객센터<span>+</span></a>
+	<ul>
+		<li class='w50'><a href="#" class='on'>자주묻는질문</a></li>
+		<li class='w50'><a href="#">가맹점모집</a></li>
+	</ul>
+	 <div class='tab' id='tab10'>
+	<ul>
+		<li><a href="#">페이지 하나 뚝딱~제조가능</a></li>
+		<li><a href="#">텍스트&이미지 애니메이션 관심100%</a></li>
+	</ul>
+	</div><!-- tab10 -->
+	 <div class='tab' id='tab11'>
+	<ul>
+		<li><a href="#">분양가 : 연봉</a></li>
+		<li><a href="#">연락처 : [ 010-5761-5646 ]</a></li>
+		<li><a href="#">부재중엔 문자 남겨주세요 ^^*</a></li>
+	</ul>
+	</div><!-- tab11 -->
+	</li>
+
+</ul>
+</div>
+</div>
+<div class='click'></div>
+<div class='view'>
+<ul class='view_list'>
+	<li><a href="http://idujh.dothome.co.kr/musicisland/" data-left='7' data-top='7' class='moving moving1' target='_blank'><img src="image/view1.jpg" alt="뮤직아일랜드"></a></li>
+	<li><a href="http://idujh.dothome.co.kr/Pizzahut/" data-left='82' data-top='7' class='moving moving2' target='_blank'><img src="image/view2.jpg" alt="피자헛"></a></li>
+	<li><a href="http://idujh.dothome.co.kr/celltrion/" data-left='7' data-top='53' class='moving moving3' target='_blank'><img src="image/view3.jpg" alt="셀트리온"></a></li>
+	<li><a href="http://idujh8668.dothome.co.kr/" data-left='82' data-top='53' class='moving moving4' target='_blank'><img src="image/view4.jpg" alt="클리어"></a></li>
+	<li><a href="http://idujh.dothome.co.kr/thinkbig/" data-left='7' data-top='99' class='moving moving5' target='_blank'><img src="image/view5.jpg" alt="웅진싱크빅"></a></li>
+	<li><a href="http://idujh86.dothome.co.kr/samsung/" data-left='82' data-top='99' class='moving moving6' target='_blank'><img src="image/view6.jpg" alt="삼성 디스플레이"></a></li>
+	<li><a href="http://idujh86.dothome.co.kr/kunyoung/" data-left='7' data-top='145' class='moving moving7' target='_blank'><img src="image/view7.jpg" alt="건영건설"></a></li>
+	<li><a href="http://idujh86.dothome.co.kr/hyundai/" data-left='82' data-top='145' class='moving moving8' target='_blank'><img src="image/view8.jpg" alt="현대모터스튜디오"></a></li>
+	<li><a href="http://idujh86.dothome.co.kr/xid/" data-left='7' data-top='191' class='moving moving9' target='_blank'><img src="image/view9.jpg" alt="엑스아이디"></a></li>
+	<li><a href="http://idujh86.dothome.co.kr/haatz/" data-left='82' data-top='191' class='moving moving10' target='_blank'><img src="image/view10.jpg" alt="하츠"></a></li>
+</ul>
+<div class='pinkbd'></div>
+<a href="#" class='scaleup'>확대<span>⊕</span></a>
+<a href="#" class='scaledown'>축소<span>⊖</span></a>
+<p class='dragtext'>[ 빈공간 혹은 이곳을 잡고 드래그 ]</p>
+</div><!-- view -->
+</div><!-- page1 -->
+	
+	<div class="section" id='page2'>
+	<div class='progress'>
+	<div class='progress1'></div>
+	<div class='progress2'></div>
+	<div class='progress3'></div>
+	</div>
+	<h1 class='move'>Chapter 02 . 반응형</h1>
+	<h2><img src="image/2th_title.png" alt="2페이지 타이틀"></h2>
+	<div class='page2_inner'>
+	<a href="#" class='p2prev pnbtn' title='이전'></a>
+	<a href="#" class='p2next pnbtn' title='다음'></a>
+	<a href="http://idujh.dothome.co.kr/musicisland/" target="_blank" id='firstimg2' class='ov' title='새창열기'><img src="image/page_2_3.png" alt="">
+	<div class='p2title'></div>
+	</a>
+	</div><!-- page2_inner -->
+    <div class='page2_over'>
+	<a href="http://idujh.dothome.co.kr/musicisland/" target='_blank' title='새창열기' class='p2a1 p2a'><img src="image/page_2_3.png" alt="">
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page2_over_textwrap'>
+	<div class='page2_over_text1' data-title='뮤직아일랜드'>MUSICISLAND</div>
+	<div class='page2_over_text2'>
+	<p>프로젝트명 : MUSICISLAND<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh.dothome.co.kr/Pizzahut/" target='_blank' title='새창열기' class='p2a2 p2a'><img src="image/page_2_1.png" alt="">
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page2_over_textwrap'>
+	<div class='page2_over_text1' data-title='피자헛'>PIZZAHUT</div>
+	<div class='page2_over_text2'>
+	<p>프로젝트명 : PIZZAHUT<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+		<a href="http://idujh.dothome.co.kr/celltrion/" target='_blank' title='새창열기' class='p2a3 p2a'><img src="image/page_2_2.png" alt="">
+		<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page2_over_textwrap'>
+	<div class='page2_over_text1' data-title='셀트리온'>CELLTRION</div>
+	<div class='page2_over_text2'>
+	<p>프로젝트명 : CELLTRION<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh8668.dothome.co.kr/" target='_blank' title='새창열기' class='p2a4 p2a'><img src="image/page_2_4.png" alt="">
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page2_over_textwrap'>
+	<div class='page2_over_text1' data-title='클리어'>CLEAR</div>
+	<div class='page2_over_text2'>
+	<p>프로젝트명 : CLEAR<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh.dothome.co.kr/thinkbig/" target='_blank' title='새창열기' class='p2a5 p2a'><img src="image/page_2_5.png" alt="" class='bbnone'>
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page2_over_textwrap'>
+	<div class='page2_over_text1' data-title='웅진싱크빅[60%]'>웅진싱크빅[60%]</div>
+	<div class='page2_over_text2'>
+	<p>프로젝트명 : 웅진싱크빅<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	</div>
+	<p class='scroll'><img src="image/if_one_finger_scroll_gestureworks_80718.png" alt="스크롤아이콘"></p>
+	<div class='typer2'><div>( Name : 엄재환 / H.P : 010 - 5761 - 5646 )</div></div>
+    <!-- page2 <div class='bgpager'>
+	<div class='line' id='line1'><div class='redline'></div></div>
+	<div class='line' id='line2'><div class='redline'></div></div>
+	<div class='line' id='line3'><div class='redline'></div></div>
+	<div class='line' id='line4'><div class='redline'></div></div>
+	<div class='line' id='line5'><div class='redline'></div></div>
+	<div class='line' id='line6'><div class='redline'></div></div>
+	<div class='line' id='line7'><div class='redline'></div></div>
+	</div>  line -->
+	</div>
+
+	<div class="section" id='page3'>
+	<div class='progress'>
+	<div class='progress1'></div>
+	<div class='progress2'></div>
+	<div class='progress3'></div>
+	</div>
+	<h1 class='move'>Chapter 03 . 페이지구현</h1>
+	<h2><img src="image/3th_title.png" alt="3페이지 타이틀"></h2>
+    <div class='page3_inner'>
+	<a href="#" class='p3prev pnbtn' title='이전'></a>
+	<a href="#" class='p3next pnbtn' title='다음'></a>
+	<a href="http://idujh86.dothome.co.kr/samsung/" target="_blank" id='firstimg3' class='ov' title='새창열기'><img src="image/page_3_4.png" alt="">
+	<div class='p3title'></div>
+	</a>
+	</div><!-- page3_inner -->
+	<div class='page3_over'>
+	<a href="http://idujh86.dothome.co.kr/samsung/" target='_blank' title='새창열기' class='p3a1 p3a'><img src="image/page_3_4.png" alt="" class='bbnone'>
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page3_over_textwrap'>
+	<div class='page3_over_text1' data-title='삼성 디스플레이'>삼성디스플레이</div>
+	<div class='page3_over_text2'>
+	<p>프로젝트명 : 삼성디스플레이<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh86.dothome.co.kr/kunyoung/" target='_blank' title='새창열기' class='p3a2 p3a'><img src="image/page_3.png" alt="" class='bbnone'>
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page3_over_textwrap'>
+	<div class='page3_over_text1' data-title='건영건설'>건영건설</div>
+	<div class='page3_over_text2'>
+	<p>프로젝트명 : 건영건설<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh86.dothome.co.kr/hyundai/" target='_blank' title='새창열기' class='p3a3 p3a'><img src="image/page_3_1.png" alt="">
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page3_over_textwrap'>
+	<div class='page3_over_text1' data-title='현대모터스튜디오'>현대모터스튜디오</div>
+	<div class='page3_over_text2'>
+	<p>프로젝트명 : 현대모터스튜디오<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh86.dothome.co.kr/xid/" target='_blank' title='새창열기' class='p3a4 p3a'><img src="image/page_3_2.png" alt="">
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page3_over_textwrap'>
+	<div class='page3_over_text1' data-title='엑스아이디'>XID</div>
+	<div class='page3_over_text2'>
+	<p>프로젝트명 : XID<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	<a href="http://idujh86.dothome.co.kr/haatz/" target='_blank' title='새창열기' class='p3a5 p3a'><img src="image/page_3_3.png" alt="">
+	<div class='bdtop color'></div>
+	<div class='bdright color'></div>
+	<div class='bdbottom color'></div>
+	<div class='bdleft color'></div>
+	<div class='page3_over_textwrap'>
+	<div class='page3_over_text1' data-title='하츠'>HAATZ</div>
+	<div class='page3_over_text2'>
+	<p>프로젝트명 : HAATZ<br /><br /><span>[ 해당 페이지로 이동 ]</span></p>
+	</div>
+	</div>
+	</a>
+	</div>
+	<p class='scroll'><img src="image/if_one_finger_scroll_gestureworks_80718.png" alt="스크롤아이콘"></p>
+	<div class='typer3'><div>( Name : 엄재환 / H.P : 010 - 5761 - 5646 )</div></div>
+	</div>
+
+	<div class="section" id='page4'>
+	<div class='progress'>
+	<div class='progress4'></div>
+	</div>
+	<h1 class='move'>Chapter 04 . 이벤트</h1>
+	<h2><img src="image/4th_title.png" alt="4페이지 타이틀"></h2>
+	<a href="gallery/event1.jpg" target="_blank" id='firstimg4' class='ov' title='새창열기'><img src="image/page_4.png" alt=""></a>
+	<p class='scroll'><img src="image/if_one_finger_scroll_gestureworks_80718.png" alt="스크롤아이콘"></p>
+	<div class='typer4'><div>( Name : 엄재환 / H.P : 010 - 5761 - 5646 )</div></div>
+	</div>
+
+	<div class="section" id='page5'>
+	<div class='progress'>
+	<div class='progress5'></div>
+	<div class='progress6'></div>
+	</div>
+	<h1 class='move'>Chapter 05 . BI/CI</h1>
+	<h2><img src="image/5th_title.png" alt="5페이지 타이틀"></h2>
+	<a href="gallery/bici.jpg" target="_blank" id='firstimg5' class='ov' title='새창열기'><img src="image/page_5.png" alt=""></a>
+	<p class='scroll'><img src="image/if_one_finger_scroll_gestureworks_80718.png" alt="스크롤아이콘"></p>
+	<div class='typer5'><div>( Name : 엄재환 / H.P : 010 - 5761 - 5646 )</div></div>
+	</div>
+
+	<div class="section" id='page6'>
+	<div class='progress'>
+	<div class='progress7'></div>
+	</div>
+	<h1 class='move'>Chapter 06 . MOVIE</h1>
+	<div class='volumewrap'>
+	<a href="#" class='volume_off'> ⇨ [[ 해당영상을 제외한 외부소리 끄기 ]] ⇦ </a></div>
+	<div class='embed-container'><iframe src="https://www.youtube.com/embed/GMi0dCxcjLY?rel=0&amp;controls=0&amp;showinfo=0"></iframe>
+	</div>
+	<div class='thumbnail'>
+	<a href="#" data-title="https://www.youtube.com/embed/GMi0dCxcjLY?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1"><img src="image/movie1.PNG" alt="Click_Here_Part1"></a><a href="#" data-title='https://youtube.com/embed/PcFivhUJH8c?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1'><img src="image/movie2.PNG" alt="Click_Here_Part2"></a></div>
+	<p class='scroll'><img src="image/if_one_finger_scroll_gestureworks_80718.png" alt="스크롤아이콘"></p>
+	<div class='typer6'><div>( Name : 엄재환 / H.P : 010 - 5761 - 5646 )</div></div>
+	</div>
+	</div><!-- fullpage -->
+
+
+  <div class='log'></div>
+   <div class='flowerbg2'><img src="image/flowerbg2.png" alt=""></div>
+   <div id='loader'></div>
+   <div class='pager'></div>
+   <a href="image/w3cc.png" class='w3c' title='새창열기' target='_blank'><img src="image/w3c.png" alt="w3c"><span>[W3C] 웹표준 유효성검사</span></a>
+
+
+<link rel="stylesheet" href="js/jQuery-Progress-Bar-Plugin-LineProgressbar/jquery.lineProgressbar.css" />
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+<script src="js/fullPage.js-master/jquery.fullPage.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src='js/snowfall/src/snowfall.jquery.js'></script>
+<script src='js/animate/jquery.transit.min.js'></script>
+<script src='js/Rainbow-Text-master/rainbow.js'></script>
+<script src='js/typer/dist/typer.min.js'></script>
+<script src='js/particleground-master/jquery.particleground.min.js'></script>
+<script src='js/jQuery-Progress-Bar-Plugin-LineProgressbar/jquery.lineProgressbar.js'></script>
+<script src="js/voice/responsivevoice.js"></script>
+<script src='js/jquery-ui-1.12.1/jquery-ui.min.js'></script>
+</body>
+</html>
+
