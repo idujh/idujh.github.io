@@ -47,6 +47,13 @@ $('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 ,marginTop:-$('.bigimg_content').height()/2})
 })
 
+$('.thumwrap>a').each(function(index){
+$(this).on('click',function(){
+$('.bigimg>img').attr({src:'img/movie'+(index+1)+'.jpg'})
+$('.thumwrap>a').removeClass('on')
+$(this).addClass('on')
+})
+})
 
 $('.next').on({
 mouseenter:function(){
@@ -87,7 +94,8 @@ a:hover{}
 a:focus{}
 .view{width:592px;margin:20px auto;overflow: hidden;box-shadow:0 0 10px #666;background-color: #000;}
 .thumwrap{width:100%;}
-.thumwrap>a{float:left;display:block;opacity:0.5;}
+.thumwrap:after{clear:both;content:'';display:block;}
+.thumwrap>a{float:left;display:block;opacity:0.5;z-index:2;}
 .thumwrap>a.on{opacity:1;}
 .bigimgwrap{width:100%;position: relative;}
 .next{position: absolute;top:50%;right:0;margin-top:-50px;display:block;
