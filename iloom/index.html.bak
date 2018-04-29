@@ -8,97 +8,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Document</title>
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src='js/jquery-ui.min.js'></script>
-<script src='js/jquery.transit.min.js'></script>
-<script>
-$(document).ready(function(){
-
-//전체메뉴 보더스타일 동적생성
-$('.allmenu>ul>li>ul').each(function(index){
-$(this).find('a').last().each(function(index){
-$('<div class="allmenu_stroke"></div>').appendTo($(this))
-})
-})
-//전체메뉴버튼 이벤트
-$('.allmenu_btn').on('click',function(){
-$('.allmenu').hide()
-$('.allmenu').fadeIn()
-$('.pager').hide()
-return false
-})
-$('.allmenu_close').click(function(){
-$('.allmenu').fadeOut()
-$('.pager').show()
-return false
-})
-
-//메인비주얼인터발
-$('.slide>li>a').hide()
-$('.slide>li>a').first().show()
-
-var min=1
-var max=$('.slide>li').length
-var loop=setInterval(function(){
-if (min==max)
-{
-	min=0
-}
-min++
-$('.slide>li>a').fadeOut(1000)
-$('.slider'+min).fadeIn(1200)
-$('.pager>span').html(min)
-},6000)
-
-//헤더 스크롤이벤트
-$(window).on('scroll',function(){
-var top=$(window).scrollTop()
-if (top>200)
-{
-$('#headerinner1').hide()
-$('#headerinner2').show()
-}else{
-$('#headerinner2').fadeOut()
-$('#headerinner1').show()
-}
-})
-
-//메인 카드섹션 마우스오버
-$('.gallery1 ul>li>a').on({
-mouseenter:function(){
-$(this).find('img').stop().animate({scale:1.03},400)
-},
-mouseleave:function(){
-$(this).find('img').stop().animate({scale:1},400)
-}
-})
-
-//보더애니메이션 + 텍스트 및 경로 동적컨트롤
-$(window).on('load resize',function(){
-$('.pinkbd').height($('.gallery2 ul>li>a').height()-6)
-$('.pinkbd>a').html($('.gallery2 ul>li>a').first().find('img').attr('alt')+'<br>[바로가기]')
-$('.pinkbd>a').attr({href:$('.gallery2 ul>li>a').first().attr('href')})
-$('.gallery2 ul>li>a').each(function(index){
-$(this).on('mouseenter focus',function(){
-var pos=$(this).position()
-var href=$(this).attr('href')
-$('.pinkbd>a').html($(this).find('img').attr('alt')+'<br>[바로가기]')
-$('.pinkbd>a').attr({href:href})
-$('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
-})//enter
-})//each
-})//load resize
-
-
-
-})//ready
-</script>
+<link rel="stylesheet" href="css/font.css">
 
 <style>
-@import url(../NotoSansKR-iconpost/NotoSansKR.css);
 *{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:62.5%;}
-body{font-family:NotoSansKR,sans-serif;color:#333;font-size:1.4em;
+body{font-family:'Noto Sans KR',sans-serif;color:#333;font-size:1.4em;
 letter-spacing:-1px;}
 li{list-style:none;}
 a{text-decoration:none;color:#333;}
@@ -638,31 +553,93 @@ font-size:1.2rem;color:#000;letter-spacing:0px;}
 <div class='footer'>
 
 </div><!-- footer -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div><!-- wrap -->
 <!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css"><![endif]-->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script src='js/jquery.transit.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//전체메뉴 보더스타일 동적생성
+$('.allmenu>ul>li>ul').each(function(index){
+$(this).find('a').last().each(function(index){
+$('<div class="allmenu_stroke"></div>').appendTo($(this))
+})
+})
+//전체메뉴버튼 이벤트
+$('.allmenu_btn').on('click',function(){
+$('.allmenu').hide()
+$('.allmenu').fadeIn()
+$('.pager').hide()
+return false
+})
+$('.allmenu_close').click(function(){
+$('.allmenu').fadeOut()
+$('.pager').show()
+return false
+})
+
+//메인비주얼인터발
+$('.slide>li>a').hide()
+$('.slide>li>a').first().show()
+
+var min=1
+var max=$('.slide>li').length
+var loop=setInterval(function(){
+if (min==max)
+{
+	min=0
+}
+min++
+$('.slide>li>a').fadeOut(1000)
+$('.slider'+min).fadeIn(1200)
+$('.pager>span').html(min)
+},6000)
+
+//헤더 스크롤이벤트
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top>200)
+{
+$('#headerinner1').hide()
+$('#headerinner2').show()
+}else{
+$('#headerinner2').fadeOut()
+$('#headerinner1').show()
+}
+})
+
+//메인 카드섹션 마우스오버
+$('.gallery1 ul>li>a').on({
+mouseenter:function(){
+$(this).find('img').stop().animate({scale:1.03},400)
+},
+mouseleave:function(){
+$(this).find('img').stop().animate({scale:1},400)
+}
+})
+
+//보더애니메이션 + 텍스트 및 경로 동적컨트롤
+$(window).on('load resize',function(){
+$('.pinkbd').height($('.gallery2 ul>li>a').height()-6)
+$('.pinkbd>a').html($('.gallery2 ul>li>a').first().find('img').attr('alt')+'<br>[바로가기]')
+$('.pinkbd>a').attr({href:$('.gallery2 ul>li>a').first().attr('href')})
+$('.gallery2 ul>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+var pos=$(this).position()
+var href=$(this).attr('href')
+$('.pinkbd>a').html($(this).find('img').attr('alt')+'<br>[바로가기]')
+$('.pinkbd>a').attr({href:href})
+$('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
+})//enter
+})//each
+})//load resize
+
+
+
+})//ready
+</script>
+
 </body>
 </html>
