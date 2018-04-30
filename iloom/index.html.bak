@@ -33,12 +33,31 @@ width:52px;}
 .gnb>li>a>img{padding-bottom:4px;}
 .gnb>li>ul{width:80px;box-shadow:0 0 5px #666;position: absolute;top:22px;
 left:-10px;background-color: #fff;padding:10px;line-height: 300%;display:none;}
-.gnb>li>ul>li>a{display:block;text-align: left;}
+.gnb>li>ul>li>a{display:block;}
 .gnb>li>ul>li>a:hover{border-bottom:1px solid #d00b17;}
 .headerinner h1{position: absolute;top:0;left:50%;margin-left:-42.5px;}
 .login1{float:right;margin-right:40px;}
-.login1 a{margin-left:10px;font-size:1.2rem;font-weight:300;}
-.search_cart{clear:both;float:right;margin-right:40px;margin-top:10px;}
+.login1>a{margin-left:10px;font-size:1.2rem;font-weight:300;}
+.search_cart{clear:both;float:right;margin-right:40px;margin-top:10px;
+position: relative;}
+.search_cart>a{padding:0 4px;}
+.searchwrap{position: fixed;top:50px;right:80px;border: 2px solid #d00b17;
+padding:30px;background-color: #fff;width:600px;text-align: left;
+display:none;}
+#login1{position: relative;}
+.search_form{position: relative;}
+.search_form label{text-indent:-999px;font-size:0;display:none;}
+.search_form input[type=search]{border:none;width:100%;color:#333;
+border-bottom: 1px solid #000;padding:0 0 10px 10px;font-size:1.8rem;}
+.search_form input[type=search]::placeholder{font-weight:400;color:#000;
+font-family:'Noto Sans KR',sans-serif;font-size:1.8rem;}
+.search_form a{position: absolute;right:0;top:0;}
+.search_text{padding:15px 25px;}
+.search_text h2{font-size:1.4rem;font-weight:500;letter-spacing:0;
+color:#666;}
+.search_text ul{padding:0;margin:0;margin-top:10px;line-height: 240%;}
+.search_text ul>li>a{display:block;font-size:1.6rem;letter-spacing:0;
+font-weight:300;}
 .allmenu{position: fixed;top:10px;left:10px;background-color: #fff;
 width:1000px;z-index:1;box-shadow:0 0 5px #333;display:none;}
 .allmenu::after{display:block;clear:both;content:'';}
@@ -373,9 +392,26 @@ background-size:cover;}
 <a href="#">회사소개</a>
 </div>
 <div class='search_cart'>
-<a href="#"><img src="image/gnb_search_3.png" alt="검색"></a>
+<a href="#" class='search_btn'><img src="image/gnb_search_3.png" alt="검색"></a>
 <a href="#"><img src="image/gnb_cart.png" alt="장바구니"></a>
+<div class='searchwrap'>
+<div class='search_form'>
+<label for="search">검색라벨</label>
+<input type="search" placeholder='검색' id='search'>
+<a href="#"><img src="image/search_icon.png" alt="검색버튼"></a>
 </div>
+<div class='search_text'>
+<h2>추천검색</h2>
+<ul class='search_list'>
+	<li><a href="#">#신혼침대</a></li>
+	<li><a href="#">#공유침대</a></li>
+	<li><a href="#">#소파테이블</a></li>
+	<li><a href="#">#책상</a></li>
+	<li><a href="#">#아기소파</a></li>
+</ul>
+</div><!--search_text -->
+</div><!-- searchwrap -->
+</div><!-- search_cart -->
 </div><!-- headerinner -->
 <div class='headerinner' id='headerinner2'>
 <ul class='gnb'>
@@ -616,7 +652,7 @@ background-size:cover;}
 <li><a href="#" class='gnb_ani'>시리즈</a></li>
 </ul>
 <h1><a href="#"><img src="image/gnb_logo.png" alt="일룸메인로고"></a></h1>
-<div class='login1'>
+<div class='login1' id='login1'>
 <a href="#">로그인</a>
 <a href="#">회원가입</a>
 <a href="#">주문/배송</a>
@@ -624,8 +660,25 @@ background-size:cover;}
 <a href="#">뉴스</a>
 <a href="#">고객센터</a>
 <a href="#">매장안내</a>
-<a href="#"><img src="image/gnb_search.png" alt="검색"></a>
+<a href="#" class='search_btn'><img src="image/gnb_search.png" alt="검색"></a>
 <a href="#"><img src="image/gnb_cart_3.png" alt="장바구니"></a>
+<div class='searchwrap'>
+<div class='search_form'>
+<label for="search">검색라벨</label>
+<input type="search" placeholder='검색' id='search'>
+<a href="#"><img src="image/search_icon.png" alt="검색버튼"></a>
+</div>
+<div class='search_text'>
+<h2>추천검색</h2>
+<ul class='search_list'>
+	<li><a href="#">#신혼침대</a></li>
+	<li><a href="#">#공유침대</a></li>
+	<li><a href="#">#소파테이블</a></li>
+	<li><a href="#">#책상</a></li>
+	<li><a href="#">#아기소파</a></li>
+</ul>
+</div><!--search_text -->
+</div><!-- searchwrap -->
 </div>
 </div><!-- headerinner -->
 </div><!-- header -->
@@ -712,6 +765,14 @@ $('.allmenu_close').click(function(){
 $('.allmenu').fadeOut()
 $('.pager').show()
 return false
+})
+//서치버튼 이벤트
+$('.search_btn').on('click',function(){
+$('.searchwrap').fadeToggle()
+return false
+})
+$('.searchwrap').on('mouseleave blur',function(){
+$(this).fadeOut()
 })
 
 //메인비주얼인터발
