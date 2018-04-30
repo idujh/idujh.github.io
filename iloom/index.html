@@ -802,6 +802,7 @@ $('.slide>li>a').first().show()
 
 var min=1
 var max=$('.slide>li').length
+$(window).on('load',function(){
 var loop=setInterval(function(){
 if (min==max)
 {
@@ -812,6 +813,7 @@ $('.slide>li>a').fadeOut(1000)
 $('.slider'+min).fadeIn(1200)
 $('.pager>span').html(min)
 },6000)
+})
 
 //헤더 스크롤이벤트
 $(window).on('scroll',function(){

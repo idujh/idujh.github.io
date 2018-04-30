@@ -778,7 +778,7 @@ return false
 $('<div class="count"></div>').appendTo('.searchwrap')
 $('.count').css({position:'absolute',right:20,bottom:20,display:'none'})
 $('.searchwrap').on('mouseleave blur',function(){
-var voice=responsiveVoice.speak('4초후 자동으로 창이 닫힙니다',"Korean Female");
+var voice=responsiveVoice.speak('자동으로 창이 닫힙니다',"Korean Female");
 $('.count').html('<span>4<span>&nbsp;초후에 자동으로 창이 닫힙니다')
 var count=4
 $('.count').show()
