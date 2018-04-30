@@ -135,6 +135,23 @@ background-size:cover;}
 -webkit-background-size:cover;
 background-size:cover;}
 
+/*푸터*/
+.footer{border-top:1px solid #aaaaaa;}
+.footerinner{width:1200px;margin:0 auto;padding:40px; 0;}
+.footertop{overflow: hidden;}
+.footertop>h6{float:left;width:210px;}
+.footertoplist{float:left;width:210px;}
+.footertoplist>h6{font-size:1.4rem;font-weight:500;}
+.footertoplist ul{margin-top:10px;line-height: 160%;}
+.footertoplist ul>li>a{font-size:1.2rem;font-weight:300;display:block;}
+.footertoplist .fw{font-weight:500;}
+#footertoplist{float:left;width:280px;border-left:1px solid #e0e0e0;
+padding:0 0 30px 40px;}
+#footertoplist p{font-size:1.2rem;font-weight:300;}
+#footertoplist .tellnumber{padding:4px 4px;font-size:2.2rem;letter-spacing:0;
+font-weight:400;}
+.footerbottom{overflow: hidden;padding-top:20px;border-top:1px solid #e0e0e0;
+margin-top:20px;}
 
 
 </style>
@@ -729,18 +746,61 @@ background-size:cover;}
 </div><!-- content -->
 
 
-
-
-
-
-
-
-
-
 <div class='footer'>
+<div class='footerinner'>
+<div class='footertop'>
+<h6><a href="#"><img src="image/footer_logo.png" alt="푸터로고"></a></h6>
 
+<div class='footertoplist'>
+<h6>ABOUT</h6>
+<ul>
+	<li><a href="#">회사소개</a></li>
+	<li><a href="#">매장안내</a></li>
+	<li><a href="#">인재채용</a></li>
+</ul>
+</div>
+<div class='footertoplist'>
+<h6>SUPPORT</h6>
+<ul>
+	<li><a href="#">고객센터</a></li>
+	<li><a href="#">대리점 개설안내</a></li>
+</ul>
+</div>
+<div class='footertoplist'>
+<h6>INFO</h6>
+<ul>
+	<li><a href="#">이용약관</a></li>
+	<li><a href="#" class='fw'>개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class='footertoplist' id='footertoplist'>
+<h6>고객센터</h6>
+<p class='tellnumber'>1577-5670</p>
+<p>평일 09:30 ~ 17:30, 제품문의,매장안내,AS,분해설치</p>
+</div>
+
+</div><!-- footertop -->
+<div class='footerbottom'>
+<div class='footerbottom_sns'>
+<a href="#"><img src="image/footer_i.png" alt="인스타그램"></a>
+<a href="#"><img src="image/footer_f.png" alt="페이스북"></a>
+<a href="#"><img src="image/footer_b.png" alt="네이버블로그"></a>
+</div><!-- footerbottom_sns -->
+<div class='footerbottom_copyright'>
+<p>서울시 송파구 오금로 311 (오금동45-1) (주)일룸 ·대표이사 강성문<br>
+개인정보보호 책임자 : 강성문 <br>
+사업자등록번호 : 215-86-93600·통신판매업신고 : 2009-서울송파-0069호·부가통신사업신고필증 : 021129 <br>
+<span>webmaster@iloom.com·Copyright (c) 2018 iloom lnc. All rights reserved</span>
+</p>
+</div><!-- copyright -->
+
+
+
+</div><!-- footerbottom -->
+</div><!-- footerinner -->
 </div><!-- footer -->
-</div><!-- wrap -->
+</div><!---------------------------------wrap------------------------------->
+
 <!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css"><![endif]-->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/jquery-ui.min.js'></script>
@@ -796,23 +856,6 @@ $('.searchwrap').fadeOut()
 },4000)
 })
 
-//메인비주얼인터발
-$('.slide>li>a').hide()
-$('.slide>li>a').first().show()
-
-var min=1
-var max=$('.slide>li').length
-var loop=setInterval(function(){
-if (min==max)
-{
-	min=0
-}
-min++
-$('.slide>li>a').fadeOut(1000)
-$('.slider'+min).fadeIn(1200)
-$('.pager>span').html(min)
-},6000)
-
 //헤더 스크롤이벤트
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
@@ -834,6 +877,25 @@ $('.gnb').on('mouseleave blur',function(){
 $('.gnb>li>ul').stop().slideUp(800,'easeOutExpo')
 })
 
+
+//메인비주얼인터발
+$('.slide>li>a').hide()
+$('.slide>li>a').first().show()
+
+var min=1
+var max=$('.slide>li').length
+$(window).on('load',function(){
+var loop=setInterval(function(){
+if (min==max)
+{
+	min=0
+}
+min++
+$('.slide>li>a').fadeOut(1000)
+$('.slider'+min).fadeIn(1200)
+$('.pager>span').html(min)
+},6000)
+})
 
 //메인 카드섹션 마우스오버
 $('.gallery1 ul>li>a').on({
