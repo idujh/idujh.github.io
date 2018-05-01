@@ -93,7 +93,7 @@ position: relative;}
 .pinkbd{position: absolute;left:20px;top:0;width:284px;
 border: 3px solid #d00b17;background-color:rgba(0,0,0,0.4);text-align: center;
 display:table-cell;vertical-align: middle;}
-.pinkbd>a{display:inline-block;margin:45% auto;height:10%;color:#fff;
+.pinkbd>a{display:inline-block;margin:45% auto;height:10%;color:#e0e0e0;
 padding:10px;}
 .readmore{margin-top:20px;text-align: center;}
 .readmore a{display:inline-block;border-bottom:1px solid #000;font-weight:200;
@@ -146,10 +146,10 @@ line-height: 200%;}
 .footerbottom_mark a{float:right;display:block;margin-left:10px;}
 .movebtn{position: absolute;
  bottom:20px;right:20px;width:75px;height:76px;}
-.movebtn .topbtn{width:75px;height:38.5px;display:block;
+.movebtn .topbtn{width:75px;height:38.5px;display:block;outline:none;
 background:url(../image/quickbtn.png) 0 0 no-repeat;}
 .movebtn .topbtn:hover{background-position: 0 -80px;}
-.movebtn .downbtn{width:75px;height:38.5px;display:block;
+.movebtn .downbtn{width:75px;height:38.5px;display:block;outline:none;
 background:url(../image/quickbtn.png) 0 -38.5px no-repeat;}
 .movebtn .downbtn:hover{background-position: 0 -118.5px;}
 
