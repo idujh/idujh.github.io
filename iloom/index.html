@@ -657,6 +657,10 @@
 </div><!-- footerbottom -->
 </div><!-- footerinner -->
 </div><!-- footer -->
+<div class='movebtn'>
+ <a href="#" class='topbtn'></a>
+ <a href="#" class='downbtn'></a>
+</div>
 </div><!-- wrap -->
 
 <!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css"><![endif]-->
@@ -787,7 +791,17 @@ $('.quick ul>li>a').stop().animate({backgroundPositionY:'0'},400,'easeOutBack')
 $(this).stop().animate({backgroundPositionY:'-200px'},400,'easeOutBack')
 })
 
-
+//업다운버튼
+$('.topbtn').on('click',function(){
+$('body,html').stop().animate({scrollTop:0},400,'linear')
+})
+$('.downbtn').on('click',function(){
+$('body,html').stop().animate({scrollTop:$(document).height()},400,'linear')
+})
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+$('.movebtn').stop().animate({top:top,marginTop:$(window).height()-97},800,'easeOutExpo')
+})
 
 
 })//ready
