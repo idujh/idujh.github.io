@@ -146,10 +146,10 @@ line-height: 200%;}
 .footerbottom_mark a{float:right;display:block;margin-left:10px;}
 .movebtn{position: absolute;
  bottom:20px;right:20px;width:75px;height:76px;}
-.movebtn .topbtn{width:75px;height:38.5px;display:block;
+.movebtn .topbtn{width:75px;height:38.5px;display:block;outline:none;
 background:url(../image/quickbtn.png) 0 0 no-repeat;}
 .movebtn .topbtn:hover{background-position: 0 -80px;}
-.movebtn .downbtn{width:75px;height:38.5px;display:block;
+.movebtn .downbtn{width:75px;height:38.5px;display:block;outline:none;
 background:url(../image/quickbtn.png) 0 -38.5px no-repeat;}
 .movebtn .downbtn:hover{background-position: 0 -118.5px;}
 

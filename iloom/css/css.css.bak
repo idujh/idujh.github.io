@@ -151,7 +151,7 @@ background:url(../image/quickbtn.png) 0 0 no-repeat;}
 .movebtn .topbtn:hover{background-position: 0 -80px;}
 .movebtn .downbtn{width:75px;height:38.5px;display:block;
 background:url(../image/quickbtn.png) 0 -38.5px no-repeat;}
-.movebtn .downbtn:hover{background-position: 0 -117px;}
+.movebtn .downbtn:hover{background-position: 0 -118.5px;}
 
 
 
