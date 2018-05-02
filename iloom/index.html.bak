@@ -576,11 +576,11 @@
 <div class='gallery2'>
 <h2><img src="image/instagram.png" alt="인스타그램"></h2>
 <ul>
-	<li><a href="https://www.daum.net/"><img src="image/30592165_1928275874150380_268884086808903680_n.jpg" alt="자연스러운 라인과 탄탄한 쿠션감을 가진<br>#일룸 #패브릭 #바사소파 입니다."></a></li>
-	<li><a href="https://www.google.co.kr/?gws_rd=ssl"><img src="image/30084378_780900632119732_6915106678971039744_n.jpg" alt="#일룸 의 새 집으로 놀러오세요.<br>새로운 라이프스타일을 제안하는 아이디어!"></a></li>
-	<li><a href="https://www.dothome.co.kr/"><img src="image/30076891_239749286573048_940548261016502272_n.jpg" alt="창의력을 자극하는 톡톡 튀는 컬러의<br>#일룸 #팅클팝 입니다."></a></li>
-	<li><a href="http://www.11st.co.kr/"><img src="image/30084284_174183656571167_8875781652144455680_n.jpg" alt="부드러운 모서리와 세련된 와이어 디자인의<br>#일룸 #엘바테이블 입니다."></a></li>
-	<li><a href="http://naver.com" class='mr0'><img src="image/29739851_573085329745173_5687372844137185280_n.jpg" alt="깔끔한 침실을 위한 인테리어!<br>#일룸 #쿠시노 #옷장 입니다."></a></li>
+	<li><a href="https://www.daum.net/"><img src="image/30592165_1928275874150380_268884086808903680_n.jpg" alt="자연스러운 라인과 탄탄한 쿠션감을 가진<br>일룸 패브릭 바사소파 입니다."></a></li>
+	<li><a href="https://www.google.co.kr/?gws_rd=ssl"><img src="image/30084378_780900632119732_6915106678971039744_n.jpg" alt="일룸 의 새 집으로 놀러오세요.<br>새로운 라이프스타일을 제안하는 아이디어!"></a></li>
+	<li><a href="https://www.dothome.co.kr/"><img src="image/30076891_239749286573048_940548261016502272_n.jpg" alt="창의력을 자극하는 톡톡 튀는 컬러의<br>일룸 팅클팝 입니다."></a></li>
+	<li><a href="http://www.11st.co.kr/"><img src="image/30084284_174183656571167_8875781652144455680_n.jpg" alt="부드러운 모서리와 세련된 와이어 디자인의<br>일룸 엘바테이블 입니다."></a></li>
+	<li><a href="http://naver.com" class='mr0'><img src="image/29739851_573085329745173_5687372844137185280_n.jpg" alt="깔끔한 침실을 위한 인테리어!<br>일룸 쿠시노 옷장 입니다."></a></li>
 <div class='pinkbd'><a href='#' target='_blank'></a></div>
 </ul>
 <div class='readmore'><a href="#">Read More</a></div>
@@ -784,6 +784,14 @@ $('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
 })//enter
 })//each
 })//load resize
+var gall2_loop=setInterval(function(){
+var random=Math.floor(Math.random()*$('.gallery2 ul>li>a').length)
+var pos=$('.gallery2 ul>li>a').eq(random).position()
+var href=$('.gallery2 ul>li>a').eq(random).attr('href')
+$('.pinkbd>a').html($('.gallery2 ul>li>a').eq(random).find('img').attr('alt')+'<br>[바로가기]')
+$('.pinkbd>a').attr({href:href})
+$('.pinkbd').stop().animate({left:pos.left})
+},6000)
 
 //퀵메뉴 오버 이벤트
 $('.quick ul>li>a').on('mouseenter focus',function(){
