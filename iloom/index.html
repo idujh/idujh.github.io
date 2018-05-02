@@ -701,8 +701,8 @@ $('<div class="count"></div>').appendTo('.searchwrap')
 $('.count').css({position:'absolute',right:20,bottom:20,display:'none'})
 $('.searchwrap').on('mouseleave blur',function(){
 var voice=responsiveVoice.speak('자동으로 창이 닫힙니다',"Korean Female");
-$('.count').html('<span>4<span>&nbsp;초후에 자동으로 창이 닫힙니다')
-var count=4
+$('.count').html('<span>2<span>&nbsp;초후에 자동으로 창이 닫힙니다')
+var count=2
 $('.count').show()
 var countloop=setInterval(function(){
 if (count==1)
@@ -715,7 +715,7 @@ $('.count').html('<span>'+count+'<span>&nbsp;초후에 자동으로 창이 닫�
 },1000)
 setTimeout(function(){
 $('.searchwrap').fadeOut()
-},4000)
+},2000)
 })
 
 //헤더 스크롤이벤트
@@ -791,7 +791,7 @@ var href=$('.gallery2 ul>li>a').eq(random).attr('href')
 $('.pinkbd>a').html($('.gallery2 ul>li>a').eq(random).find('img').attr('alt')+'<br>[바로가기]')
 $('.pinkbd>a').attr({href:href})
 $('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
-},10000)
+},6000)
 
 //퀵메뉴 오버 이벤트
 $('.quick ul>li>a').on('mouseenter focus',function(){

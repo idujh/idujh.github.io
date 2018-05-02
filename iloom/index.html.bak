@@ -790,7 +790,7 @@ var pos=$('.gallery2 ul>li>a').eq(random).position()
 var href=$('.gallery2 ul>li>a').eq(random).attr('href')
 $('.pinkbd>a').html($('.gallery2 ul>li>a').eq(random).find('img').attr('alt')+'<br>[바로가기]')
 $('.pinkbd>a').attr({href:href})
-$('.pinkbd').stop().animate({left:pos.left})
+$('.pinkbd').stop().animate({left:pos.left},400,'easeOutExpo')
 },6000)
 
 //퀵메뉴 오버 이벤트
