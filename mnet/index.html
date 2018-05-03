@@ -134,7 +134,9 @@ img{vertical-align: top;border:none;max-width:100%;}
 .pagerwrap{position: absolute;bottom:14px;z-index:1;width:100%;}
 .pagerinner{text-align: center;}
 .pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
-background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;}
+background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;
+outline:none;}
+.pagerinner>a::after{content:'';display:block;padding:10px; 0;position: absolute;top:6px;}
 .pagerinner>a.on{opacity:1;border:none;}
 .pagerinner a:hover{border:none;}
 .pagerinner a:focus{border:none;}
@@ -156,12 +158,12 @@ background:url(image/main_set.png) -82px -230px no-repeat;}
 <div class='headertop'>
 <div class='headertop_inner'>
 <div class='login'>
-<a href="#">웹 플레이어&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;이용권&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;멤버십&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;이벤트&nbsp;&nbsp;|</a>
-<a href="#" class='hg'>&nbsp;&nbsp;로그인&nbsp;&nbsp;&middot;</a>
-<a href="#" class='hg'>&nbsp;&nbsp;회원가입&nbsp;&nbsp;</a>
+<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;웹 플레이어&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;이용권&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;멤버십&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;이벤트&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+<a href="#" class='hg'>&nbsp;&nbsp;&nbsp;&nbsp;로그인&nbsp;&nbsp;&nbsp;&nbsp;&middot;</a>
+<a href="#" class='hg'>&nbsp;&nbsp;&nbsp;&nbsp;회원가입</a>
 </div>  
 </div>  
 </div><!--headertop-->
