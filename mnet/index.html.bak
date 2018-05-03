@@ -8,71 +8,15 @@
 
 <title>Document</title>
 
-<link rel="stylesheet" href="css/font.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src='js/jquery-ui.min.js'></script>
-<script src='js/jquery.transit.min.js'></script>
+<script src='jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
-//폼이벤트
-$('.search_form').on('mouseenter focus',function(){
-$('.search_form #search').css({borderColor:'#ff4191'})
-$('.search_form .button').css({backgroundPosition:'-33px -40px'})   
-})
-$('.search_form').on('mouseleave blur',function(){
-$('.search_form #search').css({borderColor:'#b3b3b3'})
-$('.search_form .button').css({backgroundPosition:'0 -40px'})   
-})
-//메인 슬라이드 이벤트
-$('.slide>li').hide()
-$('.slide>li:first()').show()
-var now=1
-var total=$('.slide>li').length
-var loop=setInterval(function(){
-if (now==total)
-{
-	now=0
-}
-now++
-$('.slide>li').stop().fadeOut(1000)
-$('.slider'+now).stop().fadeIn(1200)
-$('.pagerinner>a').removeClass('on')
-$('.pagerinner>a').eq(now-1).addClass('on')
-},4000)
 
-$('.pagerinner>a').each(function(index){
-$(this).on('click',function(){
-$('.slide>li').stop().fadeOut(1000)
-$('.slide>li').eq(index).stop().fadeIn(1200)
-$('.pagerinner>a').removeClass('on')
-$(this).addClass('on')
-})
-})
 
-var stop=true;
-$('.stop_start').on('click',function(){
-if (stop)
-{
-$(this).css({backgroundPosition:'-62px -230px'})
-clearInterval(loop)
-stop=false;
-}else{
-$(this).css({backgroundPosition:'-82px -230px'})
-loop=setInterval(function(){
-if (now==total)
-{
-	now=0
-}
-now++
-$('.slide>li').stop().fadeOut(1000)
-$('.slider'+now).stop().fadeIn(1200)
-$('.pagerinner>a').removeClass('on')
-$('.pagerinner>a').eq(now-1).addClass('on')
-},4000)
-stop=true;
-}
-return false
-})
+
+
+
 
 
 
@@ -80,69 +24,15 @@ return false
 })//ready
 </script>
 <style>
+@import url(http://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
 *{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:62.5%;}
-body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;}
+body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;}
 li{list-style:none;}
 a{text-decoration:none;color:#333;}
 img{vertical-align: top;border:none;max-width:100%;}
-.content a:hover{border-bottom:1px solid #8a8a8a;}
-.content a:focus{border-bottom:1px solid #8a8a8a;}
- .wrap{}
- .header{}
-
- /* 헤더css */
- .headertop{border-bottom:1px solid #efefef;}
- .headertop_inner{width:1172px;margin:0 auto;overflow: hidden;padding:10px 0;}
- .login{float:right;}
- .login a{float:left;display:inline-block;font-size:1.2rem;color:#9e9e9e;}
- .login .hg{color:#333;}
- .login a:hover{color:#e30076;border:none;}
- .headerbottom{width:1172px;margin:0 auto;padding:40px 0;overflow: hidden;
- position: relative;}
- .headerbottom h1{width:99px;height:35px;background:url(image/header_set.png) 0 0 no-repeat;float:left;}
- .headerbottom h1>a{display:block;text-indent: -999px;font-size:0;}
- .search_form{margin-left:20px;float:left;width:332px;height:35px;
- position: relative;}
- .search_form label{text-indent: -999px;font-size:0;display:none;}
- .search_form #search{width:100%;height:100%;padding:0 40px 0 15px;
- color:#333;border: 2px solid #b3b3b3;border-radius:30px;font-size:1.6rem;}
- .search_form .button{position: absolute;right:10px;top:5px;
- width:22px;height:26px;background:url(image/header_set.png) 0 -40px no-repeat;
- z-index:1;}
- .search_form .button:hover{border: none;}
- .icon{position: absolute;top:10px;right:0;overflow: hidden;}
- .icon a{display:block;float:left;margin-right:30px;}
- .icon a:nth-child(4){margin:0;}
- 
-/* content */
-.content{}
-.mask{position: relative;height:405px;}
-.slide{}
-.slide>li{width:100%;position: absolute;}
-.slide>li>a{width:1172px;margin:0 auto;display:block;}
-.slide>li>a:hover{border: none;}
-.slider1{background-color: #162e50;}
-.slider2{background-color: #f65a5b;}
-.slider3{background-color: #0c0f3a;}
-.slider4{background-color: #40b5bf;}
-.slider5{background-color: #8ad9f7;}
-.slider6{background-color: #70b6f2;}
-.slider7{background-color: #9c4a70;}
-.slider8{background-color: #d0bdae;}
-.pagerwrap{position: absolute;bottom:14px;z-index:1;width:100%;}
-.pagerinner{text-align: center;}
-.pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
-background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;}
-.pagerinner>a.on{opacity:1;border:none;}
-.pagerinner a:hover{border:none;}
-.pagerinner a:focus{border:none;}
-.pagerinner>div{display:inline-block;position: relative;margin-left:10px;}
-.pagerinner>div>.stop_start{font-size:0;text-indent:-999px;position: absolute;
-top:-5px;display:block;width:17px;height:17px;outline:none;
-background:url(image/main_set.png) -82px -230px no-repeat;}
-
-
+a:hover{}
+a:focus{}
 
 
 
@@ -150,84 +40,21 @@ background:url(image/main_set.png) -82px -230px no-repeat;}
 </style>
 </head>
 <body id='my'>
-<div class='wrap'>
-<div class='header'>
-<div class='headertop'>
-<div class='headertop_inner'>
-<div class='login'>
-<a href="#">웹 플레이어&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;이용권&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;멤버십&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;이벤트&nbsp;&nbsp;|</a>
-<a href="#" class='hg'>&nbsp;&nbsp;로그인&nbsp;&nbsp;&middot;</a>
-<a href="#" class='hg'>&nbsp;&nbsp;회원가입&nbsp;&nbsp;</a>
-</div>  
-</div>  
-</div><!--headertop-->
-<div class='headerbottom'>
-<h1><a href="#">엠넷로고</a></h1> 
-<div class='search_form'>
-<label for="search">검색</label>
-<input type="serach" id='search'>
-<a href="#" class='button'></a>
-</div><!-- search_form -->
-<div class='icon'>
-<a href="#"><img src="image/icon1.png" alt="카운트다운"></a>
-<a href="#"><img src="image/icon2.png" alt="프로듀스"></a>
-<a href="#"><img src="image/icon3.png" alt="브레이커스"></a>
-<a href="#"><img src="image/icon4.png" alt="워너원"></a>
-</div><!-- icon -->
-</div><!--headerbottom-->  
-</div><!--header-->
-<div class='content'>
-<div class='mask'>
-<ul class='slide'>
-	<li class='slider1 slider'><a href="#"><img src="image/slide1.jpg" alt="슬라이드1"></a></li>
-	<li class='slider2 slider'><a href="#"><img src="image/slide2.jpg" alt="슬라이드2"></a></li>
-	<li class='slider3 slider'><a href="#"><img src="image/slide3.jpg" alt="슬라이드3"></a></li>
-	<li class='slider4 slider'><a href="#"><img src="image/slide4.jpg" alt="슬라이드4"></a></li>
-	<li class='slider5 slider'><a href="#"><img src="image/slide5.jpg" alt="슬라이드5"></a></li>
-	<li class='slider6 slider'><a href="#"><img src="image/slide6.jpg" alt="슬라이드6"></a></li>
-	<li class='slider7 slider'><a href="#"><img src="image/slide7.jpg" alt="슬라이드7"></a></li>
-	<li class='slider8 slider'><a href="#"><img src="image/slide8.jpg" alt="슬라이드8"></a></li>
-</ul>
-<div class='pagerwrap'>
-<div class='pagerinner'>
-<a href="#" class='pager on'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<a href="#" class='pager'>페이저1</a>
-<div><a href="#" class='stop_start'>stop&start</a></div>
-</div>
-</div>
-</div><!-- mask -->
 
 
 
 
 
 
-</div><!-- content -->
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
-</div><!--wrap-->
+
+
+
+
+
+
+
+
 </body>
 </html>
