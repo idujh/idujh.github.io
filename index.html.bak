@@ -6,6 +6,10 @@
 <!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="웹퍼블리셔">
+<meta property="og:type" content="website">
+<meta property="og:title" content="웹퍼블리셔">
+<meta property="og:description" content="웹퍼블리셔">
+<meta property="og:url" content="http://idujh.github.io">
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
 <link rel="stylesheet" href="css/style.css">
