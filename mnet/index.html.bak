@@ -14,6 +14,7 @@
 <script src='js/jquery.transit.min.js'></script>
 <script>
 $(document).ready(function(){
+
 //폼이벤트
 $('.search_form').on('mouseenter focus',function(){
 $('.search_form #search').css({borderColor:'#ff4191'})
@@ -24,6 +25,15 @@ $('.search_form #search').css({borderColor:'#b3b3b3'})
 $('.search_form .button').css({backgroundPosition:'0 -40px'})
 $('.search_form #search').blur()
 })
+
+//헤더아이콘이벤트
+var icon=setInterval(function(){
+var random=Math.floor(Math.random()*$('.icon>a').length)
+$('.icon>a').eq(random).hide('blind',800,function(){
+$(this).show('blind',800)
+})
+},2000)
+ 
 //메인 슬라이드 이벤트
 $('.slide>li').hide()
 $('.slide>li:first()').show()
@@ -134,9 +144,9 @@ img{vertical-align: top;border:none;max-width:100%;}
 .pagerwrap{position: absolute;bottom:14px;z-index:1;width:100%;}
 .pagerinner{text-align: center;}
 .pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
-background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;}
-.pagerinner>a::after{content:'';display:block;padding:10px; 0;
-border: 1px solid #000;position: absolute;top:6px;}
+background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;
+outline:none;}
+.pagerinner>a::after{content:'';display:block;padding:10px; 0;position: absolute;top:6px;}
 .pagerinner>a.on{opacity:1;border:none;}
 .pagerinner a:hover{border:none;}
 .pagerinner a:focus{border:none;}

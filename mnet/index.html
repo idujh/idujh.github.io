@@ -14,6 +14,7 @@
 <script src='js/jquery.transit.min.js'></script>
 <script>
 $(document).ready(function(){
+
 //폼이벤트
 $('.search_form').on('mouseenter focus',function(){
 $('.search_form #search').css({borderColor:'#ff4191'})
@@ -24,6 +25,15 @@ $('.search_form #search').css({borderColor:'#b3b3b3'})
 $('.search_form .button').css({backgroundPosition:'0 -40px'})
 $('.search_form #search').blur()
 })
+
+//헤더아이콘 이벤트
+var icon=setInterval(function(){
+var random=Math.floor(Math.random()*$('.icon>a').length)
+$('.icon>a').eq(random).stop().animate({scale:1.2,rotateX:'+=360deg',perspective:400},400,'easeOutBounce',function(){
+$(this).stop().animate({scale:1},400,'easeOutBounce') 
+}) 
+},10000)
+ 
 //메인 슬라이드 이벤트
 $('.slide>li').hide()
 $('.slide>li:first()').show()
@@ -93,7 +103,7 @@ img{vertical-align: top;border:none;max-width:100%;}
  .header{}
 
  /* 헤더css */
- .headertop{border-bottom:1px solid #efefef;}
+ .headertop{border-bottom:1px solid #efefef;min-width:1172px;}
  .headertop_inner{width:1172px;margin:0 auto;overflow: hidden;padding:10px 0;}
  .login{float:right;}
  .login a{float:left;display:inline-block;font-size:1.2rem;color:#9e9e9e;}
@@ -144,8 +154,6 @@ outline:none;}
 .pagerinner>div>.stop_start{font-size:0;text-indent:-999px;position: absolute;
 top:-5px;display:block;width:17px;height:17px;outline:none;
 background:url(image/main_set.png) -82px -230px no-repeat;}
-
-
 
 
 
@@ -204,7 +212,7 @@ background:url(image/main_set.png) -82px -230px no-repeat;}
 <a href="#" class='pager'>페이저1</a>
 <a href="#" class='pager'>페이저1</a>
 <a href="#" class='pager'>페이저1</a>
-<div><a href="#" class='stop_start'>stop&start</a></div>
+<div><a href="#" class='stop_start'>stop+start</a></div>
 </div>
 </div>
 </div><!-- mask -->
