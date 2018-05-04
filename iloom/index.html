@@ -802,9 +802,11 @@ $(this).stop().animate({backgroundPositionY:'-200px'},400,'easeOutBack')
 //업다운버튼
 $('.topbtn').on('click',function(){
 $('body,html').stop().animate({scrollTop:0},400,'linear')
+return false;
 })
 $('.downbtn').on('click',function(){
 $('body,html').stop().animate({scrollTop:$(document).height()},400,'linear')
+return false;
 })
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()

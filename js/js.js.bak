@@ -523,14 +523,14 @@ parallaxMultiplier:10
 
 
 $('.my,#page1 .move,#page1 .ov,#page1 h2').css({scale:0})
-$('.skip').on('click',function(){
-audio1.play()
+$(window).on('load',function(){
+audio1.play();
 $('.move').stop().animate({scale:1},1000,'easeInOutElastic',function(){
-audio3.play()
+audio3.play();
 $('.section h2').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio1.play()
+audio1.play();
 $('.ov').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio3.play()
+audio3.play();
 $('.my').stop().animate({scale:1},1000,'easeOutElastic',function(){
 responsiveVoice.speak('포트폴리오 방문을 환영합니다',"Korean Female")
 setTimeout(function(){

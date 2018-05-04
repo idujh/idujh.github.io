@@ -701,8 +701,8 @@ $('<div class="count"></div>').appendTo('.searchwrap')
 $('.count').css({position:'absolute',right:20,bottom:20,display:'none'})
 $('.searchwrap').on('mouseleave blur',function(){
 var voice=responsiveVoice.speak('자동으로 창이 닫힙니다',"Korean Female");
-$('.count').html('<span>4<span>&nbsp;초후에 자동으로 창이 닫힙니다')
-var count=4
+$('.count').html('<span>2<span>&nbsp;초후에 자동으로 창이 닫힙니다')
+var count=2
 $('.count').show()
 var countloop=setInterval(function(){
 if (count==1)
@@ -715,7 +715,7 @@ $('.count').html('<span>'+count+'<span>&nbsp;초후에 자동으로 창이 닫�
 },1000)
 setTimeout(function(){
 $('.searchwrap').fadeOut()
-},4000)
+},2000)
 })
 
 //헤더 스크롤이벤트
@@ -802,6 +802,7 @@ $(this).stop().animate({backgroundPositionY:'-200px'},400,'easeOutBack')
 //업다운버튼
 $('.topbtn').on('click',function(){
 $('body,html').stop().animate({scrollTop:0},400,'linear')
+return false;
 })
 $('.downbtn').on('click',function(){
 $('body,html').stop().animate({scrollTop:$(document).height()},400,'linear')
@@ -809,6 +810,7 @@ $('body,html').stop().animate({scrollTop:$(document).height()},400,'linear')
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
 $('.movebtn').stop().animate({top:top,marginTop:$(window).height()-97},800,'easeOutExpo')
+return false;
 })
 
 
