@@ -51,6 +51,14 @@ $('.pagerinner>a').removeClass('on')
 $('.pagerinner>a').eq(now-1).addClass('on')
 },4000)
 
+$('.slide_text_left a').on('mouseenter focus',function(){
+$(this).siblings().stop().animate({opacity:0.5})
+$(this).stop().animate({opacity:1})
+})
+$('.slide_text_left').on('mouseleave blur',function(){
+$('.slide_text_left a').stop().animate({opacity:1})
+})
+
 $('.pagerinner>a').each(function(index){
 $(this).on('click',function(){
 $('.slide>li').stop().fadeOut(1000)
@@ -141,6 +149,20 @@ img{vertical-align: top;border:none;max-width:100%;}
 .slider6{background-color: #70b6f2;}
 .slider7{background-color: #9c4a70;}
 .slider8{background-color: #d0bdae;}
+.slide_textwrap{position: absolute;top:0;text-align: center;width:100%;
+min-width:1172px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.5);}
+.slide_text{width:1172px;margin:0 auto;overflow: hidden;}
+.slide_text_left{float:left;}
+.slide_text_left a{display:inline-block;color:#fff;font-size:2.0rem;
+font-weight:600;padding:0 40px 0 20px;}
+.slide_text_left a:hover{border:none;}
+.slide_text_right{float:right;padding-top:5px;}
+.slide_text_right a{color:#fff;padding:0 20px;position: relative;}
+.slide_text_right a:hover{border:none;color:#e30076;}
+.slide_text_right_icon1::after{content:'';background:url(image/header_set.png) -139px -40px no-repeat;position: absolute;left:-2px;top:2px;
+width:19px;height:20px;}
+.slide_text_right_icon2::after{content:'';background:url(image/header_set.png) -180px -40px no-repeat;position: absolute;left:-2px;top:2px;
+width:19px;height:20px;}
 .pagerwrap{position: absolute;bottom:14px;z-index:1;width:100%;}
 .pagerinner{text-align: center;}
 .pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
@@ -154,6 +176,23 @@ outline:none;}
 .pagerinner>div>.stop_start{font-size:0;text-indent:-999px;position: absolute;
 top:-5px;display:block;width:17px;height:17px;outline:none;
 background:url(image/main_set.png) -82px -230px no-repeat;}
+.section1{width:1172px;margin:0 auto;margin-top:20px;}
+.section1 .onair{height:66px;border-top: 1px solid #e5e5e5;
+border-bottom: 1px solid #e5e5e5;overflow: hidden;}
+.section1 .onair>img{height:100%;float:left;}
+.onair_text{float:left;width:1030px;margin-left:20px;padding:20px 0;}
+.onair_text .t{float:left;}
+.onair_text .t1{color:#fd3c51;font-size:1.8rem;}
+.onair_text .t2{margin-left:14px;font-size:1.8rem;font-weight:600;}
+.onair_text .t3{margin-left:14px;font-size:1.5rem;color:#666;}
+.onair_text .t4{border: 1px solid #b9b9b9;margin-left:24px;
+border-radius:15px;padding:0 10px;}
+.onair_text .t4:hover{border-color:#fbcce5;color:#f06ca7;}
+.onair_text #t5{float:right;position: relative;margin-right:20px;}
+.onair_text #t5::before{content:'';background:url(image/main_set.png) -94px -83px no-repeat;position: absolute;right:-10px;top:50%;
+width:6px;height:12px;margin-top:-6px;}
+
+
 
 
 
@@ -202,6 +241,19 @@ background:url(image/main_set.png) -82px -230px no-repeat;}
 	<li class='slider7 slider'><a href="#"><img src="image/slide7.jpg" alt="슬라이드7"></a></li>
 	<li class='slider8 slider'><a href="#"><img src="image/slide8.jpg" alt="슬라이드8"></a></li>
 </ul>
+<div class='slide_textwrap'>
+<div class='slide_text'>
+<div class='slide_text_left'>
+<a href="#">TV</a>
+<a href="#">뮤직</a>
+<a href="#">프라임팩</a>
+</div><!-- slide_text_left -->
+<div class='slide_text_right'>
+<a href="#" class='slide_text_right_icon1'>쿠폰등록</a>
+<a href="#" class='slide_text_right_icon2'>이용권 구매</a>
+</div><!-- slide_text_right -->
+</div><!-- slide_text -->
+</div><!-- slide_textwrap -->
 <div class='pagerwrap'>
 <div class='pagerinner'>
 <a href="#" class='pager on'>페이저1</a>
@@ -213,11 +265,21 @@ background:url(image/main_set.png) -82px -230px no-repeat;}
 <a href="#" class='pager'>페이저1</a>
 <a href="#" class='pager'>페이저1</a>
 <div><a href="#" class='stop_start'>stop+start</a></div>
-</div>
-</div>
+</div><!-- pagerinner -->
+</div><!-- pagerwrap -->
 </div><!-- mask -->
-
-
+<div class='section1'>
+<div class='onair'>
+<img src="image/228948.jpg" alt="wannaone">
+<div class='onair_text'>
+<h2 class='t1 t'>ON AIR</h2>
+<a href="#" class='t2 t'>WANNAONE GO : ZERO BASE 6회</a>
+<p class='t3 t'><span>10:00&nbsp;&middot;</span><span>&nbsp;1시간 37분 지남</span></p>
+<a href="#" class='t4 t'>현재방송보기</a>
+<a href="#" class='t5 t' id='t5'>TV 편성표</a>
+</div><!-- onair_text -->
+</div><!-- onair -->
+</div><!-- section1 -->
 
 
 
