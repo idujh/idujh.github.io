@@ -93,6 +93,68 @@ stop=true;
 return false
 })
 
+//카드섹션 첫번째
+$('.latesttitle_list>a').each(function(index){
+$(this).on('click',function(){
+$('.tab_mask').hide()
+$('.tab_mask').eq(index).show()
+$('.latesttitle_list>a').removeClass('on')
+$(this).addClass('on')
+return false
+})
+})
+
+$('.tab_mask').each(function(index){
+$(this).find('.tab_pager>a').each(function(index){
+$(this).on('click',function(){
+$(this).parent().prev().stop().animate({left:index*-1172})
+$(this).siblings().removeClass('on')
+$(this).addClass('on')
+return false;
+})
+})
+$(this).on('mouseenter focus',function(){
+$(this).find('.tab_prev').show()
+$(this).find('.tab_next').show()
+})
+$(this).on('mouseleave blur',function(){
+$(this).find('.tab_prev').hide()
+$(this).find('.tab_next').hide()
+})
+})
+
+var min=0
+var max=3
+$('.tab_next').on('click',function(){
+if (min==max)
+{
+	min=-1
+}
+min++
+$(this).prev().prev().find('a').removeClass('on')
+$(this).prev().prev().find('a').eq(min).addClass('on')
+$(this).prev().prev().prev().stop().animate({left:min*-1172})
+return false;
+})
+
+$('.tab_prev').on('click',function(){
+if (min==0)
+{
+	min=max+1
+}
+min--
+$(this).prev().find('a').removeClass('on')
+$(this).prev().find('a').eq(min).addClass('on')
+$(this).prev().prev().stop().animate({left:min*-1172})
+return false;
+})
+
+
+
+
+
+
+
 
 
 
@@ -105,8 +167,8 @@ body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;}
 li{list-style:none;}
 a{text-decoration:none;color:#333;}
 img{vertical-align: top;border:none;max-width:100%;}
-.content a:hover{border-bottom:1px solid #8a8a8a;}
-.content a:focus{border-bottom:1px solid #8a8a8a;}
+.section a:hover{border-bottom:1px solid #8a8a8a;}
+.section a:focus{border-bottom:1px solid #8a8a8a;}
  .wrap{}
  .header{}
 
@@ -168,7 +230,7 @@ width:19px;height:20px;}
 .pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
 background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;
 outline:none;}
-.pagerinner>a::after{content:'';display:block;padding:10px; 0;position: absolute;top:6px;}
+.pagerinner>a::after{content:'';display:block;padding:10px 0;position: absolute;top:6px;}
 .pagerinner>a.on{opacity:1;border:none;}
 .pagerinner a:hover{border:none;}
 .pagerinner a:focus{border:none;}
@@ -184,17 +246,48 @@ border-bottom: 1px solid #e5e5e5;overflow: hidden;}
 .onair_text .t{float:left;}
 .onair_text .t1{color:#fd3c51;font-size:1.8rem;}
 .onair_text .t2{margin-left:14px;font-size:1.8rem;font-weight:600;}
-.onair_text .t3{margin-left:14px;font-size:1.4rem;color:#666;}
+.onair_text .t3{margin-left:14px;font-size:1.5rem;color:#666;}
 .onair_text .t4{border: 1px solid #b9b9b9;margin-left:24px;
 border-radius:15px;padding:0 10px;}
 .onair_text .t4:hover{border-color:#fbcce5;color:#f06ca7;}
 .onair_text #t5{float:right;position: relative;margin-right:20px;}
 .onair_text #t5::before{content:'';background:url(image/main_set.png) -94px -83px no-repeat;position: absolute;right:-10px;top:50%;
 width:6px;height:12px;margin-top:-6px;}
-
-
-
-
+.latestalbum{margin-top:20px;}
+.latesttitle{overflow: hidden;height:30px;line-height: 30px;}
+.latesttitle h3{float:left;position: relative;}
+.latesttitle h3::after{content:'';background:url(image/main_set.png) -91px -109px no-repeat;position: absolute;right:-16px;top:20%;
+width:10px;height:16px;}
+.latesttitle_list{margin-left:40px;float:left;}
+.latesttitle_list a.on{font-weight:600;}
+.latest_view{overflow: hidden;float:left;width:1172px;position: relative;}
+.latest_view>li{float:left;width:12.5714%;margin-right:2%;}
+.latest_view>li:last-child{margin:0;}
+.latest_view>li>a{display:block;border-radius:5px;overflow: hidden;}
+.latest_view>li>a:hover{border:none;}
+.latest_view_text{margin-top:10px;line-height: 120%;}
+.latest_view_text>a{display:inline-block;line-height: 100%;}
+.latest_view_text>a:nth-child(2){font-weight:400;font-size:1.3rem;}
+.latest_view_text>a:last-child{color:#767676;font-size:1.2rem;}
+.tab{position: absolute;}
+.tab_mask{width:1172px;position: absolute;overflow: hidden;
+padding-top:20px;}
+.tab{width:6000px;position: relative;}
+#tab_mask1{display:block;}
+#tab_mask2{display:none;}
+#tab_mask3{display:none;}
+.tab_pager{position: absolute;top:6px;right:0;}
+.tab_pager>a{font-size:0;text-indent:-999px;width:20px;height:2px;
+background-color: #ddd;display:block;float:left;margin:0 2px;
+position: relative;}
+.tab_pager>a.on{background-color: #000;}
+.tab_pager>a:hover{border:none;}
+.tab_pager>a:focus{border:none;}
+.tab_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
+.tab_prev{position: absolute;left:0;top:26%;z-index:1;padding:6px;
+background-color:#333;display:block;display:none;}
+.tab_next{position: absolute;right:0;top:26%;z-index:1;padding:6px;
+background-color:#333;display:block;display:none;}
 
 
 </style>
@@ -205,12 +298,12 @@ width:6px;height:12px;margin-top:-6px;}
 <div class='headertop'>
 <div class='headertop_inner'>
 <div class='login'>
-<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;웹 플레이어&nbsp;&nbsp;&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;이용권&nbsp;&nbsp;&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;멤버십&nbsp;&nbsp;&nbsp;&nbsp;|</a>
-<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;이벤트&nbsp;&nbsp;&nbsp;&nbsp;|</a>
-<a href="#" class='hg'>&nbsp;&nbsp;&nbsp;&nbsp;로그인&nbsp;&nbsp;&nbsp;&nbsp;&middot;</a>
-<a href="#" class='hg'>&nbsp;&nbsp;&nbsp;&nbsp;회원가입</a>
+<a href="#">&nbsp;&nbsp;웹 플레이어&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;이용권&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;멤버십&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;이벤트&nbsp;&nbsp;|</a>
+<a href="#" class='hg'>&nbsp;&nbsp;로그인&nbsp;&nbsp;&middot;</a>
+<a href="#" class='hg'>&nbsp;&nbsp;&nbsp;회원가입</a>
 </div>  
 </div>  
 </div><!--headertop-->
@@ -218,7 +311,7 @@ width:6px;height:12px;margin-top:-6px;}
 <h1><a href="#">엠넷로고</a></h1> 
 <div class='search_form'>
 <label for="search">검색</label>
-<input type="serach" id='search'>
+<input type="search" id='search'>
 <a href="#" class='button'></a>
 </div><!-- search_form -->
 <div class='icon'>
@@ -268,7 +361,7 @@ width:6px;height:12px;margin-top:-6px;}
 </div><!-- pagerinner -->
 </div><!-- pagerwrap -->
 </div><!-- mask -->
-<div class='section1'>
+<div class='section1 section'>
 <div class='onair'>
 <img src="image/228948.jpg" alt="wannaone">
 <div class='onair_text'>
@@ -279,6 +372,580 @@ width:6px;height:12px;margin-top:-6px;}
 <a href="#" class='t5 t' id='t5'>TV 편성표</a>
 </div><!-- onair_text -->
 </div><!-- onair -->
+<div class='latestalbum'>
+<div class='latesttitle'>
+<h3><a href="#">최신앨범</a></h3>
+<div class='latesttitle_list'>
+<a href="#" class='on'>종합&nbsp;&middot;</a>
+<a href="#">&nbsp;국내&nbsp;&middot;</a>
+<a href="#">&nbsp;해외</a>
+</div><!-- latesttitle_list -->
+</div><!--latesttitle-->
+<div class='tab_mask' id='tab_mask1'>
+<div class='tab' id='tab1'>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2906282.jpg" alt="염따"></a>
+	<div class='latest_view_text'>
+	<a href="#">시러 REMIX</a><br>
+	<a href="#">염따(YumDDa)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905881.jpg" alt="경리"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘 밤 뭐해?</a><br>
+	<a href="#">경리(나인뮤지스)</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2906401.jpg" alt="어쿠루브"></a>
+	<div class='latest_view_text'>
+	<a href="#">어떡하지</a><br>
+	<a href="#">어쿠루브</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906059.jpg" alt="고훈정"></a>
+	<div class='latest_view_text'>
+	<a href="#">흩어진바람</a><br>
+	<a href="#">고훈정</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906406.jpg" alt="타린"></a>
+	<div class='latest_view_text'>
+	<a href="#">행복한 일은 매일 있어</a><br>
+	<a href="#">타린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905805.jpg" alt="댤샤벳"></a>
+	<div class='latest_view_text'>
+	<a href="#">인형의 집 OSF Part9</a><br>
+	<a href="#">세리(달샤벳)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<div class='latest_view_text'>
+	<a href="#">Without You</a><br>
+	<a href="#">크림(Cream)</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2901810.jpg" alt="탭2_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">영종도</a><br>
+	<a href="#">혹시몰라</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903097.jpg" alt="탭2_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">안녕, 봄</a><br>
+	<a href="#">여동생</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2903121.jpg" alt="탭2_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">우리 사랑이</a><br>
+	<a href="#">Ways(웨이즈)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903319.jpg" alt="탭2_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">Anti-Love</a><br>
+	<a href="#">랩흔(Raphorn)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903397.jpg" alt="탭2_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘은 날씨가 좋아요</a><br>
+	<a href="#">박그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903545.jpg" alt="탭2_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">너의 빛(Your Light)</a><br>
+	<a href="#">메리그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">기록 16-17 수원에서</a><br>
+	<a href="#">정너울(Jeong Neoul)</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2906282.jpg" alt="염따"></a>
+	<div class='latest_view_text'>
+	<a href="#">시러 REMIX</a><br>
+	<a href="#">염따(YumDDa)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905881.jpg" alt="경리"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘 밤 뭐해?</a><br>
+	<a href="#">경리(나인뮤지스)</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2906401.jpg" alt="어쿠루브"></a>
+	<div class='latest_view_text'>
+	<a href="#">어떡하지</a><br>
+	<a href="#">어쿠루브</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906059.jpg" alt="고훈정"></a>
+	<div class='latest_view_text'>
+	<a href="#">흩어진바람</a><br>
+	<a href="#">고훈정</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906406.jpg" alt="타린"></a>
+	<div class='latest_view_text'>
+	<a href="#">행복한 일은 매일 있어</a><br>
+	<a href="#">타린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905805.jpg" alt="댤샤벳"></a>
+	<div class='latest_view_text'>
+	<a href="#">인형의 집 OSF Part9</a><br>
+	<a href="#">세리(달샤벳)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<div class='latest_view_text'>
+	<a href="#">Without You</a><br>
+	<a href="#">크림(Cream)</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2901810.jpg" alt="탭2_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">영종도</a><br>
+	<a href="#">혹시몰라</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903097.jpg" alt="탭2_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">안녕, 봄</a><br>
+	<a href="#">여동생</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2903121.jpg" alt="탭2_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">우리 사랑이</a><br>
+	<a href="#">Ways(웨이즈)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903319.jpg" alt="탭2_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">Anti-Love</a><br>
+	<a href="#">랩흔(Raphorn)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903397.jpg" alt="탭2_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘은 날씨가 좋아요</a><br>
+	<a href="#">박그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903545.jpg" alt="탭2_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">너의 빛(Your Light)</a><br>
+	<a href="#">메리그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">기록 16-17 수원에서</a><br>
+	<a href="#">정너울(Jeong Neoul)</a>
+	</div>
+	</li>
+</ul>
+</div><!-- tab1 -->
+<div class='tab_pager'>
+<a href="#" class='on'>탭 페이저1</a>
+<a href="#">탭 페이저2</a>
+<a href="#">탭 페이저3</a>
+<a href="#">탭 페이저4</a>
+</div>
+<a href="#" class='tab_prev'><img src="image/prev.png" alt="이전"></a>
+<a href="#" class='tab_next'><img src="image/next.png" alt="다음"></a>
+</div><!-- tab_mask -->
+<div class='tab_mask' id='tab_mask2'>
+<div class='tab' id='tab2'>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2901810.jpg" alt="탭2_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">영종도</a><br>
+	<a href="#">혹시몰라</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903097.jpg" alt="탭2_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">안녕, 봄</a><br>
+	<a href="#">여동생</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2903121.jpg" alt="탭2_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">우리 사랑이</a><br>
+	<a href="#">Ways(웨이즈)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903319.jpg" alt="탭2_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">Anti-Love</a><br>
+	<a href="#">랩흔(Raphorn)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903397.jpg" alt="탭2_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘은 날씨가 좋아요</a><br>
+	<a href="#">박그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903545.jpg" alt="탭2_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">너의 빛(Your Light)</a><br>
+	<a href="#">메리그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">기록 16-17 수원에서</a><br>
+	<a href="#">정너울(Jeong Neoul)</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2904171.jpg" alt="탭3_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">Hunger</a><br>
+	<a href="#">Florence+The Machine</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904276.jpg" alt="탭3_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">Sr3mm</a><br>
+	<a href="#">Rse Sremmurd</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2904314.jpg" alt="탭3_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">Genius</a><br>
+	<a href="#">LSD</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904426.jpg" alt="탭3_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">I`Il Be There</a><br>
+	<a href="#">Jess Glynne</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904444.jpg" alt="탭3_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">Youth</a><br>
+	<a href="#">Shawn Mendes</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904523.jpg" alt="탭3_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">Good Thing</a><br>
+	<a href="#">Leon Bridges</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">Ignite</a><br>
+	<a href="#">Kid Astray</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2901810.jpg" alt="탭2_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">영종도</a><br>
+	<a href="#">혹시몰라</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903097.jpg" alt="탭2_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">안녕, 봄</a><br>
+	<a href="#">여동생</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2903121.jpg" alt="탭2_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">우리 사랑이</a><br>
+	<a href="#">Ways(웨이즈)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903319.jpg" alt="탭2_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">Anti-Love</a><br>
+	<a href="#">랩흔(Raphorn)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903397.jpg" alt="탭2_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘은 날씨가 좋아요</a><br>
+	<a href="#">박그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903545.jpg" alt="탭2_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">너의 빛(Your Light)</a><br>
+	<a href="#">메리그린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">기록 16-17 수원에서</a><br>
+	<a href="#">정너울(Jeong Neoul)</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2904171.jpg" alt="탭3_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">Hunger</a><br>
+	<a href="#">Florence+The Machine</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904276.jpg" alt="탭3_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">Sr3mm</a><br>
+	<a href="#">Rse Sremmurd</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2904314.jpg" alt="탭3_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">Genius</a><br>
+	<a href="#">LSD</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904426.jpg" alt="탭3_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">I`Il Be There</a><br>
+	<a href="#">Jess Glynne</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904444.jpg" alt="탭3_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">Youth</a><br>
+	<a href="#">Shawn Mendes</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904523.jpg" alt="탭3_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">Good Thing</a><br>
+	<a href="#">Leon Bridges</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">Ignite</a><br>
+	<a href="#">Kid Astray</a>
+	</div>
+	</li>
+</ul>
+</div><!-- tab2 -->
+<div class='tab_pager'>
+<a href="#" class='on'>탭 페이저1</a>
+<a href="#">탭 페이저2</a>
+<a href="#">탭 페이저3</a>
+<a href="#">탭 페이저4</a>
+</div>
+<a href="#" class='tab_prev'><img src="image/prev.png" alt="이전"></a>
+<a href="#" class='tab_next'><img src="image/next.png" alt="다음"></a>
+</div><!-- tab_mask -->
+<div class='tab_mask' id='tab_mask3'>
+<div class='tab' id='tab3'>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2904171.jpg" alt="탭3_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">Hunger</a><br>
+	<a href="#">Florence+The Machine</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904276.jpg" alt="탭3_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">Sr3mm</a><br>
+	<a href="#">Rse Sremmurd</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2904314.jpg" alt="탭3_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">Genius</a><br>
+	<a href="#">LSD</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904426.jpg" alt="탭3_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">I`Il Be There</a><br>
+	<a href="#">Jess Glynne</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904444.jpg" alt="탭3_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">Youth</a><br>
+	<a href="#">Shawn Mendes</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904523.jpg" alt="탭3_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">Good Thing</a><br>
+	<a href="#">Leon Bridges</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">Ignite</a><br>
+	<a href="#">Kid Astray</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2906282.jpg" alt="염따"></a>
+	<div class='latest_view_text'>
+	<a href="#">시러 REMIX</a><br>
+	<a href="#">염따(YumDDa)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905881.jpg" alt="경리"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘 밤 뭐해?</a><br>
+	<a href="#">경리(나인뮤지스)</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2906401.jpg" alt="어쿠루브"></a>
+	<div class='latest_view_text'>
+	<a href="#">어떡하지</a><br>
+	<a href="#">어쿠루브</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906059.jpg" alt="고훈정"></a>
+	<div class='latest_view_text'>
+	<a href="#">흩어진바람</a><br>
+	<a href="#">고훈정</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906406.jpg" alt="타린"></a>
+	<div class='latest_view_text'>
+	<a href="#">행복한 일은 매일 있어</a><br>
+	<a href="#">타린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905805.jpg" alt="댤샤벳"></a>
+	<div class='latest_view_text'>
+	<a href="#">인형의 집 OSF Part9</a><br>
+	<a href="#">세리(달샤벳)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<div class='latest_view_text'>
+	<a href="#">Without You</a><br>
+	<a href="#">크림(Cream)</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2904171.jpg" alt="탭3_1"></a>
+	<div class='latest_view_text'>
+	<a href="#">Hunger</a><br>
+	<a href="#">Florence+The Machine</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904276.jpg" alt="탭3_2"></a>
+	<div class='latest_view_text'>
+	<a href="#">Sr3mm</a><br>
+	<a href="#">Rse Sremmurd</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2904314.jpg" alt="탭3_3"></a>
+	<div class='latest_view_text'>
+	<a href="#">Genius</a><br>
+	<a href="#">LSD</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904426.jpg" alt="탭3_4"></a>
+	<div class='latest_view_text'>
+	<a href="#">I`Il Be There</a><br>
+	<a href="#">Jess Glynne</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904444.jpg" alt="탭3_5"></a>
+	<div class='latest_view_text'>
+	<a href="#">Youth</a><br>
+	<a href="#">Shawn Mendes</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904523.jpg" alt="탭3_6"></a>
+	<div class='latest_view_text'>
+	<a href="#">Good Thing</a><br>
+	<a href="#">Leon Bridges</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<div class='latest_view_text'>
+	<a href="#">Ignite</a><br>
+	<a href="#">Kid Astray</a>
+	</div>
+	</li>
+</ul>
+<ul class='latest_view'>
+	<li><a href="#"><img src="image/2906282.jpg" alt="염따"></a>
+	<div class='latest_view_text'>
+	<a href="#">시러 REMIX</a><br>
+	<a href="#">염따(YumDDa)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905881.jpg" alt="경리"></a>
+	<div class='latest_view_text'>
+	<a href="#">오늘 밤 뭐해?</a><br>
+	<a href="#">경리(나인뮤지스)</a>
+	</div>	
+	</li>
+	<li><a href="#"><img src="image/2906401.jpg" alt="어쿠루브"></a>
+	<div class='latest_view_text'>
+	<a href="#">어떡하지</a><br>
+	<a href="#">어쿠루브</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906059.jpg" alt="고훈정"></a>
+	<div class='latest_view_text'>
+	<a href="#">흩어진바람</a><br>
+	<a href="#">고훈정</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906406.jpg" alt="타린"></a>
+	<div class='latest_view_text'>
+	<a href="#">행복한 일은 매일 있어</a><br>
+	<a href="#">타린</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2905805.jpg" alt="댤샤벳"></a>
+	<div class='latest_view_text'>
+	<a href="#">인형의 집 OSF Part9</a><br>
+	<a href="#">세리(달샤벳)</a>
+	</div>
+	</li>
+	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<div class='latest_view_text'>
+	<a href="#">Without You</a><br>
+	<a href="#">크림(Cream)</a>
+	</div>
+	</li>
+</ul>
+</div><!-- tab3 -->
+<div class='tab_pager'>
+<a href="#" class='on'>탭 페이저1</a>
+<a href="#">탭 페이저2</a>
+<a href="#">탭 페이저3</a>
+<a href="#">탭 페이저4</a>
+</div>
+<a href="#" class='tab_prev'><img src="image/prev.png" alt="이전"></a>
+<a href="#" class='tab_next'><img src="image/next.png" alt="다음"></a>
+</div><!-- tab_mask -->
+</div><!--latestalbum-->
 </div><!-- section1 -->
 
 
