@@ -14,6 +14,8 @@
 <script src='js/jquery.transit.min.js'></script>
 <script>
 $(document).ready(function(){
+//스타일 js
+$('.section1_banner').css({marginTop:$('.tab_mask').height()+60})
 
 //폼이벤트
 $('.search_form').on('mouseenter focus',function(){
@@ -65,6 +67,7 @@ $('.slide>li').stop().fadeOut(1000)
 $('.slide>li').eq(index).stop().fadeIn(1200)
 $('.pagerinner>a').removeClass('on')
 $(this).addClass('on')
+return false
 })
 })
 
@@ -94,6 +97,15 @@ return false
 })
 
 //카드섹션 첫번째
+$('.latest_view>li>a').append('<div class="listening"></div>')
+$('.listening').html('대표곡&nbsp;듣기')
+$('.latest_view>li>a').on('mouseenter focus',function(){
+$(this).find('.listening').show('highlight',{color:'#ff4191'},600)
+})
+$('.latest_view>li>a').on('mouseleave blur',function(){
+$(this).find('.listening').fadeOut()
+})
+
 $('.latesttitle_list>a').each(function(index){
 $(this).on('click',function(){
 $('.tab_mask').stop().fadeOut(1000)
@@ -264,8 +276,16 @@ width:10px;height:16px;}
 .latest_view{overflow: hidden;float:left;width:1172px;position: relative;}
 .latest_view>li{float:left;width:12.5714%;margin-right:2%;}
 .latest_view>li:last-child{margin:0;}
-.latest_view>li>a{display:block;border-radius:5px;overflow: hidden;}
-.latest_view>li>a:hover{border:none;}
+.latest_view .mg0{margin:0;}
+.latest_view>li>a{display:block;border-radius:5px;overflow: hidden;
+border: 1px solid #ddd;position: relative;}
+.latest_view>li>a .listening{position: absolute;cursor:pointer;color:#fff;
+font-size:1.2rem;font-weight:300;text-align: center;bottom:10px;display:none;
+width:70%;margin-left:15%;border-radius:20px;background-color:rgba(0,0,0,0.6);z-index:1;padding:5px 0;padding-left:4px;}
+.latest_view>li>a .listening::before{background:url(image/main_set.png) -64px -230px no-repeat;content:'';width:10px;height:13px;position: absolute;
+left:10px;top:8px;}
+.latest_view>li>a:hover{border-bottom-color:#ddd;}
+.latest_view>li>a:focus{border-bottom-color:#ddd;}
 .latest_view_text{margin-top:10px;line-height: 120%;}
 .latest_view_text>a{display:inline-block;line-height: 100%;}
 .latest_view_text>a:nth-child(2){font-weight:400;font-size:1.3rem;}
@@ -289,6 +309,11 @@ position: relative;}
 background-color:#333;display:block;display:none;}
 .tab_next{position: absolute;right:0;top:26%;z-index:1;padding:6px;
 background-color:#333;display:block;display:none;}
+.section1_banner{overflow: hidden;}
+.section1_banner>a{width:49%;margin-right:2%;border: 1px solid #eee;
+display:block;float:left;background-color: #fdfdfd;text-align: center;}
+.section1_banner .mg0{margin-right:0;}
+.section1_banner>a>img{}
 
 
 </style>
@@ -421,7 +446,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">세리(달샤벳)</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<li class='mg0'><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
 	<div class='latest_view_text'>
 	<a href="#">Without You</a><br>
 	<a href="#">크림(Cream)</a>
@@ -465,7 +490,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">메리그린</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">기록 16-17 수원에서</a><br>
 	<a href="#">정너울(Jeong Neoul)</a>
@@ -509,7 +534,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">세리(달샤벳)</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<li class='mg0'><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
 	<div class='latest_view_text'>
 	<a href="#">Without You</a><br>
 	<a href="#">크림(Cream)</a>
@@ -553,7 +578,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">메리그린</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">기록 16-17 수원에서</a><br>
 	<a href="#">정너울(Jeong Neoul)</a>
@@ -609,7 +634,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">메리그린</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">기록 16-17 수원에서</a><br>
 	<a href="#">정너울(Jeong Neoul)</a>
@@ -653,7 +678,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">Leon Bridges</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">Ignite</a><br>
 	<a href="#">Kid Astray</a>
@@ -697,7 +722,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">메리그린</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2903576.jpg" alt="탭2_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">기록 16-17 수원에서</a><br>
 	<a href="#">정너울(Jeong Neoul)</a>
@@ -741,7 +766,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">Leon Bridges</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">Ignite</a><br>
 	<a href="#">Kid Astray</a>
@@ -797,7 +822,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">Leon Bridges</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">Ignite</a><br>
 	<a href="#">Kid Astray</a>
@@ -841,7 +866,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">세리(달샤벳)</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<li class='mg0'><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
 	<div class='latest_view_text'>
 	<a href="#">Without You</a><br>
 	<a href="#">크림(Cream)</a>
@@ -885,7 +910,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">Leon Bridges</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
+	<li class='mg0'><a href="#"><img src="image/2904534.jpg" alt="탭3_7"></a>
 	<div class='latest_view_text'>
 	<a href="#">Ignite</a><br>
 	<a href="#">Kid Astray</a>
@@ -929,7 +954,7 @@ background-color:#333;display:block;display:none;}
 	<a href="#">세리(달샤벳)</a>
 	</div>
 	</li>
-	<li><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
+	<li class='mg0'><a href="#"><img src="image/2906468.jpg" alt="크림"></a>
 	<div class='latest_view_text'>
 	<a href="#">Without You</a><br>
 	<a href="#">크림(Cream)</a>
@@ -947,8 +972,11 @@ background-color:#333;display:block;display:none;}
 <a href="#" class='tab_next'><img src="image/next.png" alt="다음"></a>
 </div><!-- tab_mask -->
 </div><!--latestalbum-->
+<div class='section1_banner'>
+<a href="#"><img src="image/wannaone.jpg" alt="워너원"></a>
+<a href="#" class='mg0'><img src="image/pink.jpg" alt="워너원"></a>
+</div><!-- section1_banner -->
 </div><!-- section1 -->
-
 
 
 
