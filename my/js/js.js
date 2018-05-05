@@ -217,14 +217,14 @@ $('.progress7').LineProgressbar({
 			onLeave:function(index,nextindex,direction){
             if (index==1)
             {
-                audio1111.play();
+                audio1.play();
 				$('#page1 h2').css({left:200,opacity:0})
 				$('#page1').particleground('pause')
 				$('.flowerbg2').css({top:-100,opacity:0})
             }
 			else if (index==2)
 			{
-                audio3333.play();
+                audio3.play();
 				$('#page2 h2').css({left:200,opacity:0})
 				$('.typer2').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -234,7 +234,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==3)
 			{
-                audio1111.play();
+                audio1.play();
 				$('#page3 h2').css({left:200,opacity:0})
 				$('.typer3').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -244,7 +244,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==4)
 			{
-                audio3333.play();
+                audio3.play();
 				$('#page4 h2').css({left:200,opacity:0})
 				$('.typer4').css({left:'-100%'})
 				$('#page4').snowfall('clear')
@@ -253,7 +253,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==5)
 			{
-                audio1111.play();
+                audio1.play();
 				$('#page5 h2').css({left:200,opacity:0})
 				$('.typer5').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -261,7 +261,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==6)
 			{
-                audio3333.play();
+                audio3.play();
 				$('#page6').snowfall('clear')
 				$('.typer6').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
