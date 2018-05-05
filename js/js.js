@@ -1,6 +1,6 @@
 $(document).ready(function(){
-var audio1111=new Audio('music/music1.mp3')
-var audio3333=new Audio('music/music3.mp3')
+var audio1=new Audio('music/music1.mp3')
+var audio3=new Audio('music/music3.mp3')
 var total=$('.section').length
 $('.page2_over a').css({scale:0})
 $('.page3_over a').css({scale:0})
@@ -524,13 +524,13 @@ parallaxMultiplier:10
 
 $('.my,#page1 .move,#page1 .ov,#page1 h2').css({scale:0})
 $(window).on('load',function(){
-audio1111.play();
+audio1.play();
 $('.move').stop().animate({scale:1},1000,'easeInOutElastic',function(){
-audio3333.play();
+audio3.play();
 $('.section h2').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio1111.play();
+audio1.play();
 $('.ov').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio3333.play();
+audio3.play();
 $('.my').stop().animate({scale:1},1000,'easeOutElastic',function(){
 responsiveVoice.speak('포트폴리오 방문을 환영합니다',"Korean Female")
 setTimeout(function(){

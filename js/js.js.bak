@@ -1,6 +1,6 @@
 $(document).ready(function(){
-var audio1=new Audio('music/music1.mp3')
-var audio3=new Audio('music/music3.mp3')
+var audio1111=new Audio('music/music1.mp3')
+var audio3333=new Audio('music/music3.mp3')
 var total=$('.section').length
 $('.page2_over a').css({scale:0})
 $('.page3_over a').css({scale:0})
@@ -217,14 +217,14 @@ $('.progress7').LineProgressbar({
 			onLeave:function(index,nextindex,direction){
             if (index==1)
             {
-                audio1.play();
+                audio1111.play();
 				$('#page1 h2').css({left:200,opacity:0})
 				$('#page1').particleground('pause')
 				$('.flowerbg2').css({top:-100,opacity:0})
             }
 			else if (index==2)
 			{
-                audio3.play();
+                audio3333.play();
 				$('#page2 h2').css({left:200,opacity:0})
 				$('.typer2').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -234,7 +234,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==3)
 			{
-                audio1.play();
+                audio1111.play();
 				$('#page3 h2').css({left:200,opacity:0})
 				$('.typer3').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -244,7 +244,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==4)
 			{
-                audio3.play();
+                audio3333.play();
 				$('#page4 h2').css({left:200,opacity:0})
 				$('.typer4').css({left:'-100%'})
 				$('#page4').snowfall('clear')
@@ -253,7 +253,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==5)
 			{
-                audio1.play();
+                audio1111.play();
 				$('#page5 h2').css({left:200,opacity:0})
 				$('.typer5').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -261,7 +261,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==6)
 			{
-                audio3.play();
+                audio3333.play();
 				$('#page6').snowfall('clear')
 				$('.typer6').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -524,13 +524,13 @@ parallaxMultiplier:10
 
 $('.my,#page1 .move,#page1 .ov,#page1 h2').css({scale:0})
 $(window).on('load',function(){
-audio1.play();
+audio1111.play();
 $('.move').stop().animate({scale:1},1000,'easeInOutElastic',function(){
-audio3.play();
+audio3333.play();
 $('.section h2').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio1.play();
+audio1111.play();
 $('.ov').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio3.play();
+audio3333.play();
 $('.my').stop().animate({scale:1},1000,'easeOutElastic',function(){
 responsiveVoice.speak('포트폴리오 방문을 환영합니다',"Korean Female")
 setTimeout(function(){

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width">
 <!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="naver-site-verification" content="32898d12b1f5a1175c90491528d20ac85a477df3"/>
+<!-- <meta name="naver-site-verification" content="32898d12b1f5a1175c90491528d20ac85a477df3"/>
 <meta name="description" content="portfolio">
 <meta name="description" content="포트폴리오">
 <meta name="description" content="ui개발자">
@@ -14,15 +14,15 @@
 <meta property="og:title" content="웹퍼블리셔,ui개발자">
 <meta property="og:description" content="웹퍼블리셔,ui개발자">
 <meta property="og:url" content="http://idujh.github.io">
-<meta name='keywords' content='웹퍼블리셔,ui개발자'>	
+<meta name='keywords' content='웹퍼블리셔,ui개발자'> -->
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/b.css">
 <link rel="stylesheet" href="js/fullPage.js-master/jquery.fullPage.css">
 <link rel="shortcut icon" href="image/favicon.ico">
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css" />
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <script src='js/js.js'></script>
 
@@ -40,7 +40,7 @@
 </div>
   <div id="fullpage">
 
- <div class="video-background">
+ <!-- <div class="video-background">
     <div class="video-foreground">
 	<div class='blackbg'></div>
       <iframe src="https://www.youtube.com/embed/GMi0dCxcjLY?controls=0&showinfo=0&rel=0&autoplay=1&mute=0"></iframe>
@@ -54,7 +54,7 @@
 	<li><a href="#">Web Standard</a></li>
 	<li><a href="#">HTML5/CSS3/JS</a></li>
 </ul>
-<!-- <div id="vidtop-content">
+<div id="vidtop-content">
 <div class="vid-info">
 <h1><img src="image/movietitle.png" alt="무비타이틀"></h1>
 <a href="#">This is EomJaehwan Portfolio</a>

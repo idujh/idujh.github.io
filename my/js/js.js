@@ -217,14 +217,14 @@ $('.progress7').LineProgressbar({
 			onLeave:function(index,nextindex,direction){
             if (index==1)
             {
-                audio1.play();
+                audio1111.play();
 				$('#page1 h2').css({left:200,opacity:0})
 				$('#page1').particleground('pause')
 				$('.flowerbg2').css({top:-100,opacity:0})
             }
 			else if (index==2)
 			{
-                audio3.play();
+                audio3333.play();
 				$('#page2 h2').css({left:200,opacity:0})
 				$('.typer2').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -234,7 +234,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==3)
 			{
-                audio1.play();
+                audio1111.play();
 				$('#page3 h2').css({left:200,opacity:0})
 				$('.typer3').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -244,7 +244,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==4)
 			{
-                audio3.play();
+                audio3333.play();
 				$('#page4 h2').css({left:200,opacity:0})
 				$('.typer4').css({left:'-100%'})
 				$('#page4').snowfall('clear')
@@ -253,7 +253,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==5)
 			{
-                audio1.play();
+                audio1111.play();
 				$('#page5 h2').css({left:200,opacity:0})
 				$('.typer5').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -261,7 +261,7 @@ $('.progress7').LineProgressbar({
 			}
 			else if (index==6)
 			{
-                audio3.play();
+                audio3333.play();
 				$('#page6').snowfall('clear')
 				$('.typer6').css({left:'-100%'})
 				$('.flowerbg2').css({top:-100,opacity:0})
@@ -465,14 +465,14 @@ responsiveVoice.speak('새창으로 이동',"Korean Female")
 })
 })
 
-var volume_off=$('.video-foreground iframe').attr('src')
-$('.volume_off').on('click',function(){
-$('.video-foreground iframe').attr({src:volume_off.replace('mute=0','mute=1')})
-return false
-})
+// var volume_off=$('.video-foreground iframe').attr('src')
+// $('.volume_off').on('click',function(){
+// $('.video-foreground iframe').attr({src:volume_off.replace('mute=0','mute=1')})
+// return false
+// })
 
 
-$('.s1').hide()
+/*  $('.s1').hide()
 $('.my,#page1 .move,#page1 .ov,#page1 h2').css({scale:0})
 var movie1=setTimeout(function(){
 audio1.play()
@@ -519,18 +519,18 @@ particleRadius:3,
 lineWidth:2,
 parallaxMultiplier:10
 })
-},45000)
+},45000) */
 
 
 $('.my,#page1 .move,#page1 .ov,#page1 h2').css({scale:0})
-$('.skip').on('click',function(){
-audio1.play()
+$(window).on('load',function(){
+audio1.play();
 $('.move').stop().animate({scale:1},1000,'easeInOutElastic',function(){
-audio3.play()
+audio3.play();
 $('.section h2').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio1.play()
+audio1.play();
 $('.ov').stop().animate({scale:1},1000,'easeOutElastic',function(){
-audio3.play()
+audio3.play();
 $('.my').stop().animate({scale:1},1000,'easeOutElastic',function(){
 responsiveVoice.speak('포트폴리오 방문을 환영합니다',"Korean Female")
 setTimeout(function(){
@@ -558,9 +558,9 @@ $('#firstimg1').css({display:'block'})
 $('.my').show()
 $('.move').show()
 $('.skip').hide()
-var volume_off=$('.video-foreground iframe').attr('src')
-$('.video-foreground iframe').attr({src:volume_off.replace('mute=0','mute=1')})
-clearTimeout(movie1)
+// var volume_off=$('.video-foreground iframe').attr('src')
+// $('.video-foreground iframe').attr({src:volume_off.replace('mute=0','mute=1')})
+// clearTimeout(movie1)
 $('#page1').particleground({
 dotColor:'#ddd',
 lineColor:'#0f0f0f',
@@ -749,7 +749,7 @@ $('.my h3').rainbow({
                 autoStart: true,
                 startDelay: 20000, 
 				}) 
-$(window).load(function(){
+/* $(window).load(function(){
 var intro=setTimeout(function(){
 $('.introtext').find('a').each(function(index){
 $(this).delay(index*8000).animate({top:0,opacity:1,scale:0.3},1200,'easeOutElastic',function(){
@@ -759,7 +759,7 @@ $(this).delay(4000).animate({opacity:0,left:'100%'},2000)
 })
 })
 },6000)
-})
+}) */
 
 $('#my #fp-nav ul li a').each(function(index){
 var title=$('#menu>li>a').eq(index).attr('data-title')
@@ -1103,7 +1103,7 @@ return false
 })
 //nextprev enter leave Interval
 
-$(window).on({
+/* $(window).on({
 load:function(){
 $('.count').fadeIn()
 var count=10
@@ -1119,7 +1119,7 @@ count--
 $('.count>span').html(count)
 },1000)
 }
-})
+}) */
 
 
 
