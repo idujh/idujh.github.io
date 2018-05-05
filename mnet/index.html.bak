@@ -96,8 +96,8 @@ return false
 //카드섹션 첫번째
 $('.latesttitle_list>a').each(function(index){
 $(this).on('click',function(){
-$('.tab_mask').hide()
-$('.tab_mask').eq(index).show()
+$('.tab_mask').stop().fadeOut(1000)
+$('.tab_mask').eq(index).stop().fadeIn(1200)
 $('.latesttitle_list>a').removeClass('on')
 $(this).addClass('on')
 return false
@@ -230,8 +230,8 @@ width:19px;height:20px;}
 .pagerinner{text-align: center;}
 .pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
 background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;
-outline:none;}
-.pagerinner>a::after{content:'';display:block;padding:10px 0;position: absolute;top:6px;}
+outline:none;position: relative;}
+.pagerinner>a::after{content:'';display:block;padding:10px 0;position: absolute;top:-10px;border: 1px solid #000;width:100%;height:100%;}
 .pagerinner>a.on{opacity:1;border:none;}
 .pagerinner a:hover{border:none;}
 .pagerinner a:focus{border:none;}

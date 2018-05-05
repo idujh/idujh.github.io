@@ -230,8 +230,8 @@ width:19px;height:20px;}
 .pagerinner{text-align: center;}
 .pagerinner>a{display:inline-block;font-size:0;text-indent:-999px;border:none;
 background-color: #fff;opacity:0.4;width:20px;height:2px;margin:0 0.5px;
-outline:none;}
-.pagerinner>a::after{content:'';display:block;padding:10px 0;position: absolute;top:6px;}
+outline:none;position: relative;}
+.pagerinner>a::after{content:'';display:block;padding:10px 0;position: absolute;top:-10px;width:100%;height:100%;}
 .pagerinner>a.on{opacity:1;border:none;}
 .pagerinner a:hover{border:none;}
 .pagerinner a:focus{border:none;}
