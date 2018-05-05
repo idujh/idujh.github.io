@@ -121,11 +121,9 @@ $(this).on('mouseleave blur',function(){
 $(this).find('.tab_prev').hide()
 $(this).find('.tab_next').hide()
 })
-})
-
 var min=0
 var max=3
-$('.tab_next').on('click',function(){
+$(this).find('.tab_next').on('click',function(){
 if (min==max)
 {
 	min=-1
@@ -137,7 +135,7 @@ $(this).prev().prev().prev().stop().animate({left:min*-1172})
 return false;
 })
 
-$('.tab_prev').on('click',function(){
+$(this).find('.tab_prev').on('click',function(){
 if (min==0)
 {
 	min=max+1
@@ -148,6 +146,9 @@ $(this).prev().find('a').eq(min).addClass('on')
 $(this).prev().prev().stop().animate({left:min*-1172})
 return false;
 })
+})
+
+
 
 
 

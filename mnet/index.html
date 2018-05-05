@@ -96,8 +96,8 @@ return false
 //카드섹션 첫번째
 $('.latesttitle_list>a').each(function(index){
 $(this).on('click',function(){
-$('.tab_mask').hide()
-$('.tab_mask').eq(index).show()
+$('.tab_mask').stop().fadeOut(1000)
+$('.tab_mask').eq(index).stop().fadeIn(1200)
 $('.latesttitle_list>a').removeClass('on')
 $(this).addClass('on')
 return false
