@@ -263,7 +263,7 @@ background:url(image/main_set.png) -82px -230px no-repeat;}
 .section1 .onair{height:66px;border-top: 1px solid #e5e5e5;
 border-bottom: 1px solid #e5e5e5;overflow: hidden;}
 .section1 .onair>img{height:100%;float:left;}
-.onair_text{float:left;width:1030px;margin-left:20px;padding:20px 0;}
+.onair_text{overflow: hidden;width:1030px;margin-left:20px;padding:20px 0;}
 .onair_text .t{float:left;}
 .onair_text .t1{color:#fd3c51;font-size:1.8rem;}
 .onair_text .t2{margin-left:14px;font-size:1.8rem;font-weight:600;}
@@ -319,7 +319,7 @@ position: relative;outline:none;}
 background-color:#333;display:block;display:none;}
 .tab_next{position: absolute;right:1px;top:26%;z-index:1;padding:6px;
 background-color:#333;display:block;display:none;}
-.section1_banner{overflow: hidden;margin-top:260px;}
+.section1_banner{overflow: hidden;margin-top:240px;}
 .section1_banner>a{width:49%;margin-right:2%;border: 1px solid #eee;
 display:block;float:left;background-color: #fdfdfd;text-align: center;}
 .section1_banner .mg0{margin-right:0;}
