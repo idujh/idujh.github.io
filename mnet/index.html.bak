@@ -8,7 +8,7 @@
 
 <title>Document</title>
 
-<link rel="stylesheet" href="css/font.css">
+<link rel="stylesheet" href="css/webfonts.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/jquery-ui.min.js'></script>
 <script src='js/jquery.transit.min.js'></script>
@@ -240,11 +240,11 @@ background-size: 100px 100px;}
 background-size: 100px 100px;}
 .special_list_img{width:100%;margin-top:20px;}
 .special_list_img a{display:block;float:left;width:48%;margin-right:4%;
--ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;
-overflow: hidden;line-height: 100%;}
+line-height: 100%;}
+.special_list_img a span{text-overflow:ellipsis;overflow: hidden;
+white-space:nowrap;display:block;}
 .special_list_img a .imgwrap{border-radius:3px;overflow: hidden;}
 .special_list_img .mr0{margin-right:0;}
-
 .special_pager{position: absolute;top:0px;right:0;outline:none;}
 .special_pager>a{font-size:0;text-indent:-999px;width:20px;height:2px;
 background-color: #ddd;display:block;float:left;margin:0 2px;outline:none;
@@ -1339,7 +1339,7 @@ padding-left:40px;background-position: 100% 50%;}
 	<h4>BREAKERS</h4>
 	<a href="#" class='hover focus gray'>싱어송라이터 8인의 1대1 뮤직 배틀 ></a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img1.jpg" alt="썸네일이미지1"><br>[3회]촉촉한 감성에 젖어드는 나른한 오후의 꿈같은 '미아로운' 무대, 미아 - ♬BLIND @2차 배틀</a>
+	<a href="#" class='hover focus'><img src="image/special_list_img1.jpg" alt="썸네일이미지1"><br><span>[3회]촉촉한 감성에 젖어드는 나른한 오후의 꿈같은 '미아로운' 무대, 미아 - ♬BLIND @2차 배틀</span></a>
 	<a href="#" class='hover focus mr0'><img src="image/special_list_img2.jpg" alt="썸네일이미지2"><br>[3회]가창력X연출X무대매너 완벽 조화!(feat.떼창유도) 후이 - ♬Navigation @2차 배틀</a>
 	</div>
 	</li>
