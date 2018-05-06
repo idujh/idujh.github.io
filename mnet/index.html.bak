@@ -1636,15 +1636,17 @@ $('.special_prev,.special_next').stop().animate({opacity:1})
 $('.special_prev,.special_next').on('mouseleave blur',function(){
 $('.special_prev,.special_next').stop().animate({opacity:0})
 })
-
-
-$('.special_pager>a').each(function(index){
 var snow=0
 var stotal=1
-$(this).on('click',function(){
+$('.special_next').on('click',function(){
+if (snow==stotal)
+{
+	snow=-1
+}
+snow++
 $('.special_pager>a').removeClass('on')
-$(this).addClass('on')
-$('.special_move').stop().animate({left:index*-1172})
+$('.special_pager>a').eq(snow).addClass('on')
+$('.special_move').stop().animate({left:snow*-1172})
 return false
 })
 $('.special_prev').on('click',function(){
@@ -1658,15 +1660,11 @@ $('.special_pager>a').eq(snow).addClass('on')
 $('.special_move').stop().animate({left:snow*-1172})
 return false
 })
-$('.special_next').on('click',function(){
-if (snow==stotal)
-{
-	snow=-1
-}
-snow++
+$('.special_pager>a').each(function(index){
+$(this).on('click',function(){
 $('.special_pager>a').removeClass('on')
-$('.special_pager>a').eq(snow).addClass('on')
-$('.special_move').stop().animate({left:snow*-1172})
+$(this).addClass('on')
+$('.special_move').stop().animate({left:index*-1172})
 return false
 })
 })
