@@ -175,11 +175,11 @@ background-color: #ddd;display:block;float:left;margin:0 2px;outline:none;
 position: relative;}
 .chart_pager>a.on{background-color: #000;}
 .chart_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
-.chart_prev{position: absolute;left:-40px;top:44%;z-index:1;display:block;
-width:16px;height:29px;background:url(image/btn_navi.png) 0 0 no-repeat;text-indent:-999px;font-size:0;opacity:0.6;display:none;
+.chart_prev{position: absolute;left:-40px;top:0;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) 0 0 no-repeat;text-indent:-999px;font-size:0;opacity:0;padding:130px 0;
 padding-right:40px;background-position: 0 50%;}
-.chart_next{position: absolute;right:-40px;top:44%;z-index:1;display:block;
-width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text-indent:-999px;font-size:0;opacity:0.6;display:none;
+.chart_next{position: absolute;right:-40px;top:0;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text-indent:-999px;font-size:0;opacity:0;padding:130px 0;	
 padding-left:40px;background-position: 100% 50%;}
 .chart_mask{width:1172px;overflow: hidden;}
 .chart_move{width:10000px;position: relative;}
@@ -208,14 +208,15 @@ display:none;}
 width:24px;height:24px;text-indent:-999px;font-size:0;z-index:1;
 background:url(image/main_set.png) -32px -197px no-repeat;
 margin-top:-12px;display:none;}
-.specialwrap{margin:40px 0;background-color: #f5f5f5;padding:40px 0;
-min-width:1172px;}
-.special{margin:0 auto;width:1172px;}
-.special_mask{overflow: hidden;margin-top:10px;}
-.special_move{width:5000px;position: relative;}
-.special_list{width:1172px;overflow: hidden;}
+.specialwrap{margin-top:40px;background-color:#f5f5f5;
+padding-top:40px;min-width:1172px;padding-bottom:20px;}
+.special{margin:0 auto;width:1172px;position: relative;}
+.special_mask{overflow: hidden;padding:20px 0;position: relative;}
+.special_move{width:10000px;position: relative;}
+.special_list{width:1172px;float:left;}
 .special_list>li{float:left;width:32%;margin-right:2%;position: relative;
-background-color: #fff;padding:30px 20px 20px 20px;}
+background-color: #fff;padding:30px 20px 20px 20px;
+box-shadow:0px 0px 5px #ddd;}
 .special_list>li h4{font-size:1.6rem;font-weight:500;}
 .special_list>li .gray{color:#666;}
 .special_list .mr0{margin:0;}
@@ -244,10 +245,19 @@ overflow: hidden;line-height: 100%;}
 .special_list_img a .imgwrap{border-radius:3px;overflow: hidden;}
 .special_list_img .mr0{margin-right:0;}
 
+.special_pager{position: absolute;top:0px;right:0;outline:none;}
+.special_pager>a{font-size:0;text-indent:-999px;width:20px;height:2px;
+background-color: #ddd;display:block;float:left;margin:0 2px;outline:none;
+position: relative;}
+.special_pager>a.on{background-color: #000;}
+.special_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
+.special_prev{position: absolute;left:-40px;top:0;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) 0 0 no-repeat;text-indent:-999px;font-size:0;opacity:0;padding:140px 0;
+padding-right:40px;background-position: 0 50%;}
+.special_next{position: absolute;right:-40px;top:0;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text-indent:-999px;font-size:0;opacity:0;padding:140px 0;	
+padding-left:40px;background-position: 100% 50%;}
 
-.special_pager a{font-size:0;text-indent:-999px;}
-.special_prev{font-size:0;text-indent:-999px;}
-.special_next{font-size:0;text-indent:-999px;}
 
 
 
@@ -1350,15 +1360,41 @@ overflow: hidden;line-height: 100%;}
 	</div>
 	</li>
 </ul>
+<ul class='special_list'>
+	<li class='special_list1'>
+	<h4>BREAKERS</h4>
+	<a href="#" class='hover focus gray'>싱어송라이터 8인의 1대1 뮤직 배틀 ></a>
+	<div class='special_list_img'>
+	<a href="#" class='hover focus'><img src="image/special_list_img1.jpg" alt="썸네일이미지1"><br>[3회]촉촉한 감성에 젖어드는 나른한 오후의 꿈같은 '미아로운' 무대, 미아 - ♬BLIND @2차 배틀</a>
+	<a href="#" class='hover focus mr0'><img src="image/special_list_img2.jpg" alt="썸네일이미지2"><br>[3회]가창력X연출X무대매너 완벽 조화!(feat.떼창유도) 후이 - ♬Navigation @2차 배틀</a>
+	</div>
+	</li>
+	<li class='special_list2'>
+	<h4>엠넷닷컴에서만 볼수 있다</h4>
+	<a href="#" class='hover focus gray'>독점 콘텐츠 모아보기 ></a>
+	<div class='special_list_img'>
+	<a href="#" class='hover focus'><img src="image/special_list_img3.jpg" alt="썸네일이미지3"><br>클래식 도미넌트 EP.03 - 펀치(성민제x대니 구) 듀오</a>
+	<a href="#" class='hover focus mr0'><img src="image/special_list_img4.jpg" alt="썸네일이미지4"><br>[스페셜]ㅣ[무가진] 에릭남 편</a>
+	</div>
+	</li>
+	<li class='special_list3 mr0'>
+	<h4>문화가 있는 날 '집콘'</h4>
+	<a href="#" class='hover focus gray'>4월 김이나 편 살펴보기 ></a>
+	<div class='special_list_img'>
+	<a href="#" class='hover focus'><img src="image/special_list_img5.jpg" alt="썸네일이미지5"><br>[집콘] 제아 - 을의 연애 (2018년 4월)</a>
+	<a href="#" class='hover focus mr0'><img src="image/special_list_img6.jpg" alt="썸네일이미지6"><br>[집콘] 제아 - 한여름밤의 꿈 (2018년 4월)</a>
+	</div>
+	</li>
+</ul>
 </div><!-- special_move -->
 <div class='special_pager'>
-<a href="#">스폐셜 페이저1</a>
+<a href="#" class='on'>스폐셜 페이저1</a>
 <a href="#">스폐셜 페이저2</a>
 </div><!-- special_pager -->
 </div><!-- special_mask -->
-</div><!-- special -->
 <a href="#" class='special_prev'>스폐셜 이전</a>
 <a href="#" class='special_next'>스폐셜 다음</a>
+</div><!-- special -->
 </div><!-- specialwrap -->
 
 
@@ -1540,14 +1576,18 @@ return false
 })
 })
 $('.chart_prev,.chart_next').mouseleave(function(){
-$('.chart_prev,.chart_next').hide('explode')
+$('.chart_prev,.chart_next').stop().animate({opacity:0})
+})
+$('.chart_prev,.chart_next').mouseenter(function(){
+$('.chart_prev,.chart_next').stop().animate({opacity:1})
 })
 $('.chart_list>li').on('mouseenter focus',function(){
-$('.chart_prev,.chart_next').show('explode')
+$('.chart_prev,.chart_next').stop().animate({opacity:1})
 $(this).find('.chart_list_play').stop().fadeIn()
 $(this).find('.chart_list_more').stop().fadeIn()
 })
 $('.chart_list>li').on('mouseleave blur',function(){
+$('.chart_prev,.chart_next').stop().animate({opacity:0})
 $(this).find('.chart_list_play').fadeOut()
 $(this).find('.chart_list_more').fadeOut()
 })
@@ -1581,8 +1621,55 @@ $('.special_list_img a img').wrap('<div class="imgwrap"></div>')
 $('.special_list_img a').on('mouseenter focus',function(){
 $(this).find(' .imgwrap>img').stop().animate({scale:1.075})
 })
+$('.special_list_img a').on('mouseleave blur',function(){
+$(this).find(' .imgwrap>img').stop().animate({scale:1})
+})
+$('.special_list>li').on('mouseenter focus',function(){
+$('.special_prev,.special_next').stop().animate({opacity:1})
+})
+$('.special_list>li').on('mouseleave blur',function(){
+$('.special_prev,.special_next').stop().animate({opacity:0})
+})
+$('.special_prev,.special_next').on('mouseenter focus',function(){
+$('.special_prev,.special_next').stop().animate({opacity:1})
+})
+$('.special_prev,.special_next').on('mouseleave blur',function(){
+$('.special_prev,.special_next').stop().animate({opacity:0})
+})
 
 
+$('.special_pager>a').each(function(index){
+var snow=0
+var stotal=1
+$(this).on('click',function(){
+$('.special_pager>a').removeClass('on')
+$(this).addClass('on')
+$('.special_move').stop().animate({left:index*-1172})
+return false
+})
+$('.special_prev').on('click',function(){
+if (snow==0)
+{
+	snow=stotal+1
+}
+snow--
+$('.special_pager>a').removeClass('on')
+$('.special_pager>a').eq(snow).addClass('on')
+$('.special_move').stop().animate({left:snow*-1172})
+return false
+})
+$('.special_next').on('click',function(){
+if (snow==stotal)
+{
+	snow=-1
+}
+snow++
+$('.special_pager>a').removeClass('on')
+$('.special_pager>a').eq(snow).addClass('on')
+$('.special_move').stop().animate({left:snow*-1172})
+return false
+})
+})
 
 
 })//ready
