@@ -161,16 +161,49 @@ return false;
 //실시간챠트
 $('.chart_pager>a').each(function(index){
 $(this).on('click',function(){
-$('.chart_move').stop().animate({left:index*-1172},400,'easeOutElastic')
+$('.chart_move').stop().animate({left:index*-1172},400,'easeOutExpo')
 $('.chart_pager>a').removeClass('on')
 $(this).addClass('on')
 return false
 })
 })
+$('.chart_prev,.chart_next').mouseleave(function(){
+$('.chart_prev,.chart_next').hide('explode')
+})
+$('.chart_list>li').on('mouseenter focus',function(){
+$('.chart_prev,.chart_next').show('explode')
+$(this).find('.chart_list_play').stop().fadeIn()
+$(this).find('.chart_list_more').stop().fadeIn()
+})
+$('.chart_list>li').on('mouseleave blur',function(){
+$(this).find('.chart_list_play').fadeOut()
+$(this).find('.chart_list_more').fadeOut()
+})
 
-
-
-
+var now1=0
+var total1=$('.chart_pager>a').length-1
+$('.chart_next').on('click',function(){
+if (now1==total1)
+{
+	now1=-1
+}
+now1++
+$('.chart_pager>a').removeClass('on')
+$('.chart_pager>a').eq(now1).addClass('on')
+$('.chart_move').stop().animate({left:now1*-1172},400,'easeOutExpo')
+return false
+})
+$('.chart_prev').on('click',function(){
+if (now1==0)
+{
+	now1=total1+1
+}
+now1--
+$('.chart_pager>a').removeClass('on')
+$('.chart_pager>a').eq(now1).addClass('on')
+$('.chart_move').stop().animate({left:now1*-1172},400,'easeOutExpo')
+return false
+})
 
 
 
@@ -300,7 +333,6 @@ left:10px;top:8px;}
 .latest_view_text>a{display:inline-block;line-height: 100%;}
 .latest_view_text>a:nth-child(2){font-weight:400;font-size:1.3rem;}
 .latest_view_text>a:last-child{color:#767676;font-size:1.2rem;}
-.tab{position: absolute;}
 .tab_mask{width:1172px;position: absolute;overflow: hidden;
 padding-top:20px;}
 .tab{width:6000px;position: relative;}
@@ -315,10 +347,10 @@ position: relative;outline:none;}
 .tab_pager>a:hover{border:none;}
 .tab_pager>a:focus{border:none;}
 .tab_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
-.tab_prev{position: absolute;left:1px;top:26%;z-index:1;padding:6px;
-background-color:#333;display:block;display:none;}
-.tab_next{position: absolute;right:1px;top:26%;z-index:1;padding:6px;
-background-color:#333;display:block;display:none;}
+.tab_prev{position: absolute;left:0px;top:34%;z-index:1;padding:6px;
+background-color:#333;display:block;display:none;width:24px;}
+.tab_next{position: absolute;right:0px;top:34%;z-index:1;padding:6px;
+background-color:#333;display:block;display:none;width:24px;}
 .section1_banner{overflow: hidden;margin-top:240px;}
 .section1_banner>a{width:49%;margin-right:2%;border: 1px solid #eee;
 display:block;float:left;background-color: #fdfdfd;text-align: center;}
@@ -342,10 +374,12 @@ background-color: #ddd;display:block;float:left;margin:0 2px;outline:none;
 position: relative;}
 .chart_pager>a.on{background-color: #000;}
 .chart_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
-.chart_prev{position: absolute;left:-30px;top:40%;z-index:1;display:block;
-width:16px;height:29px;background:url(image/btn_navi.png) 0 0 no-repeat;text-indent:-999px;font-size:0;opacity:0.6;display:none;}
-.chart_next{position: absolute;right:-30px;top:40%;z-index:1;display:block;
-width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text-indent:-999px;font-size:0;opacity:0.6;display:none;}
+.chart_prev{position: absolute;left:-40px;top:44%;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) 0 0 no-repeat;text-indent:-999px;font-size:0;opacity:0.6;display:none;
+padding-right:40px;background-position: 0 50%;}
+.chart_next{position: absolute;right:-40px;top:44%;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text-indent:-999px;font-size:0;opacity:0.6;display:none;
+padding-left:40px;background-position: 100% 50%;}
 .chart_mask{width:1172px;overflow: hidden;}
 .chart_move{width:10000px;position: relative;}
 .chart_move::after{clear:both;content:'';display:block;}
@@ -365,13 +399,14 @@ margin-left:30px;position: relative;}
 .chart_list_text2{display:inline-block;line-height: 100%;color:#939393;font-size:1.2rem;margin-left:30px;}
 .chart_list_play{position: absolute;top:50%;right:44px;display:block;
 width:24px;height:24px;text-indent:-999px;font-size:0;z-index:1;
-background:url(image/main_set.png) 0 -197px no-repeat;margin-top:-12px;}
+background:url(image/main_set.png) 0 -197px no-repeat;margin-top:-12px;
+display:none;}
 .chart_list_play:hover{background-position: 0 -170px;}
 .chart_list_more:hover{background-position: -32px -170px;}
 .chart_list_more{position: absolute;top:50%;right:10px;display:block;
 width:24px;height:24px;text-indent:-999px;font-size:0;z-index:1;
 background:url(image/main_set.png) -32px -197px no-repeat;
-margin-top:-12px;}
+margin-top:-12px;display:none;}
 
 
 
@@ -467,6 +502,7 @@ margin-top:-12px;}
 <a href="#" class='hover focus'>&nbsp;해외</a>
 </div><!-- latesttitle_list -->
 </div><!--latesttitle-->
+<div class='tab_wrap'>
 <div class='tab_mask' id='tab_mask1'>
 <div class='tab' id='tab1'>
 <ul class='latest_view'>
@@ -1028,9 +1064,10 @@ margin-top:-12px;}
 <a href="#">탭 페이저3</a>
 <a href="#">탭 페이저4</a>
 </div>
+</div><!-- tab_mask -->
 <a href="#" class='tab_prev'><img src="image/prev.png" alt="이전"></a>
 <a href="#" class='tab_next'><img src="image/next.png" alt="다음"></a>
-</div><!-- tab_mask -->
+</div><!-- tab_wrap -->
 </div><!--latestalbum-->
 <div class='section1_banner'>
 <a href="#"><img src="image/wannaone.jpg" alt="워너원"></a>
@@ -1076,8 +1113,8 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/537638.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>3</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>3</span>주지마</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>로꼬,화사(마마무)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1088,8 +1125,8 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/575451.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>4</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>4</span>지나오다</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>닐로(Nilo)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1098,8 +1135,8 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/1453667.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>5</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>5</span>밤</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>여자친구(GFRIEND)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1108,8 +1145,8 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/2090170.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>6</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>6</span>You</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>멜로망스(Melomance)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1120,8 +1157,8 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/2132151.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>7</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>7</span>널 사랑한 시간에</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>XIA(준수)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1130,8 +1167,8 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/2168270.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>8</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>8</span>붕붕</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>김하온</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1140,40 +1177,40 @@ margin-top:-12px;}
 	<div class='chart_list_image'><img src="image/2203274.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>9</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>9</span>My Way</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>이수</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 </ul>
 <ul class='chart_list'>
-	<li><a href="#">
-	<div class='chart_list_image'><img src="image/2904916.jpg" alt="잊을만하면"></div>
-	<div class='chart_list_text'>
-	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>10</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
-	<a href="#" class='chart_list_play'>play</a>
-	<a href="#" class='chart_list_more'>more</a>
-	</div>
-	</a></li>
 	<li><a href="#">
 	<div class='chart_list_image'><img src="image/380259.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>11</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>10</span>별시</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>박효신</a></div>
+	<a href="#" class='chart_list_play'>play</a>
+	<a href="#" class='chart_list_more'>more</a>
+	</div>
+	</a></li>
+	<li><a href="#">
+	<div class='chart_list_image'><img src="image/2879291.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_text'>
+	<div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>11</span>What is Love</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>TWICE(트와이스)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
     <li><a href="#">
-	<div class='chart_list_image'><img src="image/537638.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/575451.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>12</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>12</span>모든 날, 모든 순간</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>폴킴</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1181,31 +1218,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list'>
    <li><a href="#">
-	<div class='chart_list_image'><img src="image/575451.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2878762.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>13</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
-	<a href="#" class='chart_list_play'>play</a>
-	<a href="#" class='chart_list_more'>more</a>
-	</div>
-	</a></li>
-	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/1453667.jpg" alt="잊을만하면"></div>
-	<div class='chart_list_text'>
-	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>14</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>13</span>사랑을 했다</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>iKON</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
 	<div class='chart_list_image'><img src="image/2090170.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_text'>
+	<div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>14</span>별이 빛나는 밤</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>마마무</a></div>
+	<a href="#" class='chart_list_play'>play</a>
+	<a href="#" class='chart_list_more'>more</a>
+	</div>
+	</a></li>
+	   <li><a href="#">
+	<div class='chart_list_image'><img src="image/2879216.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>15</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>15</span>그날처럼</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>장덕철</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1213,31 +1250,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list mr0'>
     <li><a href="#">
-	<div class='chart_list_image'><img src="image/2132151.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2168270.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>16</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>16</span>소나기</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>용준형</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/2168270.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2877110.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>17</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>17</span>뿜뿜</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>모모랜드</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/2203274.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2229320.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>18</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>18</span>꽃 길</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>BIGBANG</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1245,31 +1282,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list'>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/2904916.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2232355.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>19</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>19</span>OeO</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>XIA(준수)</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/380259.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2391534.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>20</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>20</span>그때 헤어지면 돼</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>로이킴</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
     <li><a href="#">
-	<div class='chart_list_image'><img src="image/537638.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2515484.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>21</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>21</span>EVERDAY</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>WINNER</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1277,31 +1314,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list'>
    <li><a href="#">
-	<div class='chart_list_image'><img src="image/575451.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2718989.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>22</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>22</span>HandClap</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>Fitz & The Tantrums</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/1453667.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2762868.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>23</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>23</span>바코드</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>김하온</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/2090170.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2779017.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>24</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>24</span>선물</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>멜로망스</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1309,31 +1346,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list mr0'>
     <li><a href="#">
-	<div class='chart_list_image'><img src="image/2132151.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2781196.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>25</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>25</span>Roller Coaster</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>청하</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/2168270.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2781611.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>26</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>26</span>비행운</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>문문</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/2203274.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2782587.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>27</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>27</span>Jenga</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>헤이즈</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1341,31 +1378,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list'>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/2904916.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2787157.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>28</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>28</span>전혀</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>이병재</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/380259.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2827401.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>29</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>29</span>이 별</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>길구봉수</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
     <li><a href="#">
-	<div class='chart_list_image'><img src="image/537638.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2828085.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>30</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>30</span>비도 오고 그래서</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>헤이즈</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1373,31 +1410,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list'>
    <li><a href="#">
-	<div class='chart_list_image'><img src="image/575451.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2828127.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>31</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>31</span>어린 왕자</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>김하온</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/1453667.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2852127.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>32</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>32</span>밤이 되니까</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>펀치</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/2090170.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2859480.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>33</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>33</span>북</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>이로한</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
@@ -1405,31 +1442,31 @@ margin-top:-12px;}
 </ul>
 <ul class='chart_list mr0'>
     <li><a href="#">
-	<div class='chart_list_image'><img src="image/2132151.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2860038.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>34</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>34</span>BOOMERANG</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>Wanna One</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	   <li><a href="#">
-	<div class='chart_list_image'><img src="image/2168270.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2861512.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>35</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>35</span>남겨둘게</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>키썸</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
 	</a></li>
 	<li><a href="#">
-	<div class='chart_list_image'><img src="image/2203274.jpg" alt="잊을만하면"></div>
+	<div class='chart_list_image'><img src="image/2894532.jpg" alt="잊을만하면"></div>
 	<div class='chart_list_text bdb0'>
 	<div>
-	<a href="#" class='chart_list_text1 hover fosus'><span>36</span>잊을만하면</a></div>
-	<div><a href="#" class='chart_list_text2 hover focus'>CRUSH</a></div>
+	<a href="#" class='chart_list_text1 hover fosus'><span>36</span>넋두리</a></div>
+	<div><a href="#" class='chart_list_text2 hover focus'>닐로</a></div>
 	<a href="#" class='chart_list_play'>play</a>
 	<a href="#" class='chart_list_more'>more</a>
 	</div>
