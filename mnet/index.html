@@ -263,14 +263,15 @@ width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text
 padding-left:40px;background-position: 100% 50%;}
 .music_pick_wrap{padding:40px 0;}
 .music_pick{width:1172px;margin:0 auto;position: relative;}
-.music_pick_mask{position: relative;padding:10px 0;overflow: hidden;}
+.music_pick_mask{position: relative;padding:14px 0;overflow: hidden;}
 .music_pick_move{position: relative;width:10000px;}
 .music_pick_list{float:left;width:1172px;}
 .music_pick_list .mr0{margin:0;}
 .music_pick_list>li{float:left;width:32%;margin-right:2%;border: 1px solid #ddd;border-right:none;border-left:none;padding:6px 0;}
-.music_pick_list_img{width:106px;height:106px;float:left;position: relative;}
+.music_pick_list_img{width:106px;height:106px;float:left;position: relative;
+margin-left:4px;}
 .music_pick_list_img a{position: absolute;top:0;right:0;bottom:0;left:0;
-overflow: hidden;display:block;border-radius:5px;box-shadow:2px 2px 2px #ddd;}
+overflow: hidden;display:block;border-radius:5px;box-shadow:0px 0px 5px #666;}
 .music_pick_list_img a img{position:relative;height:100%;
 width:auto;left:-16px;}
 .music_pick_list_img a .wd100{height:auto;left:0;width:100%;}
@@ -278,6 +279,38 @@ width:auto;left:-16px;}
 margin-left:20px;padding:30px 0;}
 .music_pick_list_text a{display:inline-block;clear:both;float:left;}
 .music_pick_list_text .gray{color:#666;font-size:1.2rem;}
+.music_pick_pager{position: absolute;top:0px;right:0;outline:none;}
+.music_pick_pager>a{font-size:0;text-indent:-999px;width:20px;height:2px;
+background-color: #ddd;display:block;float:left;margin:0 2px;outline:none;
+position: relative;}
+.music_pick_pager>a.on{background-color: #000;}
+.music_pick_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
+.music_pick_prev{position: absolute;left:-40px;top:0;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) 0 0 no-repeat;text-indent:-999px;font-size:0;opacity:0;padding:80px 0;
+padding-right:40px;background-position: 0 50%;}
+.music_pick_next{position: absolute;right:-40px;top:0;z-index:1;display:block;
+width:16px;height:29px;background:url(image/btn_navi.png) -60px 0 no-repeat;text-indent:-999px;font-size:0;opacity:0;padding:80px 0;	
+padding-left:40px;background-position: 100% 50%;}
+.genrewrap{}
+.genre{width:1172px;margin:0 auto;}
+.genre_list{overflow: hidden;}
+.genre_list>li{width:11.7142%;float:left;margin-right:3%;}
+.genre_list .mr0{margin:0;}
+.genre_list>li>a{display:block;text-align: center;}
+.genre_list>li>a.on{color:#ff4191;}
+.genre_list>li>a>span{display:inline-block;margin-top:10px;}
+.topbtnwrap{padding:40px 0;}
+.topbtninner{width:1172px;margin:0 auto;position: relative;}
+.topbtninner .topbtn{width:28px;height:28px;display:block;position: absolute;right:-28px;top:0;background:url(image/main_set.png) -26px -271px no-repeat;text-indent:-999px;font-size:0;}
+.topbtninner .topbtn:hover{background-position: -26px -319px;}
+.header{min-width:1172px;border-top:1px solid #ddd;}
+.header_top{}
+
+
+
+
+
+
 
 
 
@@ -1548,30 +1581,35 @@ margin-left:20px;padding:30px 0;}
 <a href="#" class='music_pick_next'>뮤직픽 다음</a>
 </div><!-- music_pick -->
 </div><!-- music_pick_wrap -->
-
-
-
+<div class='genrewrap'>
+<div class='genre'>
+<ul class='genre_list'>
+	<li><a href="#"><img src="image/img_song.png" alt="가요"><br><span>가요</span></a></li>
+	<li><a href="#"><img src="image/img_pop.png" alt="팝"><br><span>팝</span></a></li>
+	<li><a href="#"><img src="image/img_jazz.png" alt="재즈"><br><span>재즈</span></a></li>
+	<li><a href="#"><img src="image/img_ost.png" alt="OST"><br><span>OST</span></a></li>
+	<li><a href="#"><img src="image/img_indie.png" alt="인디"><br><span>인디</span></a></li>
+	<li><a href="#"><img src="image/img_hiphop.png" alt="힙합"><br><span>힙합</span></a></li>
+	<li class='mr0'><a href="#"><img src="image/img_elec.png" alt="일렉트로니카"><br><span>일렉트로니카</span></a></li>
+</ul>	
+</div><!-- genre -->
+</div><!-- genrewrap -->
+<div class='topbtnwrap'>
+<div class='topbtninner'>
+<a href="#" class='topbtn'>topbtn</a>
+</div><!-- topbtninner -->
+</div><!-- topbtnwrap -->
 </div><!-- content -->
+<div class='header'>
+<div class='header_top'>
 
- 
- 
- 
-
-
+</div><!-- header_top -->
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
+
+
+</div><!-- header -->
 </div><!--wrap-->
 <script>
 $(document).ready(function(){
@@ -1818,6 +1856,76 @@ $(this).addClass('on')
 $('.special_move').stop().animate({left:index*-1172})
 return false
 })
+})
+
+$('.music_pick_pager>a').each(function(index){
+$(this).click(function(){
+$('.music_pick_pager>a').removeClass('on')
+$(this).addClass('on')
+$('.music_pick_move').stop().animate({left:index*-1172})
+return false
+})
+})
+
+$('.music_pick_list>li').on('mouseenter focus',function(){
+$('.music_pick_prev,.music_pick_next').stop().animate({opacity:1})
+})
+$('.music_pick_list>li').on('mouseleave blur',function(){
+$('.music_pick_prev,.music_pick_next').stop().animate({opacity:0})
+})
+$('.music_pick_prev,.music_pick_next').on('mouseenter focus',function(){
+$('.music_pick_prev,.music_pick_next').stop().animate({opacity:1})
+})
+$('.music_pick_prev,.music_pick_next').on('mouseleave blur',function(){
+$('.music_pick_prev,.music_pick_next').stop().animate({opacity:0})
+})
+
+var now2=0
+var total2=$('.music_pick_pager>a').length-1
+$('.music_pick_next').on('click',function(){
+if (now2==total2)
+{
+	now2=-1
+}
+now2++
+$('.music_pick_pager>a').removeClass('on')
+$('.music_pick_pager>a').eq(now2).addClass('on')
+$('.music_pick_move').stop().animate({left:now2*-1172},400,'easeOutExpo')
+return false
+})
+$('.music_pick_prev').on('click',function(){
+if (now2==0)
+{
+	now2=total2+1
+}
+now2--
+$('.music_pick_pager>a').removeClass('on')
+$('.music_pick_pager>a').eq(now2).addClass('on')
+$('.music_pick_move').stop().animate({left:now2*-1172},400,'easeOutExpo')
+return false
+})
+
+$('.genre_list>li').on('mouseenter focus',function(){
+$('.genre_list>li>a').removeClass('on')
+$(this).find('a').addClass('on')
+$(this).find('a').stop().animate({rotateY:'+=90deg',prespective:400},200,function(){
+$(this).css({rotateY:'270deg'})
+$(this).stop().animate({rotateY:'+=90deg',prespective:400},200)
+})
+})
+var genre=setInterval(function(){
+var random=Math.floor(Math.random()*$('.genre_list>li').length)
+$('.genre_list>li>a').removeClass('on')
+$('.genre_list>li>a').eq(random).addClass('on')
+$('.genre_list>li>a').eq(random).stop().animate({rotateY:'+=90deg',prespective:400},200,function(){
+$(this).css({rotateY:'270deg'})
+$(this).stop().animate({rotateY:'+=90deg',prespective:400},200)
+})
+},8000)
+
+$('.topbtn').on('click',function(){
+$('body,html').stop().animate({scrollTop:0})
+return false
 })
 
 
