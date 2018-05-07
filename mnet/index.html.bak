@@ -151,13 +151,13 @@ position: relative;outline:none;}
 .tab_pager>a:focus{border:none;}
 .tab_pager>a::after{content:'';position: absolute;top:-10px;left:0;padding:10px 0;width:100%;display:block;}
 .tab_prev{position: absolute;left:0px;top:34%;z-index:1;padding:6px;
-background-color:#333;display:block;display:none;width:24px;}
+background-color:#333;display:block;width:24px;display:none;}
 .tab_next{position: absolute;right:0px;top:34%;z-index:1;padding:6px;
-background-color:#333;display:block;display:none;width:24px;}
+background-color:#333;display:block;width:24px;display:none;}
 .section1_banner{overflow: hidden;margin-top:240px;}
 .section1_banner>a{width:49%;margin-right:2%;border: 1px solid #eee;
 display:block;float:left;background-color: #fdfdfd;text-align: center;}
-.section1_banner>a>img{width:492px;}
+.section1_banner>a>img{max-width:492px;}
 .section1_banner .mg0{margin-right:0;}
 .chart{margin-top:40px;}
 .chart_title h3>a{position: relative;}
@@ -934,9 +934,9 @@ margin-left:20px;padding:30px 0;}
 <a href="#">탭 페이저3</a>
 <a href="#">탭 페이저4</a>
 </div>
-</div><!-- tab_mask -->
 <a href="#" class='tab_prev'><img src="image/prev.png" alt="이전"></a>
 <a href="#" class='tab_next'><img src="image/next.png" alt="다음"></a>
+</div><!-- tab_mask -->
 </div><!-- tab_wrap -->
 </div><!--latestalbum-->
 <div class='section1_banner'>
@@ -1684,13 +1684,8 @@ $(this).addClass('on')
 return false;
 })
 })
-$(this).on('mouseenter focus',function(){
-$(this).find('.tab_prev').show()
-$(this).find('.tab_next').show()
-})
-$(this).on('mouseleave blur',function(){
-$(this).find('.tab_prev').hide()
-$(this).find('.tab_next').hide()
+$(this).mouseenter(function(){
+$(this).find('.tab_prev,.tab_next').show()
 })
 var min=0
 var max=3
