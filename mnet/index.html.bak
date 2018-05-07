@@ -157,6 +157,7 @@ background-color:#333;display:block;display:none;width:24px;}
 .section1_banner{overflow: hidden;margin-top:240px;}
 .section1_banner>a{width:49%;margin-right:2%;border: 1px solid #eee;
 display:block;float:left;background-color: #fdfdfd;text-align: center;}
+.section1_banner>a>img{width:492px;}
 .section1_banner .mg0{margin-right:0;}
 .chart{margin-top:40px;}
 .chart_title h3>a{position: relative;}
@@ -1537,12 +1538,14 @@ margin-left:20px;padding:30px 0;}
 </ul>
 </div><!-- music_pick_move -->
 <div class='music_pick_pager'>
-<a href="#" class='on'>스폐셜 페이저1</a>
-<a href="#">스폐셜 페이저2</a>
+<a href="#" class='on'>뮤직픽 페이저1</a>
+<a href="#">뮤직픽 페이저2</a>
+<a href="#">뮤직픽 페이저3</a>
+<a href="#">뮤직픽 페이저4</a>
 </div><!-- music_pick_pager -->
 </div><!-- music_pick_mask -->
-<a href="#" class='music_pick_prev'>스폐셜 이전</a>
-<a href="#" class='music_pick_next'>스폐셜 다음</a>
+<a href="#" class='music_pick_prev'>뮤직픽 이전</a>
+<a href="#" class='music_pick_next'>뮤직픽 다음</a>
 </div><!-- music_pick -->
 </div><!-- music_pick_wrap -->
 
