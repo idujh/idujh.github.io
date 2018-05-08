@@ -10,7 +10,9 @@
 <title>Document</title>
 
 <link rel="stylesheet" href="css/webfonts.css">
+<link rel="stylesheet" href="js/scrollbar/jquery.mCustomScrollbar.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/scrollbar/jquery.mCustomScrollbar.concat.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script src='js/jquery.transit.min.js'></script>
 
@@ -337,6 +339,7 @@ width:154px;height:50px;float:left;}
 .cjcompany .facebook{display:block;width:35px;height:33px;
 background:url(image/header_set.png) -198px -300px no-repeat;
 font-size:0;text-indent:-999px;float:left;}
+.cjcompany .facebook:hover{background-position:-266px -300px;}
 .cjcompany .form{float:left;margin-left:5px;width:170px;height:31px;
 line-height: 31px;position: relative;}
 .cjcompany .form .formbtn{border: 1px solid #cccccc;border-radius:3px;
@@ -356,11 +359,19 @@ display:block;}
 .form_slide p{font-size:1.3rem;color:#000;}
 .form_slide p:hover{color:#ff4191;}
 .form_slide .group a{text-indent:10px;}
+.personal_information{margin-top:20px;overflow: hidden;}
+.personal_information a{font-size:1.3rem;color:#8d8d8d;margin-right:14px;display:block;
+float:left;border-bottom:1px solid #fff;}
+.personal_information .fw{font-weight:600;color:#000;}
+.copyright{margin-top:20px;}
+.copyright p{font-size:1.2rem;color:#8d8d8d;line-height: 160%;}
+.copyright p span{margin-top:10px;display:inline-block;}
+
 
 
 </style>
 </head>
-<body id='my'>
+<body id='my' class='full-page'>
 <div class='wrap'>
 <div class='header'>
 <div class='headertop'>
@@ -1435,24 +1446,24 @@ display:block;}
 	<h4>BREAKERS</h4>
 	<a href="#" class='hover focus gray'>싱어송라이터 8인의 1대1 뮤직 배틀</a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img1.jpg" alt="썸네일이미지1"><br><span>[3회]촉촉한 감성에 젖어드는 나른한 오후의 꿈같은 '미아로운' 무대, 미아 - ♬BLIND @2차 배틀</span></a>
-	<a href="#" class='hover focus mr0'><img src="image/special_list_img2.jpg" alt="썸네일이미지2"><br><span>[3회]가창력X연출X무대매너 완벽 조화!(feat.떼창유도) 후이 - ♬Navigation @2차 배틀</span></a>
+	<a href="#"><img src="image/special_list_img1.jpg" alt="썸네일이미지1"><br><span>[3회]촉촉한 감성에 젖어드는 나른한 오후의 꿈같은 '미아로운' 무대, 미아 - ♬BLIND @2차 배틀</span></a>
+	<a href="#" class='mr0'><img src="image/special_list_img2.jpg" alt="썸네일이미지2"><br><span>[3회]가창력X연출X무대매너 완벽 조화!(feat.떼창유도) 후이 - ♬Navigation @2차 배틀</span></a>
 	</div>
 	</li>
 	<li class='special_list2'>
 	<h4>엠넷닷컴에서만 볼수 있다</h4>
 	<a href="#" class='hover focus gray'>독점 콘텐츠 모아보기</a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img3.jpg" alt="썸네일이미지2"><br><span>클래식 도미넌트 EP.03 - 펀치(성민제x대니 구) 듀오</span></a>
-	<a href="#" class='hover focus mr0'><img src="image/special_list_img4.jpg" alt="썸네일이미지4"><br><span>[스페셜]ㅣ[무가진] 에릭남 편</span></a>
+	<a href="#"><img src="image/special_list_img3.jpg" alt="썸네일이미지2"><br><span>클래식 도미넌트 EP.03 - 펀치(성민제x대니 구) 듀오</span></a>
+	<a href="#" class='mr0'><img src="image/special_list_img4.jpg" alt="썸네일이미지4"><br><span>[스페셜]ㅣ[무가진] 에릭남 편</span></a>
 	</div>
 	</li>
 	<li class='special_list3 mr0'>
 	<h4>문화가 있는 날 '집콘'</h4>
 	<a href="#" class='hover focus gray'>4월 김이나 편 살펴보기</a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img5.jpg" alt="썸네일이미지3"><br><span>[집콘] 제아 - 을의 연애 (2018년 4월)</span></a>
-	<a href="#" class='hover focus mr0'><img src="image/special_list_img6.jpg" alt="썸네일이미지6"><br><span>[집콘] 제아 - 한여름밤의 꿈 (2018년 4월)</span></a>
+	<a href="#"><img src="image/special_list_img5.jpg" alt="썸네일이미지3"><br><span>[집콘] 제아 - 을의 연애 (2018년 4월)</span></a>
+	<a href="#" class='mr0'><img src="image/special_list_img6.jpg" alt="썸네일이미지6"><br><span>[집콘] 제아 - 한여름밤의 꿈 (2018년 4월)</span></a>
 	</div>
 	</li>
 </ul>
@@ -1461,24 +1472,24 @@ display:block;}
 	<h4>문화가 있는 날 '집콘'</h4>
 	<a href="#" class='hover focus gray'>4월 김이나 편 살펴보기</a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img5.jpg" alt="썸네일이미지5"><br><span>[집콘] 제아 - 을의 연애 (2018년 4월)</span></a>
-	<a href="#" class='hover focus mr0'><img src="image/special_list_img6.jpg" alt="썸네일이미지6"><br><span>[집콘] 제아 - 한여름밤의 꿈 (2018년 4월)</span></a>
+	<a href="#"><img src="image/special_list_img5.jpg" alt="썸네일이미지5"><br><span>[집콘] 제아 - 을의 연애 (2018년 4월)</span></a>
+	<a href="#" class='mr0'><img src="image/special_list_img6.jpg" alt="썸네일이미지6"><br><span>[집콘] 제아 - 한여름밤의 꿈 (2018년 4월)</span></a>
 	</div>
 	</li>
 	<li class='special_list5'>
 	<h4>Mwave Music Chart</h4>
 	<a href="#" class='hover focus gray'>5월 후보를 확인하세요!</a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img7.jpg" alt="썸네일이미지7"><br><span>'1위 후보' 과즙미 폭발! '트와이스'의 'What is Love?' 무대</span></a>
-	<a href="#" class='hover focus mr0'><img src="image/special_list_img8.jpg" alt="썸네일이미지8"><br><span>여.심.저.격! 'NCT 127'의 'TOUCH' 무대</span></a>
+	<a href="#"><img src="image/special_list_img7.jpg" alt="썸네일이미지7"><br><span>'1위 후보' 과즙미 폭발! '트와이스'의 'What is Love?' 무대</span></a>
+	<a href="#" class='mr0'><img src="image/special_list_img8.jpg" alt="썸네일이미지8"><br><span>여.심.저.격! 'NCT 127'의 'TOUCH' 무대</span></a>
 	</div>
 	</li>
 	<li class='special_list6 mr0'>
 	<h4>너의 목소리가 보여 시즌5</h4>
 	<a href="#" class='hover focus gray'>눈에 띄는 출연자 모아보기</a>
 	<div class='special_list_img'>
-	<a href="#" class='hover focus'><img src="image/special_list_img9.jpg" alt="썸네일이미지9"><br><span>가수로 돌아오다! JYP 주차장 관리자의 '동경'</span></a>
-	<a href="#" class='hover focus mr0'><img src="image/special_list_img10.jpg" alt="썸네일이미지10"><br><span>가수 데뷔 임박! 연대 보아의 ‘널 너무 모르고’</span></a>
+	<a href="#"><img src="image/special_list_img9.jpg" alt="썸네일이미지9"><br><span>가수로 돌아오다! JYP 주차장 관리자의 '동경'</span></a>
+	<a href="#" class='mr0'><img src="image/special_list_img10.jpg" alt="썸네일이미지10"><br><span>가수 데뷔 임박! 연대 보아의 ‘널 너무 모르고’</span></a>
 	</div>
 	</li>
 </ul>
@@ -1734,14 +1745,27 @@ display:block;}
 <p>인프라</p>
 <a href="#">CJ건설</a>
 </div><!-- group6 -->
-
 </div><!-- form2_slide -->
 </div><!-- form2 -->
-
 </div><!-- cjcompany -->
 </div><!-- cjwrap -->
-
-
+<div class='personal_information'>
+<a href="#" class='hover focus'>회사소개</a>
+<a href="#" class='hover focus'>엠넷제휴</a>
+<a href="#" class='hover focus'>이용약관</a>
+<a href="#" class='fw hover focus'>개인정보처리방침</a>
+<a href="#" class='hover focus'>청소년보호정책</a>
+<a href="#" class='hover focus'>법적고지</a>
+<a href="#" class='hover focus'>이메일무단수집거부</a>
+<a href="#" class='hover focus'>채널안내</a>
+<a href="#" class='hover focus'>큐톤표</a>
+</div><!-- personal_information -->
+<div class='copyright'>
+<p>사업자등록번호 : 573-86-00690&nbsp;&nbsp;|&nbsp;&nbsp;통신판매신고번호 : 2016-서울마포-2028&nbsp;&nbsp;|&nbsp;&nbsp;대표이사 : 신형관/사업자정보확인&nbsp;&nbsp;|&nbsp;&nbsp;개인정보관리책임자 : 이해일<br>
+씨제이디지털뮤직㈜&nbsp;&nbsp;|&nbsp;&nbsp;서울특별시 마포구 월드컵북로56길 19, 8층, 9층(상암동, 드림타워)&nbsp;&nbsp;|&nbsp;&nbsp;방송편성문의 : 080-080-0780 / 0781<br>
+사이트/동영상문의 : 1566-2226<br>
+<span>Copyright (C) CJ DigitalMusic All rights reserved.</span></p>
+</div><!-- copyright -->
 </div><!-- footer_bottom_inner -->
 </div><!-- footer_bottom -->
 
@@ -2083,6 +2107,12 @@ return false
 $('body,html').on('click',function(){
 $('.form_slide').slideUp()
 })
+$(window).on('load',function(){
+$('.form_slide').mCustomScrollbar({
+theme:'3d-thick'
+})
+})
+
 
 })//ready
 </script>
