@@ -2080,7 +2080,7 @@ $('.form_slide').stop().slideUp()
 $(this).next().stop().slideToggle()
 return false
 })
-$('.formbtn').on('blur',function(){
+$('body,html').on('click',function(){
 $('.form_slide').slideUp()
 })
 

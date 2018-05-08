@@ -2080,8 +2080,8 @@ $('.form_slide').stop().slideUp()
 $(this).next().stop().slideToggle()
 return false
 })
-$('.form_slide').on('blur',function(){
-$(this).slideUp()
+$('.formbtn').on('blur',function(){
+$('.form_slide').slideUp()
 })
 
 })//ready
