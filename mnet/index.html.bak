@@ -30,7 +30,7 @@ a:focus{color:#e30076;}
 
 
  /* 헤더css */
- .wrap{padding-bottom:600px;}
+ .wrap{}
  .header{}
  .headertop{border-bottom:1px solid #efefef;min-width:1172px;}
  .headertop_inner{width:1172px;margin:0 auto;overflow: hidden;padding:10px 0;}
@@ -320,18 +320,42 @@ margin-left:10px;}
 height:12px;background-color: #ddd;right:0;top:50%;font-size:0;
 text-indent:-999px;margin-top:-6px;}
 .footer_middel_inner_service .pdl0{padding-left:0;}
-.footer_middel_inner_logo{position: absolute;right:0;top:0;}
+.footer_middel_inner_logo{position: absolute;right:0;top:-6px;}
 .footer_middel_inner_logo a{float:left;text-indent:-999px;font-size:0;
 width:43px;height:32px;display:block;margin-left:20px;}
 .footer_middel_inner_logo1{background:url(image/header_set.png) 0 -230px no-repeat;}
 .footer_middel_inner_logo2{background:url(image/header_set.png) -67px -230px no-repeat;}
 .footer_middel_inner_logo .footer_middel_inner_logo3{background:url(image/header_set.png) -127px -230px no-repeat;width:73px;}
 .footer_bottom{border-top:1px solid #ddd;}
-
-
-
-
-
+.footer_bottom_inner{padding:60px 0;}
+.cjwrap::after{content:'';clear:both;display:block;}
+.cjwrap>h6>a{display:block;text-indent:-999px;font-size:0;
+background:url(image/header_set.png) 0 -300px no-repeat;
+width:154px;height:50px;float:left;}
+.cjcompany{float:right;}
+.cjcompany::after{content:'';clear:both;display:block;}
+.cjcompany .facebook{display:block;width:35px;height:33px;
+background:url(image/header_set.png) -198px -300px no-repeat;
+font-size:0;text-indent:-999px;float:left;}
+.cjcompany .form{float:left;margin-left:5px;width:170px;height:31px;
+line-height: 31px;position: relative;}
+.cjcompany .form .formbtn{border: 1px solid #cccccc;border-radius:3px;
+display:block;height:100%;color:#767676;padding:0 0 0 10px;
+font-weight:500;font-size:1.2rem;position: relative;}
+.cjcompany .form .formbtn::after{position: absolute;width:12px;
+height:6px;right:4%;top:50%;background:url(image/header_set.png) -312px -350px no-repeat;content:'';margin-top:-3px;}
+.cjcompany .form .formbtn:hover{color:#000;}
+.cjcompany .form .formbtn:hover::after{background-position: -312px -380px;}
+.form_slide{position: absolute;bottom:31px;left:0;background-color: #fff;
+border-radius:3px;border: 1px solid #cccccc;overflow-x: hidden;z-index:1;
+width:100%;padding-left:10px;height:217px;border-bottom:none;
+line-height: 200%;display:none;}
+.form_slide a{font-size:1.2rem;color:#767676;
+display:block;}
+.form_slide a:hover{color:#ff4191;}
+.form_slide p{font-size:1.3rem;color:#000;}
+.form_slide p:hover{color:#ff4191;}
+.form_slide .group a{text-indent:10px;}
 
 
 </style>
@@ -1647,7 +1671,75 @@ width:43px;height:32px;display:block;margin-left:20px;}
 </div><!-- footer_middel -->
 <div class='footer_bottom'>
 <div class='footer_bottom_inner wd1172'>
+<div class='cjwrap'>
+<h6><a href="#" class='cjlogo'>cj로고</a></h6>
+<div class='cjcompany'>
+<a href="#" class='facebook'>페이스북아이콘</a>
+<div class='form1 form'>
+<a href="#" class='formbtn'>브랜드 사이트</a>
+<div class='form1_slide form_slide'>
+<ul>
+	<li><a href="#">MNET</a></li>
+	<li><a href="#">tvN</a></li>
+	<li><a href="#">OtvN</a></li>
+	<li><a href="#">ONSTYLE</a></li>
+	<li><a href="#">OLIVE</a></li>
+	<li><a href="#">XTM</a></li>
+	<li><a href="#">OCN</a></li>
+	<li><a href="#">chCGV</a></li>
+	<li><a href="#">SUPER ACTION</a></li>
+	<li><a href="#">TOONIVERSE</a></li>
+	<li><a href="#">중화TV</a></li>
+	<li><a href="#">OGN</a></li>
+	<li><a href="#">CATCH ON</a></li>
+	<li><a href="#">DIA TV</a></li>
+	<li><a href="#">UXN</a></li>
+	<li><a href="#">enews24</a></li>
+</ul>
+</div><!-- form1_slide -->
+</div><!-- form1 -->
+<div class='form2 form'>
+<a href="#" class='formbtn'>CJ그룹 계열사 바로가기</a>
+<div class='form2_slide form_slide'>
+<div class='group1 group'>
+<p>CJ그룹</p>
+<a href="#">CJ주식회사</a>
+</div><!-- group1 -->
+<div class='group2 group'>
+<p>엔터테인먼트 & 미디어</p>
+<a href="#">CJ E&M</a>
+<a href="#">CJ CGV</a>
+<a href="#">CJ Hello</a>
+<a href="#">CJ 파워캐스트</a>
+</div><!-- group2 -->
+<div class='group3 group'>
+<p>식품 & 식품서비스</p>
+<a href="#">CJ제일제당</a>
+<a href="#">CJ프레시웨이</a>
+<a href="#">CJ푸드빌</a>
+<a href="#">CJ엠디원</a>
+</div><!-- group3 -->
+<div class='group4 group'>
+<p>생명공학</p>
+<a href="#">CJ제일제당</a>
+</div><!-- group4 -->
+<div class='group5 group'>
+<p>신유통</p>
+<a href="#">CJ오쇼핑</a>
+<a href="#">CJ대한통운</a>
+<a href="#">CJ텔레닉스</a>
+<a href="#">CJ올리브네트웍스</a>
+</div><!-- group5 -->
+<div class='group6 group'>
+<p>인프라</p>
+<a href="#">CJ건설</a>
+</div><!-- group6 -->
 
+</div><!-- form2_slide -->
+</div><!-- form2 -->
+
+</div><!-- cjcompany -->
+</div><!-- cjwrap -->
 
 
 </div><!-- footer_bottom_inner -->
@@ -1983,8 +2075,14 @@ return false
 
 //footer
 $('.footer_middel_inner_service a:not(:last())').append('<div class="brl">구분선</div>')
-
-
+$('.formbtn').on('click',function(){
+$('.form_slide').stop().slideUp()
+$(this).next().stop().slideToggle()
+return false
+})
+$('.form_slide').on('blur',function(){
+$(this).slideUp()
+})
 
 })//ready
 </script>
