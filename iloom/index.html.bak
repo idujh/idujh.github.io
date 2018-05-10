@@ -806,11 +806,11 @@ return false;
 })
 $('.downbtn').on('click',function(){
 $('body,html').stop().animate({scrollTop:$(document).height()},400,'linear')
+return false;
 })
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
 $('.movebtn').stop().animate({top:top,marginTop:$(window).height()-97},800,'easeOutExpo')
-return false;
 })
 
 

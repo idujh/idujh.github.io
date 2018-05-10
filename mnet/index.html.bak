@@ -31,7 +31,7 @@ a:focus{color:#e30076;}
 .gray{color:#666;}
 
 
- /* 헤더css */
+ /* 헤더 */
  .wrap{}
  .header{}
  .headertop{border-bottom:1px solid #efefef;min-width:1172px;}
@@ -58,7 +58,7 @@ a:focus{color:#e30076;}
  .icon a{display:block;float:left;margin-right:30px;}
  .icon a:nth-child(4){margin:0;}
  
-/* content */
+/* 컨텐츠 */
 .content{}
 .mask{position: relative;height:405px;}
 .slide{}
@@ -108,7 +108,8 @@ border-bottom: 1px solid #e5e5e5;overflow: hidden;}
 .onair_text .t{float:left;}
 .onair_text .t1{color:#fd3c51;font-size:1.8rem;}
 .onair_text .t2{margin-left:14px;font-size:1.8rem;font-weight:600;}
-.onair_text .t3{margin-left:14px;font-size:1.5rem;color:#666;}
+.onair_text .t3{font-size:1.5rem;color:#666;}
+.onair_text .t3>span:nth-child(1){border: 1px solid #000;}
 .onair_text .t4{border: 1px solid #b9b9b9;margin-left:24px;
 border-radius:15px;padding:0 10px;}
 .onair_text .t4:hover{border-color:#fbcce5;color:#f06ca7;}
@@ -308,6 +309,8 @@ padding-left:40px;background-position: 100% 50%;}
 .topbtninner{width:1172px;margin:0 auto;position: relative;}
 .topbtninner .topbtn{width:28px;height:28px;display:block;position: absolute;right:-28px;top:0;background:url(image/main_set.png) -26px -271px no-repeat;text-indent:-999px;font-size:0;}
 .topbtninner .topbtn:hover{background-position: -26px -319px;}
+
+/* 푸터 */
 .footer{min-width:1172px;border-top:1px solid #ddd;}
 .footer_top{}
 .footer_top_inner{padding:16px 0 10px;overflow: hidden;}
@@ -360,18 +363,18 @@ display:block;}
 .form_slide p:hover{color:#ff4191;}
 .form_slide .group a{text-indent:10px;}
 .personal_information{margin-top:20px;overflow: hidden;}
-.personal_information a{font-size:1.3rem;color:#767676;margin-right:14px;display:block;
+.personal_information a{font-size:1.3rem;color:#8d8d8d;margin-right:14px;display:block;
 float:left;border-bottom:1px solid #fff;}
 .personal_information .fw{font-weight:600;color:#000;}
 .copyright{margin-top:20px;}
-.copyright p{font-size:1.2rem;color:#767676;line-height: 160%;}
+.copyright p{font-size:1.2rem;color:#8d8d8d;line-height: 160%;}
 .copyright p span{margin-top:10px;display:inline-block;}
 
 
 
 </style>
 </head>
-<body id='my' class='full-page'>
+<body id='my'>
 <div class='wrap'>
 <div class='header'>
 <div class='headertop'>
