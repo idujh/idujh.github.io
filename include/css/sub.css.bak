@@ -1,8 +1,0 @@
-/* 헤더 */
-.wrap{text-align: center;}
-.header{padding:50px 0;background-color: #333;color:#fff;}
-.header ul{width:600px;margin:0 auto;overflow: hidden;}
-.header ul>li{float:left;width:33.33%;}
-.header ul>li>a{display:block;color:#fff;}
-/* 푸터 */
-.footer{padding:50px 0;background-color: #333;color:#fff;}
