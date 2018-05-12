@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- saved from url=(0013)about:internet -->
+
+<title>Document</title>
+
+<link rel="stylesheet" href="css/font.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//visual
+$('.slide>li').hide()
+$('.slide>li').first().show()
+$('.slide_text_stroke1').first().show()
+$('.slide_text_stroke2').stop().animate({width:'100%'},4000)
+var now=1
+var total=$('.slide>li').length
+var loop=setInterval(function(){
+if(now==total)
+   {
+   now=0
+   }
+   now++
+$('.slide_text_inner>a').removeClass('coloron')
+$('.slide_text_inner>a').eq(now-1).addClass('coloron')  
+$('.slide>li').stop().fadeOut(1000)
+$('.slide>li').eq(now-1).stop().fadeIn(1200)
+$('.slide_text_stroke1').hide()
+$('.slide_text_stroke1').eq(now-1).show()
+$('.slide_text_stroke2').css({width:0}) 
+$('.slide_text_stroke2').eq(now-1).stop().animate({width:'100%'},4000) 
+},4000)
+
+
+$('.slide_text_inner>a').each(function(index){ 
+$(this).on('click',function(){
+$('.slide_text_inner>a').removeClass('coloron') 
+$(this).addClass('coloron')
+$('.slide>li').stop().fadeOut(1000)
+$('.slide>li').eq(index).stop().fadeIn(1200)
+$('.slide_text_stroke1').hide()
+$('.slide_text_stroke1').eq(index).show()
+$('.slide_text_stroke2').css({width:0}) 
+$('.slide_text_stroke2').eq(index).stop().animate({width:'100%'},4000)
+clearInterval(loop)
+loop=setInterval(function(){
+if(now==total)
+   {
+   now=0
+   }
+   now++
+$('.slide_text_inner>a').removeClass('coloron')
+$('.slide_text_inner>a').eq(now-1).addClass('coloron')  
+$('.slide>li').stop().fadeOut(1000)
+$('.slide>li').eq(now-1).stop().fadeIn(1200)
+$('.slide_text_stroke1').hide()
+$('.slide_text_stroke1').eq(now-1).show()
+$('.slide_text_stroke2').css({width:0}) 
+$('.slide_text_stroke2').eq(now-1).stop().animate({width:'100%'},4000) 
+},4000) 
+})  
+}) 
+
+//content
+$('.next').on('click',function(){
+$('.slide_move').stop().animate({left:'-=440'},function(){
+$('.product_slide').first().appendTo('.slide_move')
+$('.slide_move').css({left:0})
+})
+return false
+})
+$('.prev').on('click',function(){
+$('.product_slide').last().prependTo('.slide_move')
+$('.slide_move').css({left:-440})
+$('.slide_move').stop().animate({left:'+=440'})
+return false
+})
+
+
+
+})//
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{color:#f64a8e;}
+a:focus{color:#f64a8e;}
+.wd1200{width:1200px;margin:0 auto;}
+
+/* 헤더 */
+.wrap{min-width:1200px;}
+.header{}
+.header_top{border-bottom:1px solid #f5f5f5;}
+.header_top_inner{position: relative;padding:8px 0 20px 0;overflow: hidden;
+text-align: center;}
+.header_top_inner h1{margin-top:8px;}
+.language{position: absolute;left:0;top:0;}
+.language>a{font-size:1.1rem;color:#999;padding:0 4px;font-family:arial,sans-serif;}
+.language>a:hover{color:#333;}
+.login{position: absolute;right:0;top:0;}
+.login>a{font-size:1.2rem;color:#999;padding:0 8px;position: relative;
+text-align: center;}
+.login>a:hover{color:#333;}
+.login>a:not(:nth-child(4))::after{content:'';position: absolute;
+right:-1px;top:4px;width:1px;height:12px;background-color: #ddd;}
+.searchwrap{position: absolute;right:6px;top:40px;}
+.searchinner{position: relative;float:left;}
+.shop{float:left;margin-left:20px;position: relative;}
+.shop>p{position: absolute;right:-3px;bottom:-3px;color:#fff;border-radius:100%;
+text-align: center;background-color: #fff;width:14px;height:16px;line-height: 16px;
+background-color:#f54a7e;font-size:1rem;}
+.searchbtn{position: absolute;right:0;top:0;}
+.searchinner label{text-indent:-999px;font-size:0;font-weight:500;}
+.searchinner #search{border:none;border-bottom:2px solid #f7a2ba;
+padding:4px 23px 4px 10px;width:200px;color:#f26c92;
+font-family:'Noto Sans KR',sans-serif;}
+.searchinner #search::placeholder{color:#999;font-family:'Noto Sans KR',sans-serif;}
+.header_bottom{border-bottom:1px solid #ddd;}
+.header_bottom_inner{padding:10px 0;overflow: hidden;text-align: center;
+position: relative;}
+.headermenu{display:inline-block;}
+.headermenu a{padding:0 14px;font-size:1.5rem;}
+.membership{display:inline-block;position: absolute;right:0;top:10px;
+font-size:1rem;padding:3px 10px 0 30px;background:url(image/ico_lips.png) 0 100% no-repeat;color:#666;-webkit-background-size: 25px 16px;
+background-size:25px 16px ;}
+
+
+/* 컨덴츠 */
+.content{padding-bottom:400px;}
+ .mask{position: relative;}
+ .slide{width:100%;}
+ .slider1{background-color: #ffe1eb;}
+ .slider2{background-color: #fafafa;}
+ .slider3{background-color: #f0d3cd;}
+ .slider4{background-color: #fcf0e4;}
+ .slider5{background-color: #ffecf0;}
+ .slide>li{position: absolute;width:100%;top:0;left:0;}
+ .slide>li>a{width:1200px;display:block;margin:0 auto;}
+ .slide_text{text-align: center;border-bottom:1px solid #eee;
+ padding-top:560px;}
+ .slide_text_inner{width:1200px;margin:0 auto;overflow: hidden;}
+ .slide_text_inner>a{width:20%;float:left;display:block;padding:10px 20px;
+ border-left: 1px solid #eee;position: relative;overflow: hidden;
+ text-overflow:ellipsis;white-space:nowrap;font-size:1.3rem;}
+ .slide_text_inner>a.coloron{color:#f64a8e;}
+ .slide_text_inner>a:nth-child(5){border-right:1px solid #eee;}
+ .slide_text_stroke1{position: absolute;bottom:0;left:0;width:100%;height:2px;
+ background-color: #f54a7e;font-size:0;text-indent:-999px;display:none;}
+ .slide_text_stroke2{position: absolute;bottom:0;left:0;width:0;height:2px;
+ background-color: #9adada;font-size:0;text-indent:-999px;z-index:1;}
+.ARTISTCHOICE{margin-top:40px;border-bottom:1px solid #ddd;
+padding-bottom:60px;}
+.content .h2{font-size:2.4rem;font-weight:500;}
+.ARTISTCHOICE ul{width:1140px;margin-left:30px;margin-top:40px;
+overflow: hidden;}
+.ARTISTCHOICE ul>li{width:20%;float:left;}
+.ARTISTCHOICE ul>li>a{display:block;text-align: center;}
+.ARTISTCHOICE ul>li>a>img{width:180px;}
+.ARTISTCHOICE ul>li>a span{width:100%;display:block;}
+.ARTISTCHOICE ul>li>a .span1{font-size:1.5rem;line-height: 140%;height:50px;
+margin-top:20px;padding:0 10px;line-height: 150%;}
+.ARTISTCHOICE ul>li>a .span2{font-size:1.6rem;font-weight:600;
+color:#414141;margin-top:10px;}
+.NEWPRODUCT{margin-top:40px;position: relative;padding-bottom:60px;}
+.NEWPRODUCT_MORE{position: absolute;right:10px;top:10px;padding-right:10px;
+background:url(image/arr_right3.png) 100% 50% no-repeat;font-size:1.3rem;
+font-weight:500;}
+.NEWPRODUCT_INNER{margin-top:20px;overflow: hidden;}
+.NEWPRODUCT_INNER_LEFT{float:left;width:600px;}
+.NEWPRODUCT_INNER_RIGHT{float:left;width:600px;position: relative;}
+.prev{position: absolute;left:30px;top:40%;display:block;width:28px;height:28px;}
+.prev:hover{border: 1px solid #ddd;}
+.next{position: absolute;right:30px;top:40%;display:block;width:28px;height:28px;}
+.next:hover{border: 1px solid #ddd;}
+.NEWPRODUCT_INNER_RIGHT .product_mask{width:440px;margin-left:80px;
+overflow: hidden;text-align: center;}
+.slide_move{width:10000px;position: relative;}
+.product_slide{float:left;width:440px;}
+.product_slide>li{float:left;width:200px;margin-right:40px;}
+.product_slide>li:nth-child(even){margin-right:0;}
+.product_slide>li>a>img{width:180px;}
+.product_slide>li a{font-size:1.5rem;line-height: 160%;display:block;
+margin-bottom:10px;}
+.product_slide>li p{font-size:1.6rem;font-weight:600;color:#414141;
+margin-bottom:20px;}
+.product_slide>li .tag{text-align: center;}
+.product_slide>li .tag>span{display:inline-block;background-color: #f5f5f5;
+color:#696969;font-size:1.2rem;padding:4px;margin:0 4px;
+border-radius:5px;}
+.change1::before{content:'8,000원';color:#919191;font-size:1.3rem;
+margin-right:5px;text-decoration:line-through;}
+.change2::before{content:'25,000원';color:#919191;font-size:1.3rem;
+margin-right:5px;text-decoration:line-through;}
+.redlook{background:#fdcfdc url(image/bg_find_redLook.jpg) 50% 0 no-repeat;
+padding:60px 0;}
+.redlook_inner{text-align: center;}
+.redlook_inner>h2{font-size:1.4rem;font-weight:400;}
+.redlook_inner>h2>p>span{color:#f75e7e;}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='header'>
+<div class='header_top'>
+<div class='header_top_inner wd1200'>
+<div class='language'>
+<a href="#">ENGLISH</a>
+<a href="#">CHINESE</a>
+<a href="#">JAPANESE</a>
+</div><!-- language -->
+<h1><a href="#"><img src="image/logo.png" alt="메인로고"></a></h1>
+<div class='login'>
+<a href="#">로그인</a>
+<a href="#">회원가입</a>
+<a href="#">주문/배송&nbsp;조회</a>
+<a href="#">고객센터</a>
+</div><!-- login -->
+<div class='searchwrap'>
+<div class='searchinner'>
+<label for="search">검색</label>
+<input type="search" id='search' placeholder='매트 시크 립라커'>
+<a href="#" class='searchbtn'><img src="image/ico_search.png" alt="검색버튼"></a>
+</div><!-- searchinner -->
+<a href="#" class='shop'><img src="image/ico_cart_off.png" alt="장바구니"><p>0</p></a>
+</div><!-- searchwrap -->
+</div><!-- header_top_inner -->
+</div><!-- header_top -->
+<div class='header_bottom'>
+<div class='header_bottom_inner wd1200'>
+<div class='headermenu'>
+<a href="#">베스트</a>
+<a href="#">신제품</a>
+<a href="#">#에뛰드픽</a>
+<a href="#">채널에뛰드</a>
+<a href="#">이벤트</a>
+<a href="#">LOOKS</a>
+<a href="#">브랜드</a>
+</div><!-- headermenu -->
+<a href="#" class='membership'>MEMBERSHIP</a>
+</div><!-- header_bottom_inner -->
+</div><!-- header_bottom -->
+</div><!-- header -->
+<div class='content'>
+<div class='mask'>
+<ul class='slide'>
+ <li class='slider1 slider'><a href="#"><img src="image/slide1.jpg" alt="슬라이드1"></a></li>
+ <li class='slider2 slider'><a href="#"><img src="image/slide2.jpg" alt="슬라이드2"></a></li>
+ <li class='slider3 slider'><a href="#"><img src="image/slide3.jpg" alt="슬라이드3"></a></li>
+ <li class='slider4 slider'><a href="#"><img src="image/slide4.jpg" alt="슬라이드4"></a></li>
+ <li class='slider5 slider'><a href="#"><img src="image/slide5.jpg" alt="슬라이드5"></a></li>
+</ul>
+<div class='slide_text'>
+<div class='slide_text_inner'>
+<a href="#" class='coloron'>[Online Only]펩타이드 세럼 7일 무료 체험 키트<div class='slide_text_stroke1'>stroke<div class='slide_text_stroke2'>stroke</div></div></a>
+<a href="#">[얼리버드]에뛰드X르꼬끄 콜라보 스페셜 키트<div class='slide_text_stroke1'>stroke<div class='slide_text_stroke2'>stroke</div></div></a> 
+<a href="#">브러쉬 전품목 30%<div class='slide_text_stroke1'>stroke<div class='slide_text_stroke2'>stroke</div></div></a>
+<a href="#">기초 전품목 최대40%<div class='slide_text_stroke1'>stroke<div class='slide_text_stroke2'>stroke</div></div></a> 
+<a href="#">더블래스팅 구매시 컨실러 2천원<div class='slide_text_stroke1'>stroke<div class='slide_text_stroke2'>stroke</div></div></a>   
+</div><!-- slide_text --> 
+</div><!-- slide_text_inner -->
+</div><!--mask-->
+<div class='content_inner wd1200'>
+<div class='ARTISTCHOICE'>
+<h2 class='h2'>ARTIST CHOICE</h2>
+<ul>
+	<li><a href="#"><img src="image/choice1.png" alt="choice1">
+	<span class='span1'>몬스터 오일 인 클렌징 워터</span>
+    <span class='span2'>9,000원</span>
+	</a></li>
+	<li><a href="#"><img src="image/choice2.png" alt="choice2">
+	<span class='span1'>몬스터 미셀라 클렌징 워터 700ml</span>
+    <span class='span2'>14,000원</span>
+	</a></li>
+	<li><a href="#"><img src="image/choice3.png" alt="choice3">
+	<span class='span1'>몬스터 미셀라 클렌징 워터 300ml</span>
+    <span class='span2'>7,000원</span>
+	</a></li>
+	<li><a href="#"><img src="image/choice4.png" alt="choice4">
+	<span class='span1'>리얼아트 클렌징 오일 모이스처 NEW</span>
+    <span class='span2'>13,800원</span>
+	</a></li>
+	<li><a href="#"><img src="image/choice5.png" alt="choice5">
+	<span class='span1'>리얼아트 클렌징 오일 퍼펙트</span>
+    <span class='span2'>15,000원</span>
+	</a></li>
+</ul>
+</div><!-- ARTISTCHOICE -->
+<div class='NEWPRODUCT'>
+<h2 class='h2'>NEW PRODUCT</h2>
+<div class='NEWPRODUCT_INNER'>
+<div class='NEWPRODUCT_INNER_LEFT'>
+<a href="#"><img src="image/newproductimg.jpg" alt="더블래스팅자세히보기"></a>
+</div><!-- NEWPRODUCT_INNER_LEFT -->
+<div class='NEWPRODUCT_INNER_RIGHT'>
+<a href="#" class='prev'><img src="image/bg_pagePrev3.png" alt="이전"></a>
+<div class='product_mask'>
+<div class='slide_move'>
+<ul class='product_slide'>
+	<li><a href="#"><img src="image/product_slide1.jpg" alt="액티브프루프"></a>
+	<a href="#">액티브 프루프 을데이 스타일리쉬 스페셜 키트</a>
+	<p>42,000원</p>
+	<div class='tag'><span>#온라인전용</span><span>#한정키트</span></div>
+	</li>
+
+	<li><a href="#"><img src="image/product_slide2.png" alt="컬러풀센트"></a>
+	<a href="#">컬러풀 센트 오드 퍼퓸</a>
+	<p>23,000원</p>
+	</li>
+</ul>
+<ul class='product_slide'>
+	<li><a href="#"><img src="image/product_slide3.png" alt="플레이젤"></a>
+	<a href="#">플레이 젤 네이 디자인 팁</a>
+	<p>9,700원</p>
+	<div class='tag'><span>#플레이네일</span><span>#플레이젤네일</span></div>
+	</li>
+
+	<li><a href="#"><img src="image/product_slide4.png" alt="빅커버스킨"></a>
+	<a href="#">빅 커버 스킨 핏 컨실러 PRO</a>
+	<p class='change1'>5,900원</p>
+	<div class='tag'><span>#빅커버</span><span>#스킨핏</span><span>#컨실러</span></div>
+	</li>
+</ul>
+<ul class='product_slide'>
+	<li><a href="#"><img src="image/product_slide5.png" alt="플레이컬러"></a>
+	<a href="#">플레이 컬러 아이 팔레트</a>
+	<p>29,500원</p>
+	<div class='tag'><span>#플레이컬러</span><span>#아이</span></div>
+	</li>
+
+	<li><a href="#"><img src="image/product_slide6.png" alt="순정스킨케어"></a>
+	<a href="#">순정 스킨케어 2종세트</a>
+	<p>26,000원</p>
+	<div class='tag'><span>#순정</span><span>#스킨케어</span><span>#2종세트</span></div>
+	</li>
+</ul>
+<ul class='product_slide'>
+	<li><a href="#"><img src="image/product_slide7.png" alt="0.2테라피"></a>
+	<a href="#">0.2 테라피 에어 마스크</a>
+	<p>1,000원</p>
+	<div class='tag'><span>#0.2mm시트</span><span>#저자극</span></div>
+	</li>
+
+	<li><a href="#"><img src="image/product_slide8.png" alt="유브이더블컷"></a>
+	<a href="#">유브이 더블컷 산뜻선 젤 대용량</a>
+	<p class='change2'>15,000원</p>
+	<div class='tag'><span>#유브이</span><span>#더블컷</span><span>#산뜻</span></div>
+	</li>
+</ul>
+</div><!-- slide_move -->
+</div><!-- mask -->
+<a href="#" class='next'><img src="image/bg_pageNext3.png" alt="다음"></a>
+</div><!-- NEWPRODUCT_INNER_RIGHT -->
+<a href="#" class='NEWPRODUCT_MORE'>MORE</a>
+</div><!-- NEWPRODUCT_INNER -->
+</div><!-- NEW PRODUCT  -->
+</div><!-- content_inner -->
+<div class='redlook'>
+<div class='redlook_inner wd1200'>
+<h2><img src="image/redLook_ttl.png" alt="레드룩"><br>
+<p>원하는&nbsp;<span>메이크업 LOOK을</span>&nbsp;클릭해보세요!</p></h2>
+</div><!-- redlook_inner -->
+</div><!-- redlook -->
+
+</div><!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- wrap -->
+</body>
+</html>
