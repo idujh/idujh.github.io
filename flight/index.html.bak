@@ -66,7 +66,7 @@ padding:0 23px;border-right:1px solid rgba(255,255,255,0.2);border-left:1px soli
 .gnb>li>a:hover{color:#fff;}
 
 /* 컨텐츠 */
-.content{background-color: #f0f9fd;padding-bottom:40px;}
+.content{padding-bottom:40px;}
 .content_inner_news{background-color: #fff;margin-top:30px;border: 1px solid #bcc4c7;overflow: hidden;padding:3px;}
 .NewsUpdates{float:left;font-size:1.3rem;color:#fff;background-color: #0086b2;
 padding:6px;}
