@@ -10,8 +10,11 @@
 <title>Document</title>
 
 <link rel="stylesheet" href="css/font.css">
+<link rel="stylesheet" href="js/slick/slick.css">
+<link rel="stylesheet" href="js/slick/slick-theme.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/jquery-ui.min.js'></script>
+<script src='js/slick/slick.min.js'></script>
 <script>
 $(document).ready(function(){
 
@@ -83,9 +86,90 @@ $('.slide_move').stop().animate({left:'+=440'})
 return false
 })
 
+$('.redlook_inner_list>li>a').on('mouseenter focus',function(){
+$('.redlook_inner_list>li>a').removeClass('on')
+$(this).addClass('on')
+})
+
+$('<div class="redlook_pager"></div>').appendTo('.redlook')
+$('.redlook_inner_list').each(function(index){
+$('.redlook_pager').append('<a href="#"></a>')
+$('.redlook_pager>a:first()').addClass('on')
+})
+
+var redlook=1
+var redtotal=$('.redlook_inner_list').length
+$('.redlook_next').on('click',function(){
+if (redlook==redtotal)
+{
+	redlook=0
+}
+redlook++
+$('.redlook_pager>a').removeClass('on')
+$('.redlook_pager>a').eq(redlook-1).addClass('on')
+$('.redlook_inner_slide').stop().animate({left:'-=907'},function(){
+$('.redlook_inner_list:first()').appendTo('.redlook_inner_slide')
+$('.redlook_inner_slide').css({left:0})
+})
+return false
+})
+$('.redlook_prev').on('click',function(){
+if (redlook==0)
+{
+	redlook=redtotal
+}
+redlook--
+$('.redlook_pager>a').removeClass('on')
+$('.redlook_pager>a').eq(redlook-1).addClass('on')
+$('.redlook_inner_list:last()').prependTo('.redlook_inner_slide')
+$('.redlook_inner_slide').css({left:-907})
+$('.redlook_inner_slide').stop().animate({left:'+=907'})
+return false
+})
+
+$('.pick_slide').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 4,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 4
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+$('.teb_list a').append('<div class="tab_stroke"></div>')
+$('.teb_list a:first()').find('.tab_stroke').css({width:'100%',left:0})
+$('.teb_list a').each(function(index){
+$(this).click(function(){
+$('.tab_stroke').stop().animate({left:'50%',width:0})
+$(this).find('.tab_stroke').stop().animate({left:0,width:'100%'})
+$('.teb_list a').removeClass('on')
+$(this).addClass('on')
+$('.teb').hide()
+$('.teb').eq(index).fadeIn()
+return false
+})
+})
 
 
-})//
+
+
+})//ready
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -173,7 +257,7 @@ margin-top:20px;padding:0 10px;line-height: 150%;}
 .ARTISTCHOICE ul>li>a .span2{font-size:1.6rem;font-weight:600;
 color:#414141;margin-top:10px;}
 .NEWPRODUCT{margin-top:40px;position: relative;padding-bottom:60px;}
-.NEWPRODUCT_MORE{position: absolute;right:10px;top:10px;padding-right:10px;
+.NEWPRODUCT_MORE{position: absolute;right:10px;top:10px;padding-right:14px;
 background:url(image/arr_right3.png) 100% 50% no-repeat;font-size:1.3rem;
 font-weight:500;}
 .NEWPRODUCT_INNER{margin-top:20px;overflow: hidden;}
@@ -203,11 +287,80 @@ margin-right:5px;text-decoration:line-through;}
 .change2::before{content:'25,000원';color:#919191;font-size:1.3rem;
 margin-right:5px;text-decoration:line-through;}
 .redlook{background:#fdcfdc url(image/bg_find_redLook.jpg) 50% 0 no-repeat;
-padding:60px 0;}
-.redlook_inner{text-align: center;}
-.redlook_inner>h2{font-size:1.4rem;font-weight:400;}
-.redlook_inner>h2>p>span{color:#f75e7e;}
-
+padding:60px 0;text-align: center;position: relative;}
+.redlook p{font-size:1.4rem;font-weight:400;}
+.redlook p>span{color:#f75e7e;}
+.redlook_inner{text-align: center;width:1047px;margin:0 auto;padding:0 70px;
+position: relative;}
+.redlook_prev{position: absolute;left:0;top:50%;border: 1px solid transparent;}
+.redlook_prev:hover{border:1px solid #9a9a9a;}
+.redlook_next{position: absolute;right:0;top:50%;border: 1px solid transparent;}
+.redlook_next:hover{border:1px solid #9a9a9a;}
+.redlook_more{position: absolute;right:70px;top:-20px;padding:4px;}
+.redlook_inner_mask{width:907px;overflow: hidden;}
+.redlook_inner_slide{position: relative;width:10000px;}
+.redlook_inner_list{width:907px;float:left;margin-top:40px;}
+.redlook_inner_list>li{float:left;width:33.33%;}
+.redlook_inner_list>li>a{display:block;color:#ea5b86;font-size:1.7rem;}
+.redlook_inner_list>li>a img{border: 6px solid transparent;}
+.redlook_inner_list>li>a.on img{border: 6px solid #fff;}
+.redlook_inner_list>li>a span{margin-top:20px;display:block;}
+.redlook_pager{margin-top:10px;}
+.redlook_pager>a{display:inline-block;width:8px;height:8px;background-color: #f5f5f5;border-radius:100%;margin:0 3px;}
+.redlook_pager>a.on{background-color: #f991a2;}
+.content_inner1{margin-top:40px;}
+.content_inner1 .title{overflow: hidden;}
+.content_inner1 .title h2{float:left;font-size: 2.4rem;font-weight: 500;}
+.content_inner1 .title .title_more{float:right;margin-top:12px;
+margin-right:10px;}
+.content_inner1 .title .title_more img{vertical-align: bottom;}
+#my .pick_slide{width:1100px;margin:0 auto;margin-top:40px;}
+#my .slick-slide,.slick-current,.slick-active,.slick-center{overflow:hidden;width:100%;
+padding:0 4px;overflow: hidden;height:237px;}
+#my .slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 44px;
+    height: 66px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+	padding:10px;
+    cursor: pointer;
+	color:black;
+    outline: none;
+	border-radius:5px;
+}
+#my .slick-next {right: -54px;}
+#my .slick-next:hover{background-color: #f5f5f5;}
+#my .slick-prev {left: -54px;}
+#my .slick-prev:hover{background-color: #f5f5f5;}
+#my .slick-next::before {content: '';display:block;background:url(image/next.png) 50% 50% no-repeat;width:24px;height:46px;}
+#my .slick-prev::before {content: '';display:block;background:url(image/prev.png) 50% 50% no-repeat;width:24px;height:46px;}
+#my .pick_slide .relative{position: relative;top:-20px;}
+.best_color{margin-top:60px;}
+.teb_list{border-bottom:1px solid #ddd;overflow: hidden;margin-top:10px;}
+.teb_list a{display:block;float:left;padding:10px 8px;font-size:1.6rem;position: relative;}
+.teb_list a.on{color:#f64a8e;}
+.tab_stroke{position: absolute;bottom:0;left:50%;width:0;height:1px;
+background-color: #f64a8e;}
+.teb ul{overflow: hidden;}
+.teb ul>li{width:25%;float:left;padding:40px 20px;text-align: center;}
+.teb ul>li strong{float:left;font-size:2.6rem;border-bottom:2px solid #333;
+display:inline-block;padding:0 12px;}
+.teb ul>li a span{font-size:1.5rem;}
+.tab_gray{color:#b3b3b3;font-size:1.3rem;margin-top:30px;}
+.tab_price{font-size:1.8rem;font-weight:600;}
+#tab1{display:block;}
+#tab2{display:none;}
+#tab3{display:none;}
+#tab4{display:none;}
+#tab5{display:none;}
+#tab6{display:none;}
 
 
 
@@ -216,7 +369,7 @@ padding:60px 0;}
 
 </style>
 </head>
-<body>
+<body id='my'>
 <div class='wrap'>
 <div class='header'>
 <div class='header_top'>
@@ -373,12 +526,206 @@ padding:60px 0;}
 </div><!-- NEW PRODUCT  -->
 </div><!-- content_inner -->
 <div class='redlook'>
-<div class='redlook_inner wd1200'>
-<h2><img src="image/redLook_ttl.png" alt="레드룩"><br>
-<p>원하는&nbsp;<span>메이크업 LOOK을</span>&nbsp;클릭해보세요!</p></h2>
+<h2><img src="image/redLook_ttl.png" alt="레드룩"></h2>
+<p>원하는&nbsp;<span>메이크업 LOOK을</span>&nbsp;클릭해보세요!</p>
+<div class='redlook_inner'>
+<a href="#" class='redlook_prev'><img src="image/redLook_bg_pagePrev.png" alt="레드북이전"></a>
+<div class='redlook_inner_mask'>
+<div class='redlook_inner_slide'>
+<ul class='redlook_inner_list'>
+	<li><a href="#"><img src="image/redLook01.png" alt="레드북1"><span>ROMANTIC CHERRY BLOSSOM</span></a></li>
+	<li><a href="#"><img src="image/redLook02.png" alt="레드북2"><span>LIVELY PEACH CRUSH</span></a></li>
+	<li><a href="#" class='mr0'><img src="image/redLook03.png" alt="레드북3"><span>TWINKLING GLITTER HOLIC</span></a></li>
+</ul>
+<ul class='redlook_inner_list'>
+	<li><a href="#"><img src="image/redLook04.png" alt="레드북4"><span>CHIC CONTOUR DRAWING</span></a></li>
+	<li><a href="#"><img src="image/redLook05.png" alt="레드북5"><span>RED KISS</span></a></li>
+	<li><a href="#" class='mr0'><img src="image/redLook06.png" alt="레드북6"><span>JOYFUL SCANDAL</span></a></li>
+</ul>
+</div><!-- redlook_inner_slide -->
+</div><!-- redlook_inner_mask -->
+<a href="#" class='redlook_next'><img src="image/redLook_bg_pageNext.png" alt="레드북다음"></a>
+<a href="#" class='redlook_more'><img src="image/redLook_more.png" alt="레드룩더보기"></a>
 </div><!-- redlook_inner -->
 </div><!-- redlook -->
+<div class='content_inner1 wd1200'>
+<div class='title'>
+<h2>#에뛰드픽</h2><a href="#" class='title_more'><img src="image/black_more.png" alt="더보기"></a>
+</div><!-- title -->
+<ul class='pick_slide'>
+	<li><a href="#"><img src="image/pick1.jpg" alt="pick1이미지" class='relative'></a></li>
+	<li><a href="#"><img src="image/pick2.jpg" alt="pick2이미지"></a></li>
+	<li><a href="#"><img src="image/pick3.jpg" alt="pick3이미지"></a></li>
+	<li><a href="#"><img src="image/pick4.jpg" alt="pick4이미지"></a></li>
+	<li><a href="#"><img src="image/pick5.jpg" alt="pick5이미지"></a></li>
+	<li><a href="#"><img src="image/pick6.jpg" alt="pick6이미지" class='relative'></a></li>
+	<li><a href="#"><img src="image/pick7.jpg" alt="pick7이미지"></a></li>
+	<li><a href="#"><img src="image/pick8.jpg" alt="pick8이미지"></a></li>
+	<li><a href="#"><img src="image/pick9.jpg" alt="pick9이미지"></a></li>
+	<li><a href="#"><img src="image/pick10.jpg" alt="pick9이미지"></a></li>
+	<li><a href="#"><img src="image/pick11.jpg" alt="pick10이미지"></a></li>
+	<li><a href="#"><img src="image/pick12.jpg" alt="pick11이미지"></a></li>
+</ul>
+<div class='best_color'>
+<div class='title'>
+<h2>요즘! BEST COLOR</h2><a href="#" class='title_more'><img src="image/black_more.png" alt="더보기"></a>
+</div><!-- title -->
+<div class='teb_list'>
+<a href="#" class='on'>전체</a>
+<a href="#">싱글섀도우</a>
+<a href="#">아이팔레트</a>
+<a href="#">립스틱</a>
+<a href="#">립틴트</a>
+<a href="#">블러셔</a>
+</div><!-- teb_list -->
+<div class='teb' id='tab1'>
+<ul>
+	<li><strong>1</strong>
+	<a href="#"><img src="image/tab1_1.png" alt="탭1-1"><span>플레이 컬러 아이 팔레트</span></a>
+	<p class='tab_gray'>란제리 백스테이지</p>
+	<p class='tab_price'>29,500원</p>
+	</li>
+		<li><strong>2</strong>
+	<a href="#"><img src="image/tab1_2.png" alt="탭1-2"><span>플레이 컬러 아이 팔레트</span></a>
+	<p class='tab_gray'>레오파드 런웨이</p>
+	<p class='tab_price'>29,500원</p>
+	</li>
+		<li><strong>3</strong>
+	<a href="#"><img src="image/tab1_3.png" alt="탭1-3"><span>플레이 컬러 아이 팔레트</span></a>
+	<p class='tab_gray'>트렌치 코트 쇼룸</p>
+	<p class='tab_price'>29,500원</p>
+	</li>
+		<li><strong>4</strong>
+	<a href="#"><img src="image/tab1_4.png" alt="탭1-4"><span>플레이 컬러 아이즈 피치팜</span></a>
+	<p class='tab_gray'>레오파드 쇼룸</p>
+	<p class='tab_price'>22,000원</p>
+	</li>
+</ul>
+</div><!-- tab1 -->
+<div class='teb' id='tab2'>
+<ul>
+	<li><strong>1</strong>
+	<a href="#"><img src="image/shadow1.png" alt="shadow1"><span>룩 앳 마이 아이즈 카페</span></a>
+	<p class='tab_gray'>BR405 까페라떼 우유많이</p>
+	<p class='tab_price'>3,500원</p>
+	</li>
+		<li><strong>2</strong>
+	<a href="#"><img src="image/shadow2.png" alt="shadow2"><span>룩 앳 마이 아이즈 NEW</span></a>
+	<p class='tab_gray'>BR422 솔솔 말린 솔방울</p>
+	<p class='tab_price'>3,500원</p>
+	</li>
+		<li><strong>3</strong>
+	<a href="#"><img src="image/shadow3.png" alt="shadow3"><span>룩 앳 마이 아이즈 카페</span></a>
+	<p class='tab_gray'>BR408 200년 된 초코가게</p>
+	<p class='tab_price'>3,500원</p>
+	</li>
+		<li><strong>4</strong>
+	<a href="#"><img src="image/shadow4.png" alt="shadow4"><span>룩 앳 마이 아이즈 카페</span></a>
+	<p class='tab_gray'>BR301 달달한 대추차</p>
+	<p class='tab_price'>3,500원</p>
+	</li>
+</ul>
+</div><!-- tab2 -->
+<div class='teb' id='tab3'>
+<ul>
+	<li><strong>1</strong>
+	<a href="#"><img src="image/tab1_1.png" alt="탭1-1"><span>플레이 컬러 아이 팔레트</span></a>
+	<p class='tab_gray'>란제리 백스테이지</p>
+	<p class='tab_price'>29,500원</p>
+	</li>
+		<li><strong>2</strong>
+	<a href="#"><img src="image/tab1_2.png" alt="탭1-2"><span>플레이 컬러 아이 팔레트</span></a>
+	<p class='tab_gray'>레오파드 런웨이</p>
+	<p class='tab_price'>29,500원</p>
+	</li>
+		<li><strong>3</strong>
+	<a href="#"><img src="image/tab1_3.png" alt="탭1-3"><span>플레이 컬러 아이 팔레트</span></a>
+	<p class='tab_gray'>트렌치 코트 쇼룸</p>
+	<p class='tab_price'>29,500원</p>
+	</li>
+		<li><strong>4</strong>
+	<a href="#"><img src="image/tab1_4.png" alt="탭1-4"><span>플레이 컬러 아이즈 피치팜</span></a>
+	<p class='tab_gray'>레오파드 쇼룸</p>
+	<p class='tab_price'>22,000원</p>
+	</li>
+</ul>
+</div><!-- tab3 -->
+<div class='teb' id='tab4'>
+<ul>
+	<li><strong>1</strong>
+	<a href="#"><img src="image/lipstick1.png" alt="lipstick1"><span>매트 시크 립라커</span></a>
+	<p class='tab_gray'>OR201 상큼하조이 자몽</p>
+	<p class='tab_price'>12,000원</p>
+	</li>
+		<li><strong>2</strong>
+	<a href="#"><img src="image/lipstick2.png" alt="lipstick2"><span>매트 시크 립라커</span></a>
+	<p class='tab_gray'>RD303 워 아이린 레드</p>
+	<p class='tab_price'>12,000원</p>
+	</li>
+		<li><strong>3</strong>
+	<a href="#"><img src="image/lipstick3.png" alt="lipstick3"><span>매트 시크 립라커</span></a>
+	<p class='tab_gray'>PK003 예리한 핑크</p>
+	<p class='tab_price'>12,000원</p>
+	</li>
+		<li><strong>4</strong>
+	<a href="#"><img src="image/lipstick4.png" alt="lipstick4"><span>매트 시크 립라커</span></a>
+	<p class='tab_gray'>BR401 오늘은 웬디 브라운</p>
+	<p class='tab_price'>12,000원</p>
+	</li>
+</ul>
+</div><!-- tab4 -->
+<div class='teb' id='tab5'>
+<ul>
+	<li><strong>1</strong>
+	<a href="#"><img src="image/tint1.png" alt="tint1"><span>컬러 인 리퀴드 립스 무스</span></a>
+	<p class='tab_gray'>RD302 말린딸기시럽</p>
+	<p class='tab_price'>9,500원</p>
+	</li>
+		<li><strong>2</strong>
+	<a href="#"><img src="image/tint2.png" alt="tint2"><span>컬러 인 리퀴드 립스 무스</span></a>
+	<p class='tab_gray'>RD301 복분자파워</p>
+	<p class='tab_price'>9,500원</p>
+	</li>
+		<li><strong>3</strong>
+	<a href="#"><img src="image/tint3.png" alt="tint3"><span>컬러 인 리퀴드 립스 무스</span></a>
+	<p class='tab_gray'>OR201 루비레드자몽</p>
+	<p class='tab_price'>9,500원</p>
+	</li>
+		<li><strong>4</strong>
+	<a href="#"><img src="image/tint4.png" alt="tint4"><span>디어 달링 워터젤 틴트</span></a>
+	<p class='tab_gray'>OR202 오렌지 레드</p>
+	<p class='tab_price'>4,000원</p>
+	</li>
+</ul>
+</div><!-- tab5 -->
+<div class='teb' id='tab6'>
+<ul>
+	<li><strong>1</strong>
+	<a href="#"><img src="image/blusher1.png" alt="blusher1"><span>러블리 쿠키 블러셔 NEW</span></a>
+	<p class='tab_gray'>그레이프 후르츠 젤리</p>
+	<p class='tab_price'>6,000원</p>
+	</li>
+		<li><strong>2</strong>
+	<a href="#"><img src="image/blusher2.png" alt="blusher2"><span>러블리 쿠키 블러셔 NEW</span></a>
+	<p class='tab_gray'>BE101 진저 허니 쿠키</p>
+	<p class='tab_price'>6,000원</p>
+	</li>
+		<li><strong>3</strong>
+	<a href="#"><img src="image/blusher3.png" alt="blusher3"><span>러블리 쿠키 블러셔 NEW</span></a>
+	<p class='tab_gray'>OR201 살구피치 무스</p>
+	<p class='tab_price'>6,000원</p>
+	</li>
+		<li><strong>4</strong>
+	<a href="#"><img src="image/blusher4.png" alt="blusher4"><span>러블리 쿠키 블러셔 NEW</span></a>
+	<p class='tab_gray'>RD301 레드자몽 푸딩</p>
+	<p class='tab_price'>6,000원</p>
+	</li>
+</ul>
+</div><!-- tab6 -->
+</div><!-- best_color -->
 
+
+</div><!-- content_inner1 -->
 </div><!-- content -->
 
 
