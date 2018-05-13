@@ -17,6 +17,26 @@
 <script src='js/slick/slick.min.js'></script>
 <script>
 $(document).ready(function(){
+$('a').click(function(){
+return false
+})
+//topbtn
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top>400)
+{
+$('.topbtn').fadeIn()
+}else{
+$('.topbtn').fadeOut()
+}
+$('.topbtn').stop().animate({top:top+$(window).height()-65})
+})
+$('.topbtn').on({
+click:function(){
+$('body,html').stop().animate({scrollTop:0})
+return false
+}
+})
 
 //visual
 $('.slide>li').hide()
@@ -67,7 +87,8 @@ $('.slide_text_stroke1').hide()
 $('.slide_text_stroke1').eq(now-1).show()
 $('.slide_text_stroke2').css({width:0}) 
 $('.slide_text_stroke2').eq(now-1).stop().animate({width:'100%'},4000) 
-},4000) 
+},4000)
+return false
 })  
 }) 
 
@@ -93,8 +114,8 @@ $(this).addClass('on')
 
 $('<div class="redlook_pager"></div>').appendTo('.redlook')
 $('.redlook_inner_list').each(function(index){
-$('.redlook_pager').append('<a href="#"></a>')
-$('.redlook_pager>a:first()').addClass('on')
+$('.redlook_pager').append('<p>페이저</p>')
+$('.redlook_pager>p:first()').addClass('on')
 })
 
 var redlook=1
@@ -105,8 +126,8 @@ if (redlook==redtotal)
 	redlook=0
 }
 redlook++
-$('.redlook_pager>a').removeClass('on')
-$('.redlook_pager>a').eq(redlook-1).addClass('on')
+$('.redlook_pager>p').removeClass('on')
+$('.redlook_pager>p').eq(redlook-1).addClass('on')
 $('.redlook_inner_slide').stop().animate({left:'-=907'},function(){
 $('.redlook_inner_list:first()').appendTo('.redlook_inner_slide')
 $('.redlook_inner_slide').css({left:0})
@@ -119,8 +140,8 @@ if (redlook==0)
 	redlook=redtotal
 }
 redlook--
-$('.redlook_pager>a').removeClass('on')
-$('.redlook_pager>a').eq(redlook-1).addClass('on')
+$('.redlook_pager>p').removeClass('on')
+$('.redlook_pager>p').eq(redlook-1).addClass('on')
 $('.redlook_inner_list:last()').prependTo('.redlook_inner_slide')
 $('.redlook_inner_slide').css({left:-907})
 $('.redlook_inner_slide').stop().animate({left:'+=907'})
@@ -183,6 +204,7 @@ a:focus{color:#f64a8e;}
 .wd1200{width:1200px;margin:0 auto;}
 
 /* 헤더 */
+.topbtn{position: absolute;bottom:20px;right:20px;display:none;z-index:1;}
 .wrap{min-width:1200px;}
 .header{}
 .header_top{border-bottom:1px solid #f5f5f5;}
@@ -286,7 +308,7 @@ border-radius:5px;}
 margin-right:5px;text-decoration:line-through;}
 .change2::before{content:'25,000원';color:#919191;font-size:1.3rem;
 margin-right:5px;text-decoration:line-through;}
-.redlook{background:#fdcfdc url(image/bg_find_redLook.jpg) 50% 0 no-repeat;
+.redlook{background:#fdcfdc url(image/bg_find_redLook.jpg) 50% 0 repeat;
 padding:60px 0;text-align: center;position: relative;}
 .redlook p{font-size:1.4rem;font-weight:400;}
 .redlook p>span{color:#f75e7e;}
@@ -306,8 +328,8 @@ position: relative;}
 .redlook_inner_list>li>a.on img{border: 6px solid #fff;}
 .redlook_inner_list>li>a span{margin-top:20px;display:block;}
 .redlook_pager{margin-top:10px;}
-.redlook_pager>a{display:inline-block;width:8px;height:8px;background-color: #f5f5f5;border-radius:100%;margin:0 3px;}
-.redlook_pager>a.on{background-color: #f991a2;}
+.redlook_pager>p{display:inline-block;width:8px;height:8px;background-color: #f5f5f5;border-radius:100%;margin:0 3px;font-size:0;text-indent:-999px;}
+.redlook_pager>p.on{background-color: #f991a2;}
 .content_inner1{margin-top:40px;}
 .content_inner1 .title{overflow: hidden;}
 .content_inner1 .title h2{float:left;font-size: 2.4rem;font-weight: 500;}
@@ -361,8 +383,17 @@ display:inline-block;padding:0 12px;}
 #tab4{display:none;}
 #tab5{display:none;}
 #tab6{display:none;}
-
-
+.beauty{margin-top:60px;}
+.beauty_list{margin-top:40px;}
+.beauty_list::after{content:'';display:block;clear:both;}
+.beauty_list>li{width:32.666%;margin-right:1%;float:left;}
+.beauty_list>li:nth-child(3){margin-right:0;}
+.beauty_list>li>a{display:block;box-shadow:1px 2px 3px #8e8e8e;}
+.beauty_list>li>a>span{display:block;text-align: center;padding:20px;
+font-size:1.4rem;font-weight:500;}
+.quick_icon{padding:80px 0 60px 0;overflow: hidden;}
+.quick_icon>a{display:block;float:left;width:10%;text-align: center;}
+.quick_icon>a span{display:block;}
 
 
 
@@ -370,6 +401,7 @@ display:inline-block;padding:0 12px;}
 </style>
 </head>
 <body id='my'>
+<a href="#" class='topbtn'><img src="image/topbtn.png" alt="상단으로이동"></a>
 <div class='wrap'>
 <div class='header'>
 <div class='header_top'>
@@ -723,7 +755,28 @@ display:inline-block;padding:0 12px;}
 </ul>
 </div><!-- tab6 -->
 </div><!-- best_color -->
-
+<div class='beauty'>
+<div class='title'>
+<h2>BEAUTY TIP</h2><a href="#" class='title_more'><img src="image/black_more.png" alt="더보기"></a>
+</div><!-- title -->
+<ul class='beauty_list'>
+	<li><a href="#"><img src="image/beauty1.jpg" alt="러블리안경메이크업"><span>러블리~안경 메이크업</span></a></li>
+	<li><a href="#"><img src="image/beauty2.jpg" alt="면접프리패스메이크업"><span>면접 프리패스 메이크업</span></a></li>
+	<li><a href="#"><img src="image/beauty3.jpg" alt="퍼스널컬러메이크업"><span>퍼스널 컬러 멀티 팔레트 쿨커버를 활용한 F/W MAKE UP</span></a></li>
+</ul>
+</div><!-- beauty -->
+<div class='quick_icon'>
+<a href="#"><img src="image/qucik_navi01.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+<a href="#"><img src="image/qucik_navi02.gif" alt="달달템샵"><span>달달템샵</span></a>
+<a href="#"><img src="image/qucik_navi03.gif" alt="테이크아웃"><span>테이크아웃</span></a>
+<a href="#"><img src="image/qucik_navi04.gif" alt="아울렛샵"><span>아울렛샵</span></a>
+<a href="#"><img src="image/qucik_navi05.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+<a href="#"><img src="image/qucik_navi06.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+<a href="#"><img src="image/qucik_navi07.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+<a href="#"><img src="image/qucik_navi08.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+<a href="#"><img src="image/qucik_navi09.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+<a href="#"><img src="image/qucik_navi10.gif" alt="마이섀도우"><span>마이섀도우</span></a>
+</div><!-- quick_icon -->
 
 </div><!-- content_inner1 -->
 </div><!-- content -->
