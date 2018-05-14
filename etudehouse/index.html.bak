@@ -29,7 +29,6 @@ $('.topbtn').fadeIn()
 }else{
 $('.topbtn').fadeOut()
 }
-$('.topbtn').css({top:top+$(window).height()-65})
 })
 $('.topbtn').on({
 click:function(){
@@ -187,6 +186,32 @@ return false
 })
 })
 
+//푸터
+var footer_text=setInterval(function(){
+$('.footer_slide_text').stop().animate({top:'-=22'},function(){
+$('.footer_slide_text>li:first()').appendTo('.footer_slide_text')
+$('.footer_slide_text').css({top:0})
+})
+},4000)
+
+var familysite=true
+$('.footer_top_familysite>a').click(function(){
+if (familysite)
+{
+$('.footer_top_familysite ul').slideDown()
+$(this).find('.bgimg').css({backgroundPosition:'0 -94px'})
+familysite=false
+}else{
+$('.footer_top_familysite ul').slideUp()
+$(this).find('.bgimg').css({backgroundPosition:'0 0'})
+familysite=true
+}
+return false
+})
+
+
+
+
 
 
 
@@ -204,7 +229,7 @@ a:focus{color:#f64a8e;}
 .wd1200{width:1200px;margin:0 auto;}
 
 /* 헤더 */
-.topbtn{position: absolute;bottom:20px;right:20px;display:none;z-index:1;}
+.topbtn{position: fixed;bottom:20px;right:20px;display:none;z-index:1;}
 .wrap{min-width:1200px;}
 .header{}
 .header_top{border-bottom:1px solid #f5f5f5;}
@@ -243,7 +268,7 @@ background-size:25px 16px ;}
 
 
 /* 컨덴츠 */
-.content{padding-bottom:400px;}
+.content{}
  .mask{position: relative;}
  .slide{width:100%;}
  .slider1{background-color: #ffe1eb;}
@@ -394,6 +419,28 @@ font-size:1.4rem;font-weight:500;}
 .quick_icon{padding:80px 0 60px 0;overflow: hidden;}
 .quick_icon>a{display:block;float:left;width:10%;text-align: center;}
 .quick_icon>a span{display:block;}
+.footer{padding-bottom:100px;}
+.footer_top{border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+.footer_top_inner{padding:10px 0;}
+.footer_top_inner::after{content:'';display:block;clear:both;}
+.footer_top_inner h3{float:left;font-size:1.4rem;font-weight:500;}
+.footer_slide_mask{float:left;margin-left:20px;height:22px;overflow: hidden;
+margin-top:2px;}
+.footer_slide_text{position: relative;}
+.footer_slide_text>li>a{display:block;font-size:1.3rem;color:#666;height:22px;}
+.footer_top_familysite{float:right;position: relative;}
+.footer_top_familysite>a{display:block;position: relative;padding:0 60px 0 10px;
+border: 1px solid #ddd;color:#666;}
+.footer_top_familysite>a .bgimg{position: absolute;right:10px;top:8px;width:10px;
+height:6px;background:url(image/arr_TB1.png) 0 0 no-repeat;font-size:0;
+text-indent:-999px;}
+.footer_top_familysite ul{position: absolute;bottom:22px;left:0;display:none;
+border: 1px solid #ddd;background-color: #fff;width:100%;border-bottom:none;
+padding:10px 0;border: 1px solid #000;}
+.footer_top_familysite ul>li>a{display:block;font-size:1.3rem;
+padding:0 60px 0 10px;line-height: 300%;}
+
+
 
 
 
@@ -777,20 +824,40 @@ font-size:1.4rem;font-weight:500;}
 <a href="#"><img src="image/qucik_navi09.gif" alt="마이섀도우"><span>마이섀도우</span></a>
 <a href="#"><img src="image/qucik_navi10.gif" alt="마이섀도우"><span>마이섀도우</span></a>
 </div><!-- quick_icon -->
-
 </div><!-- content_inner1 -->
 </div><!-- content -->
+<div class='footer'>
+<div class='footer_top'>
+<div class='footer_top_inner wd1200'>
+<h3>공지사항</h3>
+<div class='footer_slide_mask'>
+<ul class='footer_slide_text'>
+	<li><a href="#">우리은행 일부 서비스 이용제한 안내 (5.5~5.7)</a></li>
+	<li><a href="#">[공지] 5/11 에뛰드 고객상담실 조기 종료 안내</a></li>
+	<li><a href="#">[공지] 5/14 새벽 사이트 서비스 일시 중단 안내</a></li>
+	<li><a href="#">[공지] 에뛰드 개인정보처리방침이 일부 변경됩니다</a></li>
+</ul>
+</div><!-- footer_slide_mask -->
+<div class='footer_top_familysite'>
+<a href="#">FAMILY SITE<div class='bgimg'>화살표이미지</div></a>
+<ul>
+	<li><a href="#">글로벌 통합몰</a></li>
+	<li><a href="#">중문사이트</a></li>
+	<li><a href="#">일문사이트</a></li>
+</ul>
+</div><!-- familysite -->
+</div><!-- footer_top_inner -->
+</div><!-- footer_top -->
+<div class='footer-bottom'>
+
+
+</div><!-- footer-bottom -->
 
 
 
 
 
-
-
-
-
-
-
+</div><!-- footer -->
 </div><!-- wrap -->
 </body>
 </html>
