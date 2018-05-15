@@ -198,17 +198,20 @@ var familysite=true
 $('.footer_top_familysite>a').click(function(){
 if (familysite)
 {
-$('.footer_top_familysite ul').slideDown()
+$('.footer_top_familysite ul').show()
 $(this).find('.bgimg').css({backgroundPosition:'0 -94px'})
 familysite=false
 }else{
-$('.footer_top_familysite ul').slideUp()
+$('.footer_top_familysite ul').hide()
 $(this).find('.bgimg').css({backgroundPosition:'0 0'})
 familysite=true
 }
 return false
 })
-
+$('.footer_top_familysite>a').blur(function(){
+$('.footer_top_familysite ul').hide()
+$('.bgimg').css({backgroundPosition:'0 0'})
+})
 
 
 
@@ -445,7 +448,7 @@ padding:10px 0;z-index:1;}
 padding:0 60px 0 10px;line-height: 300%;}
 .footer_bottom{background-color: #f5f5f5;padding-bottom:80px;}
 .footer_bottom_inner{text-align: center;}
-.Personal_information{margin-top:20px;overflow: hidden;}
+.Personal_information{padding-top:20px;overflow: hidden;}
 .Personal_information>a{padding:0 8px;color:#666;position: relative;
 font-size:1.3rem;}
 .Personal_information>a>b{font-weight:500;color:#333;}

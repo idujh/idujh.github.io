@@ -198,17 +198,21 @@ var familysite=true
 $('.footer_top_familysite>a').click(function(){
 if (familysite)
 {
-$('.footer_top_familysite ul').slideDown()
+$('.footer_top_familysite ul').show()
 $(this).find('.bgimg').css({backgroundPosition:'0 -94px'})
 familysite=false
 }else{
-$('.footer_top_familysite ul').slideUp()
+$('.footer_top_familysite ul').hide()
 $(this).find('.bgimg').css({backgroundPosition:'0 0'})
 familysite=true
 }
 return false
 })
-
+$('.footer_top_familysite>a').blur(function(){
+$('.footer_top_familysite ul').hide()
+$('.bgimg').css({backgroundPosition:'0 0'})
+familysite=true
+})
 
 
 
