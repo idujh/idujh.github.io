@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/font.css">
 <link rel="stylesheet" href="js/slick/slick.css">
 <link rel="stylesheet" href="js/slick/slick-theme.css">
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-3.3.1.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script src='js/slick/slick.min.js'></script>
 <script>
@@ -200,12 +200,10 @@ if (familysite)
 {
 $('.footer_top_familysite ul').slideDown()
 $(this).find('.bgimg').css({backgroundPosition:'0 -94px'})
-$(this).css({borderTop:'none'})
 familysite=false
 }else{
 $('.footer_top_familysite ul').slideUp()
 $(this).find('.bgimg').css({backgroundPosition:'0 0'})
-$(this).css({borderTop:'1px solid #ddd'})
 familysite=true
 }
 return false
@@ -415,9 +413,10 @@ display:inline-block;padding:0 12px;}
 .beauty_list::after{content:'';display:block;clear:both;}
 .beauty_list>li{width:32.666%;margin-right:1%;float:left;}
 .beauty_list>li:nth-child(3){margin-right:0;}
-.beauty_list>li>a{display:block;box-shadow:1px 2px 3px #8e8e8e;}
+.beauty_list>li>a{display: block;box-shadow: 1px 2px 3px #8e8e8e;
+border-radius: 2.5px;overflow: hidden;}
 .beauty_list>li>a>span{display:block;text-align: center;padding:20px;
-font-size:1.4rem;font-weight:500;}
+font-size:1.4rem;font-weight:400;}
 .quick_icon{padding:80px 0 60px 0;overflow: hidden;}
 .quick_icon>a{display:block;float:left;width:10%;text-align: center;}
 .quick_icon>a span{display:block;}
@@ -439,15 +438,14 @@ border: 1px solid #ddd;color:#666;}
 .footer_top_familysite>a .bgimg{position: absolute;right:10px;top:8px;width:10px;
 height:6px;background:url(image/arr_TB1.png) 0 0 no-repeat;font-size:0;
 text-indent:-999px;}
-.footer_top_familysite ul{position: absolute;bottom:22px;left:0;display:none;
+.footer_top_familysite ul{position: absolute;bottom:21px;left:0;display:none;
 border: 1px solid #ddd;background-color: #fff;width:100%;border-bottom:none;
-padding:10px 0;}
+padding:10px 0;z-index:1;}
 .footer_top_familysite ul>li>a{display:block;font-size:1.3rem;
 padding:0 60px 0 10px;line-height: 300%;}
-.footer_bottom{background-color: #f5f5f5;border-top:1px solid #ddd;
-padding-bottom:80px;}
+.footer_bottom{background-color: #f5f5f5;padding-bottom:80px;}
 .footer_bottom_inner{text-align: center;}
-.Personal_information{margin-top:20px;overflow: hidden;}
+.Personal_information{padding-top:20px;overflow: hidden;}
 .Personal_information>a{padding:0 8px;color:#666;position: relative;
 font-size:1.3rem;}
 .Personal_information>a>b{font-weight:500;color:#333;}
@@ -455,7 +453,16 @@ font-size:1.3rem;}
 width:2px;height:14px;background-color: #a7a7a7;top:5px;right:-4px;}
 .footer_sns{margin:20px 0;}
 .footer_sns>a{margin:0 4px;}
-
+.address{font-size:1.2rem;color:#949494;line-height: 180%;}
+.address>b{font-weight:400;color:#333;}
+.link{margin-top:10px;}
+.link>a{border: 1px solid #c9c9c9;font-size:1.2rem;padding:0 16px 0 10px;
+background:url(image/arr_right5.png) 94% 50% no-repeat;}
+.inipay{margin-top:20px;font-size:1.2rem;color:#949494;line-height: 160%;}
+.inipay>b{font-weight:400;color:#333;}
+.inipay a{border: 1px solid #c9c9c9;font-size:1.2rem;padding:0 16px 0 10px;
+margin-left:10px;background:url(image/arr_right5.png) 94% 50% no-repeat;}
+.copyright{font-size:1.2rem;color:#949494;margin-top:20px;}
 
 
 
@@ -882,9 +889,19 @@ width:2px;height:14px;background-color: #a7a7a7;top:5px;right:-4px;}
 <a href="#"><img src="image/foot_sns_instagram.png" alt="인스타그램"></a>
 <a href="#"><img src="image/foot_sns_blog.png" alt="블로그"></a>
 </div><!-- footer_sns -->
-
-
-
+<p class='address'>(주)에뛰드 서울특별시 용산구 한강대로 100 (한강로2가)<br>
+대표이사 권금주   사업자번호 135-81-05033   통신판매업신고번호 제2017-서울용산-1292<br>고객상담 <b>1544-5418</b>(쇼핑몰)/<b>080-022-2285</b>(제품및매장외)   상담시간 월~금 09:00~1800(토/일공휴일 휴무)   etudemall@etude.co.kr<br>
+개인보호책임자 양민주   호스팅제공자 (주)에뛰드 </p>
+<div class='link'>
+<a href="#">찾아 오시는 길</a>
+<a href="#">사업자 정보 확인</a>
+</div><!-- link -->
+<div class='inipay'>
+저희 쇼핑몰은 고객님의 안전거래를 위해 무통장입금 거래에 대해 <b>㈜KG이니시스</b>의 <b>INIPAY에스크로 구매 안전 서비스</b>를 적용하고 있습니다.
+<a href="#">서비스가입 사실 확인</a><br><br>
+가맹점 테이크아웃 서비스에 대해 (주)에뛰드는 통신판매중개 시스템의 제공자로서 통신판매의 당사자가 아닙니다.<br>	따라서 테이크아웃 서비스 거래에 대한 주문, 환불 등과 관련한 책임은 각 매장에 있습니다. 
+</div><!-- inipay -->
+<p class='copyright'>Copyright ⓒ 2017 Etude house. All Rights Reserved.</p>
 </div><!-- footer_inner -->
 </div><!-- footer-bottom -->
 </div><!-- footer -->
