@@ -21,16 +21,17 @@ $('.gnb>li>a').each(function(index){
 $(this).on('mouseenter focus',function(){
 var move=$(this).position()
 var color=['#d03231','#ccd031','#6cd130','#31c0d0','#2f3fd2','#cd30d1']
-$('.movebd').stop().animate({left:move.left+28,width:$(this).width(),backgroundColor:color[index]},600)
 $('.gnb>li>a').css({color:'#333'})
-$(this).stop().animate({color:color[index]})
+$('.movebd').stop().animate({left:move.left+28,width:$(this).width(),backgroundColor:color[index]},600,function(){
+$('.gnb>li>a').eq(index).css({color:color[index]})
+})
 })
 })
 $('.Language_btn').click(function(){
 $('.Language_show').slideToggle()
 })
 $('.Language_btn').blur(function(){
-$('.Language_show').slideToggle()
+$('.Language_show').slideUp()
 })
 $('.search_btn').on('click',function(){
 $('.form').show('fold')
