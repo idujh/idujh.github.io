@@ -17,6 +17,15 @@
 <script>
 $(document).ready(function(){
 //헤더
+$('.gnb>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+var move=$(this).position()
+var color=['#d03231','#ccd031','#6cd130','#31c0d0','#2f3fd2','#cd30d1']
+$('.movebd').stop().animate({left:move.left+28,width:$(this).width(),backgroundColor:color[index]},600)
+$('.gnb>li>a').css({color:'#333'})
+$(this).stop().animate({color:color[index]},600)
+})
+})
 $('.Language_btn').click(function(){
 $('.Language_show').slideToggle()
 })
@@ -38,9 +47,9 @@ $(this).click(function(){
 $('.slide>li').hide()
 $('.slide>li').eq(index).show()
 $('.slide_text').css({opacity:0,left:0})
-$('.slide_text').eq(index).delay(600).animate({left:100,opacity:1},600,'easeOutBack')
+$('.slide_text').eq(index).delay(600).animate({left:100,opacity:1},600,'linear')
 $('.slide>li>img').css({scale:1.1,opacity:0})
-$('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'easeOutBack',function(){
+$('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'linear',function(){
 })
 })
 })
@@ -91,11 +100,13 @@ text-align: right;padding:10px 15px;font-weight:500;}
 .header_bottom_inner::after{content:'';clear:both;display:block;}
 .header_bottom_inner>h1{float:left;margin-top:6px;}
 .header_bottom_inner>h1>a>img{vertical-align: middle;}
-.gnb{float:right;margin-right:100px;}
+.gnb_wrap{position: relative;float:right;margin-right:100px;}
+.movebd{position: absolute;bottom:0;left:0;height:3px;width:0px;
+background-color: #d03231;text-indent:-999px;font-size:0;}
+.gnb{}
 .gnb>li{float:left;}
 .gnb>li>a{display:block;padding:18px 30px;font-size:1.6rem;
 border-bottom:2px solid transparent;}
-.gnb>li>a:hover{border-bottom:2px solid #d03231;}
 .gnb>li:not(:last-child){background:url(image/bg_gnb_ball.jpg) 100% 50% no-repeat;}
 
 
@@ -154,6 +165,7 @@ bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
 <div class='header_bottom'>
 <div class='header_bottom_inner wd1325'>
 <h1><a href="#"><img src="image/oci_logo.jpg" alt="oci로고"></a></h1>
+<div class='gnb_wrap'>
 <ul class='gnb'>
 	<li><a href="#">회사소개</a></li>
 	<li><a href="#">사업분야</a></li>
@@ -162,6 +174,8 @@ bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
 	<li><a href="#">홍보센터</a></li>
 	<li><a href="#">인재채용</a></li>
 </ul>
+<div class='movebd'>보더애니메이션</div>
+</div><!-- gnb_wrap -->
 <div class='search_wrap'>
 <a href="#" class='search_btn'><img src="image/btn_search.jpg" alt="검색버튼"></a>
 <div class='form'>
