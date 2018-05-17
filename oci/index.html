@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<link rel="stylesheet" href="css/font.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- saved from url=(0013)about:internet -->
+
+<title>Document</title>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script src='js/jquery.transit.min.js'></script>
+
+<script>
+$(document).ready(function(){
+//헤더
+$('.Language_btn').click(function(){
+$('.Language_show').slideToggle()
+})
+$('.Language_btn').blur(function(){
+$('.Language_show').slideToggle()
+})
+$('.search_btn').on('click',function(){
+$('.form').show('fold')
+})
+$('.search_wrap').on('mouseleave blur',function(){
+$('.form').hide('fold')
+})
+
+//슬라이더
+$('.slide>li').hide()
+$('.slide>li').eq(2).show()
+$('.slide_select>a').each(function(index){
+$(this).click(function(){
+$('.slide>li').hide()
+$('.slide>li').eq(index).show()
+$('.slide_text').css({opacity:0,left:0})
+$('.slide_text').eq(index).delay(600).animate({left:100,opacity:1},600,'linear')
+$('.slide>li>img').css({scale:1.2,opacity:0})
+$('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'linear',function(){
+})
+})
+})
+
+
+
+
+
+
+})//
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{color:#d03231;}
+a:focus{color:#d03231;}
+.wd1325{width:1325px;margin:0 auto;}
+
+/* 헤더 */
+.wrap{min-width:1325px;}
+.header{background:url(image/bg_top_h.jpg) 0 0 repeat;}
+.header_top{padding:10px 0;}
+.header_top::after{clear:both;content:'';display:block;}
+.header_top_right{float:right;}
+.home{float:left;}
+.home>a{color:#fff;font-size:1.1rem;margin:0 15px;font-weight:500;}
+.home>a.on{color:#d03231;}
+.home>a:hover{color:#d03231;}
+.Language{float:left;margin:0 15px;position: relative;}
+.Language>a{font-size:1.1rem;color:#fff;display:block;padding:0 28px;
+background-image: url(image/korean.png),url(image/flag_arrow.png);
+background-position: 1% 50%,99% 50%;border: 1px solid #dbdbdb;
+background-repeat: no-repeat;font-weight:500;}
+.Language>a:hover{color:#d03231;}
+.Language_show{position: absolute;left:0;top:19px;width:100%;display:none;
+border: 1px solid #ddd;background-color: #fff;border-top:none;z-index:2;}
+.Language_show>a{display:block;font-size:1.1rem;color:#999999;
+text-align: right;padding:10px 15px;font-weight:500;}
+.Language_show>a:hover{color:#d03231;}
+.ENG{background:url(image/usa.png) 20% 50% no-repeat;}
+.CHN{background:url(image/china.png) 20% 50% no-repeat;}
+.header_bottom{background-color: #fff;}
+.header_bottom_inner{position: relative;}
+.header_bottom_inner::after{content:'';clear:both;display:block;}
+.header_bottom_inner>h1{float:left;margin-top:6px;}
+.header_bottom_inner>h1>a>img{vertical-align: middle;}
+.gnb{float:right;margin-right:100px;}
+.gnb>li{float:left;}
+.gnb>li>a{display:block;padding:18px 30px;font-size:1.6rem;
+border-bottom:2px solid transparent;}
+.gnb>li>a:hover{border-bottom:2px solid #d03231;}
+.gnb>li:not(:last-child){background:url(image/bg_gnb_ball.jpg) 100% 50% no-repeat;}
+
+
+.search_wrap{position: absolute;right:0;top:0;display:table;}
+.search_wrap>a{display:table-cell;vertical-align: middle;padding:17px 20px;
+border-bottom: 2px solid #f3cbcb;}
+.form{position: absolute;top:0;left:-200px;display:none;}
+.form label{font-size:0;text-indent:-999px;display:none;}
+.form #search{border: none;background-color: #333;color:#fff;
+border: 1px solid #ddd;border-right:none;width:200px;height:40px;line-height: 40px;padding-left:20px;position: relative;top:10px;}
+#search::placeholder{font-family:'Noto Sans KR',sans-serif;color:#fff;
+font-size:1.4rem;}
+.content{}
+.mask{position: relative;width:100%;height:600px;}
+.slide>li{width:100%;position: absolute;left:50%;top:0;text-align: center;
+max-width:1920px;margin-left:-960px;overflow: hidden;}
+.slide>li>img{height:600px;}
+.slide_text{position: absolute;top:100px;left:100px;color:#fff;padding:60px;
+background-color:rgba(0,0,0,0.5);}
+.slide_text h2{font-size:2.2rem;position: relative;}
+.slide_text h2::after{content:'';position: absolute;bottom:-14px;left:0;width:80px;
+height:5px;background-color: #d03231;}
+.slide_text p{font-size:3.8rem;line-height: 120%;margin-top:20px;font-weight:500;}
+.slide_text a{margin-top:20px;background-color: #d03231;color:#fff;
+display:inline-block;padding:4px 50px;font-size:1.2rem;}
+.slide_select{position: absolute;
+bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
+.slide_select::after{clear:both;content:'';display:block;}
+.slide_select>a{display:block;float:left;width:25%;}
+
+
+
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='header'>
+<div class='header_top wd1325'>
+<div class='header_top_right'>
+<div class='home'>
+<a href="#" class='on'>HOME</a>
+<a href="#">SITEMAP</a>
+<a href="#">CONTACT US</a>
+</div><!-- home -->
+<div class='Language'>
+<a href="#" class='Language_btn'>KOR</a>
+<div class='Language_show'>
+<a href="#" class='ENG'>ENG</a>
+<a href="#" class='CHN'>CHN</a>
+</div><!-- Language_show -->
+</div><!-- Language -->
+</div><!-- header_top_right -->
+</div><!-- header_top -->
+<div class='header_bottom'>
+<div class='header_bottom_inner wd1325'>
+<h1><a href="#"><img src="image/oci_logo.jpg" alt="oci로고"></a></h1>
+<ul class='gnb'>
+	<li><a href="#">회사소개</a></li>
+	<li><a href="#">사업분야</a></li>
+	<li><a href="#">투자정보</a></li>
+	<li><a href="#">지속가능경영</a></li>
+	<li><a href="#">홍보센터</a></li>
+	<li><a href="#">인재채용</a></li>
+</ul>
+<div class='search_wrap'>
+<a href="#" class='search_btn'><img src="image/btn_search.jpg" alt="검색버튼"></a>
+<div class='form'>
+<label for="search">검색</label>
+<input type="search" id='search' placeholder='검색어를 입력하세요'> 
+</div><!-- form -->
+</div><!-- search_wrap -->
+</div><!-- header_bottom_inner -->
+</div><!-- header_bottom -->
+</div><!-- header -->
+<div class='content'>
+<div class='mask'>
+<ul class='slide'>
+	<li><img src="image/bg_visual02.jpg" alt="슬라이드1">
+	<div class='slide_text'>
+	<h2>Basic Chemicals</h2>
+	<p>Creates Elements of Better<br>World</p>
+	<a href="#">See More</a>
+	</div>
+	</li>
+	<li><img src="image/bg_visual03.jpg" alt="슬라이드2">
+	<div class='slide_text'>
+	<h2>Petro Chemicals & Carbon Materials</h2>
+	<p>Provides Solution For Better<br>World</p>
+	<a href="#">See More</a>
+	</div>	
+	</li>
+	<li><img src="image/bg_visual01.jpg" alt="슬라이드3">
+	<div class='slide_text'>
+	<h2>Energy Solutions</h2>
+	<p>Brings Light For Better<br>World</p>
+	<a href="#">See More</a>
+	</div>
+	</li>
+	<li><img src="image/bg_visual04.jpg" alt="슬라이드4">
+	<div class='slide_text'>
+	<h2>About OCI</h2>
+	<p>Global Leading Green Energy<br>& Chemical Company </p>
+	<a href="#">See More</a>
+	</div>
+	</li>
+</ul>
+<div class='slide_select'>
+<a href="#"><img src="image/main_cont_img01.jpg" alt="슬라이드버튼1"></a>
+<a href="#"><img src="image/main_cont_img02.jpg" alt="슬라이드버튼2"></a>
+<a href="#"><img src="image/main_cont_img03.jpg" alt="슬라이드버튼3"></a>
+<a href="#"><img src="image/main_cont_img04.jpg" alt="슬라이드버튼4"></a>
+</div><!-- slide_select -->
+</div><!-- mask -->
+
+
+
+
+</div><!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- wrap -->
+</body>
+</html>
