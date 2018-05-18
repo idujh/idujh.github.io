@@ -10,9 +10,11 @@
 
 <title>Document</title>
 
+<link rel="stylesheet" href="js/jquery.bxslider/jquery.bxslider.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/jquery-ui.min.js'></script>
 <script src='js/jquery.transit.min.js'></script>
+<script src='js/jquery.bxslider/jquery.bxslider.min.js'></script>
 
 <script>
 $(document).ready(function(){
@@ -34,7 +36,7 @@ $('.Language_btn').blur(function(){
 $('.Language_show').slideUp()
 })
 $('.search_btn').on('click',function(){
-$('.form').show('fold')
+$('.form').toggle('fold')
 })
 $('.search_wrap').on('mouseleave blur',function(){
 $('.form').hide('fold')
@@ -45,6 +47,8 @@ $('.slide>li').hide()
 $('.slide>li').eq(2).show()
 $('.slide_select>a').each(function(index){
 $(this).click(function(){
+$('.slide_select>a').css({opacity:1})
+$(this).css({opacity:0.8})
 $('.slide>li').hide()
 $('.slide>li').eq(index).show()
 $('.slide_text').css({opacity:0,left:0})
@@ -54,7 +58,19 @@ $('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'linear',function(){
 })
 })
 })
-
+$('.slide2').bxSlider()
+$(window).on('load resize',function(){
+var width=$(window).width()
+var sheight=$('.slide_select').height()/6
+var ssheight=$('.slide2 .image img').height()
+var ssswidth=$('.content2_top_right a').width()/2
+var sssheight=$('.content2_top_right a').height()/2
+$('.slide>li').stop().animate({width:width})
+$('.slide_select').stop().animate({top:-sheight})
+$('.slide2 .text').height(ssheight)
+$('.content2_top_right').height(ssheight)
+$('.content2_top_right a').css({marginLeft:-ssswidth,marginTop:-sssheight})
+})
 
 
 
@@ -74,7 +90,7 @@ a:focus{color:#d03231;}
 .wd1325{width:1325px;margin:0 auto;}
 
 /* 헤더 */
-.wrap{min-width:1325px;}
+.wrap{min-width:1325px;padding-bottom:100px;}
 .header{background:url(image/bg_top_h.jpg) 0 0 repeat;}
 .header_top{padding:10px 0;}
 .header_top::after{clear:both;content:'';display:block;}
@@ -107,36 +123,105 @@ background-color: #d03231;text-indent:-999px;font-size:0;}
 .gnb{}
 .gnb>li{float:left;}
 .gnb>li>a{display:block;padding:18px 30px;font-size:1.6rem;
-border-bottom:2px solid transparent;}
+border-bottom:2px solid transparent;font-weight:500;}
 .gnb>li:not(:last-child){background:url(image/bg_gnb_ball.jpg) 100% 50% no-repeat;}
 
 
 .search_wrap{position: absolute;right:0;top:0;display:table;}
 .search_wrap>a{display:table-cell;vertical-align: middle;padding:17px 20px;
 border-bottom: 2px solid #f3cbcb;}
+#submit{position: absolute;right:-50px;top:0;padding:17px 20px;display:block;
+background-color:transparent;border:none;z-index:-999;}
 .form{position: absolute;top:0;left:-200px;display:none;}
 .form label{font-size:0;text-indent:-999px;display:none;}
 .form #search{border: none;background-color: #333;color:#fff;
 border: 1px solid #ddd;border-right:none;width:200px;height:40px;line-height: 40px;padding-left:20px;position: relative;top:10px;}
-#search::placeholder{font-family:'Noto Sans KR',sans-serif;color:#fff;
-font-size:1.4rem;}
+#search::placeholder{color:#fff;font-size:1.4rem;}
 .content{}
-.mask{position: relative;width:100%;height:600px;}
-.slide>li{width:100%;position: absolute;left:50%;top:0;text-align: center;
-max-width:1920px;margin-left:-960px;overflow: hidden;}
-.slide>li>img{height:600px;}
-.slide_text{position: absolute;top:100px;left:100px;color:#fff;padding:60px;
-background-color:rgba(0,0,0,0.5);text-align: left;}
+.mask{position: relative;width:100%;overflow: hidden;}
+.slide>li{width:100%;text-align: center;}
+.slide>li>img{width:100%;}
+.slide_text{position: absolute;top:5%;left:2%;color:#fff;padding:3.7%;
+background-color:rgba(0,0,0,0.5);text-align: left;width:35%;}
 .slide_text h2{font-size:2.2rem;position: relative;}
 .slide_text h2::after{content:'';position: absolute;bottom:-14px;left:0;width:80px;
 height:5px;background-color: #d03231;}
 .slide_text p{font-size:3.8rem;line-height: 120%;margin-top:20px;font-weight:500;}
 .slide_text a{margin-top:20px;background-color: #d03231;color:#fff;
-display:inline-block;padding:4px 50px;font-size:1.2rem;}
-.slide_select{position: absolute;
-bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
+display:inline-block;padding:6px 60px;font-size:1.2rem;}
+.slide_select{width:70%;margin-left:15%;position: relative;}
 .slide_select::after{clear:both;content:'';display:block;}
 .slide_select>a{display:block;float:left;width:25%;}
+.slide_select>a>img{width:100%;}
+.content2{}
+.content2_top{overflow: hidden;}
+.content2_top_left{width:50%;float:left;overflow: hidden;}
+.slide2{float:left;}
+.slide2>li{float:left;}
+.slide2>li>a{display:block;overflow: hidden;}
+.slide2 .image{float:left;width:50%;}
+.slide2 .image img{width:100%;}
+.slide2 .text{float:left;width:50%;background-color: #ce3331;color:#fff;
+display:table;}
+.slide2 .text .text_inner{vertical-align:top;text-align: center;display:table-cell;
+padding:8%;padding-bottom:0;}
+.slide2 .text h2{font-weight:400;text-align:left;padding-top:44px;
+background:url(image/bg_notice_tit.jpg) 0 0 no-repeat;}
+.slide2 .text p{padding-top:4%;text-align: left;}
+#my .bx-wrapper {
+box-shadow:none;
+border:none;
+background: none;
+margin:0;padding:0;
+}
+#my .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+    position: absolute;
+    bottom:10px;
+    width: 100%;
+	text-align: right;
+	padding-right:20%;
+	display:none;
+}
+#my .bx-wrapper .bx-next {
+    right: 10px;
+    background: url('image/slide_r.png') no-repeat 0 0;
+	-webkit-background-size: cover;
+	background-size:cover ;
+}
+#my .bx-wrapper .bx-prev {
+    left: 10px;
+    background: url('image/slide_l.png') no-repeat 0 0;
+	-webkit-background-size: cover;
+	background-size:cover ;
+}
+.content2_top_right{float:left;width:50%;background:url(image/video_img.jpg) 0 0 no-repeat;position: relative;display:table;-webkit-background-size: cover;
+background-size:cover;}
+.content2_top_right a{display:table-cell;vertical-align: middle;
+text-align: center;color:#fff;font-size:2.4rem;}
+.content2_top_right a span{padding:3% 2%;background-color:rgba(0,0,0,0.6);}
+.content2_bottom{overflow: hidden;}
+.con1{background:#208bc3 url(image/content2_bottom1.png) 50% 90% no-repeat;}
+.con2{background:#364759 url(image/content2_bottom2.png) 50% 90% no-repeat;}
+.con3{background:#e5f1fd url(image/content2_bottom3.png) 50% 90% no-repeat;}
+.con4{background:#307cae url(image/content2_bottom4.jpg) 90% 10% no-repeat;}
+.content2_bottom_inner{width:25%;float:left;text-align: center;height:260px;
+padding:1% 0 4%;}
+.content2_bottom_inner>a{display:block;color:#fff;}
+.content2_bottom_inner>a h3{font-size:2.8rem;font-weight:400;position: relative;}
+.content2_bottom_inner>a h3::after{content:'';position: absolute;width:10%;
+height:3px;background-color: #fff;left:50%;bottom:-10px;margin-left:-5%;}
+.content2_bottom_inner>a p{margin-top:40px;font-size:1.6rem;}
+.con3 a{color:#275aab;}
+.con3 a h3::after{background-color:#275aab;}
+.con4 a h3::after{display:none;}
+.con4 a p{font-size:1.4rem;margin-top:20px;}
+.con4 a p span{display:block;}
+.con4 a p .Price1{position: relative;}
+.con4 a p .Price1::after{content:'';position: absolute;bottom:-20px;left:50%;
+width:10%;margin-left:-5%;height:3px;background-color: #fff;}
+.con4 a p .Price2{margin-top:40px;}
+.con4 a p .Price3{margin-top:10px;}
+
 
 
 
@@ -144,7 +229,7 @@ bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
 
 </style>
 </head>
-<body>
+<body id='my'>
 <div class='wrap'>
 <div class='header'>
 <div class='header_top wd1325'>
@@ -181,7 +266,8 @@ bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
 <a href="#" class='search_btn'><img src="image/btn_search.jpg" alt="검색버튼"></a>
 <div class='form'>
 <label for="search">검색</label>
-<input type="search" id='search' placeholder='검색어를 입력하세요'> 
+<input type="search" id='search' placeholder='검색어를 입력하세요'>
+<input type="submit" id='submit' value=''>
 </div><!-- form -->
 </div><!-- search_wrap -->
 </div><!-- header_bottom_inner -->
@@ -193,43 +279,113 @@ bottom:-165.5px;left:50%;margin-left:-662.5px;max-width:1325px;}
 	<li><img src="image/bg_visual02.jpg" alt="슬라이드1">
 	<div class='slide_text'>
 	<h2>Basic Chemicals</h2>
-	<p>Creates Elements of Better<br>World</p>
+	<p>Creates Elements of Better World</p>
 	<a href="#">See More</a>
 	</div>
 	</li>
 	<li><img src="image/bg_visual03.jpg" alt="슬라이드2">
 	<div class='slide_text'>
 	<h2>Petro Chemicals & Carbon Materials</h2>
-	<p>Provides Solution For Better<br>World</p>
+	<p>Provides Solution For Better World</p>
 	<a href="#">See More</a>
 	</div>	
 	</li>
-	<li><img src="image/bg_visual01.jpg" alt="슬라이드3">
+	<li class='slidenot'><img src="image/bg_visual01.jpg" alt="슬라이드3">
 	<div class='slide_text'>
 	<h2>Energy Solutions</h2>
-	<p>Brings Light For Better<br>World</p>
+	<p>Brings Light For Better World</p>
 	<a href="#">See More</a>
 	</div>
 	</li>
 	<li><img src="image/bg_visual04.jpg" alt="슬라이드4">
 	<div class='slide_text'>
 	<h2>About OCI</h2>
-	<p>Global Leading Green Energy<br>& Chemical Company </p>
+	<p>Global Leading Green Energy & Chemical Company </p>
 	<a href="#">See More</a>
 	</div>
 	</li>
 </ul>
+</div><!-- mask -->
 <div class='slide_select'>
 <a href="#"><img src="image/main_cont_img01.jpg" alt="슬라이드버튼1"></a>
 <a href="#"><img src="image/main_cont_img02.jpg" alt="슬라이드버튼2"></a>
 <a href="#"><img src="image/main_cont_img03.jpg" alt="슬라이드버튼3"></a>
 <a href="#"><img src="image/main_cont_img04.jpg" alt="슬라이드버튼4"></a>
 </div><!-- slide_select -->
-</div><!-- mask -->
-
-
-
-
+<div class='content2'>
+<div class='content2_top'>
+<div class='content2_top_left'>
+<ul class='slide2'>
+	<li><a href="#">
+	<div class='image'><img src="image/main_img01.jpg" alt="슬라이드1"></div>
+	<div class='text'>
+	<div class='text_inner'>
+	<h2>OCI, 중국 Longi Solar와 1조 1,000억 원 규모의 폴리실리콘 장기공급계약 체결</h2>
+	<p>OCI, 중국 Longi Solar와 1조 1,000억 원 규모의 폴리실리콘 장기공급계약 체결 
+    -2011년 이후, 약 7년 만에 체결한 최대 규모의 폴리실리콘 장기공급계약 
+    -고효율 단결정 웨이퍼용 폴리실리콘 공급 능력 인정받아 시장 주도권..
+   </p>
+   </div><!-- text_inner -->
+	</div><!-- text -->
+	</a></li>
+	<li><a href="#">
+	<div class='image'><img src="image/main_img02.jpg" alt="슬라이드1"></div>
+	<div class='text'>
+	<div class='text_inner'>
+	<h2> OCI, 군산공장에 51MWh ESS 설치해 전력비용 절감 나선다</h2>
+	<p>OCI, 군산공장에 51MWh ESS 설치해 전력비용 나선다- 폴리실리콘 제조원가의 30%에 달하는 전기료 낮추기 위해 ESS도입 결정 - 싼 심야 전기 충전하여 피크시간대에 사용함으로써 연간 전기료 70억원 절감 - ESS 외에도 공정개선 등 통한 절..</p>
+   </div><!-- text_inner -->
+	</div><!-- text -->
+	</a></li>
+	<li><a href="#">
+	<div class='image'><img src="image/main_img03.jpg" alt="슬라이드1"></div>
+	<div class='text'>
+	<div class='text_inner'>
+	<h2>OCI, 중국 Longi Solar와 1조 1,000억 원 규모의 폴리실리콘 장기공급계약 체결</h2>
+	<p>OCI, 중국 Longi Solar와 1조 1,000억 원 규모의 폴리실리콘 장기공급계약 체결 
+    -2011년 이후, 약 7년 만에 체결한 최대 규모의 폴리실리콘 장기공급계약 
+    -고효율 단결정 웨이퍼용 폴리실리콘 공급 능력 인정받아 시장 주도권..</p>
+   </div><!-- text_inner -->
+	</div><!-- text -->
+	</a></li>
+	<li><a href="#">
+	<div class='image'><img src="image/main_img04.jpg" alt="슬라이드1"></div>
+	<div class='text'>
+	<div class='text_inner'>
+	<h2> OCI, 군산공장에 51MWh ESS 설치해 전력비용 절감 나선다</h2>
+	<p>OCI, 군산공장에 51MWh ESS 설치해 전력비용 나선다- 폴리실리콘 제조원가의 30%에 달하는 전기료 낮추기 위해 ESS도입 결정 - 싼 심야 전기 충전하여 피크시간대에 사용함으로써 연간 전기료 70억원 절감 - ESS 외에도 공정개선 등 통한 절..</p>
+   </div><!-- text_inner -->
+	</div><!-- text -->
+	</a></li>
+</ul>
+</div><!-- content2_top_left -->
+<div class='content2_top_right'>
+<a href='#'><span>2018년 1분기 경영실적자료</span></a>
+</div><!-- content2_top_right -->
+</div><!-- content2_top -->
+<div class='content2_bottom'>
+<div class='content2_bottom_inner con1'>
+<a href='#'>
+<h3>지속가능경영</h3>
+<p>투명하고 정당하게 경쟁하며,<br>지속가능한 성장을 이어가는 OCI가 되고자<br>노력하고 있습니다.</p>
+</a></div>
+<div class='content2_bottom_inner con2'>
+<a href='#'>
+<h3>투자정보</h3>
+<p>IR 발표자료 및 재무성과 자료를<br>제공하고 있습니다.</p>
+</a></div>
+<div class='content2_bottom_inner con3'>
+<a href='#'>
+<h3>인재채용</h3>
+<p>OCI의 지속가능한 성장의 원동력은<br>글로벌 인재로부터 나옵니다.</p>
+</a></div>
+<div class='content2_bottom_inner con4'>
+<a href='#'>
+<h3>주가정보</h3>
+<p><span class='Price1'>현재가 | ￦ 154,000</span><span class='Price2'>전일대비 | ￦ 1,000</span><span class='Price3'>+0.65%</span></p>
+</a></div>
+</div><!-- content2_bottom -->
+</div><!-- content2 -->
 </div><!-- content -->
 
 
