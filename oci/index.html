@@ -23,12 +23,19 @@ $('.gnb>li>a').each(function(index){
 $(this).on('mouseenter focus',function(){
 var move=$(this).position()
 var color=['#d03231','#ccd031','#6cd130','#31c0d0','#2f3fd2','#cd30d1']
-$('.gnb>li>a').css({color:'#333'})
-$('.movebd').stop().animate({left:move.left+28,width:$(this).width(),backgroundColor:color[index]},600,function(){
-$('.gnb>li>a').eq(index).css({color:color[index]})
+$('.gnb>li>a').css({color:'#333',borderBottomColor:'transparent'})
+$(this).css({color:color[index],borderBottomColor:color[index]})
+$('.gnbbg,.gnb>li>ul').stop().slideDown()
 })
 })
+$('.header').on('mouseleave blur',function(){
+$('.gnbbg,.gnb>li>ul,.gnb>li>ul>li>ul').stop().slideUp()
 })
+$('.gnb>li>ul>li>a').on('mouseenter focus',function(){
+$('.gnb>li>ul>li>ul').stop().slideUp(200)
+$(this).next().stop().slideDown(200)
+})
+
 $('.Language_btn').click(function(){
 $('.Language_show').slideToggle()
 })
@@ -52,14 +59,16 @@ $(this).css({opacity:0.8})
 $('.slide>li').hide()
 $('.slide>li').eq(index).show()
 $('.slide_text').css({opacity:0,left:0})
-$('.slide_text').eq(index).delay(600).animate({left:100,opacity:1},600,'linear')
+$('.slide_text').eq(index).delay(600).animate({left:'2%',opacity:1},600,'linear')
 $('.slide>li>img').css({scale:1.1,opacity:0})
 $('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'linear',function(){
 })
+return false
 })
 })
 $('.slide2').bxSlider()
 $(window).on('load resize',function(){
+var ulheight=$('.gnb>li>ul').height()
 var width=$(window).width()
 var sheight=$('.slide_select').height()/6
 var ssheight=$('.slide2 .image img').height()
@@ -70,6 +79,8 @@ $('.slide_select').stop().animate({top:-sheight})
 $('.slide2 .text').height(ssheight)
 $('.content2_top_right').height(ssheight)
 $('.content2_top_right a').css({marginLeft:-ssswidth,marginTop:-sssheight})
+$('.gnbbg').css({top:$('.header').height(),height:ulheight})
+$('.gnb>li>ul').css({top:$('.header_bottom').height()})
 })
 
 
@@ -92,6 +103,8 @@ a:focus{color:#d03231;}
 /* 헤더 */
 .wrap{min-width:1325px;padding-bottom:100px;}
 .header{background:url(image/bg_top_h.jpg) 0 0 repeat;}
+.gnbbg{font-size:0;text-indent:-999px;width:100%;position: absolute;
+left:0;top:0;background-color:rgba(0,0,0,0.7);z-index:1;display:none;}
 .header_top{padding:10px 0;}
 .header_top::after{clear:both;content:'';display:block;}
 .header_top_right{float:right;}
@@ -118,14 +131,22 @@ text-align: right;padding:10px 15px;font-weight:500;}
 .header_bottom_inner>h1{float:left;margin-top:6px;}
 .header_bottom_inner>h1>a>img{vertical-align: middle;}
 .gnb_wrap{position: relative;float:right;margin-right:100px;}
-.movebd{position: absolute;bottom:0;left:0;height:3px;width:0px;
-background-color: #d03231;text-indent:-999px;font-size:0;}
 .gnb{}
-.gnb>li{float:left;}
+.gnb>li{float:left;position: relative;}
 .gnb>li>a{display:block;padding:18px 30px;font-size:1.6rem;
-border-bottom:2px solid transparent;font-weight:500;}
+border-bottom:4px solid transparent;font-weight:500;}
 .gnb>li:not(:last-child){background:url(image/bg_gnb_ball.jpg) 100% 50% no-repeat;}
-
+.gnb>li>ul{position: absolute;z-index:1;width:100%;left:30px;display:none;}
+.gnb>li .left_0{left:0;}
+.gnb>li>ul>li>a{display:block;color:#fff;font-size:1.35rem;padding:6px 0;}
+.gnb>li>ul>li:first-child>a{margin-top:20px;}
+.gnb>li>ul>li:last-child>a{margin-bottom:60px;}
+.gnb a:hover{color:#d03231;}
+.gnb a:focus{color:#d03231;}
+.gnb>li>ul>li>ul{display:none;}
+.gnb>li>ul>li>ul>li>a{display:block;font-size:1.25rem;color:#fff;padding:4px 0;}
+.gnb>li>ul>li>ul>li>ul>li>a{display:block;font-size:1.15rem;color:#fff;
+padding:1px 0;padding-left:6px;}
 
 .search_wrap{position: absolute;right:0;top:0;display:table;}
 .search_wrap>a{display:table-cell;vertical-align: middle;padding:17px 20px;
@@ -137,12 +158,14 @@ background-color:transparent;border:none;z-index:-999;}
 .form #search{border: none;background-color: #333;color:#fff;
 border: 1px solid #ddd;border-right:none;width:200px;height:40px;line-height: 40px;padding-left:20px;position: relative;top:10px;}
 #search::placeholder{color:#fff;font-size:1.4rem;}
+
+/* 컨텐츠 */
 .content{}
 .mask{position: relative;width:100%;overflow: hidden;}
 .slide>li{width:100%;text-align: center;}
 .slide>li>img{width:100%;}
 .slide_text{position: absolute;top:5%;left:2%;color:#fff;padding:3.7%;
-background-color:rgba(0,0,0,0.5);text-align: left;width:35%;}
+background-color:rgba(0,0,0,0.4);text-align: left;width:35%;}
 .slide_text h2{font-size:2.2rem;position: relative;}
 .slide_text h2::after{content:'';position: absolute;bottom:-14px;left:0;width:80px;
 height:5px;background-color: #d03231;}
@@ -232,6 +255,7 @@ width:10%;margin-left:-5%;height:3px;background-color: #fff;}
 <body id='my'>
 <div class='wrap'>
 <div class='header'>
+<div class='gnbbg'>메뉴배경</div>
 <div class='header_top wd1325'>
 <div class='header_top_right'>
 <div class='home'>
@@ -253,14 +277,106 @@ width:10%;margin-left:-5%;height:3px;background-color: #fff;}
 <h1><a href="#"><img src="image/oci_logo.jpg" alt="oci로고"></a></h1>
 <div class='gnb_wrap'>
 <ul class='gnb'>
-	<li><a href="#">회사소개</a></li>
-	<li><a href="#">사업분야</a></li>
-	<li><a href="#">투자정보</a></li>
-	<li><a href="#">지속가능경영</a></li>
-	<li><a href="#">홍보센터</a></li>
-	<li><a href="#">인재채용</a></li>
+	<li><a href="#">회사소개</a>
+	<ul>
+		<li><a href="#">인사말</a></li>
+		<li><a href="#">기업소개</a></li>
+		<li><a href="#">비전</a></li>
+		<li><a href="#">연혁</a></li>
+		<li><a href="#">R&D</a></li>
+		<li><a href="#">계열사소개</a></li>
+		<li><a href="#">CI소개</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+	</li>
+	<li><a href="#">사업분야</a>
+	<ul class='left_0'>
+		<li><a href="#">Basic Chemicals</a>
+		<ul>
+			<li><a href="#">- 폴리실리콘</a></li>
+			<li><a href="#">- 고순도 인산</a></li>
+			<li><a href="#">- 과산화수소</a></li>
+			<li><a href="#">- 흄드 실리카</a></li>
+		</ul>
+		</li>
+		<li><a href="#">Petro Chemicals & Carbon Meterials</a>
+		<ul>
+			<li><a href="#">- 카본블랙</a></li>
+			<li><a href="#">- BTX</a></li>
+			<li><a href="#">- 피치</a></li>
+			<li><a href="#">- 가소제</a></li>
+			<li><a href="#">- TDI</a></li>
+		</ul>		
+		</li>
+		<li><a href="#">Energy Solutions</a>
+		<ul>
+			<li><a href="#">- 태양광 발전</a>
+			<ul>
+				<li><a href="#"><strong>&middot;</strong> 국내 태양광 발전</a></li>
+				<li><a href="#"><strong>&middot;</strong> 미국Alamo 프로젝트</a></li>
+				<li><a href="#"><strong>&middot;</strong> 중국 태양광 발전</a></li>
+			</ul>
+			</li>
+			<li><a href="#">- 새만금 열병합잘전</a></li>
+		</ul>
+		</li>
+		<li><a href="#">전체 제품</a></li>
+		<li><a href="#">고객센터</a></li>
+	</ul>	
+	</li>
+	<li><a href="#">투자정보</a>
+	<ul>
+		<li><a href="#">공시정보</a></li>
+		<li><a href="#">IR공지사항</a></li>
+		<li><a href="#">IR자료실</a>
+		<ul>
+			<li><a href="#">- IR 프리젠테이션</a></li>
+			<li><a href="#">- Annual Report</a></li>
+		</ul>
+		</li>
+		<li><a href="#">Analyst</a></li>
+		<li><a href="#">Coverage</a></li>
+		<li><a href="#">주가정보</a></li>
+		<li><a href="#">재무정보</a></li>
+		<li><a href="#">경영정보</a></li>
+	</ul>	
+	</li>
+	<li><a href="#">지속가능경영</a>
+	<ul>
+		<li><a href="#">사회공헌</a>
+		<ul>
+			<li><a href="#">- 사회공헌 개요</a></li>
+			<li><a href="#">- 사회공헌 활동</a></li>
+		</ul>
+		</li>
+		<li><a href="#">윤리경영</a></li>
+		<li><a href="#">안전/환경 경영</a>
+		<ul>
+			<li><a href="#">- 안전경영</a></li>
+			<li><a href="#">- 환경경영</a></li>
+		</ul>
+		</li>
+		<li><a href="#">지속가능경영보고서</a></li>
+	</ul>	
+	</li>
+	<li><a href="#">홍보센터</a>
+	<ul>
+		<li><a href="#">뉴스</a></li>
+		<li><a href="#">공지사항</a></li>
+		<li><a href="#">PR자료실</a></li>
+	</ul>	
+	</li>
+	<li><a href="#">인재채용</a>
+	<ul>
+		<li><a href="#">채용 공고</a></li>
+		<li><a href="#">인재상</a></li>
+		<li><a href="#">인재 육성</a></li>
+		<li><a href="#">채용 절차</a></li>
+		<li><a href="#">직무 소개</a></li>
+		<li><a href="#">복리 후생</a></li>
+	</ul>	
+	</li>
 </ul>
-<div class='movebd'>보더애니메이션</div>
 </div><!-- gnb_wrap -->
 <div class='search_wrap'>
 <a href="#" class='search_btn'><img src="image/btn_search.jpg" alt="검색버튼"></a>
