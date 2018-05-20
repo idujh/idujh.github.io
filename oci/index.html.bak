@@ -36,11 +36,23 @@ $('.gnb>li>ul>li>ul').stop().slideUp(200)
 $(this).next().stop().slideDown(200)
 })
 
+var Language=true;
 $('.Language_btn').click(function(){
-$('.Language_show').slideToggle()
+if (Language)
+{
+$('.Language_show').slideDown()
+$(this).css({backgroundImage:'url(image/korean.png),url(image/flag_arrow1.png)'})
+Language=false
+}else{
+$('.Language_show').slideUp()
+$(this).css({backgroundImage:'url(image/korean.png),url(image/flag_arrow.png)'})
+Language=true
+}
 })
 $('.Language_btn').blur(function(){
 $('.Language_show').slideUp()
+$(this).css({backgroundImage:'url(image/korean.png),url(image/flag_arrow.png)'})
+Language=true
 })
 $('.search_btn').on('click',function(){
 $('.form').toggle('fold')
@@ -49,7 +61,7 @@ $('.search_wrap').on('mouseleave blur',function(){
 $('.form').hide('fold')
 })
 
-//슬라이더
+//컨텐츠
 $('.slide>li').hide()
 $('.slide>li').eq(2).show()
 $('.slide_select>a').each(function(index){
@@ -59,13 +71,19 @@ $(this).css({opacity:0.8})
 $('.slide>li').hide()
 $('.slide>li').eq(index).show()
 $('.slide_text').css({opacity:0,left:0})
-$('.slide_text').eq(index).delay(600).animate({left:100,opacity:1},600,'linear')
+$('.slide_text').eq(index).delay(600).animate({left:'2%',opacity:1},600,'linear')
 $('.slide>li>img').css({scale:1.1,opacity:0})
-$('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'linear',function(){
-})
+$('.slide>li>img').stop().animate({scale:1,opacity:1},1000,'linear')
 return false
 })
 })
+
+var sun=setInterval(function(){
+$('.oci_blank').stop().animate({marginBottom:20},1000,function(){
+$('.oci_blank').stop().animate({marginBottom:0},1000)
+})
+},2000)
+
 $('.slide2').bxSlider()
 $(window).on('load resize',function(){
 var ulheight=$('.gnb>li>ul').height()
@@ -83,11 +101,28 @@ $('.gnbbg').css({top:$('.header').height(),height:ulheight})
 $('.gnb>li>ul').css({top:$('.header_bottom').height()})
 })
 
+//푸터
+var familysite=true;
+$('.familysite>a').click(function(){
+if (familysite)
+{
+$(this).css({backgroundImage:'url(image/flag_arrow.png)'})
+$('.familysite_list').stop().slideDown()
+familysite=false;
+}else{
+$(this).css({backgroundImage:'url(image/flag_arrow1.png)'})
+$('.familysite_list').stop().slideUp()
+familysite=true;
+}
+return false
+})
+$('.familysite>a').blur(function(){
+$(this).css({backgroundImage:'url(image/flag_arrow1.png)'})
+$('.familysite_list').stop().slideUp()
+familysite=true;
+})
 
-
-
-
-})//
+})//ready
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -101,7 +136,7 @@ a:focus{color:#d03231;}
 .wd1325{width:1325px;margin:0 auto;}
 
 /* 헤더 */
-.wrap{min-width:1325px;padding-bottom:100px;}
+.wrap{min-width:1325px;}
 .header{background:url(image/bg_top_h.jpg) 0 0 repeat;}
 .gnbbg{font-size:0;text-indent:-999px;width:100%;position: absolute;
 left:0;top:0;background-color:rgba(0,0,0,0.7);z-index:1;display:none;}
@@ -112,7 +147,7 @@ left:0;top:0;background-color:rgba(0,0,0,0.7);z-index:1;display:none;}
 .home>a{color:#fff;font-size:1.1rem;margin:0 15px;font-weight:500;}
 .home>a.on{color:#d03231;}
 .home>a:hover{color:#d03231;}
-.Language{float:left;margin:0 15px;position: relative;}
+.Language{float:left;margin:0 15px;position: relative;margin-top:4px;}
 .Language>a{font-size:1.1rem;color:#fff;display:block;padding:0 28px;
 background-image: url(image/korean.png),url(image/flag_arrow.png);
 background-position: 1% 50%,99% 50%;border: 1px solid #dbdbdb;
@@ -172,6 +207,10 @@ height:5px;background-color: #d03231;}
 .slide_text p{font-size:3.8rem;line-height: 120%;margin-top:20px;font-weight:500;}
 .slide_text a{margin-top:20px;background-color: #d03231;color:#fff;
 display:inline-block;padding:6px 60px;font-size:1.2rem;}
+.oci_blank{position: absolute;bottom:20%;left:80%;background:url(image/ani2.png) 0 0 no-repeat;text-align: center;display:block;width:114px;height:114px;
+padding:30px 20px;color:#fff;font-size:1.2rem;text-shadow:0 0 1px #333;}
+.oci_blank:hover{color:#333;text-shadow:0 0 1px #ddd;}
+.oci_blank:focus{color:#333;text-shadow:0 0 1px #ddd;}
 .slide_select{width:70%;margin-left:15%;position: relative;}
 .slide_select::after{clear:both;content:'';display:block;}
 .slide_select>a{display:block;float:left;width:25%;}
@@ -184,13 +223,11 @@ display:inline-block;padding:6px 60px;font-size:1.2rem;}
 .slide2>li>a{display:block;overflow: hidden;}
 .slide2 .image{float:left;width:50%;}
 .slide2 .image img{width:100%;}
-.slide2 .text{float:left;width:50%;background-color: #ce3331;color:#fff;
-display:table;}
-.slide2 .text .text_inner{vertical-align:top;text-align: center;display:table-cell;
-padding:8%;padding-bottom:0;}
+.slide2 .text{float:left;width:50%;background-color: #ce3331;color:#fff;}
+.slide2 .text .text_inner{text-align: center;padding:8%;padding-bottom:0;}
 .slide2 .text h2{font-weight:400;text-align:left;padding-top:44px;
 background:url(image/bg_notice_tit.jpg) 0 0 no-repeat;}
-.slide2 .text p{padding-top:4%;text-align: left;}
+.slide2 .text p{padding-top:4%;text-align: left;font-size:1.4rem;padding-right:2%;}
 #my .bx-wrapper {
 box-shadow:none;
 border:none;
@@ -245,9 +282,29 @@ width:10%;margin-left:-5%;height:3px;background-color: #fff;}
 .con4 a p .Price2{margin-top:40px;}
 .con4 a p .Price3{margin-top:10px;}
 
-
-
-
+/* 푸터 */
+.footer{background:url(image/bg_footer.jpg) 0 0 repeat;padding:20px 0;}
+.footer_inner{}
+.footer_inner::after{content:'';display:block;clear:both;}
+.footer_inner_left{float:left;}
+.footer_inner_left h4{float:left;}
+.footer_inner_left p{float:left;font-size:1.1rem;color:#fff;padding-left:20px;}
+.footer_inner_right{float:right;margin-top:6px;}
+.footer_inner_right .information{border: none;float:left;color:#fff;font-size:1.1rem;
+padding:2px 0;}
+.footer_inner_right .f_language{font-size:1.1rem;color:#fff;float:left;margin:0 2px;
+border: 1px solid #ddd;padding:2px 4px;font-size:1.0rem;}
+.familysite{float:left;margin:0 20px;position: relative;}
+.familysite>a{display:block;border: 1px solid #ddd;padding:2px 80px 2px 10px;
+font-size:1.1rem;background:url(image/flag_arrow1.png) 95% 50% no-repeat;
+color:#fff;}
+.familysite_list{position: absolute;bottom:22px;left:0;background-color: #fff;border: 1px solid #ddd;width:100%;display:none;padding-bottom:10px;}
+.familysite_list>h5{border-bottom:1px solid #666;display:inline-block;
+font-weight:400;padding:4px 0;margin-left:10px;}
+.familysite_list>a{border:none;float:none;display:block;font-size:1.1rem;color:#333;
+padding:2px 0;padding-left:14px;}
+.familysite_list>a:hover{background-color: #666;color:#fff;}
+.familysite_list .mg20{margin-top:10px;}
 
 
 </style>
@@ -412,6 +469,7 @@ width:10%;margin-left:-5%;height:3px;background-color: #fff;}
 	<p>Brings Light For Better World</p>
 	<a href="#">See More</a>
 	</div>
+	<a href="http://solar.oci.co.kr/" class='oci_blank' title='OCI&nbsp;태양광발전&nbsp;새창열림' target='_blank'>OCI<br>태양광발전<br>바로가기</a>
 	</li>
 	<li><img src="image/bg_visual04.jpg" alt="슬라이드4">
 	<div class='slide_text'>
@@ -503,6 +561,36 @@ width:10%;margin-left:-5%;height:3px;background-color: #fff;}
 </div><!-- content2_bottom -->
 </div><!-- content2 -->
 </div><!-- content -->
+<div class='footer'>
+<div class='footer_inner wd1325'>
+<div class='footer_inner_left'>
+<h4><a href="#"><img src="image/footer_logo.jpg" alt="하단로고"></a></h4>
+<p class='copyright'>100-718 서울시 중구 소공로 94 OCI빌딩<br>
+COPYRIGHT@2018 OCI COMPANY Ltd.ALL RIGHTS RESERVED</p>
+</div><!-- footer_inner_left -->
+<div class='footer_inner_right'>
+<a href="#" class='information'>개인정보취급방침</a>
+<div class='familysite'>
+<a href="#">FAMILY SITE</a>
+<div class='familysite_list'>
+<h5>=== 국내계열사 ===</h5>
+<a href="#" class='mg20'>OCI 스페셜티(주)</a>
+<a href="#">OCI정보통신(주)</a>
+<a href="#">OCI 태양광발전</a>
+<a href="#">오씨아이페로</a>
+<h5>=== 해외계열사 ===</h5>
+<a href="#" class='mg20'>OCIM Sdn.Bhd.</a>
+<a href="#">OCI Solar Power</a>
+<a href="#">OCI Alabama</a>
+<a href="#">Mission Solar Energy</a>
+<a href="#">OCI JAPAN</a>
+</div>
+</div><!-- familysite -->
+<a href="#" class='f_language'>KO</a>
+<a href="#" class='f_language'>EN</a>
+<a href="#" class='f_language'>CN</a>
+</div><!-- footer_inner_right -->
+</div><!-- footer_inner -->
 
 
 
@@ -515,27 +603,7 @@ width:10%;margin-left:-5%;height:3px;background-color: #fff;}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div><!-- footer -->
 </div><!-- wrap -->
 </body>
 </html>
