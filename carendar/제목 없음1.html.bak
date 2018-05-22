@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Document</title>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<link href='fullcalendar/fullcalendar.min.css' rel='stylesheet' />
+<link href='fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='fullcalendar/lib/moment.min.js'></script>
+<script src='fullcalendar/lib/jquery.min.js'></script>
+<script src='fullcalendar/fullcalendar.min.js'></script>
+<script src='fullcalendar/locale/ko.js'></script>
+
+<script>
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      //defaultDate: '2018-05-22',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: '결제',
+          start: '2018-05-01',
+        },
+        {
+          title: '일정보고',
+          start: '2018-05-03',
+          end: '2018-05-04'
+        },
+        {
+          id: 999,
+          title: '새로운일정',
+          start: '2018-05-08T16:00:00',
+		  end: '2018-05-11'
+        },
+        {
+          id: 999,
+          title: '유지보수',
+          start: '2018-05-08T16:00:00',
+		  end: '2018-05-09'
+        },
+        {
+          title: '이벤트일정',
+          start: '2018-05-15',
+        },
+        {
+          title: '이벤트마감',
+          start: '2018-05-18T10:30:00',
+          end: '2018-05-21T12:30:00'
+        },
+        {
+          title: '촬영기간',
+          start: '2018-05-21T12:00:00',
+		  end: '2018-05-25T12:30:00'
+        },
+        {
+          title: '월말결산',
+          start: '2018-05-30T14:30:00',
+		  end: '2018-05-31T12:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-03-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-03-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-03-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-03-28'
+        }
+      ]
+    });
+
+ });
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+<div id='calendar'></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
