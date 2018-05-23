@@ -33,7 +33,7 @@
           title: '결제',
           start: '2018-05-01',
 		  constraint: 'availableForMeeting', // defined below
-          color: '#ff379b'
+          color: 'orange'
         },
         {
           title: '일정보고',
