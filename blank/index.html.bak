@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/font.css">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Document</title>
+
+<link rel="stylesheet" href="css/b.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//헤더
+$(window).on('load resize',function(){
+var vheight=$('.video-background').height()
+var height=$(window).height()
+$('.header').height(height)
+$('.video-background video').attr({autoplay:true,loop:true,muted:false})
+})
+$('<div class="menu_bd"></div>').appendTo('.menu>li>a')
+$('.menu>li>a').each(function(index){
+$(this).on('mouseenter focus',function(){
+var color=['#e93f36','#3ce837','#2f97ff','#e139e6','#e9f40d']
+$('.menu>li>a').stop().animate({color:'#fff'})
+$(this).stop().animate({color:color[index]})
+$('.menu_bd').css({left:'-100%',backgroundColor:'#fff'})
+$(this).find('.menu_bd').stop().animate({left:'100%',backgroundColor:color[index]},1000)
+})
+})
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top>100)
+{
+$('.menu>li>a').css({color:'#fff',textShadow:'0 0 3px #000'})
+$('.header_inner h1>a>img').attr({src:'image/logo_hover.jpg'})
+$('.header_inner').css({position:'fixed',top:0,left:0,right:0,backgroundColor:'#fff',borderBottom:'1px solid #efefef'})
+}else{
+$('.menu>li>a').css({color:'#fff',textShadow:'0 0 3px transparent'})
+$('.header_inner h1>a>img').attr({src:'image/top_logo.png'})
+$('.header_inner').css({position:'static',top:0,left:0,right:0,backgroundColor:'transparent',borderBottom:'1px solid transparent'})
+}
+})
+
+//컨텐츠
+$(window).on('load resize',function(){
+var width=$(window).width()
+$('.mask').width(width)
+$('.slide>li>a').width(width)
+$('.slide>li>a>img').wudth(width)
+})
+var now=1
+var total=$('.slide>li').length
+var loop=setInterval(function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide').stop().animate({left:'-=100%'},function(){
+$('.slide>li').first().appendTo('.slide')
+$('.slide').css({left:0})
+})
+$('.progress_move').css({width:0})
+$('.progress_move').stop().animate({width:'100%'},5000,'linear')
+$('.count>span>span').html(now+'&nbsp;')
+},5000)
+
+$('.next').on('click',function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide').stop().animate({left:'-=100%'},function(){
+$('.slide>li').first().appendTo('.slide')
+$('.slide').css({left:0})
+})
+$('.count>span>span').html(now+'&nbsp;')
+return false
+})
+
+$('.prev').on('click',function(){
+if (now==1)
+{
+	now=total+1
+}
+now--
+$('.slide>li').last().prependTo('.slide')
+$('.slide').css({left:'-100%'})
+$('.slide').stop().animate({left:'+=100%'})
+$('.count>span>span').html(now+'&nbsp;')
+return false
+})
+
+$('.slide>li>a').on('click',function(){
+return false
+})
+ 
+//컨텐츠
+
+
+})//ready
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+.wd70{width:70%;margin:0 15%;}
+
+/* 헤더 */
+.wrap{}
+.header{position: relative;}
+.header_inner{padding:1%;}
+.header_inner::after{content:'';display:block;clear:both;}
+.header_inner h1{float:left;}
+.header_inner h1>a>img{width:100px;}
+.menu{float:right;margin-right:2%;margin-top:1%;}
+.menu>li{float:left;}
+.menu>li>a{display:block;font-size:1.8rem;color:#fff;padding:10px 16px;
+position: relative;overflow: hidden;}
+.menu>li>a .menu_bd{position: absolute;bottom:0;left:-100%;width:100%;height:2px;background-color: #fff;}
+.life{text-align: left;position: absolute;bottom:-40px;margin-left:15%;}
+.life h2{color:#fff;font-size:8rem;line-height: 120%;}
+.life a{font-size:1.6rem;color:#fff;width:200px;height:200px;margin-top:20px;
+background-color: #000;display:block;padding-top:28px;padding-left:28px;
+font-weight:600;}
+.life a>img{width:21px;margin-top:10px;}
+.content{background-color: #fff;padding:100px 0;}
+.content_inner{}
+.content_news{overflow: hidden;}
+.content_news_inner{width:50%;float:left;padding-right:6%;}
+.content_news_inner h3{font-size:1.6rem;border-bottom:1px solid #ddd;
+padding-bottom:6px;font-weight:300;color:#000;}
+.content_news_inner a{margin-top:20px;font-size:2.4rem;display:block;}
+.content_news_inner p{margin-top:10px;font-size:1.5rem;font-weight:300;
+line-height: 160%;color:#5a5a5a}
+.brand{padding:100px 0 150px 0;}
+.brand_list{overflow: hidden;}
+.brand_list>li{float:left;width:31.33%;margin-right:3%;}
+.brand_list>li:last-child{margin-right:0;}
+.brand_list>li>a{display:block;}
+.brand_list .brand_image{}
+.brand_list h4{font-size:2.2rem;padding:3%;font-weight:500;}
+.brand_list p{font-size:1.5rem;padding:0 3% 0 3%;}
+.make_wrap{}
+.mask{overflow: hidden;position: relative;}
+.slide{width:20000px;position: relative;}
+.slide>li{float:left;}
+.slide>li>a{display:block;width:100%;}
+.slide>li>a>img{width:100%;}
+.prev{position: absolute;top:50%;left:20px;z-index:1;padding:20px;}
+.next{position: absolute;top:50%;right:20px;z-index:1;padding:20px;}
+.progress_wrap{margin-top:20px;position: relative;}
+.progress_wrap::after{content:'';display:block;clear:both;}
+.count{float:left;color:#ddd;font-size:1.6rem;}
+.count>span{color:#333;}
+.progress{float:left;width:76%;height:1px;background-color: #ddd;
+margin-left:20px;position: relative;top:12px;padding:0 2%;}
+.progress_move{position: absolute;width:0;height:1px;background-color: #333;
+left:0;top:0;}
+.blank_office{position: absolute;font-size: 1.6rem;color: #fff;width: 200px;height: 200px;background-color: #000;display: block;padding-top: 28px;padding-left:28px;
+font-weight: 400;top:-180px;right:0;}
+.blank_office>img {width: 21px;margin-top: 10px;}
+
+/* 푸터 */
+.footer{background-color: #fff;}
+.footer_inner{width:95%;margin:0 auto;border-top:1px solid #ddd;padding:40px 0;
+overflow: hidden;}
+.copyright{float:left;}
+.copyright dt{font-size:1.8rem;}
+.copyright dd{font-size:1.2rem;font-weight:300;}
+.Address{float:left;margin-left:5%;}
+.Address a{font-size:1.2;text-decoration:underline;font-weight:300;}
+.Address p{font-size:1.2rem;font-weight:300;}
+.sns{float:right;}
+.sns a{float:left;display:block;padding:0 10px;border: 1px solid #000;}
+.sns a img{width:24px;}
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='header'>
+<div class="video-background">
+    <div class="video-foreground">
+	<video src='movie/movie.mp4' autoplay='' loop='' muted=''></video>
+    </div>
+  </div>
+<div class='header_inner'>
+<h1><a href="#"><img src="image/top_logo.png" alt="로고"></a></h1>
+<ul class='menu'>
+	<li><a href="#">about</a></li>
+	<li><a href="#">team</a></li>
+	<li><a href="#">brand</a></li>
+	<li><a href="#">news</a></li>
+	<li><a href="#">career</a></li>
+</ul>
+</div><!-- header_inner -->
+<div class='life'>
+<h2>Lifestyle<br>Needs<br>Solution.</h2>
+<a href="#">about<br><img src="image/arr.png" alt="about"></a>
+</div><!-- life -->
+</div><!-- header -->
+
+<div class='content'>
+<div class='content_inner wd70'>
+<div class='content_news'>
+<div class='content_news_inner'>
+<h3>blank news</h3>
+<a href="#">'블랭크티비'에서 '블랭크'로 새롭게 출발합니다.</a>
+<p>'블랭크티비'에서 '블랭크'로 사명을 변경하며 새롭게 출발합니다. 새로운 관점으로 생각하고 기획하며 설계하는 메뉴팩처링, 문제를 해결하는 유연한 사고와 논리, 빠르게 변화하는 디지털 환경 속에서 혁신과 아이디어를 바탕으로 더 나은 삶의 가치를 담았습니다.</p>
+</div><!-- content_news_inner -->
+<div class='content_news_inner'>
+<h3>blank news</h3>
+<a href="#">'파워마카' 출시한 건강브랜드 RBN</a>
+<p>RBN(Recover Body Nutrition)에서 페루의 건강식물 마카를 원재료로 한 ‘파워마카’를 출시하였습니다. 브랜드를 기획한 박창빈 기획자에게  &lt;파워마카&gt;가 과연 어떤 특징을 지니고 있고 어떤 소비자들에게 어필하고자 하는지에 대해 들어보았습니다.</p>
+</div><!-- content_news_inner -->
+</div><!-- content_news -->
+<div class='brand'>
+<ul class='brand_list'>
+	<li><a href="#">
+	<div class='brand_image'><img src="image/1794270988_5XZMzmsL_6c4777f53ca177dc9e99378bd5d97e2aea246756.png" alt="브랜드"></div>
+	<h4>평범한 일상 속, 더 나은 가치와 건강한 문화를 추구하는 브랜드 '바디럽'</h4>
+	<p>바디럽은 평범한 일상속에서 느끼는 사소한 고민부터 큰 고민까지 해결하고자 소비자의 관점에서 돕고 고민합니다.</p>
+	</a></li>
+	<li><a href="#">
+	<div class='brand_image'><img src="image/1794270988_wdiqxmEs_b858aab94158f14d7483d05e293d0a3de453a8b2.png" alt="인터뷰"></div>
+	<h4>[상생인터뷰] 더 나은 샤워기를 위하여 #바디럽 퓨어썸-성일화학</h4>
+	<p>지난 4월 25일 서울 성수동에 위치한 성일화학을 찾았다. 오랫동안 외길을 걸어온 성일화학 성종현 대표를 만나 블랭크와 함께하게 된 스토리를 들었다.</p>
+	</a></li>
+	<li><a href="#">
+	<div class='brand_image'><img src="image/1794270990_XTNyE9FB_60019ce20100856f1ffdb941afc3a5dd484ec8fd.png" alt="커리어"></div>
+	<h4>블랭크에서는 일과 삶의 밸런스를 중요시합니다.</h4>
+	<p>재미있고, 유연하며, 일하고 싶은 근무환경은 중요합니다. 개인의 잠재력이 충분히 발휘될 수 있도록 일과 삶의 만족도를 높이는데 필요한 모든 요소를 갖추어 나갈 것입니다.</p>
+	</a></li>
+</ul>
+</div><!-- brand -->
+</div><!-- content_inner -->
+<div class='mask_wrap'>
+<div class='mask'>
+<ul class='slide'>
+	<li><a href="#"><img src="image/slide1.png" alt="슬라이드1"></a></li>
+	<li><a href="#"><img src="image/slide2.png" alt="슬라이드2"></a></li>
+	<li><a href="#"><img src="image/slide3.png" alt="슬라이드3"></a></li>
+	<li><a href="#"><img src="image/slide4.png" alt="슬라이드4"></a></li>
+	<li><a href="#"><img src="image/slide5.png" alt="슬라이드5"></a></li>
+</ul>
+<a href="#" class='prev'><img src="image/main_slide_prev.png" alt="이전"></a>
+<a href="#" class='next'><img src="image/main_slide_next.png" alt="다음"></a>
+</div><!-- mask -->
+<div class='progress_wrap wd70'>
+<div class='count'><span>0<span>1&nbsp;</span></span>/&nbsp;05</div>
+<div class='progress'><div class='progress_move'></div></div>
+<a href="#" class='blank_office'>블랭크오피스<br><img src="image/arr.png" alt="블랭크오피스"></a>
+</div><!-- progress_wrap -->
+</div><!-- mask_wrap -->
+</div><!-- content -->
+
+<div class='footer'>
+<div class='footer_inner'>
+<div class='copyright'>
+<dl>
+	<dt>blank Corp.</dt>
+		<dd>Copyright, blank Corp. All rights reserved.</dd>
+</dl>
+</div><!-- copyright -->
+<div class='Address'>
+<a href="mailto:blank@blankcorp.kr">blank@blankcorp.kr</a>  
+<p>서울시 강남구 테헤란로 311 아남타워 3층 blank Corp.<br>
+FAX 070-8611-0771</p>
+</div><!-- Address -->
+<div class='sns'>
+<a href="#"><img src="image/sns_f.jpg" alt="페이스북바로가기"></a>
+<a href="#"><img src="image/sns_i.jpg" alt="인스타그램바로가기"></a>
+</div><!-- sns -->
+</div><!-- footer_inner -->
+</div><!-- footer -->
+</div><!-- wrap -->
+</body>
+</html>
