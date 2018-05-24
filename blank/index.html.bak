@@ -194,7 +194,7 @@ overflow: hidden;}
 <div class='header'>
 <div class="video-background">
     <div class="video-foreground">
-	<video src='movie/movie.mp4' autoplay='' loop='' poster='image/preview.jpg' muted=''></video>
+	<video src='movie/movie.mp4' autoplay='' loop='' muted=''></video>
     </div>
   </div>
 <div class='header_inner'>
