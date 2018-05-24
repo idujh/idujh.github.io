@@ -87,7 +87,7 @@ $('.oci_blank').stop().animate({marginBottom:0},1000)
 },2000)
 
 $(window).on('load resize',function(){
-$('.slide2').bxSlider()
+$('.slide2').bxSlider({auto:true})
 var ulheight=$('.gnb>li>ul').height()
 var width=$(window).width()
 var sheight=$('.slide_select').height()/6

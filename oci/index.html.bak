@@ -19,6 +19,7 @@
 <script>
 $(document).ready(function(){
 //헤더
+$(window).on('load',function(){
 $('.gnb>li>a').each(function(index){
 $(this).on('mouseenter focus',function(){
 var move=$(this).position()
@@ -26,6 +27,7 @@ var color=['#d03231','#ccd031','#6cd130','#31c0d0','#2f3fd2','#cd30d1']
 $('.gnb>li>a').css({color:'#333',borderBottomColor:'transparent'})
 $(this).css({color:color[index],borderBottomColor:color[index]})
 $('.gnbbg,.gnb>li>ul').stop().slideDown()
+})
 })
 })
 $('.header').on('mouseleave blur',function(){
@@ -84,8 +86,9 @@ $('.oci_blank').stop().animate({marginBottom:0},1000)
 })
 },2000)
 
-$('.slide2').bxSlider()
 $(window).on('load resize',function(){
+$('.slide').bxSlider({auto:true,mode:'fade'})
+$('.slide2').bxSlider({auto:true})
 var ulheight=$('.gnb>li>ul').height()
 var width=$(window).width()
 var sheight=$('.slide_select').height()/6
