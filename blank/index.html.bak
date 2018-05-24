@@ -183,7 +183,7 @@ overflow: hidden;}
 .Address a{font-size:1.2;text-decoration:underline;font-weight:300;}
 .Address p{font-size:1.2rem;font-weight:300;}
 .sns{float:right;}
-.sns a{float:left;display:block;padding:0 10px;border: 1px solid #000;}
+.sns a{float:left;display:block;padding:0 10px;}
 .sns a img{width:24px;}
 
 
