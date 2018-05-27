@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>sub2</title>
+
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='../js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//서브2컨텐츠
+$('.past1').button()
+$('.sub_bottom_left ul>li>a>img').hide()
+$('.sub_bottom_left ul>li>a>img:first').show()
+$('.sub_bottom_left ul>li>a').on('mouseenter focus',function(){
+$('.sub_bottom_left ul>li>a>img').hide()
+$(this).find('img').fadeIn()
+})
+var cheight=$('.sub_bottom').height()
+$('.sub_bottom_left').height(cheight)
+
+
+
+
+
+})//ready
+</script>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;
+background-color: #699da5;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+.sub{width:1024px;margin:0 auto;}
+.titlebg{background-color: #eaeaea;padding:20px 0;position: relative;}
+.titlebg::after{content:'';clear:both;display:block;}
+.titlebg>h2{background:url(../image/greentitle.jpg) 0 0 no-repeat;
+width:197px;height:87px;position: absolute;text-align: center;line-height: 87px;
+color:#fff;top:10px;left:20px;}
+.titlebg>h3{margin-left:240px;font-size:1.6rem;font-weight:500;float:left;
+color:#666;}
+.titlebg>h3>span{color:#adadad;font-size:1.1rem;padding-left:4px;}
+.past{float:right;margin-right:50px;}
+.past>a{font-size:1.1rem;color:#717171;cursor:default;}
+#my .past .ui-button {
+    padding: 4px;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: 0;
+    cursor:default;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+.sub_bottom{padding-top:40px;background-color: #fff;}
+.sub_bottom::after{clear:both;content:'';display:block;}
+.sub_bottom_left{width:210px;float:left;padding-left:20px;padding-right:10px;
+border-right:1px solid #f2f2f2;}
+.sub_bottom_left ul{}
+.sub_bottom_left ul>li>a{display:block;border-bottom:1px solid #e8e8e8;
+padding:10px 0;text-align: right;font-size:1.3rem;color:#a2a2a2;
+padding-right:40px;}
+.sub_bottom_left ul>li>a>img{vertical-align: middle;margin-right:6px;}
+.sub_bottom_left_company{margin-top:40px;}
+.sub_bottom_left_company>a{margin-bottom:20px;text-align: center;display:block;}
+.sub_bottom_right{width:814px;float:left;padding:0 77px 100px 47px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body id='my'>
+
+<?php include'../inc/header.php'?>	
+
+<div class='sub'>
+<div class='titlebg'>
+<h2>Company</h2>
+<h3>&gt;&nbsp;CEO인사말<span>start your business</span></h3>
+<div class='past'>
+<a href="#" class='past1'>HOME</a>
+<a href="#">&nbsp;&nbsp;>&nbsp;&nbsp;회사소개&nbsp;&nbsp;</a>
+<a href="#">>&nbsp;&nbsp;인사말</a>
+</div><!-- past -->
+</div><!-- titlebg -->
+<div class='sub_bottom'>
+<div class='sub_bottom_left'>
+<ul>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">CEO인사말</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">회사연혁</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">경영이념</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">조직도</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">협력업체</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">오시는길</a></li>
+</ul>
+<div class='sub_bottom_left_company'>
+<a href="#"><img src="../image/company1.jpg" alt="컴퍼니1"></a>
+<a href="#"><img src="../image/company2.jpg" alt="컴퍼니2"></a>
+</div><!-- sub_bottom_left_company -->
+</div><!-- sub_bottom_left -->
+<div class='sub_bottom_right'>
+
+
+
+</div><!-- sub_bottom_right -->
+</div><!-- sub_bottom -->
+</div><!-- sub -->
+
+<?php include'../inc/footer.php'?>
+</body>
+</html>
+
+
