@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>sub3</title>
+
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='../js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//서브3컨텐츠
+$('.past1').button()
+$('.sub_bottom_left ul>li>a>img').hide()
+$('.sub_bottom_left ul>li>a>img:first').show()
+$('.sub_bottom_left ul>li>a').on('mouseenter focus',function(){
+$('.sub_bottom_left ul>li>a>img').hide()
+$(this).find('img').fadeIn()
+})
+
+$(window).on('load',function(){
+var cheight=$('.sub_bottom').height()
+$('.sub_bottom_left').height(cheight)
+var FAQ_left=$('.FAQ_left').height()
+$('.FAQ_right').height(FAQ_left)
+})
+
+$('#sub3_submit').button()
+$('.question>dd').first().show()
+$('.question>dt').on('click',function(){
+$('.question>dt').removeClass('on')
+$(this).addClass('on')
+$('.question>dd').stop().slideUp('fast')
+$(this).next().stop().slideDown('fast')
+$(this).effect('highlight',{color:'#8ed200'})
+})
+
+
+
+
+
+})//ready
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;
+background-color: #699da5;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+.sub{width:1024px;margin:0 auto;}
+.titlebg{background-color: #eaeaea;padding:20px 0;position: relative;}
+.titlebg::after{content:'';clear:both;display:block;}
+.titlebg>h2{background:url(../image/greentitle.jpg) 0 0 no-repeat;
+width:197px;height:87px;position: absolute;text-align: center;line-height: 87px;
+color:#fff;top:10px;left:20px;}
+.titlebg>h3{margin-left:240px;font-size:1.6rem;font-weight:500;float:left;
+color:#666;}
+.titlebg>h3>span{color:#adadad;font-size:1.1rem;padding-left:4px;}
+.past{float:right;margin-right:50px;}
+.past>a{font-size:1.1rem;color:#717171;cursor:default;}
+#my .past .ui-button {
+    padding: 4px;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: 0;
+    cursor:default;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+.sub_bottom{padding-top:40px;background-color: #fff;}
+.sub_bottom::after{clear:both;content:'';display:block;}
+.sub_bottom_left{width:210px;float:left;padding-left:20px;padding-right:10px;
+border-right:1px solid #f2f2f2;}
+.sub_bottom_left ul{}
+.sub_bottom_left ul>li>a{display:block;border-bottom:1px solid #e8e8e8;
+padding:10px 0;text-align: right;font-size:1.3rem;color:#a2a2a2;
+padding-right:40px;}
+.sub_bottom_left ul>li>a>img{vertical-align: middle;margin-right:6px;}
+.sub_bottom_left_company{margin-top:40px;}
+.sub_bottom_left_company>a{margin-bottom:20px;text-align: center;display:block;}
+.sub_bottom_right{width:814px;float:left;padding:0 77px 100px 47px;}
+.sub3_title p{font-size:1.1rem;color:#a3a3a3;font-weight:500;line-height: 120%;}
+.sub3_search_wrap{background:url(../image/searchbar.jpg) 0 0 no-repeat;
+padding:5px 0 6px;-webkit-background-size: cover;overflow: hidden;
+background-size: cover;margin-top:20px;}
+.sub3_search_wrap label{display:none;font-size:0;text-indent:-999px;}
+.sub3_search_wrap input{margin-left:10px;float:left;}
+#sub3_select{float:left;margin-left:110px;height:20px;width:60px;
+border:none;border:1px solid #d2d2d2;}
+#sub3_text{height:20px;width:350px;border:none;border:1px solid #d2d2d2;}
+
+#my .sub3_search_wrap .ui-button {
+    padding:0 8px;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: .1em;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+#my .sub3_search_wrap .ui-widget {
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size: 1.2rem;
+}
+.FAQ_wrap{margin-top:14px;overflow: hidden;}
+.FAQ_left{width:570px;float:left;padding: 0 50px 0 20px;}
+.FAQ_left>h3{font-size:3.6rem;color:#71a900;font-family:arial,'Noto Sans KR',sans-serif;}
+.FAQ_left>h3>span{color:#898989;font-size:1.2rem;margin-left:10px;font-weight:500;}
+.question{border: 1px solid #d6d7dd;border-radius:10px;padding:0 18px;
+margin-top:10px;}
+.question>dt{background:url(../image/sub3_q.png) 0 50% no-repeat;color:#7e7e7e;
+padding:8px 0;padding-left:26px;font-size:1.3rem;font-weight:500;
+border-bottom:1px dashed #b4ada2;cursor:pointer;}
+.question>dt.on{color:#000;font-weight:600;}
+.question .bdnone{border-bottom:transparent;}
+.question>dd{font-size:1.2rem;color:#7e7e7e;padding:8px 0;padding-left:26px;
+background:url(../image/sub3_a.png) 0 11px no-repeat;display:none;
+border-bottom:1px dashed #b4ada2;cursor:default;}
+.question>dd:last-child{border-bottom:transparent;border-top:1px dashed #b4ada2;}
+.sub3_board{margin-top:20px;overflow: hidden;}
+.sub3_board_inner{width:45%;position: relative;float:left;margin-right:5%;}
+.sub3_board_inner h4{font-size:1.4rem;color:#7e7e7e;display:inline-block;}
+.sub3_board_inner_more{position: absolute;top:0;right:0;}
+.sub3_board_inner ul{margin-top:4px;}
+.sub3_board_inner ul>li>a{display:block;font-size:1.2rem;line-height: 200%;
+border-bottom:1px dashed #ddd;color:#7e7e7e;}
+.sub3_board_inner ul>li>a>img{margin-left:6px;position: relative;top:7px;}
+.FAQ_right{width:120px;float:left;}
+.FAQ_right a{display:block;height:25%;position: relative;
+border-bottom:1px solid #e7e7e7;}
+.FAQ_right a:last-child{border-bottom:transparent;}
+.FAQ_right a>img{position: absolute;top:30px;}
+
+
+
+</style>
+</head>
+<body id='my'>
+
+<?php include'../inc/header.php'?>	
+
+<div class='sub'>
+<div class='titlebg'>
+<h2>Customer</h2>
+<h3>&gt;&nbsp;고객센터<span>start your business</span></h3>
+<div class='past'>
+<a href="#" class='past1'>HOME</a>
+<a href="#">&nbsp;&nbsp;>&nbsp;&nbsp;고객센터&nbsp;&nbsp;</a>
+<a href="#">>&nbsp;&nbsp;고객센터</a>
+</div><!-- past -->
+</div><!-- titlebg -->
+<div class='sub_bottom'>
+<div class='sub_bottom_left'>
+<ul>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">고객센터</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">고객의소리</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">서비스센터</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">자주하는질문</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">홍보자료</a></li>
+</ul>
+<div class='sub_bottom_left_company'>
+<a href="#"><img src="../image/company1.jpg" alt="컴퍼니1"></a>
+<a href="#"><img src="../image/company2.jpg" alt="컴퍼니2"></a>
+</div><!-- sub_bottom_left_company -->
+</div><!-- sub_bottom_left -->
+<div class='sub_bottom_right'>
+<div class='sub3_title'>
+<h2><img src="../image/sub3_title.jpg" alt="개개인의꿈을현실로이루는기업"></h2>
+<p>자주하는 질문만을 모았습니다.<br>궁금하신 사항이 있으시면 아사웹 고객센터에 문의해주세요.</p>
+</div><!-- sub3_title -->
+<div class='sub3_search_wrap'>
+<select name="sub3_select" id="sub3_select">
+<option value="제목" selected>제목</option>
+<option value="내용">내용</option>
+</select>
+<label for="sub3_text">검색바</label>
+<input type="text" name='sub3_text' id='sub3_text'>
+<label for="sub3_submit">검색버튼</label>
+<input type="submit" name='sub3_submit' id='sub3_submit' value='검색'>
+</div><!-- sub3_search_wrap -->
+<div class='FAQ_wrap'>
+<div class='FAQ_left'>
+<h3>FAQ<span>아사웹의자주묻는 질문만을모았습니다.!</span></h3>
+<dl class='question'>
+	<dt class='on'>제품을 교환하고 싶은데요, 어디에서 교환하면 되나요?</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+제품교환은 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>세금계산서를 발행받고 싶습니다.</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+세금계산서는 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>제품 구매시 A/S는 무상으로 가능한가요?</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+A/S는 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>제품 A/S를 받으려고 하는데, 서비스 센터위치를 알려주세요.</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+서비스 센터위치는 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>해외에 거주하는데 A/S가 가능할까요?</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+해외에 거주는 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>회원 아이디와 비밀번호를 잊어버렸습니다.</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+아이디와 비밀번호는 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>면접진행은 어떻게 진행이 되나요?</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+면접진행은 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt>제품 견적을 온라인으로 받아보고 싶어요. 어떻게 요청하면 되나요?</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+제품 견적은 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+	<dt class='bdnone'>카다로그를 다운받았는데 읽을수가 없어요. 어떻게 해야하나요?</dt>
+	<dd>안녕하세요.<br>	
+고객의 작은 목소리에도 귀기울이는 아사웹입니다.<br>
+카다로그는 전국 각 지역에 있는 서비스 센터에서 교환하시면 됩니다.<br>
+구입하신 구입처에서도 가능합니다.</dd>
+</dl>
+<div class='sub3_board'>
+<div class='sub3_board_inner'>
+<h4>제품관련문의</h4>
+<a href="#" class='sub3_board_inner_more'><img src="../image/sub3_more.jpg" alt="더보기"></a>
+<ul>
+	<li><a href="#">&middot;&nbsp;2008 환경 지킴이 서약 이벤트<img src="../image/sub3_n.jpg" alt="뉴아이콘"></a></li>
+	<li><a href="#">&middot;&nbsp;아/사/달/웹/진 e:아사달 1월호</a></li>
+	<li><a href="#">&middot;&nbsp;e-Card 서브시 안내</a></li>
+	<li><a href="#">&middot;&nbsp;e-Card 서브시 안내</a></li>
+</ul>
+</div><!-- sub3_board_inner -->
+<div class='sub3_board_inner'>
+<h4>A/S관련문의</h4>
+<a href="#" class='sub3_board_inner_more'><img src="../image/sub3_more.jpg" alt="더보기"></a>
+<ul>
+	<li><a href="#">&middot;&nbsp;2008 환경 지킴이 서약 이벤트<img src="../image/sub3_n.jpg" alt="뉴아이콘"></a></li>
+	<li><a href="#">&middot;&nbsp;아/사/달/웹/진 e:아사달 1월호</a></li>
+	<li><a href="#">&middot;&nbsp;e-Card 서브시 안내</a></li>
+	<li><a href="#">&middot;&nbsp;e-Card 서브시 안내</a></li>
+</ul>
+</div><!-- sub3_board_inner -->
+</div><!-- sub3_board -->
+</div><!-- FAQ_left -->
+<div class='FAQ_right'>
+<a href="#"><img src="../image/sub3_right_icon1.jpg" alt="홍보자료" class='FAQ_images1'></a>
+<a href="#"><img src="../image/sub3_right_icon2.jpg" alt="서비스센터안내" class='FAQ_images2'></a>
+<a href="#"><img src="../image/sub3_right_icon3.jpg" alt="제퓸리뷰" class='FAQ_images3'></a>
+<a href="#"><img src="../image/sub3_right_icon4.jpg" alt="새소식" class='FAQ_images4'></a>
+</div><!-- FAQ_right -->
+</div><!-- FAQ_wrap -->
+</div><!-- sub_bottom_right -->
+</div><!-- sub_bottom -->
+</div><!-- sub -->
+
+<?php include'../inc/footer.php'?>
+</body>
+</html>
+
+

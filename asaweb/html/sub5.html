@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>sub5</title>
+
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='../js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//서브5컨텐츠
+$('.past1').button()
+$('.sub_bottom_left ul>li>a>img').hide()
+$('.sub_bottom_left ul>li>a>img:first').show()
+$('.sub_bottom_left ul>li>a').on('mouseenter focus',function(){
+$('.sub_bottom_left ul>li>a>img').hide()
+$(this).find('img').fadeIn()
+})
+$(window).on('load',function(){
+var cheight=$('.sub_bottom').height()
+$('.sub_bottom_left').height(cheight)
+})
+
+$('#sub5_submit').button()
+
+
+
+
+
+})//ready
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;
+background-color: #699da5;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+.sub{width:1024px;margin:0 auto;}
+.titlebg{background-color: #eaeaea;padding:20px 0;position: relative;}
+.titlebg::after{content:'';clear:both;display:block;}
+.titlebg>h2{background:url(../image/greentitle.jpg) 0 0 no-repeat;
+width:197px;height:87px;position: absolute;text-align: center;line-height: 87px;
+color:#fff;top:10px;left:20px;}
+.titlebg>h3{margin-left:240px;font-size:1.6rem;font-weight:500;float:left;
+color:#666;}
+.titlebg>h3>span{color:#adadad;font-size:1.1rem;padding-left:4px;}
+.past{float:right;margin-right:50px;}
+.past>a{font-size:1.1rem;color:#717171;cursor:default;}
+#my .past .ui-button {
+    padding: 4px;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: 0;
+    cursor:default;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+.sub_bottom{padding-top:40px;background-color: #fff;}
+.sub_bottom::after{clear:both;content:'';display:block;}
+.sub_bottom_left{width:210px;float:left;padding-left:20px;padding-right:10px;
+border-right:1px solid #f2f2f2;}
+.sub_bottom_left ul{}
+.sub_bottom_left ul>li>a{display:block;border-bottom:1px solid #e8e8e8;
+padding:10px 0;text-align: right;font-size:1.3rem;color:#a2a2a2;
+padding-right:40px;}
+.sub_bottom_left ul>li>a>img{vertical-align: middle;margin-right:6px;}
+.sub_bottom_left_company{margin-top:40px;}
+.sub_bottom_left_company>a{margin-bottom:20px;text-align: center;display:block;}
+.sub_bottom_right{width:814px;float:left;padding:0 77px 100px 47px;}
+.sub5_title p{font-size:1.1rem;color:#a3a3a3;font-weight:500;line-height: 120%;
+margin-top:2px;}
+.sub5_search_wrap{background:url(../image/searchbar.jpg) 0 0 no-repeat;
+padding:5px 0 6px;-webkit-background-size: cover;overflow: hidden;
+background-size: cover;margin-top:20px;}
+.sub5_search_wrap label{display:none;font-size:0;text-indent:-999px;}
+.sub5_search_wrap input{margin-left:10px;float:left;}
+#sub5_select{float:left;margin-left:110px;height:20px;width:60px;
+border:none;border:1px solid #d2d2d2;}
+#sub5_text{height:20px;width:350px;border:none;border:1px solid #d2d2d2;}
+
+#my .sub5_search_wrap .ui-button {
+    padding:0 8px;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: .1em;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+#my .sub5_search_wrap .ui-widget {
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size: 1.2rem;
+}
+
+.sub5_board{width:684px;margin:0 auto;margin-top:20px;text-align: center;}
+.sub5_board_header{background-color: #f8f8f8;border-radius:5px;
+border: 2px solid #dbdbdb;overflow: hidden;}
+.sub5_board .board1{float:left;width:70px;}
+.sub5_board .board2{float:left;width:340px;}
+.sub5_board .board3{float:left;width:90px;}
+.sub5_board .board4{float:left;width:100px;}
+.sub5_board .board5{float:left;width:80px;}
+.sub5_board_header>p{color:#7e7e7e;font-weight:600;font-size:1.3rem;}
+.sub5_board_content{}
+.sub5_board_content ul{border:2px solid transparent;overflow: hidden;margin:10px 0;}
+.sub5_board_content ul>li{border-bottom:1px solid #eeeeee;overflow: hidden;
+padding:6px 0;}
+.sub5_board_content ul>li>a{font-size:1.3rem;color:#868686;}
+.sub5_board_content ul>li>p{font-size:1.3rem;color:#868686;}
+.sub5_board_content ul>li .board2{text-align: left;}
+
+
+
+
+
+</style>
+</head>
+<body id='my'>
+
+<?php include'../inc/header.php'?>	
+
+<div class='sub'>
+<div class='titlebg'>
+<h2>Community</h2>
+<h3>&gt;&nbsp;업계소식<span>start your business</span></h3>
+<div class='past'>
+<a href="#" class='past1'>HOME</a>
+<a href="#">&nbsp;&nbsp;>&nbsp;&nbsp;커뮤니티&nbsp;&nbsp;</a>
+<a href="#">>&nbsp;&nbsp;업계소식</a>
+</div><!-- past -->
+</div><!-- titlebg -->
+<div class='sub_bottom'>
+<div class='sub_bottom_left'>
+<ul>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">업계소식</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">공지사항</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">질문과답변</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">자유게시판</a></li>
+	<li><a href="#"><img src="../image/sub_list_icon.png" alt="리스트아이콘">이벤트</a></li>
+</ul>
+<div class='sub_bottom_left_company'>
+<a href="#"><img src="../image/company1.jpg" alt="컴퍼니1"></a>
+<a href="#"><img src="../image/company2.jpg" alt="컴퍼니2"></a>
+</div><!-- sub_bottom_left_company -->
+</div><!-- sub_bottom_left -->
+<div class='sub_bottom_right'>
+<div class='sub5_title'>
+<h2><img src="../image/sub3_title.jpg" alt="개개인의꿈을현실로이루는기업"></h2>
+<p>업계현황게시판입니다. 다양한 동종 업계현황들만을 모았습니다.</p>
+</div><!-- sub5_title -->
+<div class='sub5_search_wrap'>
+<select name="sub5_select" id="sub5_select">
+<option value="제목" selected>제목</option>
+<option value="내용">내용</option>
+</select>
+<label for="sub5_text">검색바</label>
+<input type="text" name='sub5_text' id='sub5_text'>
+<label for="sub5_submit">검색버튼</label>
+<input type="submit" name='sub5_submit' id='sub5_submit' value='검색'>
+</div><!-- sub5_search_wrap -->
+<div class='sub5_board'>
+<div class='sub5_board_header'>
+<p class='board1'>번호</p>
+<p class='board2'>제목</p>
+<p class='board3'>등록자</p>
+<p class='board4'>등록일</p>
+<p class='board5'>조회수</p>
+</div><!-- sub5_board_header -->
+<div class='sub5_board_content sub5_board_content1'>
+<ul>
+<li>
+<p class='board1'>1</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>2</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>3</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>4</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>5</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>6</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>7</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>8</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>9</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+<li>
+<p class='board1'>10</p>
+<a href='#' class='board2'>제품교환은 어떻게 하나요?</a>
+<p class='board3'>홍길동</p>
+<p class='board4'>2018-05-31</p>
+<p class='board5'>100</p>
+</li>
+</ul>
+</div><!-- sub5_board_content -->
+
+
+
+</div><!-- sub5_board -->
+</div><!-- sub_bottom_right -->
+</div><!-- sub_bottom -->
+</div><!-- sub -->
+
+<?php include'../inc/footer.php'?>
+</body>
+</html>
+
+

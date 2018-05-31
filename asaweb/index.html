@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Document</title>
+
+<link rel="stylesheet" href="css/font.css">
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//헤더
+$(window).on('load',function(){
+var gheight=$('.gnb').height()
+$('.gnb>li>ul').css({top:gheight+1})
+})
+var header=true
+var loop=setInterval(function(){
+if (header)
+{
+$('body,html').css({backgroundColor:'#6994a5'})
+$('.header').addClass('on')
+header=false
+}else{
+$('body,html').css({backgroundColor:'#699da5'})
+$('.header').removeClass('on')
+header=true
+}
+},10000)
+
+$('.gnb>li>a').on('mouseenter focus',function(){
+$('.gnb>li>a').removeClass('on')
+$(this).addClass('on')
+$('.gnb>li>ul').fadeOut()
+$(this).next().fadeIn()
+})
+
+//메인컨텐츠
+var now=1
+var total=$('.slide>li').length
+var loop1=setInterval(function(){
+$('.slide').stop().animate({left:'-=100%'},function(){
+$('.slide>li').first().appendTo('.slide')
+$('.slide').css({left:0})
+})
+if (now==total)
+{
+	now=0
+}
+now++
+$('.bar').css({width:'100%'})
+$('.bar'+now).css({width:0})
+$('.num>p').removeClass('on')
+$('.num'+now).addClass('on')
+},6000)
+
+$('.next').on('click',function(){
+$('.slide').stop().animate({left:'-=100%'},function(){
+$('.slide>li').first().appendTo('.slide')
+$('.slide').css({left:0})
+})
+if (now==total)
+{
+	now=0
+}
+now++
+$('.bar').css({width:'100%'})
+$('.bar'+now).css({width:0})
+$('.num>p').removeClass('on')
+$('.num'+now).addClass('on')
+return false
+})
+
+$('.slide>li').click(function(){
+var href=$(this).attr('data-href')
+location.href=href
+})
+
+//푸터
+$("#select").selectmenu();
+
+
+
+
+
+
+})//ready
+</script>
+<style>
+
+/* 헤더 */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:1.4em;color:#333;
+background-color: #699da5;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+.wrap{}
+.wrap_inner{width:1024px;margin:0 auto;}
+.header{padding:20px 50px 0 10px;position: relative;
+background:url(image/mainbg1.jpg) 0 0 no-repeat;padding-bottom:435px;
+-webkit-background-size: cover;
+background-size: cover;}
+.header.on{background:url(image/mainbg2.jpg) 0 0 no-repeat;
+-webkit-background-size: cover;
+background-size: cover;}
+.header::after{content:'';clear:both;display:block;}
+.header h1{float:left;}
+.sitemap{position: absolute;right:50px;top:10px;}
+.sitemap>a{font-size:1.0rem;color:#fff;text-align: right;padding-left:30px;}
+.sitemap>a:hover{text-decoration: underline;}
+.gnbwrap{width:670px;float:right;margin-top:20px;}
+.gnb{position: relative;}
+.gnb::after{content:'';clear:both;display:block;}
+.gnb>li{float:left;width:20%;}
+.gnb>li>a{display:block;color:#fff;font-size:1.6rem;font-weight:600;
+text-align: center;padding:6px 22px;}
+.gnb>li>a.on{background-color:rgba(0,0,0,0.3);}
+.gnb>li>ul{position: absolute;left:0;top:49px;background-color:rgba(0,0,0,0.3);
+width:670px;overflow: hidden;}
+.g1{display:none;}
+.g2{display:none;}
+.g3{display:none;}
+.g4{display:none;}
+.g5{display:none;}
+.gnb>li>ul>li{float:left;}
+.gnb>li>ul>li>a{color:#fff;font-size:1.2rem;display:block;padding:10px 20px;
+position: relative;}
+.gnb>li>ul>li>a.on{background-color:rgba(0,0,0,0.3);}
+.gnb>li>ul>li:not(:last-child) a::after{position: absolute;right:-2px;top:14px;width:2px;
+height:12px;background-color: #ddd;content:'';}
+
+/* 컨텐츠 */
+.content{}
+.content_bottom{background-color: #fff;padding:14px 0;}
+.content_bottom::after{clear:both;content:'';display:block;}
+.content_bottom>div{width:33.33%;float:left;position: relative;height:219px;}
+.content_bottom>div a:hover{color:#699da5;}
+.notice{padding-left:40px;padding-right:20px;border-right:1px solid #eaeaea;}
+.content_bottom div h2{font-size:1.6rem;display:inline-block;border-bottom:2px solid #6f6f6f;line-height: 100%;color:#6f6f6f;}
+.content_bottom div ul{margin-top:10px;}
+.content_bottom div ul>li>a{display:block;color:#6f6f6f;
+border-bottom:1px dashed #cecece;line-height: 200%;}
+.content_bottom div ul>li>a::after{content:'';clear:both;display:block;}
+.content_bottom div ul>li>a .main_span1{float:left;}
+.content_bottom div ul>li>a .main_span2{float:right;}
+.content_bottom div .more{position: absolute;right:20px;top:0;color:#7d7d7d;
+font-size:1.0rem;}
+.notice_icon{overflow: hidden;width:100%;margin-top:20px;}
+.notice_icon>div{float:left;width:50%;cursor:pointer;}
+.notice_icon_image{float:left;width:50px;}
+.notice_icon_text{float:left;width:90px;}
+.notice_icon_text h3{font-size:1.2rem;font-weight:400;line-height: 120%;}
+.notice_icon_text p{font-size:1.0rem;color:#808080;}
+.product{border-right: 1px solid #eaeaea;padding:0 20px;}
+.mask{margin-top:20px;overflow: hidden;}
+.slide{position: relative;width:3000%;}
+.slide>li{float:left;cursor:pointer;}
+.slide>li .slide_image{width:100px;float:left;}
+.slide>li .slide_text{width:200px;float:left;}
+.slide_text_top{position: relative;width:100%;float:left;}
+.slide_text_top h3{float:left;font-size:4.2rem;line-height: 100%;opacity:0.1;}
+.slide_text_top h4{float:left;font-size:1.3rem;padding-left:4px;}
+.slide_text_top a{position: absolute;right:0;top:0;}
+.slide_text_top a>img{width:20px;}
+.slide_text_bottom{clear:both;padding-top:10px;}
+.slide_text_bottom>p{font-size:1.1rem;color:#000;opacity:0.3;text-align: center;}
+.progress_wrap{margin-top:20px;}
+.progress{width:100%;padding:2px;border: 1px solid #cccccc;overflow: hidden;}
+.progress div{width:33.33%;float:left;height:3px;background-color: #d4d8e0;
+font-size:0;text-indent: -999px;}
+.progress div>div{width:100%;height:100%;background-color: #333;
+font-size:0;text-indent: -999px;}
+.progress div:first-child div{width:0;}
+.num{width:100%;overflow: hidden;margin-top:10px;}
+.num>p{width:33.33%;float:left;text-align: center;font-size:1.1rem;color:#9a9a9a;}
+.num>p.on{font-size:1.4rem;color:#c10b26;}
+.business{padding-left:20px;padding-right:40px;}
+.content_bottom .business .more{right:80px;}
+.business_inner{margin-top:10px;overflow: hidden;}
+.business_inner_image{float:left;width:110px;}
+.business_inner_text{float:left;width:170px;padding-left:10px;}
+.business_inner_text h3{font-size:1.4rem;color:#676767;line-height:100%;
+font-weight:500;}
+.business_inner_text p{font-size:1.1rem;color:#ababab;margin-top:4px;}
+.business_sub_list{margin-top:30px;}
+.business_sub_list>a{color:#b8b8b8;font-size:1.2rem;border-top:1px solid #e5e5e5;
+display:block;padding:5px 0;}
+.business_sub_list>a:last-child{border-bottom:1px solid #e5e5e5;}
+.business_sub_list>a>span{background-color: #303030;color:#fff;font-size:1.1rem;
+border-radius:100%;margin:0 5px;padding:4px;}
+
+/* 푸터 */
+.footer{padding:40px 0 80px 10px;background-color: #668083;}
+.footer::after{content:'';clear:both;display:block;}
+.footer h6{float:left;}
+.information{margin-left:20px;float:left;}
+.information>a{color:#ddd;font-size:1.2rem;text-align:center;float:left;display:block;}
+.copyright{margin-top:30px;}
+.copyright>p{font-size:1.1rem;color:#ddd;line-height: 200%;}
+.form{float:left;margin-left:10px;}
+#select{}
+#my .ui-selectmenu-button.ui-button {
+    text-align: left;
+    white-space: nowrap;
+    width: 140px;
+}
+#my .ui-button {
+    padding:4px;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right:0;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+#my .ui-widget {
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size: 1.2rem;
+}
+#my .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    font-weight: 500;
+    color: #2779aa;
+}
+
+
+
+</style>
+</head>
+<body id='my'>
+<div class='wrap'>
+<div class='wrap_inner'>
+<div class='header'>
+<h1><a href="#" class='homego'><img src="image/logo1.png" alt="아사웹로고"></a></h1>
+<div class='sitemap'>
+<a href="#">HOME</a>
+<a href="#">SITEMAP</a>
+<a href="#">CONTACTUS</a>
+</div><!-- sitemap -->
+<div class='gnbwrap'>
+<ul class='gnb'>
+	<li><a href="html/sub1.html">COMPANY</a>
+	<ul class='g1'>
+		<li><a href="html/sub1.html">회사소개</a></li>
+		<li><a href="html/sub1.html">CEO인사말</a></li>
+		<li><a href="html/sub1.html">회사연혁</a></li>
+		<li><a href="html/sub1.html">경영이념</a></li>
+		<li><a href="html/sub1.html">조직도</a></li>
+		<li><a href="html/sub1.html">협력업체</a></li>
+		<li><a href="html/sub1.html">오시는길</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub2.html">PRODUCT</a>
+	<ul class='g2'>
+		<li><a href="html/sub2.html">제품소개</a></li>
+		<li><a href="html/sub2.html">제품소개</a></li>
+		<li><a href="html/sub2.html">제품검색</a></li>
+		<li><a href="html/sub2.html">제품비교</a></li>
+		<li><a href="html/sub2.html">온라인브로슈어</a></li>
+		<li><a href="html/sub2.html">제품리뷰</a></li>
+		<li><a href="html/sub2.html">제품문의</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub3.html">CUSTOMER</a>
+	<ul class='g3'>
+		<li><a href="html/sub3.html">고객센터</a></li>
+		<li><a href="html/sub3.html">고객센터</a></li>
+		<li><a href="html/sub3.html">고객의소리</a></li>
+		<li><a href="html/sub3.html">서비스센터</a></li>
+		<li><a href="html/sub3.html">자주하는질문</a></li>
+		<li><a href="html/sub3.html">홍보자료</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub4.html">RECRUIT</a>
+	<ul class='g4'>
+		<li><a href="html/sub4.html">채용정보</a></li>
+		<li><a href="html/sub4.html">채용안내</a></li>
+		<li><a href="html/sub4.html">직무소개</a></li>
+		<li><a href="html/sub4.html">입사지원서</a></li>
+		<li><a href="html/sub4.html">채용도우미</a></li>
+	</ul>
+	</li>
+	<li><a href="html/sub5.html">COMMUNITY</a>
+	<ul class='g5'>
+		<li><a href="html/sub5.html">커뮤니티</a></li>
+		<li><a href="html/sub5.html">업계소식</a></li>
+		<li><a href="html/sub5.html">공지사항</a></li>
+		<li><a href="html/sub5.html">질문과답변</a></li>
+		<li><a href="html/sub5.html">자유게시판</a></li>
+		<li><a href="html/sub5.html">이벤트</a></li>
+	</ul>
+	</li>
+</ul>
+</div><!-- gnbwrap -->
+</div><!-- header -->
+<div class='content'>
+<div class='content_bottom'>
+<div class='notice'>
+<h2>NOTICE</h2>
+<a href="#" class='more'>MORE</a>
+<ul>
+	<li><a href="#"><span class='main_span1'>&middot; 2018 환경지킴이 서약이벤트</span><span class='main_span2'>2018-05-25</span></a></li>
+	<li><a href="#"><span class='main_span1'>&middot; 아/사/달/웹/진 e:아사달 0월호</span><span class='main_span2'>2018-05-12</span></a></li>
+	<li><a href="#"><span class='main_span1'>&middot; e-Card 서비스안내</span><span class='main_span2'>2018-05-05</span></a></li>
+	<li><a href="#"><span class='main_span1'>&middot; e-Card 서비스안내</span><span class='main_span2'>2018-04-21</span></a></li>
+</ul>
+<div class='notice_icon'>
+<div>
+<div class='notice_icon_image'><img src="image/notice_icon1.png" alt="공지사항아이콘1"></div>
+<div class='notice_icon_text'><h3>COMPANY<br>INFO</h3>
+<p>아사웹 2018년 비전</p>
+</div>
+</div>
+<div>
+<div class='notice_icon_image'><img src="image/notice_icon2.png" alt="공지사항아이콘2"></div>
+<div class='notice_icon_text'><h3>COMPANY<br>VISION</h3>
+<p>아사웹 2018년 비전</p>
+</div>
+</div>
+</div><!-- notice_icon -->
+</div><!-- notice -->
+
+<div class='product'>
+<h2>NEW PRODUCT</h2>
+<a href="#" class='more'>MORE</a>
+<div class='mask'>
+<ul class='slide'>
+	<li data-href='http://shop.danawa.com/shopmain/'>
+	<div class='slide_image'><img src="image/computer.png" alt="컴퓨터이미지1"></div><!-- slide_image -->
+	<div class='slide_text'>
+	<div class='slide_text_top'>
+	<h3>01</h3>
+	<h4>ASA-product<br>코어듀오노트북 1201</h4>
+	<a href="#" class='next'><img src="image/arrow.png" alt="다음"></a>
+	</div><!-- slide_text_top -->
+	<div class='slide_text_bottom'>
+	<p>최고의 제품만을 고집하는 ASAWEB<br>
+에서 개발한 신기술 신개념의 결정체<br> 
+아사 시리즈 특별제품을 출시합니다.</p>
+	</div><!-- slide_text_bottom -->
+	</div><!-- slide_text -->
+    </li>
+	<li data-href='http://www.joyzen.co.kr/'>
+	<div class='slide_image'><img src="image/computer.png" alt="컴퓨터이미지2"></div><!-- slide_image -->
+	<div class='slide_text'>
+	<div class='slide_text_top'>
+	<h3>02</h3>
+	<h4>BBS-product<br>코어쿼드노트북 1520</h4>
+	<a href="#" class='next'><img src="image/arrow.png" alt="다음"></a>
+	</div><!-- slide_text_top -->
+	<div class='slide_text_bottom'>
+	<p>최고의 제품만을 고집하는 ASAWEB<br>
+에서 개발한 신기술 신개념의 결정체<br> 
+아사 시리즈 특별제품을 출시합니다.</p>
+	</div><!-- slide_text_bottom -->
+	</div><!-- slide_text -->
+    </li>
+	<li data-href='http://www.compuzone.co.kr/'>
+	<div class='slide_image'><img src="image/computer.png" alt="컴퓨터이미지3"></div><!-- slide_image -->
+	<div class='slide_text'>
+	<div class='slide_text_top'>
+	<h3>03</h3>
+	<h4>CCI-product<br>코어싱글노트북 1001</h4>
+	<a href="#" class='next'><img src="image/arrow.png" alt="다음"></a>
+	</div><!-- slide_text_top -->
+	<div class='slide_text_bottom'>
+	<p>최고의 제품만을 고집하는 ASAWEB<br>
+에서 개발한 신기술 신개념의 결정체<br> 
+아사 시리즈 특별제품을 출시합니다.</p>
+	</div><!-- slide_text_bottom -->
+	</div><!-- slide_text -->
+    </li>
+</ul>
+</div><!-- mask -->
+<div class='progress_wrap'>
+<div class='progress'>
+<div><div class='bar bar1'>게이지바</div>게이지바테두리</div>
+<div><div class='bar bar2'>게이지바</div>게이지바테두리</div>
+<div><div class='bar bar3'>게이지바</div>게이지바테두리</div>
+</div>
+<div class='num'>
+<p class='on num1'>01</p>
+<p class='num2'>02</p>
+<p class='num3'>03</p>
+</div>
+</div>
+</div><!-- product -->
+
+<div class='business'>
+<h2>BUSINESS STORY</h2>
+<a href="#" class='more'>MORE</a>
+<div class='business_inner' data-href='http://www.comsclub.com/'>
+<div class='business_inner_image'>
+<img src="image/business.png" alt="비지니스">
+</div><!-- business_inner_image -->
+<div class='business_inner_text'>
+<h3>ASA<br>BUSINESS STORY</h3>
+<p>아사웹이 걸어온 길 :<br>
+아사웹은 2000년 설립이후<br> 
+10년간 꾸준한 발전을 지속...</p>
+</div><!-- business_inner_text -->
+</div><!-- business_inner -->
+<div class='business_sub_list'>
+<a href="#"><span>02</span>Asa business story</a>
+<a href="#"><span>03</span>Asa business story</a>
+</div><!-- business_sub_list -->
+</div><!-- business -->
+</div><!-- content_bottom -->
+</div><!-- content -->
+<div class='footer'>
+<h6><a href="#" class='homego'><img src="image/logo2.png" alt="로고2"></a></h6>
+<div class='information'>
+<a href="#">회사소개&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;개인정보보호정책&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;이용약관&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;온라인문의&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;사이트맵&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;사업제휴&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;전화상담안내&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;오시는길&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;이메일무단수집거부&nbsp;&nbsp;</a>
+<div class='copyright'>
+<p>(본사) 서울특별시 가나구 다라동 124번지 (주) 아사달 대표이사: 홍길동 (공장) 서울특별시 가나구 다라동 00공장 사업자등록번호 : 123-45-67890<br>copyright(c)2008 asaweb all right reserved
+</p>
+</div><!-- copyright -->
+</div><!-- information -->
+<div class='form'>
+<select name="select" id="select">
+<option value="패밀리사이트보기" selected>패밀리사이트보기</option>
+<option value="다나와">다나와</option>
+<option value="컴퓨존">컴퓨존</option>
+<option value="아싸컴">아싸컴</option>
+</select>
+</div><!-- form -->
+</div><!-- footer -->
+</div><!-- wrap_inner -->
+</div><!-- wrap -->
+</body>
+</html>
