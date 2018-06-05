@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<?php 
+include_once('./g5/common.php'); 
+include_once(G5_LIB_PATH.'/latest.lib.php'); 
+?>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Document</title>
+
+<link rel="stylesheet" href="g5/theme/basic/css/default.css">
+<link rel="stylesheet" href="g5/theme/basic/skin/latest/basic/style.css">
+<link rel="stylesheet" href="g5/js/font-awesome/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='g5/js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+//헤더
+$(window).on('load',function(){
+var botheight=$('.header_bot').height()
+$('.gnb>li>a').css({height:botheight,lineHeight:botheight+'px'})
+$('.gnb>li>ul').css({top:botheight})
+$('.gnbbg').css({top:botheight})
+$('.mask').css({height:$('.slide>li>a>img').height()})
+$('.prev,.next').css({marginTop:-$('.prev,.next').height()/2})
+})
+
+$('.gnb>li>a').on('mouseenter focus',function(){
+$('.gnb>li>ul').stop().fadeOut(400)
+$(this).next().stop().fadeIn(800)
+$('.gnbbg').stop().fadeIn(800)
+$('.gnb>li>a').removeClass('on')
+$(this).addClass('on')
+})
+
+$('.header').on('mouseleave blur',function(){
+$('.gnb>li>ul,.gnbbg').stop().fadeOut(400)
+})
+
+//컨텐츠
+var now=1
+var total=$('.slide>li').length
+var loop=setInterval(function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide>li').stop().fadeOut(1000)
+$('.slide>li').eq(now-1).stop().fadeIn(1200)
+$('.pager>a').removeClass('on')
+$('.pager>a').eq(now-1).addClass('on')
+},8000)
+
+$('.next').on('click',function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide>li').stop().fadeOut(1000)
+$('.slide>li').eq(now-1).stop().fadeIn(1200)
+$('.pager>a').removeClass('on')
+$('.pager>a').eq(now-1).addClass('on')
+return false
+})
+
+$('.prev').on('click',function(){
+if (now==0)
+{
+	now=total
+}
+now--
+$('.slide>li').stop().fadeOut(1000)
+$('.slide>li').eq(now-1).stop().fadeIn(1200)
+$('.pager>a').removeClass('on')
+$('.pager>a').eq(now-1).addClass('on')
+return false
+})
+
+$('.lat').hide()
+$('.lat:first').show()
+$('.main_board_title>a').each(function(index){
+$(this).on('click',function(){
+$('.main_board_title>a').removeClass('on')
+$(this).addClass('on')
+$('.lat').fadeOut(400)
+$('.lat').eq(index).fadeIn(800)
+})
+})
+
+var min=1
+var max=$('.main_board_title>a').length
+var board=setInterval(function(){
+if (min==max)
+{
+	min=0
+}
+min++
+$('.main_board_title>a').removeClass('on')
+$('.main_board_title>a').eq(min-1).addClass('on')
+$('.lat').fadeOut(400)
+$('.lat').eq(min-1).fadeIn(800)
+},6000)
+
+$('.main_board_title,.lat').on('mouseenter focus',function(){
+clearInterval(board)
+})
+
+$('.main_board_title,.lat').on('mouseleave blur',function(){
+clearInterval(board)
+board=setInterval(function(){
+if (min==max)
+{
+	min=0
+}
+min++
+$('.main_board_title>a').removeClass('on')
+$('.main_board_title>a').eq(min-1).addClass('on')
+$('.lat').fadeOut(400)
+$('.lat').eq(min-1).fadeIn(800)
+},6000)
+})
+
+$('.main_product_pager>a').each(function(index){
+$(this).on('click',function(){
+$('.main_product ul').stop().animate({left:-index*270})
+$('.main_product_pager>a').removeClass('on')
+$(this).addClass('on')
+return false
+})
+})
+
+var pro1=0
+var pro2=$('.main_product ul>li').length
+var pro3=setInterval(function(){
+if (pro1==pro2-1)
+{
+	pro1=-1
+}
+pro1++
+$('.main_product ul').stop().animate({left:-pro1*270})
+$('.main_product_pager>a').removeClass('on')
+$('.main_product_pager>a').eq(pro1).addClass('on')
+},6000)
+
+
+
+
+})//ready
+</script>
+<style>
+@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;
+background-color: #f7f7f7;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{color:#007fc0;}
+a:focus{color:#007fc0;}
+
+/* 헤더 */
+.wd920{width:920px;margin:0 auto;}
+.wd1089{width:1089px;margin:0 auto;}
+.wrap{min-width:1089px;background-color: #fff;}
+.header_top{border-bottom:1px solid #d5d5d5;overflow: hidden;
+padding:6.5px 0;}
+.header_top_inner{width:1089px;margin:0 auto;}
+.login{float:right;margin-right:80px;overflow: hidden;}
+.login>a{padding:0 6px;font-size:1.0rem;display:block;float:left;}
+.login>a.on{color:#fff;background-color: #2d5894;}
+.header_bot{background-color: #e9e9e9;position: relative;border-bottom:1px solid #d5d5d5;}
+.gnbbg{background-color: #001f46;position: absolute;width:100%;font-size:0;
+height:40px;left:0;top:40px;display:none;z-index:1;text-indent:-999px;}
+.header_bot_inner{}
+.header_bot_inner::after{content:'';clear:both;display:block;}
+.header_bot_inner>h1{float:left;line-height: 45px;height:45px;}
+.header_bot_inner>h1>a>img{vertical-align: middle;margin:0;padding:0;}
+.gnbwrap{float:right;width:700px;}
+.gnb{}
+.gnb::after{content:'';clear:both;display:block;}
+.gnb>li{float:left;width:20%;position: relative;}
+.gnb>li>a{display:block;font-size:1.6rem;font-weight:400;height:45px;line-height: 45px;
+color:#4e4e4e;text-align: center;border-right:1px solid #d5d5d5;}
+.gnb>li:last-child>a{border-right:none;}
+.gnb>li>a.on{color:#fff;background-color: #001f46;}
+.gnb>li>ul{position: absolute;top:0;width:460px;z-index:1;}
+.gnb>li>ul::after{content:'';clear:both;display:block;}
+.gnb>li>ul>li{float:left;}
+.gnb>li>ul>li>a{display:block;padding:8px 12px;font-size:1.4rem;
+text-align: center;color:#fff;}
+.gnb>li>ul>li>a:hover{color:#aed2ff;background:url(g5/image/gnb_subicon.png) 0 50% no-repeat;}
+#gnb1{display:none;left:0;}
+#gnb2{display:none;left:0;}
+#gnb3{display:none;right:0;width:560px;}
+#gnb4{display:none;right:0;width:520px;}
+#gnb5{display:none;right:0;width:400px;}
+
+/* 컨텐츠 */
+.content{background-color: #fff;padding-bottom:50px;}
+.mask{overflow: hidden;box-shadow:1px 3px 5px #ddd;position: relative;}
+.prev{position: absolute;top:50%;left:0;z-index:1;padding:0 20px;display:block;}
+.next{position: absolute;top:50%;right:0;z-index:1;padding:0 20px;display:block;}
+.pager{position: absolute;left:50px;bottom:20px;}
+.pager>a{width:12px;height:12px;background-color: #d8d8d8;border-radius:100%;
+font-size:0;text-indent:-999px;display:block;float:left;margin-right:10px;}
+.pager>a.on{background-color: #001f46;}
+.slide{position: relative;}
+.slide>li{position: absolute;left:0;top:0;}
+.slide>li:last-child{display:none;}
+.boardwrap{margin-top:30px;}
+.boardwrap::after{content:'';clear:both;display:block;}
+.main_board {float: left;width: 300px;position: relative;}
+.main_board_title{position: relative;}
+.main_board_title::after{content:'';clear:both;display:block;}
+.main_board_line{position: absolute;width:100%;height:1px;
+background-color: #e7e7e7;left:0;bottom:0;z-index:1;}
+.main_board_title>a{border: 1px solid #e7e7e7;background-color: #f6f6f6;
+color:#8f8f8f;padding:2px 10px;border-radius:6px;float:left;font-size:1.3rem;
+position: relative;top:1px;margin-right:2px;z-index:2;}
+.main_board_title>a.on{border-bottom:none;color:#007fc0;background-color: #fff;
+font-weight:600;border-radius:6px 6px 0 0 ;}
+.lat {
+
+    position: relative;
+    margin-bottom: 0px;
+    overflow: visible;
+    border:none;
+    background: #fff;
+    position: absolute;
+    width: 100%;
+}
+.lat .lat_title {display:none;}
+.lat .lt_more {
+    position: absolute;
+    top: -26px;
+    right: 4px;
+    display: block;
+    width: 25px;
+    line-height: 25px;
+    color: #aaa;
+    border-radius: 3px;
+    text-align: center;
+}
+.lat ul {
+    padding: 4px;
+	padding-bottom:0;
+	padding-top:0;
+}
+.lat ul>li{border-bottom:1px dashed #ddd;}
+.lat ul>li>a{color:#909090;font-size:1.2rem;}
+.lat .lt_date {color:#909090;font-size:1.2rem;}
+
+.main_product{float:left;width:270px;margin-left:30px;position: relative;}
+.main_product>h3{color:#525252;font-size:1.5rem;font-weight:600;}
+.main_product>h3>span{color:#1d8adf;}
+.main_product_mask{margin-top:20px;overflow: hidden;}
+.main_product ul{position: relative;float:left;width:2000px;}
+.main_product ul>li{float:left;width:270px;}
+.main_product ul>li>a{display:block;line-height: 120%;}
+.main_product_pager{position: absolute;right:0;top:0;}
+.main_product_pager>a{font-size:1.0rem;background-color: #f2f2f2;
+padding:0 4px;}
+.main_product_pager>a.on{background-color: #001c3f;color:#fff;}
+.main_recruit{float:left;width:145px;margin-left:30px;}
+.main_recruit>h3{color:#525252;font-size:1.4rem;font-weight:600;}
+.main_recruit>h3 .span_blue{color:#1d8adf;}
+.main_recruit>h3 .span_blue::after{content:'|';color:#9a9a9a;margin:0 2px;
+font-weight:400;}
+.main_recruit>h3 .subtitle_name{font-size:1.0rem;color:#8d9298;}
+.main_recruit_content{margin-top:20px;overflow: hidden;border-right:1px solid #ddd;padding-right:10px;}
+.main_recruit_content_image{width:60px;float:left;}
+.main_recruit_content_text{float:left;width:74px;color:#9a9a9a;font-size:1.0rem;}
+.main_recruit_content_text a{float:right;padding:10px;}
+#main_recruit{margin-left:0;padding-left:10px;}
+#main_recruit .main_recruit_content{margin-top:20px;overflow: hidden;border-right:none;padding-right:0;}
+
+/* 푸터 */
+.footer{background-color: #f7f7f7;padding:20px 0 30px 0;
+border-top:1px solid #ddd;}
+.footer_inner{overflow: hidden;}
+.footer_inner>h6{float:left;}
+.footer_text{float:left;margin-left:80px;}
+.information>a{font-size:1.2rem;color:#4e524a;}
+.copyright{font-size:1.2rem;color:#979a95;margin-top:10px;}
+#form{float:right;margin-top:26px;}
+#form label{font-size:1.3rem;color:#6e6e6e;padding-right:6px;}
+#select{width:130px;outline:none;box-shadow:none;border: 1px solid #ddd;
+font-size:1.3rem;color:#333;}
+#select:hover{box-shadow:none;border: 1px solid #ddd;}
+#select:focus{box-shadow:none;border: 1px solid #ddd;}
+
+
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='header'>
+<div class='header_top'>
+<div class='header_top_inner'>
+<div class='login'>
+<a href="g5/bbs/login.php" class='on'>LOGIN</a>
+<a href="#">CONTACT US</a>
+<a href="#">SITEMAP</a>
+<a href="#">ENGLISH</a>
+</div><!-- login -->
+</div><!-- header_top_inner -->
+</div><!-- header_top -->
+<div class='header_bot'>
+<div class='gnbbg'>메뉴배경</div>
+<div class='header_bot_inner wd920'>
+<h1><a href="#"><img src="g5/image/logo1.png" alt="로고1"></a></h1>
+<div class='gnbwrap'>
+<ul class='gnb'>
+	<li><a href="g5/html/sub1.html">COMPANY</a>
+	<ul id='gnb1'>
+		<li><a href="g5/html/sub1.html">CEO인사말</a></li>
+		<li><a href="g5/html/sub1.html">회사연혁</a></li>
+		<li><a href="g5/html/sub1.html">경영이념</a></li>
+		<li><a href="g5/html/sub1.html">조직도</a></li>
+		<li><a href="g5/html/sub1.html">협력업체</a></li>
+		<li><a href="g5/html/sub1.html">오시는길</a></li>
+	</ul>                                             
+	</li>
+	<li><a href="g5/html/sub2.html">PRODUCT</a>
+	<ul id='gnb2'>
+		<li><a href="g5/html/sub2.html">제품소개</a></li>
+		<li><a href="g5/html/sub2.html">제품검색</a></li>
+		<li><a href="g5/html/sub2.html">제품비교</a></li>
+		<li><a href="g5/html/sub2.html">E-입체체험관</a></li>
+	</ul>
+	</li>
+	<li><a href="g5/html/sub3.html">CUSTOMER</a>
+	<ul id='gnb3'>
+		<li><a href="g5/html/sub3.html">고객의소리</a></li>
+		<li><a href="g5/html/sub3.html">서비스센터</a></li>
+		<li><a href="g5/html/sub3.html">자주하는질문</a></li>
+		<li><a href="g5/html/sub3.html">E-카탈로그보기</a></li>
+		<li><a href="g5/html/sub3.html">홍보자료</a></li>
+		<li><a href="g5/html/sub3.html">광고모음</a></li>
+	</ul>
+	</li>
+	<li><a href="g5/html/sub4.html">RECRUIT</a>
+	<ul id='gnb4'>
+		<li><a href="g5/html/sub4.html">채용안내</a></li>
+		<li><a href="g5/html/sub4.html">채용공고</a></li>
+		<li><a href="g5/html/sub4.html">인사/복지제도</a></li>
+		<li><a href="g5/html/sub4.html">바람직한인재상</a></li>
+		<li><a href="g5/html/sub4.html">직무소개</a></li>
+		<li><a href="g5/html/sub4.html">지원서</a></li>
+	</ul>
+	</li>
+	<li><a href="g5/bbs/board.php?bo_table=gallery">COMMUNITY</a>
+	<ul id='gnb5'>
+		<li><a href="g5/bbs/board.php?bo_table=gallery">업계소식</a></li>
+		<li><a href="g5/bbs/board.php?bo_table=gallery">공지사항</a></li>
+		<li><a href="g5/bbs/board.php?bo_table=gallery">질문과답변</a></li>
+		<li><a href="g5/bbs/board.php?bo_table=gallery">자유게시판</a></li>
+		<li><a href="g5/bbs/board.php?bo_table=gallery">이벤트</a></li>
+	</ul>
+	</li>
+</ul>                                                                                          
+</div><!-- gnbwrap -->
+</div><!-- header_bot_inner wd920 -->
+</div><!-- header_bot -->
+</div><!-- header -->
+<div class='content wd1089'>
+<div class='mask'>
+<a href="#" class='prev'><img src="g5/image/prev.png" alt="이전버튼"></a>
+<ul class='slide'>
+	<li><a href="#"><img src="g5/image/main_slide1.jpg" alt="메인슬라이드1"></a></li>
+	<li><a href="#"><img src="g5/image/main_slide2.jpg" alt="메인슬라이드2"></a></li>
+</ul>
+<a href="#" class='next'><img src="g5/image/next.png" alt="다음버튼"></a>
+<div class='pager'>
+<a href="#" class='on'>페이저1</a>
+<a href="#">페이저2</a>
+</div><!-- pager -->
+</div><!-- mask -->
+<div class='boardwrap wd920'>
+<div class='main_board'>
+<div class='main_board_title'>
+<a href="#" class='on'>공지사항</a>
+<a href="#">뉴스</a>
+<a href="#">보도자료</a>
+<div class='main_board_line'></div>
+</div><!-- main_board_title -->
+<?php 
+echo latest('basic', 'notice', 4,16,'...'); 
+?>
+<?php 
+echo latest('basic', 'free', 4,16,'...'); 
+?>
+<?php 
+echo latest('basic', 'qa', 4,16,'...'); 
+?>
+</div><!-- main_board -->
+<div class='main_product'>
+<h3>NEW<span>PRODUCT</span></h3>
+<div class='main_product_mask'>
+<ul>
+	<li><a href="#"><img src="g5/image/main_product1.jpg" alt="product1"></a></li>
+	<li><a href="#"><img src="g5/image/main_product2.jpg" alt="product2"></a></li>
+</ul>
+</div><!-- main_product_mask -->
+<div class='main_product_pager'>
+<a href="#" class='on'>01</a>
+<a href="#">02</a>
+</div><!-- main_product_pager -->
+</div><!-- main_product -->
+<div class='main_recruit'>
+<h3>채용<span class='span_blue'>정보</span><span class='subtitle_name'>RECRUIT INFO</span></h3>
+<div class='main_recruit_content'>
+<div class='main_recruit_content_image'>
+<img src="g5/image/main_recruit.png" alt="채용정보">
+</div><!-- main_recruit_content_image -->
+<div class='main_recruit_content_text'>
+<p>미래를 향한 열정과 창의력을 갖춘 인재 를 찾습니다.</p>
+<a href="#"><img src="g5/image/main_go.jpg" alt="go"></a>
+</div><!-- main_recruit_content_text -->
+</div><!-- main_recruit_content -->
+</div><!-- main_recruit -->
+<div class='main_recruit' id='main_recruit'>
+<h3>사업<span class='span_blue'>소개</span><span class='subtitle_name'>BUSINESS</span></h3>
+<div class='main_recruit_content'>
+<div class='main_recruit_content_image'>
+<img src="g5/image/main_business.png" alt="사업소개">
+</div><!-- main_recruit_content_image -->
+<div class='main_recruit_content_text'>
+<p>아사웹에서 진행되는 사업정보를 보실수 있습니다.</p>
+<a href="#"><img src="g5/image/main_go.jpg" alt="go"></a>
+</div><!-- main_recruit_content_text -->
+</div><!-- main_recruit_content -->
+</div><!-- main_recruit -->
+</div><!-- boardwrap -->
+</div><!-- content -->
+<div class='footer'>
+<div class='footer_inner wd920'>
+<h6><a href="#"><img src="g5/image/logo2.jpg" alt="로고2"></a></h6>	
+<div class='footer_text'>
+<div class='information'>
+<a href="#">회사소개&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;이용약관&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;개인정보보호방침&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;사이트맵&nbsp;&nbsp;|</a>
+<a href="#">&nbsp;&nbsp;고객센터</a>
+</div><!-- information -->
+<p class='copyright'>
+서울특별시 가나구 다라동 123번지 Tel. 01)234-5678~9 대표전화 : 02-823-4516<br>
+Copyright ⓒ 2008  ASAweb company. All rights reserved.</p>
+</div><!-- footer_text -->
+<form action="#" id='form'>
+<label for="select">Family site</label>
+<select name="select" id="select">
+<option value="" selected>:::&nbsp;선택하세요&nbsp;:::</option>
+<option value="">다나와</option>
+<option value="">컴퓨존</option>
+<option value="">아싸컴</option>
+</select>
+</form>
+</div><!-- footer_inner wd920 -->
+</div><!-- footer -->
+</div><!-- wrap -->
+</body>
+</html>
