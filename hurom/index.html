@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+<title>Document</title>
+
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src='js/jquery.transit.min.js'></script>
+<script src='js/jquery-ui.min.js'></script>
+
+<style>
+@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;
+overflow-x: hidden;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: middle;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+.wd1920{max-width:1920px;margin:0 auto;}
+.wd1240{max-width:1240px;margin:0 auto;}
+
+/* 상단메뉴버튼클릭시 */
+.showmenu{position: fixed;	left:0;right:0;top:0;bottom:0;background-color: #333;
+z-index:1;display:none;}
+.showmenu ul{position: absolute;top:50%;left:50%;text-align: center;
+margin:0 auto;width:26%;-webkit-transform: translate(-50%, -50%);
+-moz-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+-o-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);}
+.showmenu ul>li>a{display:block;color:#fff;font-size:2.6rem;padding:4%; 0;
+border-bottom:1px solid #43474a;position: relative;font-weight:200;}
+.showmenu ul>li>a.on{color:#7bb601;}
+.showmenu_line{font-size:0;text-indent:-999px;background-color: #80bd01;
+position: absolute;bottom:0;left:0;width:0px;height:1px;}
+.showmenu_line.on{width:100%;}
+
+
+/* 인트로 */
+.wrap{}
+.header{position: absolute;z-index:2;left:0;right:0;}
+.header_inner{padding:0 70px;position: absolute;left:0;right:0;top:60px;}
+.header_inner>h1{float:left;}
+.header_inner>h1>a{display:block;}
+.header_inner>h1>a>img{vertical-align: top;}
+.line_menu{float:right;width:40px;cursor:pointer;position: relative;}
+.line_menu>i{font-size:0;text-indent:-999px;display:block;width:100%;height:5px;
+background-color: #fff;margin:10px 0;position: relative;border-radius:2px;}
+.line_menu .mt0{margin-top:0;}
+.header_icon{float:right;margin-right:6%;position: relative;top:-20px;}
+.header_icon>a{display:block;float:left;width:124px;border: 2px solid #fff;
+border-radius:100%;margin-left:20px;}
+.header_icon>a:nth-child(1){margin-left:0;}
+.icon1{background-color: #82be04;}
+.icon1:hover{background-color: #29292a;}
+.icon2{background-color: #29292a;}
+.icon2:hover{background-color: #82be04;}
+
+.mask{width:100vw;height:100vh;position: relative;overflow: hidden;}
+.prev{position: absolute;top:50%;left:60px;padding:20px 24px;border: 1px solid rgba(255,255,255,0.3);}
+.next{position: absolute;top:50%;right:60px;padding:20px 24px;border: 1px solid rgba(255,255,255,0.3);}
+.mouse{position: absolute;bottom:40px;left:50%;}
+.mouse_dotted{position:absolute;margin-top:40px;top:0;left:50%;width:5px;height:5px;margin-left:-2.5px;font-size:0;text-indent:-999px;background:url(image/dotted1.png) 0 0 no-repeat;}
+.slide{position: relative;}
+.slide>li{position: absolute;width:100vw;height:100vh;-webkit-background-size: cover;
+background-size: cover;z-index:-999;display:table;overflow: hidden;}
+.slide>li>h2{text-align: center;font-weight:400;color:#fff;font-size:5.0rem;padding:0 10%;display:table-cell;vertical-align: middle;opacity:0;top:60px;position: relative;}
+.slide>li>h2>span{font-weight:600;}
+#slide1{background:url(image/mainbg1.jpg) 80% 50% no-repeat;}
+#slide2{background:url(image/mainbg2.jpg) 20% 50% no-repeat;}
+#slide3{background:url(image/mainbg3.jpg) 60% 50% no-repeat;}
+#slide4{background:url(image/mainbg4.jpg) 20% 80% no-repeat;}
+
+/* 컨텐츠헤더 */
+.centent{padding-bottom:200px;}
+.menuwrap{border-bottom:1px solid #ddd;background-color: #fff;z-index:1;
+position: relative;}
+.menu{position: relative;padding:10px 0;text-align: center;}
+.menu::after{content:'';display:block;clear:both;}
+.menu>h2{float:left;width:10%;}
+.menu>.shop{float:right;width:10%;}
+.gnbwrap{width:80%;float:left;}
+.gnb{float:left;width:100%;}
+.gnb>li{float:left;width:20%;position: relative;}
+.gnb>li>a{font-size:2.0rem;display:block;padding-top:5px;}
+.gnb>li>a:hover{color:#82be04;}
+.gnb>li>ul{position: absolute;border: 1px solid #aaaaaa;border-top:none;width:100%;
+left:0;top:49px;text-align: left;background-color: #fff;display:none;}
+.gnb>li>ul>li>a{display:block;font-size:1.5rem;padding:6px 0 6px 12px;}
+.gnb>li>ul>li>a.on{color:#fff;background-color: #4f4f4f;}
+
+
+.juice{padding:60px 0 40px;text-align: center;}
+.juice_inner{overflow: hidden;}
+.juice_inner>h2{font-size:3.8rem;font-weight:200;margin-bottom:30px;}
+.juice_inner>div{width:50%;float:left;}
+.juice_left{text-align: left;}
+.juice_left_img{}
+.juice_left_text{padding:20px;background-color: #f2f2f2;position: relative;
+overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
+.juice_left_text>h2{font-size:2.4rem;font-weight:400;}
+.juice_left_text>p{font-size:1.6rem;color:#828488;padding-top:1%;}
+.read{position: absolute;right:0;bottom:0;border: 1px solid #333;font-size:1.2rem;
+display:block;padding:4px 50px 4px 20px;font-weight:300;background-color: #f2f2f2;}
+.read.on{color:#fff;background-color: #333;}
+.read_line{width:10px;height:1px;background-color: #333;top:50%;right:14px;
+font-size:0;text-indent:-999px;position: absolute;}
+.juice_right{padding-left:4%;}
+.juice_right_top{text-align: left;}
+.juice_right_top_img{}
+.juice_right_top .juice_left_text{}
+.juice_right_bot{text-align: left;padding-top:5%;}
+.juice_right_bot .juice_left_text{}
+.juice_right_bot_img{}
+.movie{background-color: #eaeaea;padding:60px 0;}
+.movie_inner{overflow: hidden;}
+.movie_mask{width:30%;float:left;position: relative;margin:0 2.5%;overflow: hidden;}
+.movie_slide{position: relative;width:5000%;overflow: hidden;}
+.movie_slide>li{float:left;}
+.movie_slide>li>a{display:block;text-align: center;}
+.pagerwrap{font-size:0;text-indent:-999px;text-align: center;overflow: hidden;
+text-align: center;padding:4% 10%;}
+.pager{height:4px;width:14%;background-color: #8f8f8f;float:left;margin:0 3%;}
+.pager.on{background-color: #333;}
+.movie_wrap{width:65%;float:left;}
+.movie_wrap iframe{width:100%;height:100%;border:none;box-shadow:none;
+margin:0;padding:0;}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1240px) {
+html{font-size:50%;}
+}
+
+@media screen and (max-width:1024px) {
+html{font-size:45%;}
+.movie_mask {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+.movie_wrap {
+    width: 100%;
+    float: left;}
+.juice_left_text{padding:3%;background-color: #f2f2f2;position: relative;
+overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
+.movie {
+    background-color: #eaeaea;
+    padding: 20px 0 40px;
+}
+}
+
+@media screen and (max-width:640px) {
+html{font-size:40%;}
+.header{position:fixed;z-index:2;left:0;right:0;}
+.header_inner h1>a>img {vertical-align: middle;}
+.header_inner {
+    padding: 0 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0px;
+}
+.header_icon{display:none;}
+.juice {
+    padding: 20px 0 0px;
+    text-align: center;
+}
+.menuwrap{display:none;}
+.juice_inner>div{width:100%;float:left;}
+.juice_left_text{padding:20px;background-color: #fff;position: relative;
+overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
+.juice_left_text>h2{font-size:3.0rem;font-weight:400;}
+.juice_left_text>p{font-size:2.0rem;color:#828488;padding-top:1%;}
+.juice_right{padding-left:0%;}
+.juice_right_bot{text-align: left;padding-top:0%;}
+.juice_right_bot_img img{width:100%;}
+}
+
+@media screen and (max-width:361px) {
+html{font-size:35%;}
+.juice_left_text{padding:4%;background-color: #fff;position: relative;
+overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
+.juice_left_text>h2{font-size:3.0rem;font-weight:400;}
+.juice_left_text>p{font-size:2.0rem;color:#828488;padding-top:1%;}
+.read{position: absolute;right:0;bottom:0;border: 1px solid #333;font-size:1.4rem;
+display:block;padding:2px 20px 2px 10px;font-weight:300;background-color: #f2f2f2;}
+.read_line{width:4px;height:1px;background-color: #333;top:50%;right:3px;
+font-size:0;text-indent:-999px;position: absolute;}
+}
+
+
+.log{position: fixed;top:0;right:0;color:#fff;background-color: #333;z-index:2;}
+</style>
+</head>
+<body id='my'>
+<div class='wrap'>
+<!-- 상단메뉴버튼클릭시 -->
+<div class='showmenu'>
+<ul>
+	<li><a href="#">특별한 휴롬<div class='showmenu_line'>움직이는라인</div></a></li>
+	<li><a href="#">휴롬 스토리<div class='showmenu_line'>움직이는라인</div></a></li>
+	<li><a href="#">제품<div class='showmenu_line'>움직이는라인</div></a></li>
+	<li><a href="#">콘텐츠<div class='showmenu_line'>움직이는라인</div></a></li>
+	<li><a href="#">고객지원<div class='showmenu_line'>움직이는라인</div></a></li>
+</ul>
+</div><!-- showmenu -->
+
+<!-- 인트로 -->
+<div class='header wd1920'>
+<div class='header_inner'>
+<h1><a href="#"><img src="image/hlogo.png" alt="로고1"></a></h1>
+<div class='line_menu'>
+<i class='mt0 line1'>상단라인</i>
+<i class='line2'>중간라인</i>
+<i class='line3'>하단라인</i>
+</div><!-- line_menu -->
+<div class='header_icon'>
+<a href="#" class='icon1 icon'><img src="image/ico_event.png"  alt="이벤트바로가기"></a>
+<a href="#" class='icon2 icon'><img src="image/ico_homeshopping.png" alt="홈쇼핑방송편성"></a>
+</div><!-- header_icon -->
+</div><!-- header_inner -->
+</div><!-- header -->
+<div class='mask'>
+<a href="#" class='prev'><img src="image/prev.png" alt="이전"></a>
+<ul class='slide'>
+	<li id='slide1'>
+	<h2>놀랍도록 간편해진 휴롬디바<br>그래서 매일 <span>#휴롬이지</span></h2>
+	</li>
+	<li id='slide2'>
+	<h2>건강하니까 <span>#휴롬이지</span></h2>
+	</li>
+	<li id='slide3'>
+	<h2>간편하니까 <span>#휴롬이지</span></h2>
+	</li>
+	<li id='slide4'>
+	<h2>맛있으니까 <span>#휴롬이지</span></h2>
+	</li>
+</ul>
+<a href="#" class='next'><img src="image/next.png" alt="다음"></a>
+<div class='mouse'><img src="image/ico_mouse.png" alt="마우스">
+<div class='mouse_dotted'>마우스+도트</div></div><!-- mouse -->
+</div><!-- mask -->
+
+<!-- 컨텐츠 -->
+<div class='centent'>
+<div class='menuwrap'>
+<div class='menu wd1240'>
+<h2><a href="#"><img src="image/logo.png" alt="로고2"></a></h2>
+<a href="#" class='shop'><img src="image/ico_shop2.png" alt="쇼핑몰"></a>
+<div class='gnbwrap'>
+<ul class='gnb'>
+	<li><a href="#">특별한 휴롬</a>
+	<ul>
+		<li><a href="#">휴롬의 기술</a></li>
+		<li><a href="#">왜? 건강주수인가</a></li>
+		<li><a href="#">왜? 휴롬 천연주스인가</a></li>
+		<li><a href="#">휴롬 도서&논문</a></li>
+	</ul>
+	</li>
+	<li><a href="#">휴롬 스토리</a>
+	<ul>
+		<li><a href="#">회사소개</a></li>
+		<li><a href="#">사회공헌</a></li>
+		<li><a href="#">R&D센터</a></li>
+		<li><a href="#">휴롬인재개발원</a></li>
+	</ul>
+	</li>
+	<li><a href="#">제품</a>
+	<ul>
+		<li><a href="#">휴롬원액기</a></li>
+		<li><a href="#">휴롬티마스터</a></li>
+		<li><a href="#">휴롬셰프</a></li>
+		<li><a href="#">휴롬스퀴저</a></li>
+		<li><a href="#">휴롬쿡마스터</a></li>
+	</ul>
+	</li>
+	<li><a href="#">콘텐츠</a>
+	<ul>
+		<li><a href="#">휴롬뉴스</a></li>
+		<li><a href="#">Recipes</a></li>
+		<li><a href="#">휴롬영상</a></li>
+		<li><a href="#">이벤트</a></li>
+	</ul>
+	</li>
+	<li><a href="#">고객지원</a>
+	<ul>
+		<li><a href="#">CCM</a></li>
+		<li><a href="#">FAQ</a></li>
+		<li><a href="#">매장찾기/서비스센터</a></li>
+		<li><a href="#">휴롬사용설명서/레시피</a></li>
+		<li><a href="#">제품등록/부품 및 A/S신청</a></li>
+		<li><a href="#">칭찬/제안/일반문의하기</a></li>
+	</ul>
+	</li>
+</ul>
+</div><!-- gnbwrap -->
+</div><!-- menu -->
+</div><!-- menuwrap -->
+<div class='juice'>
+<div class='juice_inner wd1240'>
+<h2>자연의 건강함을 담은 휴롬주스</h2>
+<div class='juice_left'>
+<div class='juice_left_img'><img src="image/juice1.jpg" alt="주스">
+</div><!-- juice_left_img -->
+<div class='juice_left_text'>
+<h2>휴롬주스는 왜 다를까요?</h2>
+<p>휴롬주스는 갈아서 분쇄하는 방식이 아니라 천천히 눌러 짬으로써 온전한 자연의 맛과 영양이 살아있는 100% 천연 건강주스입니다. 자연의 영양성분을 채워 내 몸의 활력과 자연이 주는 건강함을 선사합니다.</p>
+<a href="#" class='read'>READ
+<div class='read_line1 read_line'>라인1</div>
+<div class='read_line2 read_line'>라인2</div>
+</a>
+</div><!-- juice_left_text -->
+</div><!-- juice_left -->
+<div class='juice_right'>
+<div class='juice_right_top'>
+<div class='juice_right_top_img'><img src="image/juice_right1.jpg" alt="레시피">
+</div><!-- juice_right_top_img -->
+<div class='juice_left_text'>
+<h2>레시피가 궁금하세요?</h2>
+<p>휴롬은 자연에 가까운 기술로 첨가물 없이도 맛있고 건강한 요리를 만들 수 있습니다. 신선한 채소와 과일로 만든 주스에서 부터 스무디, 디저트 등 건강한 요리를 다양하게 만들 수 있는 레시피를 소개합니다.</p>
+<a href="#" class='read'>READ
+<div class='read_line1 read_line'>라인1</div>
+<div class='read_line2 read_line'>라인2</div>
+</a>
+</div><!-- juice_left_text -->
+</div><!-- juice_right_top -->
+<div class='juice_right_bot'>
+<div class='juice_right_bot_img'><img src="image/juice_right2.jpg" alt="이벤트">
+</div><!-- juice_right_top_img -->
+<div class='juice_left_text'>
+<h2>이벤트에 참여해볼까요?</h2>
+<p>휴롬에서는 함께 공감하고 즐길 수 있는 다양한이벤트를 준비합니다.
+지금 이벤트에 참여해보세요.</p>
+<a href="#" class='read'>READ
+<div class='read_line1 read_line'>라인1</div>
+<div class='read_line2 read_line'>라인2</div>
+</a>
+</div><!-- juice_left_text -->
+</div><!-- juice_right_bot -->
+</div><!-- juice_right -->
+</div><!-- juice_inner wd1240 -->
+</div><!-- juice -->
+<div class='movie'>
+<div class='movie_inner wd1240'>
+<div class='movie_mask'>
+<ul class='movie_slide'>
+	<li><a href="#"><img src="image/movie_slide1.png" alt="제품이미지1"></a></li>
+	<li><a href="#"><img src="image/movie_slide2.png" alt="제품이미지2"></a></li>
+	<li><a href="#"><img src="image/movie_slide3.png" alt="제품이미지3"></a></li>
+	<li><a href="#"><img src="image/movie_slide4.png" alt="제품이미지4"></a></li>
+	<li><a href="#"><img src="image/movie_slide5.png" alt="제품이미지5"></a></li>
+</ul>
+<div class='pagerwrap'>페어저기능</div><!-- pagerwrap -->
+</div><!-- movie_mask -->
+<div class='movie_wrap'>
+<iframe src="https://www.youtube.com/embed/kw2kGJn3V1c"></iframe>
+</div><!-- movie_wrap -->
+</div><!-- movie_inner wd1240 -->
+</div><!-- movie -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- centent -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class='log'></div>
+</div><!-- wrap -->
+
+<script>
+$(document).ready(function(){
+
+//상단메뉴버튼클릭시
+
+$('.showmenu ul>li>a').on('mouseenter focus click',function(){
+$('.showmenu ul>li>a').removeClass('on',200)
+$(this).addClass('on',500)
+$('.showmenu_line').removeClass('on',200)
+$(this).find('.showmenu_line').addClass('on',500)
+})
+
+$(window).on('load resize',function(){
+var width=$(window).width()
+if (width>640)
+{
+$('.header_inner>h1>a>img').attr({src:'image/hlogo.png'})
+$('.line_menu>i').css({backgroundColor:'#fff'})
+var line=true;
+$('.line_menu').on('click',function(){
+if (line)
+{
+$('body,html').css({overflow:'hidden'})
+$('.line2').stop().animate({left:400},400)
+$('.line1,.line3').css({position:'absolute'})
+$('.line1').stop().animate({rotate:45,top:5})
+$('.line3').stop().animate({rotate:-45,top:-4})
+$('.showmenu').fadeIn()
+$('.header_icon').fadeOut()
+line=false;
+}else{
+$('.line2').stop().animate({left:0},400)
+$('.line1,.line3').css({position:'static'})
+$('.line1').stop().animate({rotate:0,top:0})
+$('.line3').stop().animate({rotate:0,top:0},function(){
+$('body,html').css({overflow:'visible'})
+$('.showmenu').fadeOut()
+$('.header_icon').fadeIn()
+})
+line=true;
+}
+})
+}else{
+$('.header_inner>h1>a>img').attr({src:'image/logo.png'})
+$('.line_menu>i').css({backgroundColor:'#80bd01'})
+var line=true;
+$('.line_menu').on('click',function(){
+if (line)
+{
+$('body,html').css({overflow:'hidden'})
+$('.line2').stop().animate({left:400},400)
+$('.line1,.line3').css({position:'absolute'})
+$('.line1').stop().animate({rotate:45,top:5})
+$('.line3').stop().animate({rotate:-45,top:-4})
+$('.showmenu').fadeIn()
+line=false;
+}else{
+$('.line2').stop().animate({left:0},400)
+$('.line1,.line3').css({position:'static'})
+$('.line1').stop().animate({rotate:0,top:0})
+$('.line3').stop().animate({rotate:0,top:0},function(){
+$('body,html').css({overflow:'visible'})
+$('.showmenu').fadeOut()
+})
+line=true;
+}
+})
+}
+})
+
+
+//인트로
+var w=$(window).width()
+var h=$(window).height()
+$('.mask').width(w)
+$('.mask').height(h)
+$('.slide>li').width(w)
+$('.slide>li').height(h)
+$(window).on('load resize',function(){
+var width=$(window).width()
+var height=$(window).height()
+var gnbh=$('.gnb>li').height()
+$('.gnb>li>ul').css({top:gnbh+11})
+$('.log').html('width:'+width+'height:'+height)
+$('.mask').width(width)
+$('.mask').height(height)
+$('.slide>li').width(width)
+$('.slide>li').height(height)
+$('.slide>li').css({backgroundSize:'cover'})
+})
+
+$('.slide>li').hide()
+$('#slide1').show()
+$('.mouse').css({x:'-50%'})
+$('.prev,.next').css({y:'-50%'})
+$('#slide1').find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
+var now=1
+var total=$('.slide>li').length
+var loop=setInterval(function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide>li>h2').css({opacity:0,top:60})
+$('.slide>li').stop().fadeOut(400,'linear')
+$('.slide>li').eq(now-1).stop().fadeIn(600,'linear',function(){
+$(this).find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
+})
+},8000)
+
+$('.next').on('click',function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide>li>h2').css({opacity:0,top:60})
+$('.slide>li').stop().fadeOut(400,'linear')
+$('.slide>li').eq(now-1).stop().fadeIn(600,'linear',function(){
+$(this).find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
+})
+})
+
+$('.prev').on('click',function(){
+if (now==0)
+{
+	now=total
+}
+now--
+$('.slide>li>h2').css({opacity:0,top:60})
+$('.slide>li').stop().fadeOut(400,'linear')
+$('.slide>li').eq(now-1).stop().fadeIn(600,'linear',function(){
+$(this).find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
+})
+})
+
+var mouse=setInterval(function(){
+$('.mouse_dotted').css({top:0})
+$('.mouse_dotted').stop().animate({top:20},1500,'linear')
+},2500)
+
+//컨텐츠헤더
+$('.gnb>li>a').on('mouseenter focus',function(){
+$('.gnb>li>ul').slideUp()
+$(this).next().show('plode')
+})
+$('.menuwrap').on('mouseleave blur',function(){
+$('.gnb>li>ul').slideUp()
+})
+$('.gnb>li>ul>li>a').on({
+mouseenter:function(){
+$('.gnb>li>ul>li>a').removeClass('on',200)
+$(this).addClass('on',400)
+}
+})
+
+$(window).on('load resize',function(){
+var width=$(window).width()
+if (width>640)
+{
+$('.read').on('mouseenter focus',function(){
+$(this).find('.read_line1').stop().animate({rotate:'90deg'},200)
+$(this).find('.read_line').css({backgroundColor:'#fff'})
+$(this).addClass('on')
+})
+$('.read').on('mouseleave blur',function(){
+$(this).find('.read_line1').stop().animate({rotate:'0deg'},200)
+$(this).find('.read_line').css({backgroundColor:'#333'})
+$(this).removeClass('on')
+})
+}else{
+$('.read').on('click',function(){
+$('.read').removeClass('on')
+$('.read_line').css({backgroundColor:'#333'})
+$(this).find('.read_line').css({backgroundColor:'#fff'})
+$(this).addClass('on')
+})
+}
+})
+
+var min=1
+var max=4
+var juice=setInterval(function(){
+if (min==max)
+{
+	min=0
+}
+min++
+$('.juice_left_img>img').attr({src:'image/juice'+min+'.jpg'})
+},4000)
+
+
+$(window).on('scroll',function(){
+var menu=$('.menuwrap').position()
+var top=$(window).scrollTop()
+if (top>menu.top)
+{
+$('.menuwrap').css({position:'fixed',left:0,top:0,right:0})
+}else{
+$('.menuwrap').css({position:'static'})
+}
+})
+
+
+$(window).on('load resize',function(){
+var mw=$('.movie_mask').width()
+var mh=$('.movie_mask').height()
+$('.movie_slide>li').width(mw)
+$('.movie_wrap').height(mh)
+})
+
+$('.movie_slide>li').each(function(index){
+$('<i class="pager"></i>').appendTo('.pagerwrap')
+})
+$('.pager:first').addClass('on')
+
+
+var min1=1
+var max1=$('.movie_slide>li').length
+var movieslide=setInterval(function(){
+var mw=$('.movie_mask').width()
+$('.movie_slide>li').width(mw)
+if (min1==max1)
+{
+	min1=0
+}
+min1++
+$('.pager').removeClass('on')
+$('.pager').eq(min1-1).addClass('on')
+$('.movie_slide').stop().animate({left:'-='+mw},800,'easeOutExpo',function(){
+$('.movie_slide>li').first().appendTo('.movie_slide')
+$('.movie_slide').css({left:0})
+})
+},4000)
+
+
+
+
+
+
+
+
+})//ready
+</script>
+</body>
+</html>
