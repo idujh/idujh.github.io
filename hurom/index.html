@@ -8,7 +8,6 @@
 	
 <title>Document</title>
 
-<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src='js/jquery.transit.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
@@ -30,13 +29,13 @@ a:focus{}
 /* 상단메뉴버튼클릭시 */
 .showmenu{position: fixed;	left:0;right:0;top:0;bottom:0;background-color: #333;
 z-index:1;display:none;}
-.showmenu ul{position: absolute;top:50%;left:50%;text-align: center;
+.showmenu ul{position: absolute;top:50%;left:50%;text-align: center;min-width:300px;
 margin:0 auto;width:26%;-webkit-transform: translate(-50%, -50%);
 -moz-transform: translate(-50%, -50%);
 -ms-transform: translate(-50%, -50%);
 -o-transform: translate(-50%, -50%);
 transform: translate(-50%, -50%);}
-.showmenu ul>li>a{display:block;color:#fff;font-size:2.6rem;padding:4%; 0;
+.showmenu ul>li>a{display:block;color:#fff;font-size:2.6rem;padding:4% 0;
 border-bottom:1px solid #43474a;position: relative;font-weight:200;}
 .showmenu ul>li>a.on{color:#7bb601;}
 .showmenu_line{font-size:0;text-indent:-999px;background-color: #80bd01;
@@ -133,13 +132,23 @@ text-align: center;padding:4% 10%;}
 .movie_wrap{width:65%;float:left;}
 .movie_wrap iframe{width:100%;height:100%;border:none;box-shadow:none;
 margin:0;padding:0;}
-
-
-
-
-
-
-
+.news{background-color: #f7f7f7;padding:60px 0;}
+.news_inner{}
+.news_inner ul{overflow: hidden;}
+.news_inner ul>li{width:23.5%;margin-right:2%;float:left;}
+.news_inner .mr0{margin-right:0;}
+.news_inner ul>li>a{display:block;}
+.news_image{overflow: hidden;}
+.news_image img{max-width:auto;width:100%;}
+.news_text{background-color: #fff;position: relative;padding:5%;overflow: hidden;}
+.news_text h2{font-weight:400;color:#7cb30a;font-size:1.8rem;}
+.news_text p{color:#7f857d;padding-top:1%;padding-bottom:8%;}
+.news_text .date{font-size:1.2rem;color:#a2a69f;position: absolute;left:10px;
+bottom:10px;}
+.news_text .arrow{font-size:0;text-indent:-999px;position: absolute;right:10px;
+background:url(image/arrow.png) 0 0 no-repeat;width:30px;bottom:10px;
+height:30px;}
+.news_text .arrow.on{background:url(image/arrow_on.png) 0 0 no-repeat;}
 
 
 
@@ -164,8 +173,7 @@ html{font-size:45%;}
 overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
 .movie {
     background-color: #eaeaea;
-    padding: 20px 0 40px;
-}
+    padding: 20px 0 40px;}
 }
 
 @media screen and (max-width:640px) {
@@ -180,6 +188,32 @@ html{font-size:40%;}
     top: 0px;
 }
 .header_icon{display:none;}
+.slide>li>h2 {
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+    font-size: 4.0rem;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+    opacity: 0;
+    top: 60px;
+    position: relative;
+}
+.next {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.prev {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
 .juice {
     padding: 20px 0 0px;
     text-align: center;
@@ -193,10 +227,37 @@ overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10
 .juice_right{padding-left:0%;}
 .juice_right_bot{text-align: left;padding-top:0%;}
 .juice_right_bot_img img{width:100%;}
+.news_inner ul>li{width:50%;margin-right:0%;float:left;padding:1%;}
 }
 
 @media screen and (max-width:361px) {
 html{font-size:35%;}
+.slide>li>h2 {
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+    font-size: 3.0rem;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+    opacity: 0;
+    top: 60px;
+    position: relative;
+}
+.next {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.prev {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
 .juice_left_text{padding:4%;background-color: #fff;position: relative;
 overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
 .juice_left_text>h2{font-size:3.0rem;font-weight:400;}
@@ -205,6 +266,7 @@ overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10
 display:block;padding:2px 20px 2px 10px;font-weight:300;background-color: #f2f2f2;}
 .read_line{width:4px;height:1px;background-color: #333;top:50%;right:3px;
 font-size:0;text-indent:-999px;position: absolute;}
+.news_inner ul>li{width:100%;margin-right:0%;float:left;padding:1%;}
 }
 
 
@@ -376,7 +438,52 @@ font-size:0;text-indent:-999px;position: absolute;}
 </div><!-- movie_wrap -->
 </div><!-- movie_inner wd1240 -->
 </div><!-- movie -->
-
+<div class='news'>
+<div class='news_inner wd1240'>
+<ul>
+	<li><a href="#">
+	<div class='news_image'><img src="image/news1.png" alt="뉴스1">
+	</div><!-- news_image -->
+	<div class='news_text'>
+	<h2>HUROM NEWS</h2>
+	<P>휴롬디바는 매일 지속적으로 사용하려면 쉽고 편리해야 한다는 고객주의 원칙이 십분 반영된 제품이다.</P>
+	<span class='date'>2018.04.24</span>
+	<span class='arrow'>화살표시</span>
+	</div><!-- news_text -->
+	</a></li>
+	<li><a href="#">
+	<div class='news_image'><img src="image/news2.jpg" alt="뉴스2">
+	</div><!-- news_image -->
+	<div class='news_text'>
+	<h2>HUROM RECIPE</h2>
+	<P>더 맛있고 건강한 휴롬주스 레시피를 소개합니다.</P>
+	<span class='date'>2017.09.11</span>
+	<span class='arrow'>화살표시</span>
+	</div><!-- news_text -->
+	</a></li>
+	<li><a href="#">
+	<div class='news_image'><img src="image/news3.png" alt="뉴스3">
+	</div><!-- news_image -->
+	<div class='news_text'>
+	<h2>HUROM SNS</h2>
+	<P>냉장고에 가득 찬 채소, 과일들은 시간이 지나면서 점점 시들어 갑니다. 이 때가 바로 "휴롬 디바가 필요한 순간"</P>
+	<span class='date'>2018.05.18</span>
+	<span class='arrow'>화살표시</span>
+	</div><!-- news_text -->
+	</a></li>
+	<li class='mr0'><a href="#">
+	<div class='news_image last_image'><img src="image/news4.png" alt="뉴스4">
+	</div><!-- news_image -->
+	<div class='news_text last_text'>
+	<h2>HUROM SNS</h2>
+	<P>착즙 후 바로 세척하는 리얼후기! 그 어느때보다 쉬운 세척 #휴롬디바 간편하니까 매일 #휴롬이지 이제 건강도 쉽게 챙기세요.</P>
+	<span class='date'>2018.05.01</span>
+	<span class='arrow'>화살표시</span>
+	</div><!-- news_text -->
+	</a></li>
+</ul>
+</div><!-- news_inner wd1240 -->
+</div><!-- news -->
 
 
 
@@ -499,6 +606,8 @@ $(window).on('load resize',function(){
 var width=$(window).width()
 var height=$(window).height()
 var gnbh=$('.gnb>li').height()
+var last_text=$('.last_text').height()
+$('.news_text').height(last_text)
 $('.gnb>li>ul').css({top:gnbh+11})
 $('.log').html('width:'+width+'height:'+height)
 $('.mask').width(width)
@@ -653,7 +762,12 @@ $('.movie_slide').css({left:0})
 })
 },4000)
 
-
+$('.news_inner ul>li>a').on('mouseenter focus',function(){
+$('.arrow').removeClass('on')
+$('.news_image img').stop().animate({scale:1})
+$(this).find('.arrow').addClass('on')
+$(this).find('.news_image img').stop().animate({scale:1.1})
+})
 
 
 
