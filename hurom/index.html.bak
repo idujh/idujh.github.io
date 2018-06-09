@@ -586,11 +586,8 @@ var height=$(window).height()
 var fheight=$('.footer').outerHeight()
 var hmax=dheight-height-fheight
 var pos=$('.footer').offset()
-$('<div class="log"></div>').appendTo('body')
-$('.log').css({backgroundColor:'#333',color:'#fff',position:'fixed',top:0,right:0,zIndex:1})
 $(window).on('scroll',function(){
 var top=$(window).scrollTop()
-$('.log').html(top)
 if (top>height)
 {
 $('.helpwrap').stop().fadeIn()
