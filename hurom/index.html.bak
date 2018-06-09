@@ -26,6 +26,19 @@ a:focus{}
 .wd1920{max-width:1920px;margin:0 auto;}
 .wd1240{max-width:1240px;margin:0 auto;}
 
+.helpwrap{position: fixed;bottom:10px;right:10px;z-index:1;display:none;}
+.helpwrap>a{margin-bottom:10px;}
+.helpbtn{display:block;position: relative;}
+.helpbtn:hover .helptext{display:block;}
+.helptext{font-size:1.4rem;line-height: 160%;border-radius:30px;background-color: #82be04;text-align: center;color:#fff;padding:4px 60px 4px 20px;height:60px;
+position: absolute;top:0;right:0;width:200px;z-index:-1;width:220px;display:none;}
+.helptext>span{font-size:1.8rem;font-weight:300;}
+.helpbtn>i{width:60px;height:60px;display:block;
+background: #82be04 url(image/icon_tel.png) 50% 50% no-repeat;padding:10px;
+border-radius:30px;-webkit-background-size: 22px 22px;
+background-size: 22px 22px;}
+.topbtn{display:block;width:60px;height:60px;background:url(image/btn_top.png) 0 0 no-repeat;font-size:0;text-indent:-999px;float:right;}
+
 /* 상단메뉴버튼클릭시 */
 .showmenu{position: fixed;	left:0;right:0;top:0;bottom:0;background-color: #333;
 z-index:1;display:none;}
@@ -79,7 +92,7 @@ background-size: cover;z-index:-999;display:table;overflow: hidden;}
 #slide4{background:url(image/mainbg4.jpg) 20% 80% no-repeat;}
 
 /* 컨텐츠헤더 */
-.centent{padding-bottom:200px;}
+.centent{}
 .menuwrap{border-bottom:1px solid #ddd;background-color: #fff;z-index:1;
 position: relative;}
 .menu{position: relative;padding:10px 0;text-align: center;}
@@ -103,6 +116,7 @@ left:0;top:49px;text-align: left;background-color: #fff;display:none;}
 .juice_inner>div{width:50%;float:left;}
 .juice_left{text-align: left;}
 .juice_left_img{}
+.juice_left_img img{width:100%;}
 .juice_left_text{padding:20px;background-color: #f2f2f2;position: relative;
 overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
 .juice_left_text>h2{font-size:2.4rem;font-weight:400;}
@@ -149,12 +163,32 @@ bottom:10px;}
 background:url(image/arrow.png) 0 0 no-repeat;width:30px;bottom:10px;
 height:30px;}
 .news_text .arrow.on{background:url(image/arrow_on.png) 0 0 no-repeat;}
+.footer{background-color: #333337;}
+.footer_inner{padding:5%;}
+.ftop{overflow: hidden;}
+.ftop h6{float:left;}
+.ftop h6>a>img{vertical-align: top;}
+.footer_list{float:left;width:70%;padding-left:10px;}
+.footer_list>a{color:#8e8e8f;padding:0 0.5%;display:block;float:left;position: relative;}
+.footer_list>a:not(:last-child)::after{content:'';position: absolute;top:25%;right:-1px;
+background-color: #8e8e8f;height:50%;width:1px;}
+.footer_list .cw{color:#cdcdcd;}
+.sns{float:right;width:20%;}
+.sns>a{display:block;float:left;width:25%;text-align: right;}
+.fbot{overflow: hidden;margin-top:10px;position: relative;padding-bottom:20px;}
+.copyright{float:left;color:#8e8e8f;font-size:1.3rem;}
+.copyright>span{margin-top:10px;display:inline-block;}
+.service{position: absolute;right:0;bottom:0;}
+.service>a{color:#fff;font-size:2.0rem;}
+.service .pd{padding-right:20px;}
+.service>a>img{border-left:1px solid #5c5c5f;padding-left:20px;}
 
 
 
 
 @media screen and (max-width:1240px) {
 html{font-size:50%;}
+.ftop h6{float:left;width:10%;}
 }
 
 @media screen and (max-width:1024px) {
@@ -174,6 +208,26 @@ overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10
 .movie {
     background-color: #eaeaea;
     padding: 20px 0 40px;}
+.footer{background-color: #333337;}
+.footer_inner{padding:5% 0;}
+.ftop{overflow: hidden;}
+.ftop h6{float:none;width:100%;text-align: center;}
+.ftop h6>a>img{vertical-align: top;}
+.footer_list{float:none;width:100%;padding-left:0px;text-align: center;
+margin-top:10px;}
+.footer_list>a{color:#8e8e8f;padding:0 0.5%;display:inline-block;float:none;position: relative;}
+.footer_list>a:not(:last-child)::after{content:'';position: absolute;top:25%;right:-1px;
+background-color: #8e8e8f;height:50%;width:1px;}
+.footer_list .cw{color:#cdcdcd;}
+.sns{float:right;width:100%;text-align:center;margin-top:10px;}
+.sns>a{display:inline-block;float:none;width:35px;}
+.fbot{overflow: hidden;margin-top:10px;position: relative;padding-bottom:0px;}
+.copyright{float:none;color:#8e8e8f;font-size:1.3rem;text-align: center;}
+.copyright>span{margin-top:10px;display:inline-block;}
+.service{position: static;right:0;bottom:0;text-align: center;margin-top:20px;}
+.service>a{color:#fff;font-size:2.0rem;display:block;}
+.service .pd{padding-right:0px;}
+.service>a>img{border-left:none;padding-left:0px;width:40px;margin-top:20px;}
 }
 
 @media screen and (max-width:640px) {
@@ -181,7 +235,7 @@ html{font-size:40%;}
 .header{position:fixed;z-index:2;left:0;right:0;}
 .header_inner h1>a>img {vertical-align: middle;}
 .header_inner {
-    padding: 0 10px;
+    padding: 10px;
     position: absolute;
     left: 0;
     right: 0;
@@ -266,14 +320,19 @@ overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10
 display:block;padding:2px 20px 2px 10px;font-weight:300;background-color: #f2f2f2;}
 .read_line{width:4px;height:1px;background-color: #333;top:50%;right:3px;
 font-size:0;text-indent:-999px;position: absolute;}
+.news_inner ul>li{width:100%;margin-right:0%;float:left;padding:1%;}
 }
 
 
-.log{position: fixed;top:0;right:0;color:#fff;background-color: #333;z-index:2;}
+/* .log{position: fixed;top:0;right:0;color:#fff;background-color: #333;z-index:2;} */
 </style>
 </head>
 <body id='my'>
 <div class='wrap'>
+<div class='helpwrap'>
+<a href="#" class='helpbtn'><div class='helptext'>무엇을 도와드릴까요?<br><span>1544-7011</span></div><i></i></a>
+<a href="#" class='topbtn'>탑으로이동</a>
+</div><!-- helpwrap -->
 <!-- 상단메뉴버튼클릭시 -->
 <div class='showmenu'>
 <ul>
@@ -483,51 +542,78 @@ font-size:0;text-indent:-999px;position: absolute;}
 </ul>
 </div><!-- news_inner wd1240 -->
 </div><!-- news -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div><!-- centent -->
+<div class='footer'>
+<div class='footer_inner wd1920'>
+<div class='ftop'>
+<h6><a href="#"><img src="image/flogo.png" alt="로고2"></a></h6>
+<div class='footer_list'>
+<a href="#">회사소개</a>
+<a href="#">채용안내</a>
+<a href="#">고객지원</a>
+<a href="#">개인정보 취급방침</a>
+<a href="#">이용약관</a>
+<a href="#">오시는길</a>
+<a href="#" class='cw'>휴롬추스카페</a>
+<a href="#" class='cw'>휴롬인재개발원</a>
+</div><!-- footer_list -->
+<div class='sns'>
+<a href="#"><img src="image/ico_facebook.png" alt="facebook"></a>
+<a href="#"><img src="image/ico_blog.png" alt="blog"></a>
+<a href="#"><img src="image/ico_instagram.png" alt="instagram"></a>
+<a href="#"><img src="image/ico_youtube.png" alt="youtube"></a>
+</div><!-- sns -->
+</div><!-- ftop -->
+<div class='fbot'>
+<div class='copyright'>(주)휴롬 경남 김해시 주촌면 골든루트로 80-60 | 대표 : 김재원 | 전화 : 1544-7011<br>사업자등록번호 : 608-81-16377 | 통신판매신고번호 : 2007-경남김해-0120<br><span>Copyright HUROM. CO., LTD. All rights reserved.</span></div>
+<div class='service'>
+<a href="tel:1544-7011" class='pd'>고객 서비스 : 1544-7011</a>
+<a href="http://www.kca.go.kr/wpge/m_210/ccm1100.do"  target='_blank'><img src="image/ccm.png" alt="ccm새창열기"></a>
+</div><!-- service -->
+</div><!-- fbot -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class='log'></div>
+</div><!-- footer_inner wd1920 -->
+</div><!-- footer -->
+<!-- <div class='log'></div> -->
 </div><!-- wrap -->
 
 <script>
 $(document).ready(function(){
 
-//상단메뉴버튼클릭시
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+var dheight=$(document).height()
+var height=$(window).height()
+var fheight=$('.footer').height()
+var hmax=dheight-height-fheight
 
+if (top>height)
+{
+$('.helpwrap').stop().fadeIn()
+$('.helpbtn>i').stop().animate({backgroundColor:'rgba(0,0,0,0.6)'},600,function(){
+$('.helpbtn>i').stop().animate({backgroundColor:'#82be04'},600,function(){
+$('.helpbtn>i').stop().animate({backgroundColor:'rgba(0,0,0,0.6)'},600,function(){
+$('.helpbtn>i').stop().animate({backgroundColor:'#82be04'},600)
+})
+})
+})
+}else{
+$('.helpwrap').stop().fadeOut()
+}
+if (top>=hmax)
+{
+$('.helpwrap').css({bottom:fheight})
+}else{
+$('.helpwrap').css({bottom:10})
+}
+})
+
+$('.topbtn').on('click',function(){
+$('body,html').stop().animate({scrollTop:0})
+return false
+})
+
+//상단메뉴버튼클릭시
 $('.showmenu ul>li>a').on('mouseenter focus click',function(){
 $('.showmenu ul>li>a').removeClass('on',200)
 $(this).addClass('on',500)
@@ -608,7 +694,7 @@ var gnbh=$('.gnb>li').height()
 var last_text=$('.last_text').height()
 $('.news_text').height(last_text)
 $('.gnb>li>ul').css({top:gnbh+11})
-$('.log').html('width:'+width+'height:'+height)
+// $('.log').html('width:'+width+'height:'+height)
 $('.mask').width(width)
 $('.mask').height(height)
 $('.slide>li').width(width)
