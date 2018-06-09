@@ -716,8 +716,8 @@ if (now==total)
 }
 now++
 $('.slide>li>h2').css({opacity:0,top:60})
-$('.slide>li').stop().fadeOut(400,'linear')
-$('.slide>li').eq(now-1).stop().fadeIn(600,'linear',function(){
+$('.slide>li').fadeOut(1200,'linear')
+$('.slide>li').eq(now-1).fadeIn(1200,'linear',function(){
 $(this).find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
 })
 },8000)
@@ -729,8 +729,8 @@ if (now==total)
 }
 now++
 $('.slide>li>h2').css({opacity:0,top:60})
-$('.slide>li').stop().fadeOut(400,'linear')
-$('.slide>li').eq(now-1).stop().fadeIn(600,'linear',function(){
+$('.slide>li').fadeOut(1200,'linear')
+$('.slide>li').eq(now-1).fadeIn(1200,'linear',function(){
 $(this).find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
 })
 })
@@ -742,8 +742,8 @@ if (now==0)
 }
 now--
 $('.slide>li>h2').css({opacity:0,top:60})
-$('.slide>li').stop().fadeOut(400,'linear')
-$('.slide>li').eq(now-1).stop().fadeIn(600,'linear',function(){
+$('.slide>li').fadeOut(1200,'linear')
+$('.slide>li').eq(now-1).fadeIn(1200,'linear',function(){
 $(this).find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
 })
 })
