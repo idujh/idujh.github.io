@@ -580,13 +580,14 @@ font-size:0;text-indent:-999px;position: absolute;}
 <script>
 $(document).ready(function(){
 
-$(window).on('scroll',function(){
-var top=$(window).scrollTop()
+$(window).on('load resize',function(){
 var dheight=$(document).height()
 var height=$(window).height()
-var fheight=$('.footer').height()
+var fheight=$('.footer').outerHeight()
 var hmax=dheight-height-fheight
-
+var pos=$('.footer').offset()
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
 if (top>height)
 {
 $('.helpwrap').stop().fadeIn()
@@ -600,12 +601,13 @@ $('.helpbtn>i').stop().animate({backgroundColor:'#82be04'},600)
 }else{
 $('.helpwrap').stop().fadeOut()
 }
-if (top>=hmax)
+if (top+height>=pos.top)
 {
 $('.helpwrap').css({bottom:fheight})
 }else{
 $('.helpwrap').css({bottom:10})
 }
+})
 })
 
 $('.topbtn').on('click',function(){
@@ -803,9 +805,9 @@ min++
 $('.juice_left_img>img').attr({src:'image/juice'+min+'.jpg'})
 },4000)
 
-
+$(window).on('load resize',function(){
+var menu=$('.menuwrap').offset()
 $(window).on('scroll',function(){
-var menu=$('.menuwrap').position()
 var top=$(window).scrollTop()
 if (top>menu.top)
 {
@@ -814,7 +816,7 @@ $('.menuwrap').css({position:'fixed',left:0,top:0,right:0})
 $('.menuwrap').css({position:'static'})
 }
 })
-
+})
 
 $(window).on('load resize',function(){
 var mw=$('.movie_mask').width()
