@@ -238,6 +238,9 @@ html{font-size:40%;}
     top: 0px;
 }
 .header_icon{display:none;}
+.line_menu{float:right;width:24px;cursor:pointer;position: relative;}
+.line_menu>i{font-size:0;text-indent:-999px;display:block;width:100%;height:4px;
+background-color: #fff;margin:5px 0;position: relative;border-radius:2px;}
 .slide>li>h2 {
     text-align: center;
     font-weight: 400;
@@ -634,17 +637,17 @@ if (line)
 {
 $('body,html').css({overflow:'hidden'})
 $('.line2').stop().animate({left:400},400)
-$('.line1,.line3').css({position:'absolute'})
-$('.line1').stop().animate({rotate:45,top:5})
-$('.line3').stop().animate({rotate:-45,top:-4})
+$('.line1,.line3').css({position:'absolute',bottom:0,left:0})
+$('.line1').stop().animate({rotate:'45deg'})
+$('.line3').stop().animate({rotate:'-45deg'})
 $('.showmenu').fadeIn()
 $('.header_icon').fadeOut()
 line=false;
 }else{
 $('.line2').stop().animate({left:0},400)
 $('.line1,.line3').css({position:'static'})
-$('.line1').stop().animate({rotate:0,top:0})
-$('.line3').stop().animate({rotate:0,top:0},function(){
+$('.line1').stop().animate({rotate:0})
+$('.line3').stop().animate({rotate:0},function(){
 $('body,html').css({overflow:'visible'})
 $('.showmenu').fadeOut()
 $('.header_icon').fadeIn()
@@ -707,10 +710,10 @@ $('.slide>li').hide()
 $('#slide1').show()
 $('.mouse').css({x:'-50%'})
 $('.prev,.next').css({y:'-50%'})
-$('#slide1').find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
 var now=1
 var total=$('.slide>li').length
 $(window).on('load',function(){
+$('#slide1').find('h2').stop().delay(2000).animate({opacity:1,top:0},800,'easeOutElastic')
 var loop=setInterval(function(){
 if (now==total)
 {

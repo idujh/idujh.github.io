@@ -91,7 +91,7 @@ $('.slide2').bxSlider({auto:true})
 var ulheight=$('.gnb>li>ul').height()
 var width=$(window).width()
 var sheight=$('.slide_select').height()/6
-var ssheight=$('.slide2 .image img').height()
+var ssheight=$('.slide2 .image').height()
 var ssswidth=$('.content2_top_right a').width()/2
 var sssheight=$('.content2_top_right a').height()/2
 $('.slide>li').stop().animate({width:width})
@@ -199,7 +199,7 @@ border: 1px solid #ddd;border-right:none;width:200px;height:40px;line-height: 40
 /* 컨텐츠 */
 .content{}
 .mask{position: relative;width:100%;overflow: hidden;}
-.slide>li{width:100%;text-align: center;}
+.slide>li{width:100%;text-align: center;min-width:1325px;}
 .slide>li>img{width:100%;}
 .slide_text{position: absolute;top:5%;left:2%;color:#fff;padding:3.7%;
 background-color:rgba(0,0,0,0.4);text-align: left;width:35%;}

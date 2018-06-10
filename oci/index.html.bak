@@ -87,7 +87,6 @@ $('.oci_blank').stop().animate({marginBottom:0},1000)
 },2000)
 
 $(window).on('load resize',function(){
-$('.slide').bxSlider({auto:true,mode:'fade'})
 $('.slide2').bxSlider({auto:true})
 var ulheight=$('.gnb>li>ul').height()
 var width=$(window).width()
@@ -200,7 +199,7 @@ border: 1px solid #ddd;border-right:none;width:200px;height:40px;line-height: 40
 /* 컨텐츠 */
 .content{}
 .mask{position: relative;width:100%;overflow: hidden;}
-.slide>li{width:100%;text-align: center;}
+.slide>li{width:100%;text-align: center;min-width:1325px;}
 .slide>li>img{width:100%;}
 .slide_text{position: absolute;top:5%;left:2%;color:#fff;padding:3.7%;
 background-color:rgba(0,0,0,0.4);text-align: left;width:35%;}
