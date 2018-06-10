@@ -9,7 +9,7 @@
 <title>sub1</title>
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src='js/jquery-ui.min.js'></script>
+<script src='../js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
 $('.sub1_header').load('../index.html .menuwrap')
