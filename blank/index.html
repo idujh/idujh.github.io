@@ -20,7 +20,6 @@ $('.header').height($(window).height())
 $(window).on('load resize',function(){
 var height=$(window).height()
 $('.header').height(height)
-$('.poster').fadeOut(4000)
 })
 $('<div class="menu_bd"></div>').appendTo('.menu>li>a')
 $('.menu>li>a').each(function(index){
@@ -120,7 +119,7 @@ a:focus{}
 /* 헤더 */
 .wrap{}
 .header{position: relative;}
-.poster{position: absolute;width:100%;height:100%;background:url(image/poster.jpg) 0 0 no-repeat;-webkit-background-size: cover;
+.poster{position: absolute;width:100%;height:100%;background:url(image/poster.jpg) 0 0 no-repeat;-webkit-background-size: cover;z-index:-999;
 background-size: cover;}
 .header_inner{padding:1%;}
 .header_inner::after{content:'';display:block;clear:both;}
