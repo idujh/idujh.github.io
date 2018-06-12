@@ -16,9 +16,6 @@
 $(document).ready(function(){
 
 //헤더
-$('#myBlock').vide({
-  poster: 'image/poster.jpg'
-});
 $('.header').height($(window).height())
 $(window).on('load resize',function(){
 var height=$(window).height()
@@ -121,7 +118,9 @@ a:focus{}
 
 /* 헤더 */
 .wrap{}
-.header{position: relative;}
+.header{position: relative;background:url(image/poster.jpg) 0 0 no-repeat;
+-webkit-background-size: cover;
+background-size: cover;}
 .header_inner{padding:1%;}
 .header_inner::after{content:'';display:block;clear:both;}
 .header_inner h1{float:left;}
