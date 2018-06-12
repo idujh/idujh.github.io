@@ -20,6 +20,7 @@ $('.header').height($(window).height())
 $(window).on('load resize',function(){
 var height=$(window).height()
 $('.header').height(height)
+$('.poster').fadeOut()
 })
 $('<div class="menu_bd"></div>').appendTo('.menu>li>a')
 $('.menu>li>a').each(function(index){
