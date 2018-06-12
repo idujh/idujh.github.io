@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Document</title>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+
+$('.controls>a').each(function(index){
+$(this).on('click',function(){
+var pos=$('.section').eq(index).offset()
+$('body,html').stop().animate({scrollTop:pos.top},400)
+return false
+})
+})
+
+$(window).on('load resize',function(){
+var pos1=$('#section1').offset()
+var pos2=$('#section2').offset()
+var pos3=$('#section3').offset()
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top==pos1.top)
+{
+$('.controls>a').removeClass('on')
+$('.controls>a').eq(0).addClass('on')
+}
+if(top>=pos2.top)
+{
+$('.controls>a').removeClass('on')
+$('.controls>a').eq(1).addClass('on')
+}
+if (top>=pos3.top)
+{
+$('.controls>a').removeClass('on')
+$('.controls>a').eq(2).addClass('on')
+}
+})
+})
+
+
+
+
+
+})//
+</script>
+<style>
+@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+
+.wrap{position: relative;}
+.controls{position: fixed;right:20px;top:50%;z-index:1;-webkit-transform: translate(0, -50%);
+-moz-transform: translate(0, -50%);
+-ms-transform: translate(0, -50%);
+-o-transform: translate(0, -50%);
+transform: translate(0, -50%);}
+.controls>a{background:url(anchor.png) 0 0 no-repeat;display:block;
+width:25px;height:25px;margin:5px;}
+.controls>a.on{background:url(anchor_on.png) 0 0 no-repeat;}
+.section{display:table;width:100%;}
+.section>p{display:table-cell;vertical-align: middle;text-align: center;
+font-size:5rem;color:#fff;}
+#section1{height:1000px;background-color: orange;}
+#section2{height:1200px;background-color: blue;}
+#section3{height:1400px;background-color: green;}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='controls'>
+<a href="#section1" class='on'></a>
+<a href="#section2"></a>
+<a href="#section3"></a>
+</div>
+<div id='section1' class='section'>
+<p>section1</p>
+</div>
+<div id='section2' class='section'>
+<p>section2</p>
+</div>
+<div id='section3' class='section'>
+<p>section3</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
