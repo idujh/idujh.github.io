@@ -9,18 +9,17 @@
 
 <title>Document</title>
 
-<link rel="stylesheet" href="css/b.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/Vide-master/src/jquery.vide.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
 
 //헤더
+$('.header').height($(window).height())
 $(window).on('load resize',function(){
-var vheight=$('.video-background').height()
-var height=$(window).height()
+var height=$(window).innerHeight()
 $('.header').height(height)
-$('.video-background video').attr({autoplay:true,loop:true,muted:false})
 })
 $('<div class="menu_bd"></div>').appendTo('.menu>li>a')
 $('.menu>li>a').each(function(index){
@@ -191,12 +190,7 @@ overflow: hidden;}
 </head>
 <body>
 <div class='wrap'>
-<div class='header'>
-<div class="video-background">
-    <div class="video-foreground">
-	<video src='movie/movie.mp4' autoplay='' loop='' muted=''></video>
-    </div>
-  </div>
+<div class='header' data-vide-bg='movie/movie.mp4' data-vide-options="loop: true, muted: true, position: 50% 50%,autoplay: true">
 <div class='header_inner'>
 <h1><a href="#"><img src="image/top_logo.png" alt="로고"></a></h1>
 <ul class='menu'>

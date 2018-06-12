@@ -147,7 +147,7 @@ margin:0;padding:0;}
 .news_inner ul{overflow: hidden;}
 .news_inner ul>li{width:23.5%;margin-right:2%;float:left;}
 .news_inner .mr0{margin-right:0;}
-.news_inner ul>li>a{display:block;}
+.news_inner ul>li>a{display:block;left:100px;position: relative;opacity:0;}
 .news_image{overflow: hidden;}
 .news_image img{max-width:auto;width:100%;}
 .news_text{background-color: #fff;position: relative;padding:5%;overflow: hidden;}
@@ -860,6 +860,20 @@ $(this).find('.arrow').addClass('on')
 $(this).find('.news_image img').stop().animate({scale:1.1})
 })
 
+$(window).on('load resize',function(){
+var height=$(window).height()
+var pos=$('.news_inner').offset()
+var sum=pos.top-height
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top>=sum)
+{
+$('.news_inner ul>li>a').each(function(index){
+$(this).delay(index*300).animate({left:0,opacity:1},800,'easeOutBack')
+})
+}
+})
+})
 
 
 
