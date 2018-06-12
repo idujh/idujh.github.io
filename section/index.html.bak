@@ -63,6 +63,7 @@ img{vertical-align: top;border:none;max-width:100%;}
 a:hover{}
 a:focus{}
 
+
 .wrap{position: relative;}
 .controls{position: fixed;right:20px;top:50%;z-index:1;-webkit-transform: translate(0, -50%);
 -moz-transform: translate(0, -50%);
@@ -75,9 +76,9 @@ width:25px;height:25px;margin:5px;}
 .section{display:table;width:100%;}
 .section>p{display:table-cell;vertical-align: middle;text-align: center;
 font-size:5rem;color:#fff;}
-#section1{height:100%;background-color: orange;}
-#section2{height:120%;background-color: blue;}
-#section3{height:140%;background-color: green;}
+#section1{height:1000px;background-color: orange;}
+#section2{height:1200px;background-color: blue;}
+#section3{height:1400px;background-color: green;}
 
 
 
