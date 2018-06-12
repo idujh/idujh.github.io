@@ -63,7 +63,7 @@ img{vertical-align: top;border:none;max-width:100%;}
 a:hover{}
 a:focus{}
 
-.wrap{position: relative;height:100%;}
+.wrap{position: relative;}
 .controls{position: fixed;right:20px;top:50%;z-index:1;-webkit-transform: translate(0, -50%);
 -moz-transform: translate(0, -50%);
 -ms-transform: translate(0, -50%);
