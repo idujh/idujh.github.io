@@ -110,9 +110,10 @@ left:0;top:49px;text-align: left;background-color: #fff;display:none;}
 .juice_inner{overflow: hidden;}
 .juice_inner>h2{font-size:3.8rem;font-weight:200;margin-bottom:30px;}
 .juice_inner>div{width:50%;float:left;}
-.juice_left{text-align: left;}
+.juice_left{text-align: left;background-color: #f2f2f2;position: relative;}
 .juice_left_img{}
 .juice_left_img img{width:100%;}
+#juice_left_text{background-color: transparent;}
 .juice_left_text{padding:20px;background-color: #f2f2f2;position: relative;
 overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
 .juice_left_text>h2{font-size:2.4rem;font-weight:400;}
@@ -145,20 +146,21 @@ margin:0;padding:0;}
 .news{background-color: #f7f7f7;padding:60px 0;}
 .news_inner{}
 .news_inner ul{overflow: hidden;}
-.news_inner ul>li{width:23.5%;margin-right:2%;float:left;}
+.news_inner ul>li{width:23.5%;margin-right:2%;float:left;position: relative;}
 .news_inner .mr0{margin-right:0;}
-.news_inner ul>li>a{display:block;left:100px;position: relative;opacity:0;}
+.news_inner ul>li>a{display:block;left:100px;position: relative;opacity:0;
+background-color: #fff;}
 .news_image{overflow: hidden;}
 .news_image img{max-width:auto;width:100%;}
-.news_text{background-color: #fff;position: relative;padding:5%;overflow: hidden;}
+.news_text{position: relative;padding:5%;overflow: hidden;}
 .news_text h2{font-weight:400;color:#7cb30a;font-size:1.8rem;}
 .news_text p{color:#7f857d;padding-top:1%;padding-bottom:8%;}
-.news_text .date{font-size:1.2rem;color:#a2a69f;position: absolute;left:10px;
+.date{font-size:1.2rem;color:#a2a69f;position: absolute;left:10px;
 bottom:10px;}
-.news_text .arrow{font-size:0;text-indent:-999px;position: absolute;right:10px;
+.arrow{font-size:0;text-indent:-999px;position: absolute;right:10px;
 background:url(image/arrow.png) 0 0 no-repeat;width:30px;bottom:10px;
 height:30px;}
-.news_text .arrow.on{background:url(image/arrow_on.png) 0 0 no-repeat;}
+.arrow.on{background:url(image/arrow_on.png) 0 0 no-repeat;}
 .footer{background-color: #333337;}
 .footer_inner{padding:5%;}
 .ftop{overflow: hidden;}
@@ -224,6 +226,7 @@ background-color: #8e8e8f;height:50%;width:1px;}
 .service>a{color:#fff;font-size:2.0rem;display:block;}
 .service .pd{padding-right:0px;}
 .service>a>img{border-left:none;padding-left:0px;width:40px;margin-top:20px;}
+.news_inner ul>li{width:50%;margin-right:0%;float:left;padding:1%;}
 }
 
 @media screen and (max-width:640px) {
@@ -273,6 +276,7 @@ background-color: #fff;margin:5px 0;position: relative;border-radius:2px;}
 }
 .menuwrap{display:none;}
 .juice_inner>div{width:100%;float:left;}
+.juice_left{background-color: #fff;}
 .juice_left_text{padding:20px;background-color: #fff;position: relative;
 overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10%;}
 .juice_left_text>h2{font-size:3.0rem;font-weight:400;}
@@ -281,6 +285,8 @@ overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;padding-bottom:10
 .juice_right_bot{text-align: left;padding-top:0%;}
 .juice_right_bot_img img{width:100%;}
 .news_inner ul>li{width:50%;margin-right:0%;float:left;padding:1%;}
+.arrow{display:none;}
+.date{display:none;}
 }
 
 @media screen and (max-width:361px) {
@@ -440,14 +446,14 @@ font-size:0;text-indent:-999px;position: absolute;}
 <div class='juice_left'>
 <div class='juice_left_img'><img src="image/juice1.jpg" alt="주스">
 </div><!-- juice_left_img -->
-<div class='juice_left_text'>
+<div class='juice_left_text' id='juice_left_text'>
 <h2>휴롬주스는 왜 다를까요?</h2>
 <p>휴롬주스는 갈아서 분쇄하는 방식이 아니라 천천히 눌러 짬으로써 온전한 자연의 맛과 영양이 살아있는 100% 천연 건강주스입니다. 자연의 영양성분을 채워 내 몸의 활력과 자연이 주는 건강함을 선사합니다.</p>
+</div><!-- juice_left_text -->
 <a href="#" class='read'>READ
 <div class='read_line1 read_line'>라인1</div>
 <div class='read_line2 read_line'>라인2</div>
 </a>
-</div><!-- juice_left_text -->
 </div><!-- juice_left -->
 <div class='juice_right'>
 <div class='juice_right_top'>
@@ -504,9 +510,9 @@ font-size:0;text-indent:-999px;position: absolute;}
 	<div class='news_text'>
 	<h2>HUROM NEWS</h2>
 	<P>휴롬디바는 매일 지속적으로 사용하려면 쉽고 편리해야 한다는 고객주의 원칙이 십분 반영된 제품이다.</P>
+	</div><!-- news_text -->
 	<span class='date'>2018.04.24</span>
 	<span class='arrow'>화살표시</span>
-	</div><!-- news_text -->
 	</a></li>
 	<li><a href="#">
 	<div class='news_image'><img src="image/news2.jpg" alt="뉴스2">
@@ -514,9 +520,9 @@ font-size:0;text-indent:-999px;position: absolute;}
 	<div class='news_text'>
 	<h2>HUROM RECIPE</h2>
 	<P>더 맛있고 건강한 휴롬주스 레시피를 소개합니다.</P>
+	</div><!-- news_text -->
 	<span class='date'>2017.09.11</span>
 	<span class='arrow'>화살표시</span>
-	</div><!-- news_text -->
 	</a></li>
 	<li><a href="#">
 	<div class='news_image'><img src="image/news3.png" alt="뉴스3">
@@ -524,9 +530,9 @@ font-size:0;text-indent:-999px;position: absolute;}
 	<div class='news_text'>
 	<h2>HUROM SNS</h2>
 	<P>냉장고에 가득 찬 채소, 과일들은 시간이 지나면서 점점 시들어 갑니다. 이 때가 바로 "휴롬 디바가 필요한 순간"</P>
+	</div><!-- news_text -->
 	<span class='date'>2018.05.18</span>
 	<span class='arrow'>화살표시</span>
-	</div><!-- news_text -->
 	</a></li>
 	<li class='mr0'><a href="#">
 	<div class='news_image last_image'><img src="image/news4.png" alt="뉴스4">
@@ -534,9 +540,9 @@ font-size:0;text-indent:-999px;position: absolute;}
 	<div class='news_text last_text'>
 	<h2>HUROM SNS</h2>
 	<P>착즙 후 바로 세척하는 리얼후기! 그 어느때보다 쉬운 세척 #휴롬디바 간편하니까 매일 #휴롬이지 이제 건강도 쉽게 챙기세요.</P>
+	</div><!-- news_text -->
 	<span class='date'>2018.05.01</span>
 	<span class='arrow'>화살표시</span>
-	</div><!-- news_text -->
 	</a></li>
 </ul>
 </div><!-- news_inner wd1240 -->
@@ -581,6 +587,20 @@ font-size:0;text-indent:-999px;position: absolute;}
 <script src='js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
+
+$(window).on('load resize',function(){
+var w=$(window).width()
+var rh=$('.juice_right').height()
+var nh=$('.news_inner ul>li>a:last').height()
+$('.news_inner ul>li>a').height(nh)
+if (w>640)
+{
+$('.juice_left').height(rh)
+}else{
+$('.juice_left').css({height:'auto'})
+}
+})
+
 
 $(window).on('load resize',function(){
 var dheight=$(document).height()
@@ -695,8 +715,6 @@ $(window).on('load resize',function(){
 var width=$(window).width()
 var height=$(window).height()
 var gnbh=$('.gnb>li').height()
-var last_text=$('.last_text').height()
-$('.news_text').height(last_text)
 $('.gnb>li>ul').css({top:gnbh+11})
 // $('.log').html('width:'+width+'height:'+height)
 $('.mask').width(width)
@@ -871,8 +889,6 @@ if (top>=sum)
 $('.news_inner ul>li>a').each(function(index){
 $(this).delay(index*300).animate({left:0,opacity:1},800,'easeOutBack')
 })
-}else{
-$('.news_inner ul>li>a').css({left:100,opacity:0})
 }
 })
 })
