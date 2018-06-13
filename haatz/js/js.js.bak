@@ -44,8 +44,9 @@ $('.slider').css({left:0})
 
 $('.gnb>li>a').each(function(index){
 $(this).on('mouseenter focus',function(){
+var pos=$(this).position()
 $('.headerbg').stop().slideDown()
-$('.gnb>li>a').css({color:'#333'})
+$('.gnb>li>a').css({color:'#4b4b4b'})
 $(this).css({color:'#2099d4'})
 $('.gnb>li>ul').stop().fadeIn(1000)
 $('.header_menu>a').css({borderLeftColor:'#ddd'})
@@ -55,8 +56,7 @@ $('.a2>img').attr({src:'image/ico_gnbUtil_cart1.png'})
 $('.a2').css({color:'#333'})
 $('.a3>img').attr({src:'image/gnb_srch_btn1.png'})
 $('.a4>img').attr({src:'image/gnb_allMenu_btn1.png'})
-$('.gnbstroke').show()
-$('.gnbstroke').stop().animate({opacity:1,left:index*$(this).width()})
+$('.gnbstroke').stop().animate({opacity:1,left:pos.left})
 })//enter
 $('.gnb>li>ul>li>a').on('mouseenter focus',function(){
 $('.gnb>li>ul>li>a').removeClass('gnbon')
@@ -81,11 +81,11 @@ $('.gnbstroke').hide()
 
 //반응형 스크립트 start
 $(window).on('load resize',function(){
-width=$(window).width()
-height=$(window).height()
+var width=$(window).width()
+var height=$(window).height()
 $('.mask').width(width)
-$('.slider>li').width(width)
-$('.slider>li>img').width(width)
+$('.slide').width(width)
+$('.slide').height(height)
 })
 //반응형 스크립트 end
 
