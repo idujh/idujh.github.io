@@ -1,7 +1,7 @@
 # portfolio_list
 
 <b>개인포트폴리오 전체보기_(url)<br>	
-<b>http://idujh8668.dothome.co.kr/my/</b><br><br>
+http://idujh8668.dothome.co.kr/my/<br><br>
 
 _반응형작업 리스트 (html5, css3, js, div하드코딩 기여도100%)<br>
 (main1) http://idujh.dothome.co.kr/musicisland/<br>
