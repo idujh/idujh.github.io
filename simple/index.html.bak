@@ -52,10 +52,10 @@ $('.log').html('width:'+width+'height:'+height)
 *{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:62.5%;}
 body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#fff;
-background:url(image/AnHZACl-black-steel-background.jpg) 50% 0 repeat;
+background:url(image/AnHZACl-black-steel-background.jpg) 50% 0 no-repeat;
 overflow-y: scroll;overflow-x: hidden;
--webkit-background-size: contain;
-background-size: contain;}
+-webkit-background-size: cover;
+background-size: cover;}
 li{list-style:none;}
 a{text-decoration:none;color:#fff;}
 img{vertical-align: top;border:none;max-width:100%;}
@@ -82,10 +82,10 @@ padding:1% 0;display:table-cell;vertical-align: middle;}
 /* 1300 */
 @media screen and (max-width:1300px) {
 body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#fff;
-background:url(image/AnHZACl-black-steel-background.jpg) 50% 0 no-repeat;
+background:url(image/AnHZACl-black-steel-background.jpg) 50% 0 repeat;
 overflow-y: scroll;overflow-x: hidden;
--webkit-background-size: cover;
-background-size: cover;}
+-webkit-background-size: contain;
+background-size: contain;}
 .wrap{width:100%;margin:0 auto;min-width:100%;padding:50px 0;
 max-width:100%;text-align: center;}
 .wrap>h1{text-align: center;}
