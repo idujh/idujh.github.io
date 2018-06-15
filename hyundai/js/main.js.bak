@@ -12,12 +12,12 @@ $(document).ready(function(){
 $('.gnb>li>a').each(function(index){
 $(this).on({
 mouseenter:function(){
-$('.gnbwrap').stop().slideDown(500)
+$('.gnbwrap').slideDown(500)
 $('.bg').show()
 $('.next1,.prev1').hide()
 $('.next,.prev').hide()
-$('.gnbtitle').css({background:'none'})
-$(this).parent().find('.gnbtitle').css({background:'url(image/bg_gnb'+(index+1)+'.jpg) 0 0 no-repeat'})
+$('.gnbtitle').fadeOut()
+$('.gnbtitle').eq(index).fadeIn().css({background:'url(image/bg_gnb'+(index+1)+'.jpg) 0 0 no-repeat'})
 $('.gnbtitle').find('h2,p').hide()
 $(this).parent().find('.gnbtitle').find('h2,p').show()
 },
@@ -31,7 +31,7 @@ $('.gnbwrap').css({width:0})
 $('.header').on({
 mouseleave:function(){
 	$('.gnbwrap').css({width:1200})
-$('.gnbwrap').stop().slideUp(500)
+$('.gnbwrap').slideUp(500)
 $('.bg').hide()
 $('.next1,.prev1').show()
 $('.next,.prev').show()

@@ -49,9 +49,12 @@ $('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
 
 $('.thumwrap>a').each(function(index){
 $(this).on('click',function(){
-$('.bigimg>img').attr({src:'img/movie'(index+1)'.jpg'})
+$('.bigimg>img').attr({src:'img/movie'+(index+1)+'.jpg'})
 $('.thumwrap>a').removeClass('on')
 $(this).addClass('on')
+$('.bigimg_content').html($(this).attr('alt'))
+$('.bigimg_content').stop().animate({marginLeft:-$('.bigimg_content').width()/2
+,marginTop:-$('.bigimg_content').height()/2})
 })
 })
 
