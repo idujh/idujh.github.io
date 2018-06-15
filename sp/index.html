@@ -30,8 +30,8 @@ $(this).find('a').each(function(index){
 var alt=$(this).find('img').attr('alt')
 $(this).find('.over').find('.title').html(alt+'<span><br>전체퍼블리싱+스크립트+하드코딩<br>새창으로이동↗<span>')
 $(this).on('mouseenter focus',function(){
-$('.over').stop().animate({opacity:0})
-$(this).find('.over').stop().animate({opacity:1})
+$('.over').stop().animate({opacity:0},1000)
+$(this).find('.over').stop().animate({opacity:1},400)
 })
 })
 })
