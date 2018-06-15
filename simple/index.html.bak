@@ -8,10 +8,21 @@
 
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
+<link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
+$('body').jpreLoader({
+showSplash:true,
+splashID:'#loader',
+loaderVPos:'45%',
+splashVPos:'40%',
+autoclose:true,
+showPercentage:true,
+closeBtnText:'Start!'
+})
 $('.tab>a').append('<div class="over"></div>')
 $('<h2 class="title"></h2>').prependTo('.over')
 $('.tab').each(function(index){
@@ -45,7 +56,7 @@ var width=$(window).width()
 var height=$(window).height()
 var th=$('.tab>a').height()
 $('.over').height(th-6)
-//$('.log').html('width:'+width+'height:'+height)
+//$('.hp').html('width:'+width+'height:'+height)
 })
 })//readey
 </script>
@@ -161,7 +172,7 @@ padding:1% 0;display:table-cell;vertical-align: middle;}
 
 
 
-.log{position: fixed;right:0px;top:0px;background-color: #000;color:#fff;padding:4px;}
+.hp{position: fixed;right:0px;top:0px;background-color: #000;color:#fff;padding:4px;}
 </style>
 </head>
 <body>
@@ -245,7 +256,7 @@ padding:1% 0;display:table-cell;vertical-align: middle;}
 
 
 
-<div class='log'>H.P:010-5761-5646</div>
+<div class='hp'>H.P:010-5761-5646</div>
 </div><!-- wrap -->
 </body>
 </html>

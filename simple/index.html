@@ -8,10 +8,21 @@
 
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
+<link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
+$('body').jpreLoader({
+showSplash:true,
+splashID:'#loader',
+loaderVPos:'50%',
+splashVPos:'50%',
+autoclose:true,
+showPercentage:true,
+closeBtnText:'Start!'
+})
 $('.tab>a').append('<div class="over"></div>')
 $('<h2 class="title"></h2>').prependTo('.over')
 $('.tab').each(function(index){
