@@ -30,7 +30,7 @@ $(this).on('click',function(){
 $('.btn>a').removeClass('on')
 $(this).addClass('on')
 $('.tab').hide()
-$('.tab').eq(index).show()
+$('.tab').eq(index).show(400)
 return false
 })
 })
@@ -43,6 +43,8 @@ return false
 $(window).on('load resize',function(){
 var width=$(window).width()
 var height=$(window).height()
+var th=$('.tab>a').height()
+$('.over').height(th)
 $('.log').html('width:'+width+'height:'+height)
 })
 })//readey
