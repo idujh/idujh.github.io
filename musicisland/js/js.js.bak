@@ -1,9 +1,11 @@
 $(document).ready(function(){
 var audio1=new Audio('music/bg.mp3')
-$(window).on('load',function(){
+$('.audiobtn').on('click',function(){
 audio1.play();
 audio1.loop=true;
+$('.audiobtn').click()
 })
+
 
 $(window).on('load resize',function(){
 var width=$(window).width()
@@ -11,7 +13,6 @@ if (width>1024)
 {
 $('.gnb>li>a').on('mouseenter focus',function(){
 $(this).css({color:'#ef4035'})
-$('.gnbbg').stop().slideDown()
 $('.gnbbg').stop().slideDown()
 $('.gnb>li>ul').stop().fadeIn()
 })

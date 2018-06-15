@@ -2,13 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width">
 <!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Document</title>
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
@@ -32,18 +32,18 @@ $('.support2').css({color:'#f5b829'})
 $('.support2>img').attr({src:'image/utill2_on.png'})
 $('.support3').css({color:'#c1c1c1',borderColor:'#ddd'})
 
-var src=$(this).attr('data-src')
-var now=1
-var total=15
+//var src=$(this).attr('data-src')
+//var now=1
+//var total=15
 
 $('.img1').fadeIn(700)
 
-var loop=setInterval(function(){
-if (now==total-1)
-{
-	clearInterval(loop)
-}
-now++
+//var loop=setInterval(function(){
+//if (now==total-1)
+//{
+//	clearInterval(loop)
+//}
+//now++
 //$('.img1').css({background:'url(img/b'+now+'.png) 0 0 no-repeat'})
 //$('.img2').css({background:'url(img/c'+now+'.png) 0 0 no-repeat'})
 //$('.img1').find('img').attr({src:'image/b'+now+'.png'})
@@ -51,9 +51,9 @@ now++
 //$('.img3').find('img').attr({src:'image/b'+now+'.png'})
 //$('.img4').find('img').attr({src:'image/c'+now+'.png'})
 //$('.img5').find('img').attr({src:'image/b'+now+'.png'})
-
-$('.img1>img').attr({src:(src+now)+'.png'})
-},60)
+var src=$(this).attr('data-src')
+$('.img1>img').attr({src:src})
+//},60)
 
 })
 })//gnb>li>a
@@ -64,16 +64,16 @@ $(this).addClass('on999')
 $('.gnb>li>a').removeClass('on888',100)
 $(this).prev().addClass('on888',200)
 var src=$(this).prev().attr('data-src')
-var now=1
-var total=15
-var loop=setInterval(function(){
-if (now==total-1)
-{
-	clearInterval(loop)
-}
-now++
-$('.img1>img').attr({src:(src+now)+'.png'})
-},60)
+//var now=1
+//var total=15
+//var loop=setInterval(function(){
+//if (now==total-1)
+//{
+//	clearInterval(loop)
+//}
+//now++
+$('.img1>img').attr({src:src})
+//},60)
 })//gnb>li>ul
 
 $('.gnbbg').on('mouseenter focus',function(){
@@ -140,10 +140,6 @@ $('.movie'+mmovie+'>video').attr({autoplay:true})
 },20000)
 
 var stopbtn=true;
-$(window).on('load',function(){
-$('.soundbtn').click()
-$('.stopbtn').click()
-})
 $('.stopbtn').on('click',function(){
 if (stopbtn)
 {
@@ -241,7 +237,7 @@ family=true
 </script>
 
 <style>
-@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+@import url(http://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'NotoSansKR',sans-serif;font-size:16px;color:#5e5e5e;}
 li{list-style:none;}
@@ -249,7 +245,7 @@ a{text-decoration:none;color:#5e5e5e;}
 img{vertical-align: middle;border:none;border:0;max-width:100%;}
 a:hover{color:#a9b734;}
 a:focus{color:#a9b734;}
-.wrap{width:100%;}
+.wrap{}
 .headerwrap{border-bottom:1px solid rgba(254,254,254,0.5);width:100%;
 height:80px;padding-top:10px;z-index:1;min-width:1200px;}
 .header{width:1200px;margin:0 auto;height:100%;}
@@ -280,8 +276,8 @@ font-weight:400;}
 height:40px;line-height: 38px;margin-top:10px;font-weight:400;font-size:0.8em;}
 .content{}
 .moviewrap{height:780px;}
-.movie{position: absolute;left:0;top:0;z-index:-1;display:none;width:100%;overflow: hidden;
-min-width:1200px;}
+.movie{position: absolute;left:50%;top:0;z-index:-1;display:none;
+min-width:1200px;margin-left:-951.5px;width:1903px;overflow-x: hidden;}
 .movie1{display:block;}
 .movie video{}
 .controlswrap{width:100%;background-color:#f5f6f8;z-index:1;position: relative;min-width:1200px;}
@@ -336,19 +332,19 @@ padding:6px 0 6px 20px;font-size:14px;}
 <h1><a href="#"><img src="image/logo.png" alt="로고1"></a></h1>
 <div class='gnbwrap'>
 <ul class='gnb'>
-	<li><a href="#" data-src='image/c'>회사소개</a>
+	<li><a href="#" data-src='image/c.gif'>회사소개</a>
 	<ul class='gnb1'>
 		<li><a href="#">회사소개</a></li>
 		<li><a href="#">경영정신</a></li>
 		<li><a href="#">연혁</a></li>
 	</ul>
 	</li>
-	<li><a href="#" data-src='image/b'>사업영역</a>
+	<li><a href="#" data-src='image/b.gif'>사업영역</a>
 	<ul class='gnb2'>
 		<li><a href="#">사업영역</a></li>
 	</ul>
 	</li>
-	<li><a href="#" data-src='image/i'>투자정보</a>
+	<li><a href="#" data-src='image/i.gif'>투자정보</a>
 	<ul class='gnb3'>
 		<li><a href="#">재무정보</a></li>
 		<li><a href="#">기업지배구조</a></li>
@@ -356,7 +352,7 @@ padding:6px 0 6px 20px;font-size:14px;}
 		<li><a href="#">공고</a></li>
 	</ul>
 	</li>
-	<li><a href="#" data-src='image/r'>인재채용</a>
+	<li><a href="#" data-src='image/r.gif'>인재채용</a>
 		<ul class='gnb4'>
 		<li><a href="#">인재상</a></li>
 		<li><a href="#">인재육성</a></li>
@@ -365,7 +361,7 @@ padding:6px 0 6px 20px;font-size:14px;}
 		<li><a href="#">입사지원</a></li>
 	</ul>
 	</li>
-	<li><a href="#" data-src='image/t'>기업문화</a>
+	<li><a href="#" data-src='image/t.gif'>기업문화</a>
 		<ul class='gnb5'>
 		<li><a href="#">신기문화</a></li>
 		<li><a href="#">사회공헌</a></li>
@@ -374,7 +370,7 @@ padding:6px 0 6px 20px;font-size:14px;}
 	</li>
 </ul><!-- gnb -->
 <div class='gnbimg'>
-<p class='img1 img'><img src="image/b1.png" alt="애니메이션이미지"></p>
+<p class='img1 img'><img src="image/b.png" alt="애니메이션이미지"></p>
 </div>
 </div>
 <div class='support'>

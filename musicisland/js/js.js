@@ -1,9 +1,21 @@
 $(document).ready(function(){
 var audio1=new Audio('music/bg.mp3')
-$(window).on('load',function(){
+var volume=true
+$('.audiobtn').on('click',function(){
+if (volume)
+{
 audio1.play();
 audio1.loop=true;
+$('.audiobtn>img').attr({src:'image/audio_on.png'})
+volume=false
+}else{
+audio1.pause();
+audio1.loop=false;
+$('.audiobtn>img').attr({src:'image/audio_off.png'})
+volume=true
+}
 })
+
 
 $(window).on('load resize',function(){
 var width=$(window).width()

@@ -169,7 +169,7 @@ padding:2%;}
 .ftext1>span{color:#fff;font-size:1.2em;}
 .ftext2{float:left;width:70%;line-height:180%;}
 .ftext2>span{color:#ef4035;}
-
+.audiobtn{display:block;position: absolute;right:10px;top:10px;}
 
 
 
@@ -237,6 +237,7 @@ line-height:50px;}
 }
 
 @media screen and (max-width:640px){
+.audiobtn{display:none;}
 .m_wrap{position:absolute;width:100%;height:100vh;top:0;left:0;
 background-color:rgba(0,0,0,0.8);z-index:1;display:none;}
 .m_menuwrap{width:80%;background-color: #36383b;left:-200%;position: relative;

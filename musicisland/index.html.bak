@@ -36,7 +36,7 @@
 <div class='mainmoviewrap'>
 <div class="video-background">
     <div class="video-foreground">
- <video src="music/visual.mp4" autoplay loop ></video>   
+ <video src="music/visual.mp4" autoplay='' loop='' muted='' ></video>   
     </div>
   </div>
  </div>
@@ -247,10 +247,10 @@ Copyright (C) 2017 MUSIC ISLAND. All Rights Reserved.</div>
 
 
 
-
+<a href='#' class='audiobtn'><img src="image/audio_on.png" alt="오디오버튼"></a>
 </div><!-- wrap -->
 <link rel="stylesheet" href="css/b.css" />
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 <script src='js/js.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
 <script src='js/animate/jquery.transit.min.js'></script>
