@@ -7,8 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Document</title>
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
@@ -140,6 +140,10 @@ $('.movie'+mmovie+'>video').attr({autoplay:true})
 },20000)
 
 var stopbtn=true;
+$(window).on('load',function(){
+$('.soundbtn').click()
+$('.stopbtn').click()
+})
 $('.stopbtn').on('click',function(){
 if (stopbtn)
 {
@@ -237,7 +241,7 @@ family=true
 </script>
 
 <style>
-@import url(http://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'NotoSansKR',sans-serif;font-size:16px;color:#5e5e5e;}
 li{list-style:none;}
