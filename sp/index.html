@@ -128,11 +128,11 @@ background-color:rgba(0,0,0,0.6);}
 <div class='wrap'>
 <h1>웹퍼블리셔/ui개발/엄재환</h1>
 <div class='btn'>
-<a href="#tab1" class='on'>All</a>
-<a href="#tab2">반응형</a>
-<a href="#tab3">게시판구축형</a>
-<a href="#tab4">기업형</a>
-<a href="#tab5">특이한,재미있는</a>
+<a href="#tab1" class='on' data-btn='전체보기'>All</a>
+<a href="#tab2" data-btn='반응형'>반응형</a>
+<a href="#tab3" data-btn='게시판구축형'>게시판구축형</a>
+<a href="#tab4" data-btn='기업형'>기업형</a>
+<a href="#tab5" data-btn='특이한 재미있는'>특이한,재미있는</a>
 </div>
 
 <div class='box'>
@@ -209,6 +209,7 @@ background-color:rgba(0,0,0,0.6);}
 </div><!-- wrap -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/voice/responsivevoice.js'></script>
+<script src='js/jquery.transit.min.js'></script>
 <script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <script src='js/jquery-ui.min.js'></script>
 <script>
@@ -229,8 +230,16 @@ $(this).find('a').each(function(index){
 var alt=$(this).find('img').attr('alt')
 $(this).find('.over').find('.title').html(alt+'<span><br>전체퍼블리싱+스크립트+하드코딩<br>새창으로이동↗<span>')
 $(this).on('mouseenter focus',function(){
-var speak=$(this).attr('data-speak')
-responsiveVoice.speak(speak,"Korean Female");
+//var speak=$(this).attr('data-speak')
+//responsiveVoice.speak(speak,"Korean Female");
+var audio1=new Audio('music/music1.mp3')
+var audio2=new Audio('music/music2.mp3')
+var audio3=new Audio('music/music3.mp3')
+var audio4=new Audio('music/music4.mp3')
+var audio=[audio1,audio2,audio3,audio4]
+var random=Math.floor(Math.random()*audio.length)
+audio[random].play()
+audio[random].volume=0.5;
 $('.over').stop().animate({opacity:0},1000)
 $(this).find('.over').stop().animate({opacity:1},400)
 })
@@ -242,6 +251,8 @@ responsiveVoice.speak('새창으로 이동',"Korean Female");
 
 $('.btn>a').each(function(index){
 $(this).on('click',function(){
+var databtn=$(this).attr('data-btn')
+responsiveVoice.speak(databtn,"Korean Female");
 $('.btn>a').removeClass('on')
 $(this).addClass('on')
 $('.tab').hide()

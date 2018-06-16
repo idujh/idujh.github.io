@@ -9,59 +9,7 @@
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src='js/voice/responsivevoice.js'></script>
-<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
-<script src='js/jquery-ui.min.js'></script>
-<script>
-$(document).ready(function(){
-$('body').jpreLoader({
-showSplash:true,
-splashID:'#loader',
-loaderVPos:'50%',
-splashVPos:'50%',
-autoclose:true,
-showPercentage:true,
-closeBtnText:'Start!'
-})
-$('.tab>a').append('<div class="over"></div>')
-$('<h2 class="title"></h2>').prependTo('.over')
-$('.tab').each(function(index){
-$(this).find('a').each(function(index){
-var alt=$(this).find('img').attr('alt')
-$(this).find('.over').find('.title').html(alt+'<span><br>전체퍼블리싱+스크립트+하드코딩<br>새창으로이동↗<span>')
-$(this).on('mouseenter focus',function(){
-var speak=$(this).attr('data-speak')
-responsiveVoice.speak(speak,"Korean Female");
-$('.over').stop().animate({opacity:0},1000)
-$(this).find('.over').stop().animate({opacity:1},400)
-})
-$(this).on('click',function(){
-responsiveVoice.speak('새창으로 이동',"Korean Female");
-})
-})
-})
 
-$('.btn>a').each(function(index){
-$(this).on('click',function(){
-$('.btn>a').removeClass('on')
-$(this).addClass('on')
-$('.tab').hide()
-$('.tab').eq(index).show(400)
-return false
-})
-})
-
-
-
-
-
-
-$(window).on('load',function(){
-responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female");
-})
-})//readey
-</script>
 <style>
 @import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -180,11 +128,11 @@ background-color:rgba(0,0,0,0.6);}
 <div class='wrap'>
 <h1>웹퍼블리셔/ui개발/엄재환</h1>
 <div class='btn'>
-<a href="#tab1" class='on'>All</a>
-<a href="#tab2">반응형</a>
-<a href="#tab3">게시판구축형</a>
-<a href="#tab4">기업형</a>
-<a href="#tab5">특이한,재미있는</a>
+<a href="#tab1" class='on' data-btn='전체보기'>All</a>
+<a href="#tab2" data-btn='반응형'>반응형</a>
+<a href="#tab3" data-btn='게시판구축형'>게시판구축형</a>
+<a href="#tab4" data-btn='기업형'>기업형</a>
+<a href="#tab5" data-btn='특이한 재미있는'>특이한,재미있는</a>
 </div>
 
 <div class='box'>
@@ -259,5 +207,71 @@ background-color:rgba(0,0,0,0.6);}
 
 <div class='hp'>H.P:010-5761-5646</div>
 </div><!-- wrap -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/voice/responsivevoice.js'></script>
+<script src='js/jquery.transit.min.js'></script>
+<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+$('body').jpreLoader({
+showSplash:true,
+splashID:'#loader',
+loaderVPos:'50%',
+splashVPos:'50%',
+autoclose:true,
+showPercentage:true,
+closeBtnText:'Start!'
+})
+$('.tab>a').append('<div class="over"></div>')
+$('<h2 class="title"></h2>').prependTo('.over')
+$('.tab').each(function(index){
+$(this).find('a').each(function(index){
+var alt=$(this).find('img').attr('alt')
+$(this).find('.over').find('.title').html(alt+'<span><br>전체퍼블리싱+스크립트+하드코딩<br>새창으로이동↗<span>')
+$(this).on('mouseenter focus',function(){
+//var speak=$(this).attr('data-speak')
+//responsiveVoice.speak(speak,"Korean Female");
+var audio1=new Audio('music/music1.mp3')
+var audio2=new Audio('music/music2.mp3')
+var audio3=new Audio('music/music3.mp3')
+var audio4=new Audio('music/music4.mp3')
+var audio=[audio1,audio2,audio3,audio4]
+var random=Math.floor(Math.random()*audio.length)
+audio[random].play()
+audio[random].volume=0.5;
+$('.over').stop().animate({opacity:0},1000)
+$(this).find('.over').stop().animate({opacity:1},400)
+$(this).effect('clip')
+})
+$(this).on('click',function(){
+responsiveVoice.speak('새창으로 이동',"Korean Female");
+})
+})
+})
+
+$('.btn>a').each(function(index){
+$(this).on('click',function(){
+var databtn=$(this).attr('data-btn')
+responsiveVoice.speak(databtn,"Korean Female");
+$('.btn>a').removeClass('on')
+$(this).addClass('on')
+$('.tab').hide()
+$('.tab').eq(index).show(400)
+return false
+})
+})
+
+
+
+
+
+
+$(window).on('load',function(){
+responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female");
+})
+})//readey
+</script>
+
 </body>
 </html>
