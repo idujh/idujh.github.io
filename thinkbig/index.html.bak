@@ -114,8 +114,6 @@ var movie1=$('.movie1>video').attr('src')
 var movie2=$('.movie2>video').attr('src')
 var movie3=$('.movie3>video').attr('src')
 var bgm=new Audio('movie/bgm.mp3')
-bgm.play()
-bgm.loop=true
 
 
 var mmovie=1
@@ -196,17 +194,20 @@ var soundbtn=true;
 $('.soundbtn').on('click',function(){
 if (soundbtn)
 {
-$('.soundbtn>img').attr({src:'image/btn_mute.png'})
-bgm.pause()
-soundbtn=false
-}else{
 $('.soundbtn>img').attr({src:'image/btn_sound.png'})
 bgm.play()
+bgm.play()
+bgm.loop=true
+soundbtn=false
+}else{
+$('.soundbtn>img').attr({src:'image/btn_mute.png'})
+bgm.pause()
+bgm.pause()
+bgm.loop=false
 soundbtn=true
 }
 return false
 })//soundbtn
-
 
 var family=true
 $('.family').on('click',function(){
@@ -384,15 +385,15 @@ padding:6px 0 6px 20px;font-size:14px;}
 <div class='moviewrap'>
 
 <div class='movie1 movie'>
-<video src="movie/movie1.mp4" autoplay='' poster='image/VISUAL_KOR_4.jpg' class='mm1'></video>
+<video src="movie/movie1.mp4" autoplay='' poster='image/VISUAL_KOR_4.jpg' class='mm1' muted=''></video>
 </div>
 
 <div class='movie2 movie'>
-<video src="movie/movie2.mp4" class='mm2' poster='image/VISUAL_KOR_5.jpg'></video>
+<video src="movie/movie2.mp4" class='mm2' poster='image/VISUAL_KOR_5.jpg' muted=''></video>
 </div>
 
 <div class='movie3 movie'>
-<video src="movie/movie3.mp4" class='mm3' poster='image/VISUAL_KOR_6.jpg'></video>
+<video src="movie/movie3.mp4" class='mm3' poster='image/VISUAL_KOR_6.jpg' muted=''></video>
 </div>
 
 </div><!-- moviewrap -->
@@ -402,7 +403,7 @@ padding:6px 0 6px 20px;font-size:14px;}
 <div class='gage3 gage'></div>
 <div class='controls'>
 <a href="#" class='stopbtn'><img src="image/btn_pause.png" alt="영상컨트롤버튼"></a>
-<a href="#" class='soundbtn'><img src="image/btn_sound.png" alt="사운드컨트롤버튼"></a>
+<a href="#" class='soundbtn'><img src="image/btn_mute.png" alt="사운드컨트롤버튼"></a>
 </div>
 </div>
 <div class='Information'>

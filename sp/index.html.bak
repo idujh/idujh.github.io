@@ -25,13 +25,17 @@ closeBtnText:'Start!'
 })
 $('.tab>a').append('<div class="over"></div>')
 $('<h2 class="title"></h2>').prependTo('.over')
+$(window).on('load resize',function(){
+var th=$('.tab>a').height()
 $('.tab').each(function(index){
 $(this).find('a').each(function(index){
 var alt=$(this).find('img').attr('alt')
 $(this).find('.over').find('.title').html(alt+'<span><br>전체퍼블리싱+스크립트+하드코딩<br>새창으로이동↗<span>')
 $(this).on('mouseenter focus',function(){
+$('.over').height(th-6)
 $('.over').stop().animate({opacity:0},1000)
 $(this).find('.over').stop().animate({opacity:1},400)
+})
 })
 })
 })
@@ -54,8 +58,6 @@ return false
 $(window).on('load resize',function(){
 var width=$(window).width()
 var height=$(window).height()
-var th=$('.tab>a').height()
-$('.over').height(th-6)
 //$('.hp').html('width:'+width+'height:'+height)
 })
 })//readey
@@ -233,7 +235,7 @@ padding:1% 0;display:table-cell;vertical-align: middle;}
 <a href="https://idujh.github.io/mnet/" target='_black'><img src="image/mnet.jpg" alt="Mnet"></a>
 <a href="https://idujh.github.io/flight/" target='_black'><img src="image/flight.jpg" alt="Flight"></a>
 <a href="https://idujh.github.io/etudehouse/" target='_black'><img src="image/etudehouse.jpg" alt="Etudehouse"></a>
-<a href="https://idujh.github.io/oci/" target='_black'><img src="image/oci.jpg" alt="오씨아이"></a>
+<a href="https://idujh.github.io/oci/" target='_black'><img src="image/oci.jpg" alt="O.C.I"></a>
 <a href="http://idujh86.dothome.co.kr/asaweb1/" target='_black'><img src="image/asaweb1.jpg" alt="Asaweb(일반)"></a>
 </div><!-- tab4 -->
 
