@@ -9,6 +9,8 @@
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
 
 <style>
 @import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
@@ -44,6 +46,10 @@ background-size: 40% 40%;}
 .title{text-align: center;font-size:1.6rem;}
 .title>span{font-size:1.2rem;}
 .hp{position: fixed;right:0px;top:0px;padding:4px;background:#000;color:#fff;}
+.bgm{padding:0 4px;color:#c60606;outline:none;}
+.bgm.on{color:#008040;}
+.bgm>img{vertical-align: middle;padding-right:4px;}
+
 
 /* 1300 */
 @media screen and (max-width:1300px) {
@@ -205,13 +211,13 @@ background-color:rgba(0,0,0,0.6);}
 
 
 
-<div class='hp'>H.P:010-5761-5646</div>
+<div class='hp'><a href="#" class='bgm' title='배경음ON/OFF'><img src="image/audio_off.png" alt="배경음버튼">[BGM]</a>H.P:010-5761-5646</div>
 </div><!-- wrap -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/voice/responsivevoice.js'></script>
 <script src='js/jquery.transit.min.js'></script>
 <script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
-<script src='js/jquery-ui.min.js'></script>
+<script src='js/jquery-ui-1.12.1/jquery-ui.min.js'></script>
 <script>
 $(document).ready(function(){
 $('body').jpreLoader({
@@ -223,6 +229,12 @@ autoclose:true,
 showPercentage:true,
 closeBtnText:'Start!'
 })
+
+$('body,html').tooltip();
+$('.tab>a').attr({title:'기여도:퍼블리싱100%, 스크립트100%'})
+$('#tab1>a').eq(3).attr({title:'기여도:퍼블리싱100%, 스크립트100%, 디자인50%'})
+$('#tab2>a').eq(3).attr({title:'기여도:퍼블리싱100%, 스크립트100%, 디자인50%'})
+$('#tab3>a').eq(1).attr({title:'기여도:퍼블리싱100%, 스크립트100%, 디자인50%'})
 $('.tab>a').append('<div class="over"></div>')
 $('<h2 class="title"></h2>').prependTo('.over')
 $('.tab').each(function(index){
@@ -230,16 +242,15 @@ $(this).find('a').each(function(index){
 var alt=$(this).find('img').attr('alt')
 $(this).find('.over').find('.title').html(alt+'<span><br>전체퍼블리싱+스크립트+하드코딩<br>새창으로이동↗<span>')
 $(this).on('mouseenter focus',function(){
-//var speak=$(this).attr('data-speak')
-//responsiveVoice.speak(speak,"Korean Female");
+/* var speak=$(this).attr('data-speak')
+responsiveVoice.speak(speak,"Korean Female");
 var audio1=new Audio('music/music1.mp3')
 var audio2=new Audio('music/music2.mp3')
 var audio3=new Audio('music/music3.mp3')
-var audio4=new Audio('music/music4.mp3')
-var audio=[audio1,audio2,audio3,audio4]
+var audio=[audio1,audio2,audio3]
 var random=Math.floor(Math.random()*audio.length)
 audio[random].play()
-audio[random].volume=0.5;
+audio[random].volume=0.3; */
 $('.over').stop().animate({opacity:0},1000)
 $(this).find('.over').stop().animate({opacity:1},400)
 })
@@ -261,13 +272,38 @@ return false
 })
 })
 
+var bgm1=new Audio('music/bgm1.mp3')
+var bgm2=new Audio('music/bgm2.mp3')
+var bgm3=new Audio('music/bgm3.mp3')
+var bgm_All=[bgm1,bgm2,bgm3]
+var random=Math.floor(Math.random()*bgm_All.length)
+$('.bgm').on('click',function(){
+var src=$(this).find('img').attr('src')
+if (src=='image/audio_off.png')
+{
+bgm_All[random].currentTime=0;
+bgm_All[random].play();
+bgm_All[random].volume=1;
+bgm_All[random].loop=true;
+$(this).find('img').attr({src:'image/audio_on.png'})
+$(this).addClass('on')
+}else{
+bgm_All[random].currentTime=0;
+bgm_All[random].pause();
+bgm_All[random].volume=0;
+bgm_All[random].loop=false;
+$(this).find('img').attr({src:'image/audio_off.png'})
+$(this).removeClass('on')
+}
+return false
+})
 
 
 
 
 
 $(window).on('load',function(){
-responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female");
+responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female",{volume:0.5});
 })
 })//readey
 </script>
