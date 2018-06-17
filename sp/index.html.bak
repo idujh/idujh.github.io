@@ -343,7 +343,13 @@ $('.hpbd').css({left:'-100%',backgroundColor:hpbg1[r1],width:'80%'})
 $('.hpbd').stop().animate({left:'100%',backgroundColor:hpbg2[r2],width:'100%'},6000,'linear')
 },6000)
 
+
+
+
+
+
 $(window).on('load',function(){
+responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female",{volume:0.4});
 var width=$(window).width()
 if (width>=1024)
 {
@@ -360,10 +366,6 @@ $(this).hide()
 }
 })
 
-
-$(window).on('load',function(){
-responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female",{volume:0.4});
-})
 })//readey
 </script>
 
