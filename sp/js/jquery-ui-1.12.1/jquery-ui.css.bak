@@ -886,11 +886,9 @@ body .ui-tooltip {
 .ui-widget {
 	font-family: 'NotoSansKR',Lucida Grande,Lucida Sans,Arial,sans-serif;
 	font-size: 1.4rem;
-	font-weight:500;
 }
 .ui-widget .ui-widget {
 	font-size: 1.4rem;
-	font-weight:500;
 }
 .ui-widget input,
 .ui-widget select,
@@ -900,7 +898,7 @@ body .ui-tooltip {
 	font-size: 1.4rem;
 }
 .ui-widget.ui-widget-content {
-	border: 1px solid #aed0ea;
+	border: 3px solid #aed0ea;
 }
 .ui-widget-content {
 	border: 1px solid #dddddd;

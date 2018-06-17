@@ -27,6 +27,18 @@ img{vertical-align: top;border:none;max-width:100%;}
 a:hover{}
 a:focus{}
 
+#my .ui-widget.ui-widget-content {
+	border: 2px solid #333;
+}
+#my .ui-widget-content {
+	border: 1px solid #dddddd;
+	background: #f2f5f7;
+	color: #333;
+}
+#my .ui-widget-content a {
+	color: #333;
+}
+
 .wrap{width:70%;margin:0 auto;min-width:1300px;padding:50px 0;
 max-width:1300px;}
 .wrap>h1{text-align: left;}
@@ -45,10 +57,13 @@ background:rgba(0,0,0,0.6) url(image/chracter.png) no-repeat 100% 0;
 background-size: 40% 40%;}
 .title{text-align: center;font-size:1.6rem;}
 .title>span{font-size:1.2rem;}
-.hp{position: fixed;right:0px;top:0px;padding:4px;background:#000;color:#fff;}
+.hp{position: fixed;right:0px;top:0px;padding:4px;background:#2e2e2e;
+color:#fff;}
 .bgm{padding:0 4px;color:#c60606;outline:none;}
 .bgm.on{color:#008040;}
 .bgm>img{vertical-align: middle;padding-right:4px;}
+.hpbd{position: absolute;left:-100%;top:0;width:80%;height:3px;
+background-color: #c60606;}
 
 
 /* 1300 */
@@ -130,13 +145,13 @@ background-color:rgba(0,0,0,0.6);}
 
 </style>
 </head>
-<body>
+<body id='my'>
 <div class='wrap'>
 <h1>웹퍼블리셔/ui개발/엄재환</h1>
 <div class='btn'>
 <a href="#tab1" class='on' data-btn='전체보기'>All</a>
 <a href="#tab2" data-btn='반응형'>반응형</a>
-<a href="#tab3" data-btn='게시판구축형'>게시판구축형</a>
+<a href="#tab3" data-btn='게시판구축형'>게시판구축</a>
 <a href="#tab4" data-btn='기업형'>기업형</a>
 <a href="#tab5" data-btn='특이한 재미있는'>특이한,재미있는</a>
 </div>
@@ -211,7 +226,10 @@ background-color:rgba(0,0,0,0.6);}
 
 
 
-<div class='hp'><a href="#" class='bgm' title='배경음ON/OFF'><img src="image/audio_off.png" alt="배경음버튼">[BGM]</a>H.P:010-5761-5646</div>
+<div class='hp'><a href="#" class='bgm' title='배경음ON/OFF'>
+<img src="image/audio_off.png" alt="배경음버튼">
+[BGM]</a>H.P:010-5761-5646</div>
+<div class='hpbd'>탑보더애니메이션</div>
 </div><!-- wrap -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/voice/responsivevoice.js'></script>
@@ -237,6 +255,7 @@ $('#tab2>a').eq(3).attr({title:'기여도:퍼블리싱100%, 스크립트100%, �
 $('#tab3>a').eq(1).attr({title:'기여도:퍼블리싱100%, 스크립트100%, 디자인50%'})
 $('.tab>a').append('<div class="over"></div>')
 $('<h2 class="title"></h2>').prependTo('.over')
+$('.over').stop().animate({opacity:0,scale:0,rotateX:'180deg'},1000)
 $('.tab').each(function(index){
 $(this).find('a').each(function(index){
 var alt=$(this).find('img').attr('alt')
@@ -251,8 +270,8 @@ var audio=[audio1,audio2,audio3]
 var random=Math.floor(Math.random()*audio.length)
 audio[random].play()
 audio[random].volume=0.3; */
-$('.over').stop().animate({opacity:0},1000)
-$(this).find('.over').stop().animate({opacity:1},400)
+$('.over').stop().animate({opacity:0,scale:0,rotateX:'180deg'},1000)
+$(this).find('.over').stop().animate({opacity:1,scale:1,rotateX:'0deg'},400)
 })
 $(this).on('click',function(){
 responsiveVoice.speak('새창으로 이동',"Korean Female");
@@ -277,7 +296,6 @@ var bgm2=new Audio('music/bgm2.mp3')
 var bgm3=new Audio('music/bgm3.mp3')
 var bgm_All=[bgm1,bgm2,bgm3]
 var random=Math.floor(Math.random()*bgm_All.length)
-console.log(random)
 $('.bgm').on('click',function(){
 var src=$(this).find('img').attr('src')
 if (src=='image/audio_off.png')
@@ -299,7 +317,14 @@ $(this).removeClass('on')
 return false
 })
 
-
+var hpbg1=['#c60606','#bec804','#c77505','#c89204']
+var hpbg2=['#008040','#017e7b','#021e7d','#73037c']
+var hpbd=setInterval(function(){
+var r1=Math.floor(Math.random()*hpbg1.length)
+var r2=Math.floor(Math.random()*hpbg2.length)
+$('.hpbd').css({left:'-100%',backgroundColor:hpbg1[r1],width:'80%'})
+$('.hpbd').stop().animate({left:'100%',backgroundColor:hpbg2[r2],width:'100%'},3000,'linear')
+},4000)
 
 
 
