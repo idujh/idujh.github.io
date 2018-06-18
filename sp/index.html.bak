@@ -236,9 +236,9 @@ background-color:rgba(0,0,0,0.6);}
 
 
 
-<div class='hp'><a href="#" class='bgm bgm1' title='배경음ON/OFF'>
+<div class='hp'><a href="#" class='bgm bgm1' title='배경음ON'>
 <img src="image/audio_off.png" alt="배경음버튼">[BGM]</a>
-<a href="#" class='bgm bgm2' title='배경음ON/OFF'>
+<a href="#" class='bgm bgm2' title='배경음OFF'>
 <img src="image/audio_on.png" alt="배경음버튼">
 [BGM]</a>
 H.P:010-5761-5646</div><!-- hp -->
