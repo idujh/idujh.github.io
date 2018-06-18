@@ -80,7 +80,7 @@ transform: translate(0, -50%);
 -o-transform: translate(0, -50%);
 transform: translate(0, -50%);
 }
-
+.np_btn:hover{background-color:#333;}
 
 
 
@@ -109,7 +109,6 @@ background-color:rgba(0,0,0,0.6);}
 .title>span{font-size:1.2rem;}
 .introtext>li{position: absolute;top:-100px;left:0;right:0;text-align: center;
 font-size:3.0rem;padding-top:14px;color:#ddd;text-shadow: 0 0 5px #333;}
-.np_btn{background-color: #649df2;}
 
 }
 
@@ -411,7 +410,7 @@ $(this).hide()
 var now=1
 var total=$('.btn>a').length
 $('.next').on('click',function(){
-$(this).effect('highlight')
+$(this).effect('highlight',{color:'#5f9ea0'})
 if (now==total)
 {
 	now=0
@@ -421,7 +420,7 @@ $('.btn>a').eq(now-1).click()
 return false
 })
 $('.prev').on('click',function(){
-$(this).effect('highlight')
+$(this).effect('highlight',{color:'#5f9ea0'})
 if (now==0)
 {
 	now=total
