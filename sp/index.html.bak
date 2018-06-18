@@ -42,9 +42,10 @@ a:focus{}
 .wrap{width:70%;margin:0 auto;min-width:1300px;padding:50px 0;
 max-width:1300px;position: relative;}
 .wrap>h1{text-align: left;color:#ddd;}
+.wrap>h1>img{vertical-align: bottom;padding-right:4px;}
 .btn{overflow: hidden;display:inline-block;padding:4px 0;}
 .btn>a{display:block;float:left;padding:4px 10px;outline:none;}
-.btn>a.on{background-color: cadetblue;border-radius:10px;color:#333;}
+.btn>a.on{background-color: cadetblue;border-radius:5px;color:#333;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
 .tab>a{width:19%;display:block;float:left;overflow: hidden;margin-right:1%;
@@ -63,7 +64,7 @@ color:#fff;}
 .bgm.on{color:#008040;}
 .bgm>img{vertical-align: middle;padding-right:4px;}
 .hpbd{position: absolute;left:-100%;top:0;width:80%;height:3px;
-background-color: #c60606;font-size:0;text-indent:-999px;}
+background-color: #c60606;font-size:0;text-indent:-999px;opacity:0.5;}
 .introtext{position: absolute;top:0px;left:0;right:0;text-align: center;}
 .introtext>li{position: absolute;top:-100px;left:0;right:0;text-align: center;
 font-size:4.0rem;padding-top:14px;color:#ddd;text-shadow: 0 0 5px #333;}
@@ -81,7 +82,7 @@ max-width:100%;text-align: center;}
 .wrap>h1{text-align: center;}
 .btn{overflow: hidden;display:inline-block;padding:4px 0;}
 .btn>a{display:block;float:left;padding:4px 10px;}
-.btn>a.on{background-color: cadetblue;border-radius:10px;color:#333;}
+.btn>a.on{background-color: cadetblue;border-radius:5px;color:#333;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
 .tab>a{width:32%;display:block;float:left;overflow: hidden;margin-right:0%;
@@ -107,9 +108,10 @@ background-size: contain;}
 .wrap{width:100%;margin:0 auto;min-width:100%;padding:50px 0;
 max-width:100%;text-align: center;}
 .wrap>h1{text-align: center;font-size:1.6rem;}
+.wrap>h1>img{vertical-align: bottom;padding-right:4px;width:20px;}
 .btn{overflow: hidden;display:inline-block;padding:4px 0;}
 .btn>a{display:block;float:left;padding:4px 6px;font-size:1.2rem;}
-.btn>a.on{background-color: cadetblue;border-radius:10px;color:#333;}
+.btn>a.on{background-color: cadetblue;border-radius:5px;color:#333;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
 .tab>a{width:48.5%;display:block;float:left;overflow: hidden;margin-right:0%;
@@ -135,7 +137,7 @@ max-width:100%;text-align: center;}
 .wrap>h1{text-align: center;font-size:1.6rem;}
 .btn{overflow: hidden;display:inline-block;padding:4px 0;}
 .btn>a{display:block;float:left;padding:2px 4px;font-size:1.1rem;}
-.btn>a.on{background-color: cadetblue;border-radius:10px;color:#333;}
+.btn>a.on{background-color: cadetblue;border-radius:5px;color:#333;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
 .tab>a{width:98%;display:block;float:left;overflow: hidden;margin-right:0%;
@@ -155,7 +157,7 @@ background-color:rgba(0,0,0,0.6);}
 </head>
 <body id='my'>
 <div class='wrap'>
-<h1>웹퍼블리셔/ui개발/엄재환</h1>
+<h1><img src="image/ch1.png" alt="케릭터이미지"></h1>
 <div class='btn'>
 <a href="#tab1" class='on' data-btn='전체보기'>All</a>
 <a href="#tab2" data-btn='반응형'>반응형</a>
@@ -253,6 +255,7 @@ background-color:rgba(0,0,0,0.6);}
 <script src='js/jquery.transit.min.js'></script>
 <script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <script src='js/jquery-ui-1.12.1/jquery-ui.min.js'></script>
+<script src='js/typer.js'></script>
 <script>
 $(document).ready(function(){
 $('body').jpreLoader({
@@ -264,6 +267,19 @@ autoclose:true,
 showPercentage:true,
 closeBtnText:'Start!'
 })
+
+$('.wrap>h1').typer({
+strings: [
+'웹퍼블리셔/ui개발/엄재환','Web Publisher','Cross Browsing','Makeup Development','Responsive Web','Web Standard','Html5/Css3/Js','Ui Developer'
+],
+				typeSpeed: 200, 
+                backspaceSpeed: 20, 
+                backspaceDelay: 10000, 
+                repeatDelay: 1000, 
+                repeat: true, 
+                autoStart: true,
+                startDelay: 1000, 
+});
 
 $('body,html').tooltip();
 $('.tab>a').attr({title:'기여도:퍼블리싱100%, 스크립트100%'})
