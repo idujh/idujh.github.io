@@ -61,8 +61,8 @@ background-size: 40% 40%;}
 .hp{position: fixed;right:0px;top:0px;padding:4px;background:#2e2e2e;
 color:#fff;}
 .bgm{padding:0 4px;color:#c60606;outline:none;}
-.bgm.on{color:#008040;}
 .bgm>img{vertical-align: middle;padding-right:4px;}
+.bgm2{color:#008040;display:none;}
 .hpbd{position: absolute;left:-100%;top:0;width:80%;height:3px;
 background-color: #c60606;font-size:0;text-indent:-999px;opacity:0.5;}
 .introtext{position: absolute;top:0px;left:0;right:0;text-align: center;}
@@ -236,9 +236,12 @@ background-color:rgba(0,0,0,0.6);}
 
 
 
-<div class='hp'><a href="#" class='bgm' title='배경음ON/OFF'>
-<img src="image/audio_off.png" alt="배경음버튼">
-[BGM]</a>H.P:010-5761-5646</div><!-- hp -->
+<div class='hp'><a href="#" class='bgm bgm1' title='배경음ON'>
+<img src="image/audio_off.png" alt="배경음버튼">[BGM]</a>
+<a href="#" class='bgm bgm2' title='배경음OFF'>
+<img src="image/audio_on.png" alt="배경음버튼">
+[BGM]</a>
+H.P:010-5761-5646</div><!-- hp -->
 <ul class='introtext'>
 	<li>Web publisher</li>
 	<li>Cross Browsing</li>
@@ -324,28 +327,36 @@ return false
 })
 })
 
+var sound_on=setInterval(function(){
+$('.bgm2>img').stop().animate({scale:0.9},200,function(){
+$(this).stop().animate({scale:1},200)
+})
+},400)
+
 var bgm1=new Audio('music/bgm1.mp3')
 var bgm2=new Audio('music/bgm2.mp3')
 var bgm3=new Audio('music/bgm3.mp3')
 var bgm_All=[bgm1,bgm2,bgm3]
 var random=Math.floor(Math.random()*bgm_All.length)
+var bgm=true;
 $('.bgm').on('click',function(){
-var src=$(this).find('img').attr('src')
-if (src=='image/audio_off.png')
+if (bgm)
 {
-bgm_All[random].currentTime=0;
+//bgm_All[random].currentTime=0;
 bgm_All[random].play();
 bgm_All[random].volume=1;
 bgm_All[random].loop=true;
-$(this).find('img').attr({src:'image/audio_on.png'})
-$(this).addClass('on')
+$('.bgm1').hide()
+$('.bgm2').show()
+bgm=false;
 }else{
-bgm_All[random].currentTime=0;
+//bgm_All[random].currentTime=0;
 bgm_All[random].pause();
 bgm_All[random].volume=0;
 bgm_All[random].loop=false;
-$(this).find('img').attr({src:'image/audio_off.png'})
-$(this).removeClass('on')
+$('.bgm2').hide()
+$('.bgm1').show()
+bgm=true;
 }
 return false
 })
