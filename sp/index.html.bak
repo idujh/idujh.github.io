@@ -56,7 +56,7 @@ padding-top:33.33%;opacity:0;border: 3px solid orangered;
 background:rgba(0,0,0,0.6) url(image/chracter.png) no-repeat 100% 0;
 -webkit-background-size: 40% 40%;
 background-size: 40% 40%;}
-.title{text-align: center;font-size:1.6rem;position: relative;opacity:0;}
+.title{text-align: center;font-size:1.6rem;position: relative;opacity:0;left:50px;}
 .title>span{font-size:1.2rem;}
 .hp{position: fixed;right:0px;top:0px;padding:4px;background:#2e2e2e;
 color:#fff;}
@@ -68,6 +68,20 @@ background-color: #c60606;font-size:0;text-indent:-999px;opacity:0.5;}
 .introtext{position: absolute;top:0px;left:0;right:0;text-align: center;}
 .introtext>li{position: absolute;top:-100px;left:0;right:0;text-align: center;
 font-size:4.0rem;padding-top:14px;color:#ddd;text-shadow: 0 0 5px #333;}
+.prev{position: fixed;left:0px;top:50%;-webkit-transform: translate(0, -50%);
+-moz-transform: translate(0, -50%);outline:none;padding:13px;
+-ms-transform: translate(0, -50%);
+-o-transform: translate(0, -50%);
+transform: translate(0, -50%);
+}
+.next{position: fixed;right:0px;top:50%;-webkit-transform: translate(0, -50%);
+-moz-transform: translate(0, -50%);outline:none;padding:13px;
+-ms-transform: translate(0, -50%);
+-o-transform: translate(0, -50%);
+transform: translate(0, -50%);
+}
+
+
 
 
 /* 1300 */
@@ -95,6 +109,7 @@ background-color:rgba(0,0,0,0.6);}
 .title>span{font-size:1.2rem;}
 .introtext>li{position: absolute;top:-100px;left:0;right:0;text-align: center;
 font-size:3.0rem;padding-top:14px;color:#ddd;text-shadow: 0 0 5px #333;}
+.np_btn{background-color: #649df2;}
 
 }
 
@@ -252,6 +267,8 @@ H.P:010-5761-5646</div><!-- hp -->
 	<li>Ui Developer</li>
 </ul>
 </div><!-- wrap -->
+<a href="#" class='prev np_btn'><img src="image/prev.png" alt="이전"></a>
+<a href="#" class='next np_btn'><img src="image/next.png" alt="다음"></a>
 <div class='hpbd'>라인애니메이션</div>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/voice/responsivevoice.js'></script>
@@ -307,9 +324,9 @@ var random=Math.floor(Math.random()*audio.length)
 audio[random].play()
 audio[random].volume=0.3; */
 $('.over').stop().animate({opacity:0,scale:0,rotateX:'180deg'},1000)
-$('.title').css({opacity:0,scale:0})
+$('.title').css({opacity:0,left:50})
 $(this).find('.over').stop().animate({opacity:1,scale:1,rotateX:'0deg'},400,function(){
-$(this).find('.title').stop().animate({scale:1,opacity:1})
+$(this).find('.title').stop().animate({left:0,opacity:1})
 })
 })
 $(this).on('click',function(){
@@ -373,11 +390,6 @@ $('.hpbd').css({left:'-100%',backgroundColor:hpbg1[r1],width:'80%'})
 $('.hpbd').stop().animate({left:'100%',backgroundColor:hpbg2[r2],width:'100%'},6000,'linear')
 },7000)
 
-
-
-
-
-
 $(window).on('load',function(){
 responsiveVoice.speak('Welcome to the uhmjaehwan portfolio',"Japanese Female",{volume:0.4});
 var width=$(window).width()
@@ -395,6 +407,36 @@ $(this).hide()
 })
 }
 })
+
+var now=1
+var total=$('.btn>a').length
+$('.next').on('click',function(){
+$(this).effect('highlight')
+if (now==total)
+{
+	now=0
+}
+now++
+$('.btn>a').eq(now-1).click()
+return false
+})
+$('.prev').on('click',function(){
+$(this).effect('highlight')
+if (now==0)
+{
+	now=total
+}
+now--
+$('.btn>a').eq(now-1).click()
+return false
+})
+
+
+
+
+
+
+
 
 })//readey
 </script>
