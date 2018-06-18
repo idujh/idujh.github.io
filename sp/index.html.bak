@@ -236,8 +236,7 @@ background-color:rgba(0,0,0,0.6);}
 
 <div class='hp'><a href="#" class='bgm' title='배경음ON/OFF'>
 <img src="image/audio_off.png" alt="배경음버튼">
-[BGM]</a>H.P:010-5761-5646</div>
-<div class='hpbd'>탑보더애니메이션</div>
+[BGM]</a>H.P:010-5761-5646</div><!-- hp -->
 <ul class='introtext'>
 	<li>Web publisher</li>
 	<li>Cross Browsing</li>
@@ -248,6 +247,7 @@ background-color:rgba(0,0,0,0.6);}
 	<li>Ui Developer</li>
 </ul>
 </div><!-- wrap -->
+<div class='hpbd'>라인애니메이션</div>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src='js/voice/responsivevoice.js'></script>
 <script src='js/jquery.transit.min.js'></script>
@@ -341,7 +341,7 @@ var r1=Math.floor(Math.random()*hpbg1.length)
 var r2=Math.floor(Math.random()*hpbg2.length)
 $('.hpbd').css({left:'-100%',backgroundColor:hpbg1[r1],width:'80%'})
 $('.hpbd').stop().animate({left:'100%',backgroundColor:hpbg2[r2],width:'100%'},6000,'linear')
-},6000)
+},7000)
 
 
 
