@@ -17,7 +17,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:62.5%;}
 body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#fff;
-background:url(image/elegant-black-background-10.jpg) 50% 0 no-repeat;
+background:#050505 url(image/elegant-black-background-10.jpg) 50% 0 no-repeat;
 overflow-y: scroll;overflow-x: hidden;
 -webkit-background-size: cover;
 background-size: cover;}
@@ -41,7 +41,7 @@ a:focus{}
 
 .wrap{width:70%;margin:0 auto;min-width:1300px;padding:50px 0;
 max-width:1300px;position: relative;}
-.wrap>h1{text-align: left;color:#ddd;}
+.wrap>h1{text-align: left;color:#ddd;font-weight:600;}
 .wrap>h1>img{vertical-align: bottom;padding-right:4px;}
 .btn{overflow: hidden;display:inline-block;padding:4px 0;}
 .btn>a{display:block;float:left;padding:4px 10px;outline:none;}
