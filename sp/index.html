@@ -56,7 +56,7 @@ padding-top:33.33%;opacity:0;border: 3px solid orangered;
 background:rgba(0,0,0,0.6) url(image/chracter.png) no-repeat 100% 0;
 -webkit-background-size: 40% 40%;
 background-size: 40% 40%;}
-.title{text-align: center;font-size:1.6rem;position: relative;display:none;}
+.title{text-align: center;font-size:1.6rem;position: relative;opacity:0;left:50px;}
 .title>span{font-size:1.2rem;}
 .hp{position: fixed;right:0px;top:0px;padding:4px;background:#2e2e2e;
 color:#fff;}
@@ -307,9 +307,9 @@ var random=Math.floor(Math.random()*audio.length)
 audio[random].play()
 audio[random].volume=0.3; */
 $('.over').stop().animate({opacity:0,scale:0,rotateX:'180deg'},1000)
-$('.title').hide()
+$('.title').css({opacity:0,left:50})
 $(this).find('.over').stop().animate({opacity:1,scale:1,rotateX:'0deg'},400,function(){
-$(this).find('.title').show('puff')
+$(this).find('.title').stop().animate({left:0,opacity:1})
 })
 })
 $(this).on('click',function(){
