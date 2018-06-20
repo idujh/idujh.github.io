@@ -8,10 +8,10 @@
 
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <link rel="shortcut icon" href="image/favicon.ico">
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
-<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
-<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
 
 <style>
 @import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
@@ -43,8 +43,11 @@ a:focus{}
 max-width:1300px;position: relative;}
 .wrap>h1{text-align: left;color:#ddd;font-weight:600;}
 .wrap>h1>img{vertical-align: bottom;padding-right:4px;}
-.btn{overflow: hidden;display:inline-block;padding:4px 0;}
-.btn>a{display:block;float:left;padding:4px 10px;outline:none;}
+.btn{overflow: hidden;display:inline-block;padding:4px 0;position: relative;}
+.btnbd{position: absolute;left:0;top:0;background-color: cadetblue;
+border-radius:5px;width:0;height:0;opacity:0;}
+.btn>a{display:block;float:left;padding:4px 10px;outline:none;position: relative;
+z-index:1;}
 .btn>a.on{background-color: cadetblue;border-radius:5px;color:#333;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
@@ -172,7 +175,7 @@ background-color:rgba(0,0,0,0.6);}
 <body id='my'>
 <div class='wrap'>
 <h1><img src="image/ch1.png" alt="케릭터이미지"></h1>
-<div class='btn'>
+<div class='btn'><div class='btnbd'></div>
 <a href="#tab1" class='on' data-btn='전체보기'>All</a>
 <a href="#tab2" data-btn='반응형'>반응형</a>
 <a href="#tab3" data-btn='게시판구축형'>게시판구축</a>
@@ -269,12 +272,16 @@ H.P:010-5761-5646</div><!-- hp -->
 <a href="#" class='prev np_btn'><img src="image/prev.png" alt="이전"></a>
 <a href="#" class='next np_btn'><img src="image/next.png" alt="다음"></a>
 <div class='hpbd'>라인애니메이션</div>
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+<link rel="stylesheet" href="js/jQuery-Plugin-To-Animate-Borders-Using-CSS3-Live-Border/live-border.css">
 <script src='js/voice/responsivevoice.js'></script>
 <script src='js/jquery.transit.min.js'></script>
-<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <script src='js/jquery-ui-1.12.1/jquery-ui.min.js'></script>
 <script src='js/typer.js'></script>
+<script src='js/jQuery-Plugin-To-Animate-Borders-Using-CSS3-Live-Border/live-border.js'></script>
 <script>
 $(document).ready(function(){
 $('body').jpreLoader({
@@ -298,6 +305,13 @@ strings: [
                 repeat: true, 
                 autoStart: true,
                 startDelay: 1000, 
+});
+
+$('.bgm2').liveBorder({
+top:true,
+bottom:true,
+left:true,
+right:true
 });
 
 $('body,html').tooltip();
@@ -344,6 +358,16 @@ $('.tab').hide(400)
 $('.tab').eq(index).show(800)
 return false
 })
+$(this).on('mouseenter focus',function(){
+var bw=$(this).outerWidth()
+var bh=$(this).outerHeight()
+var pos=$(this).position()
+$('.btnbd').stop().animate({width:bw,height:bh,left:pos.left,top:pos.top,opacity:1})
+})
+})
+
+$('.btn').on('mouseleave blur',function(){
+$('.btnbd').stop().animate({opacity:0})
 })
 
 var sound_on=setInterval(function(){
