@@ -80,7 +80,7 @@ transform: translate(0, -50%);
 -o-transform: translate(0, -50%);
 transform: translate(0, -50%);
 }
-.np_btn:hover{background-color:#333;}
+.np_btn:hover{background-color:#1f1f1f;}
 
 
 
@@ -340,8 +340,9 @@ var databtn=$(this).attr('data-btn')
 responsiveVoice.speak(databtn,"Korean Female");
 $('.btn>a').removeClass('on')
 $(this).addClass('on')
-$('.tab').hide()
-$('.tab').eq(index).show(400)
+$('.tab').hide('fade',400,function(){
+$('.tab').eq(index).show('fade',600)
+})
 return false
 })
 })
