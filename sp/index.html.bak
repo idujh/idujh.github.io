@@ -8,11 +8,10 @@
 
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <link rel="shortcut icon" href="image/favicon.ico">
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
-<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
-<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
-<link rel="stylesheet" href="js/jQuery-Plugin-To-Animate-Borders-Using-CSS3-Live-Border/live-border.css">
 
 <style>
 @import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
@@ -273,8 +272,11 @@ H.P:010-5761-5646</div><!-- hp -->
 <a href="#" class='prev np_btn'><img src="image/prev.png" alt="이전"></a>
 <a href="#" class='next np_btn'><img src="image/next.png" alt="다음"></a>
 <div class='hpbd'>라인애니메이션</div>
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
+
+
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
+<link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+<link rel="stylesheet" href="js/jQuery-Plugin-To-Animate-Borders-Using-CSS3-Live-Border/live-border.css">
 <script src='js/voice/responsivevoice.js'></script>
 <script src='js/jquery.transit.min.js'></script>
 <script src='js/jquery-ui-1.12.1/jquery-ui.min.js'></script>
