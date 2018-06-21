@@ -370,12 +370,6 @@ $('.btn').on('mouseleave blur',function(){
 $('.btnbd').stop().animate({opacity:0})
 })
 
-var sound_on=setInterval(function(){
-$('.bgm2>img').stop().animate({scale:0.9},200,function(){
-$(this).stop().animate({scale:1},200)
-})
-},400)
-
 var bgm1=new Audio('music/bgm1.mp3')
 var bgm2=new Audio('music/bgm2.mp3')
 var bgm3=new Audio('music/bgm3.mp3')

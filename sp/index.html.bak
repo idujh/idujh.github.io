@@ -8,7 +8,7 @@
 
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
-<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-latest.min.js"></script>
 <script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <link rel="shortcut icon" href="image/favicon.ico">
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
@@ -371,7 +371,7 @@ $('.btnbd').stop().animate({opacity:0})
 })
 
 var sound_on=setInterval(function(){
-$('.bgm2>img').stop().animate({scale:0.9},200,function(){
+$('.bgm2>img').stop().animate({scale:0.95},200,function(){
 $(this).stop().animate({scale:1},200)
 })
 },400)

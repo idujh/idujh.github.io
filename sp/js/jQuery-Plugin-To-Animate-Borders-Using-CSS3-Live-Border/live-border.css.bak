@@ -6,12 +6,12 @@
 
 .live-border .border {
     position: absolute;
-    background: rgb(68, 119, 255);
+    background: #008040;
     overflow: hidden;
 }
 
 .live-border .border.top {
-    height: 3px;
+    height: 2px;
     width: 100%;
     top: 0px;
     left: 0px;
@@ -19,13 +19,13 @@
 
 .live-border .border.right {
     height: 100%;
-    width: 3px;
+    width: 2px;
     top: 0px;
     right: 0px;
 }
 
 .live-border .border.bottom {
-    height: 3px;
+    height: 2px;
     width: 100%;
     bottom: 0px;
     left: 0px;
@@ -33,7 +33,7 @@
 
 .live-border .border.left {
     height: 100%;
-    width: 3px;
+    width: 2px;
     top: 0px;
     left: 0px;
 }
