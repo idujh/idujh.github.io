@@ -8,7 +8,7 @@
 
 <title>웹퍼블리셔/ui개발/엄재환</title>
 
-<script src="js/jquery-latest.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
 <script src='js/jpreloader-v2/js/jpreloader.min.js'></script>
 <link rel="shortcut icon" href="image/favicon.ico">
 <link rel="stylesheet" href="js/jpreloader-v2/css/jpreloader.css">
@@ -19,8 +19,7 @@
 html{font-size:62.5%;}
 body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#fff;
 background:#050505 url(image/elegant-black-background-10.jpg) 50% 0 no-repeat;overflow-y: scroll;overflow-x: hidden;
--webkit-background-size: cover;
-background-size: cover;}
+background-attachment:fixed;}
 li{list-style:none;}
 a{text-decoration:none;color:#fff;}
 img{vertical-align: top;border:none;max-width:100%;}
