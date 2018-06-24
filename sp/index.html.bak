@@ -19,7 +19,8 @@
 html{font-size:62.5%;}
 body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#fff;
 background:#050505 url(image/elegant-black-background-10.jpg) 50% 0 no-repeat;overflow-y: scroll;overflow-x: hidden;
-background-attachment:fixed;}
+-webkit-background-size: cover;background-attachment:fixed;
+background-size: cover;}
 li{list-style:none;}
 a{text-decoration:none;color:#fff;}
 img{vertical-align: top;border:none;max-width:100%;}
@@ -48,6 +49,13 @@ border-radius:5px;width:0;height:0;opacity:0;}
 .btn>a{display:block;float:left;padding:4px 10px;outline:none;position: relative;
 z-index:1;}
 .btn>a.on{background-color: cadetblue;border-radius:5px;color:#333;}
+.mask{position: relative;overflow: hidden;width:99%;}
+.slide{position: relative;width:999999px;overflow: hidden;}
+.slide>a{display:block;width:160px;float:left;color:#ddd;font-size:1.2rem;
+text-align: center;padding:10px 0;outline:none;background-color: #333;
+border: 1px solid transparent;}
+.slide>a:hover{text-shadow:0 0 5px yellow;}
+.slide>a:focus{text-shadow:0 0 5px yellow;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
 .tab>a{width:19%;display:block;float:left;overflow: hidden;margin-right:1%;
@@ -186,6 +194,8 @@ background-color:rgba(0,0,0,0.6);}
 <a href="#tab5" data-btn='특이한 재미있는'>특이한,재미있는</a>
 </div>
 
+<div class='mask'><div class='slide'></div></div>
+
 <div class='box'>
 <div id='tab1' class='tab'>
 <a href="http://idujh.dothome.co.kr/musicisland/" target='_black' data-speak='뮤직아일랜드'><img src="image/music.jpg" alt="Musicisland(반응형)"></a>
@@ -275,7 +285,7 @@ H.P:010-5761-5646</div><!-- hp -->
 <a href="#" class='prev np_btn'><img src="image/prev.png" alt="이전"></a>
 <a href="#" class='next np_btn'><img src="image/next.png" alt="다음"></a>
 <div class='hpbd'>라인애니메이션</div>
-<strong class='move_text'>ddd</strong>
+<strong class='move_text'>클릭이벤트</strong>
 
 
 <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
@@ -454,6 +464,41 @@ if (now==0)
 now--
 $('.btn>a').eq(now-1).click()
 return false
+})
+
+$('#tab1>a').each(function(index){
+var href=$(this).attr('href')
+var alt=$(this).find('img').attr('alt')
+var title=$(this).attr('data-speak')
+$('<a href='+href+'></a>').appendTo('.slide')
+$('.slide>a').eq(index).html(alt).attr({target:'_blank',title:title+' 새창으로 이동'})
+})
+
+/* $('.slide').bxSlider({
+  ticker: true,
+  minSlides: 8,
+  maxSlides: 8,
+  slideWidth: 160,
+  speed: 60000,
+}); */
+
+var slide=setInterval(function(){
+$('.slide>a').first().appendTo('.slide')
+$('.slide').css({left:0})
+$('.slide').stop().animate({left:'-=160'},5000,'linear')
+},5000)
+
+$('.slide').on('mouseenter focus',function(){
+clearInterval(slide)
+})
+
+$('.slide').on('mouseleave blur',function(){
+clearInterval(slide)
+var slide=setInterval(function(){
+$('.slide>a').first().appendTo('.slide')
+$('.slide').css({left:0})
+$('.slide').stop().animate({left:'-=160'},5000,'linear')
+},5000)
 })
 
 
