@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<!-- IE 브라우져 최신버젼 렌더링 모드 오류를 최대로 줄여줄수 있음. -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Document</title>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src='js/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function(){
+$(window).on('load resize',function(){
+var w=$(window).width()
+var h=$(window).height()
+var hl=$('.header_leftbg').height()
+$('.header_inner').outerHeight(hl)
+$('.slide>li').css({width:w,height:h,backgroundSize:'cover'})
+})
+
+var allmenu=true;
+$('.allmenu').on('click',function(){
+if (allmenu)
+{
+$('.header_inner').addClass('on',600)
+$('.header_leftbg').stop().animate({left:0}).show()
+$('.header_rightbg').stop().animate({right:0}).show()
+$('.header_inner h1>a').addClass('on')
+$('.gnb>li>ul').slideDown()
+$('.gnb>li>a').css({color:'#333'})
+$(this).css({color:'#e2211c'})
+$('.language').addClass('on')
+$('.allmenu').addClass('on')
+allmenu=false;
+}else{
+$('.header_inner').removeClass('on',600)
+$('.header_leftbg').stop().animate({left:-50}).hide()
+$('.header_rightbg').stop().animate({right:-50}).hide()
+$('.header_inner h1>a').removeClass('on')
+$('.gnb>li>ul').slideUp()
+$('.gnb>li>a').css({color:'#fff'})
+$('.language').removeClass('on')
+$('.allmenu').removeClass('on')
+allmenu=true;
+}
+})
+
+$('.gnb>li>a').on('mouseenter focus',function(){
+$('.header_inner').addClass('on',600)
+$('.header_leftbg').stop().animate({left:0}).show()
+$('.header_rightbg').stop().animate({right:0}).show()
+$('.header_inner h1>a').addClass('on')
+$('.gnb>li>ul').slideDown()
+$('.gnb>li>a').css({color:'#333'})
+$(this).css({color:'#e2211c'})
+$('.language').addClass('on')
+$('.allmenu').addClass('on')
+allmenu=false;
+})
+
+$('.gnb>li>a').on('mouseleave blur',function(){
+$(this).css({color:'#333'})
+})
+
+$('.gnb>li>ul>li>a').on('mouseenter focus',function(){
+$(this).addClass('on')
+})
+
+$('.gnb>li>ul>li>a').on('mouseleave blur',function(){
+$(this).removeClass('on')
+})
+
+$('.header_inner').on('mouseleave blur',function(){
+$('.header_inner').removeClass('on',600)
+$('.header_leftbg').stop().animate({left:-50}).hide()
+$('.header_rightbg').stop().animate({right:-50}).hide()
+$('.header_inner h1>a').removeClass('on')
+$('.gnb>li>ul').slideUp()
+$('.gnb>li>a').css({color:'#fff'})
+$('.language').removeClass('on')
+$('.allmenu').removeClass('on')
+allmenu=true;
+})
+
+var now=1
+var total=$('.slide>li').length
+var slide=setInterval(function(){
+if (now==total)
+{
+	now=0
+}
+now++
+$('.slide>li').eq(now-2).css({zIndex:0})
+$('.slide>li').eq(now-2).stop().animate({left:'-100%'},3000,function(){
+$(this).css({left:'100%'})
+})
+$('.slide>li').eq(now-1).css({zIndex:1})
+$('.slide>li').eq(now-1).stop().animate({left:0},1000)
+$('.pager>a').removeClass('on')
+$('.pager>a').eq(now-1).addClass('on')
+},8000)
+
+$('.slidebg').css({opacity:0})
+$(window).on('scroll',function(){
+var dh=$(document).height()
+var wh=$(window).height()
+var sum=dh-wh
+var top=$(window).scrollTop()
+var opacity=(top/sum)*0.9
+$('.slidebg').css({opacity:opacity})
+})
+
+$(window).on('load resize',function(){
+var pos=$('.news').offset()
+var wh=$(window).height()
+var sum=pos.top-wh
+$(window).on('scroll',function(){
+var top=$(window).scrollTop()
+if (top>=sum)
+{
+$('.topbtn').stop().fadeIn()
+$('.scroll>img').css({opacity:0})
+}else{
+$('.topbtn').stop().fadeOut()
+$('.scroll>img').css({opacity:1})
+}
+})
+})
+
+$('.topbtn').on('click',function(){
+$('body,html').stop().animate({scrollTop:0})
+return false
+})
+
+$('.business_list>li>a').on('mouseenter focus',function(){
+$('.business_highlight').removeClass('on')
+$(this).find('.business_highlight').addClass('on')
+})
+
+
+
+
+
+
+
+
+
+
+})//
+</script>
+<style>
+@import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:62.5%;}
+body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{vertical-align: top;border:none;max-width:100%;}
+a:hover{}
+a:focus{}
+
+.wrap{max-width:1920px;margin:0 auto;}
+.header{position: absolute;left:0;top:0;right:0;z-index:10;
+padding:30px 20px 0 20px;}
+.header_inner{max-width:1300px;margin:0 auto;padding:20px 40px;
+position: relative;}
+.header_inner.on{background-color: #fff;}
+.header_inner::after{clear:both;content:'';display:block;}
+.header_inner h1{float:left;}
+.header_inner h1>a{display:block;background:url(image/logo.png) 0 0 no-repeat;
+width:150px;height:32px;font-size:0;text-indent:-999px;}
+.header_inner h1>a.on{background-position: -220px 0;
+position: relative;z-index:1;}
+.header_nav{float:right;}
+.gnb{float:left;}
+.gnb>li{float:left;position: relative;}
+.gnb>li>a{display:block;font-size:1.6rem;color:#fff;padding:0 30px;position: relative;z-index:1;}
+.gnb>li>a.on1{color:#333;}
+.gnb>li>a.on2{color:#e2211c;}
+.gnb>li:not(:last-child)>a::after{content:'|';position: absolute;right:-2px;
+color:#c2c2c2;}
+.gnb>li>ul{width:100%;text-align: center;display:none;padding-top:20px;}
+.gnb>li>ul>li>a{display:block;padding:4px 0;color:#666;}
+.gnb>li>ul>li>a.on{color:#e2211c;}
+.language{float:left;font-size:0;text-indent:-999px;display:block;width:47px;
+height:32px;background:url(image/language_btn.png) 0 0 no-repeat;
+position: relative;z-index:1;}
+.language.on{background-position: -47px 0;}
+.allmenu{float:left;font-size:0;text-indent:-999px;display:block;width:31px;height:32px;background:url(image/all_view.png) 0 0 no-repeat;margin-left:3px;
+position: relative;z-index:1;}
+.allmenu.on{background-position: -31px 0;}
+.header_leftbg{position: absolute;left:-50px;top:0;display:none;z-index:0;}
+.header_rightbg{position: absolute;right:-50px;bottom:0;display:none;
+z-index:0;}
+.mask{position: fixed;left:0;right:0;top:0;bottom:0;}
+.slidebg{position: absolute;left:0;top:0;right:0;bottom:0;background-color: #000;
+z-index:2;opacity:0;}
+.slide{}
+.slide>li{position: absolute;-webkit-background-size: cover;
+background-size: cover;}
+#slide1{background:url(image/visual07.jpg) 80% 50% no-repeat;}
+#slide2{background:url(image/visual08.jpg) 70% 50% no-repeat;left:100%;}
+#slide3{background:url(image/visual09.jpg) 80% 50% no-repeat;left:100%;}
+.pager{position: absolute;bottom:100px;text-align: center;left:0;right:0;z-index:1;}
+.pager>a{display:inline-block;width:50px;height:2px;margin-right:2px;
+background-color: #fff;}
+.pager>a.on{background-color: #e2211c;}
+.content{position: absolute;top:100%;left:0;right:0;}
+.topbtn{position: fixed;right:40px;bottom:40px;z-index:1;display:none;}
+.content_inner{max-width:1300px;margin:0 auto;background-color: #fff;
+position: relative;padding-bottom:60px;}
+.scroll{background-color: #fff;position: relative;top:-37px;text-align: center;}
+.scroll>img{position: relative;top:-17px;}
+.news{padding:0 10%;overflow: hidden;}
+.news>h2{width:15%;float:left;font-weight:600;}
+.news>h2>span{display:block;}
+.news>h2>a{display:block;width:23px;height:23px;margin-top:23px;font-size:0;
+background:url(image/more_btn.png) 0 -23px no-repeat;text-indent:-999px;}
+.news>h2>a:hover{background-position: 0 0;}
+.news_list{float:left;width:85%;}
+.news_list>li{float:left;width:33.33%;}
+.news_list>li>a{display:block;padding:2% 10% 10%;}
+.news_list>li:not(:last-child)>a{border-right:1px solid #ddd;}
+.text_wrap{}
+.text_wrap>h3{font-size:1.8rem;font-weight:400;}
+.text_wrap>p{color:#888;padding-top:15%;}
+.text_wrap>span{color:#888;padding-top:10%;display:block;font-size:1.2rem;}
+.business{margin-top:5%;}
+.business_list{overflow: hidden;}
+.business_list>li{float:left;width:25%;}
+.business_list>li>a{display:block;position: relative;}
+.business_list>li>a>img{width:100%;}
+.business_highlight{position: absolute;left:0;top:0;right:0;bottom:0;
+background-color: #000;opacity:0;}
+.business_highlight.on{opacity:0.5;}
+.business_text{position: absolute;width:100%;height:100%;
+left:0;top:0;display:table;}
+.business_text_inner{display:table-cell;vertical-align: middle;text-align: center;
+color:#fff;}
+.business_text_inner>h3{font-size:2.4rem;font-weight:400;}
+.business_stroke{width:30px;height:2px;background-color: #fff;margin:5% auto;}
+.business_text_inner>p{font-size:1.6rem;}
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='header'>
+<div class='header_inner'>
+<h1><a href="#">로고</a></h1>
+<div class='header_nav'>
+<ul class='gnb'>
+	<li><a href="#">회사소개</a>
+	<ul>
+		<li><a href="#">CEO인사말</a></li>
+		<li><a href="#">가치체계</a></li>
+		<li><a href="#">주요연혁</a></li>
+		<li><a href="#">CI</a></li>
+		<li><a href="#">해외법인</a></li>
+		<li><a href="#">계열사</a></li>
+		<li><a href="#">찾아오시는길</a></li>
+	</ul>
+	</li>
+	<li><a href="#">사업분야</a>
+	<ul>
+		<li><a href="#">디지털음향</a></li>
+		<li><a href="#">어쿠스틱피아노</a></li>
+		<li><a href="#">관현악기</a></li>
+		<li><a href="#">CMS사업</a></li>
+	</ul>
+	</li>
+	<li><a href="#">커뮤니케이션</a>
+	<ul>
+		<li><a href="#">직영쇼핑몰</a></li>
+		<li><a href="#">온라인네트워크</a></li>
+		<li><a href="#">고객서비스</a></li>
+		<li><a href="#">HDC영창콩쿠르</a></li>
+		<li><a href="#">사회공헌</a></li>
+	</ul>
+	</li>
+	<li><a href="#">뉴스룸</a></li>
+</ul>
+<a href="#" class='language'>ENG</a>
+<a href="#" class='allmenu'>전체열기/닫기</a>
+</div><!-- header_nav -->
+<div class='header_leftbg'><img src="image/header_bg_left.png" alt="좌측배경"></div>
+<div class='header_rightbg'><img src="image/header_bg_right.png" alt="우측배경"></div>
+</div><!-- header_inner -->
+</div><!-- header -->
+<div class='mask'>
+<div class='slidebg'></div>
+<ul class='slide'>
+	<li id='slide1'></li>
+	<li id='slide2'></li>
+	<li id='slide3'></li>
+</ul>
+<div class='pager'>
+<a href="#" class='on'></a>
+<a href="#"></a>
+<a href="#"></a>
+</div><!-- pager -->
+</div><!-- mask -->
+<div class='content'>
+<a href="#" class='topbtn'><img src="image/top_btn.gif" alt="탑버튼"></a>
+<div class='content_inner'>
+<div class='scroll'><img src="image/scroll_downm.png" alt="스크롤다운"></div>
+<div class='news'>
+<h2><span>뉴스룸</span><a href="#">더보기</a></h2>
+<ul class='news_list'>
+	<li><a href="#">
+	<div class='text_wrap'>
+	<h3>14년 비공개 후원한 메이크어위시 우수후원사 선정</h3>
+	<p>종합문화업체 HDC영창(대표:현계흥)이 국제 비영리단체인 메이크어위...</p>
+	<span>2018.06.26&middot;보도자료</span>
+	</div>
+	</a></li>
+	<li><a href="#">
+	<div class='text_wrap'>
+	<h3>HDC영창, 美실버스테인 판매로 악기 부속품 시장 진출</h3>
+	<p>HDC영창, 美 실버스테인 판매로 악기 부속품 시장 진출- 관악기 부속...</p>
+	<span>2018.06.15&middot;보도자료</span>
+	</div>
+	</a></li>
+	<li><a href="#">
+	<div class='text_wrap'>
+	<h3>HDC영창, 한, 중 2개국 참가, 국제 장학 콩쿠르</h3>
+	<p>국내 대표문화기업인 HDC영창(대표이사 현계흥)이 국내최대 장학금을...</p>
+	<span>2018.05.29&middot;보도자료</span>
+	</div>
+	</a></li>
+</ul>
+</div><!-- news -->
+<div class='business'>
+<ul class='business_list'>
+	<li><a href="#"><img src="image/business_visual01.jpg" alt="디지털음향">
+	<div class='business_highlight'></div>
+	<div class='business_text'>
+	<div class='business_text_inner'>
+	<h3>디지털 음향</h3>
+	<div class='business_stroke'></div>
+	<p>글로벌 디지털 사운드 전문기업</p>
+	</div>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="image/business_visual02.jpg" alt="어쿠스틱피아노">
+	<div class='business_highlight'></div>
+	<div class='business_text'>
+	<div class='business_text_inner'>
+	<h3>어쿠스틱 피아노</h3>
+	<div class='business_stroke'></div>
+	<p>변치 않는 아름다운 소리</p>
+	</div>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="image/business_visual03.jpg" alt="관현악기">
+	<div class='business_highlight'></div>
+	<div class='business_text'>
+	<div class='business_text_inner'>
+	<h3>관현악기</h3>
+	<div class='business_stroke'></div>
+	<p>우수한 디자인과<br>편안하고 매력적인 사운드</p>
+	</div>
+	</div>
+	</a></li>
+	<li><a href="#"><img src="image/business_visual04.jpg" alt="CMS사업">
+	<div class='business_highlight'></div>
+	<div class='business_text'>
+	<div class='business_text_inner'>
+	<h3>관현악기</h3>
+	<div class='business_stroke'></div>
+	<p>차별화된 소재와 쾌적한 삶에<br>대한 끊임없는 연구</p>
+	</div>
+	</div>
+	</a></li>
+</ul>
+</div><!-- business -->
+
+</div><!-- content_inner -->
+</div><!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- wrap -->
+</body>
+</html>

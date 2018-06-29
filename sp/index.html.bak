@@ -60,6 +60,7 @@ border: 1px solid transparent;}
 .tab{overflow: hidden;display:none;position: relative;}
 .tab>a{width:19%;display:block;float:left;overflow: hidden;margin-right:1%;
 outline:none;position: relative;margin-bottom:1%;}
+.tab>a:nth-child(5n+5){border: 3px solid red;}
 #tab1{display:block;}
 .over{position: absolute;left:0;top:0;width:100%;height:100%;
 padding-top:33.33%;opacity:0;border: 3px solid orangered;
@@ -494,7 +495,7 @@ clearInterval(slide)
 
 $('.slide').on('mouseleave blur',function(){
 clearInterval(slide)
-var slide=setInterval(function(){
+slide=setInterval(function(){
 $('.slide>a').first().appendTo('.slide')
 $('.slide').css({left:0})
 $('.slide').stop().animate({left:'-=160'},5000,'linear')
