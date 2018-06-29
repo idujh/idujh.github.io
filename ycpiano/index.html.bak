@@ -135,8 +135,8 @@ return false
 })
 
 $('.business_list>li>a').on('mouseenter focus',function(){
-$('.business_highlight').removeClass('on',400)
-$(this).find('.business_highlight').addClass('on',600)
+$('.business_highlight').removeClass('on')
+$(this).find('.business_highlight').addClass('on')
 })
 
 
@@ -207,7 +207,7 @@ background-size: cover;}
 .pager>a{display:inline-block;width:50px;height:2px;margin-right:2px;
 background-color: #fff;}
 .pager>a.on{background-color: #e2211c;}
-.content{position: absolute;top:100%;left:0;right:0;}
+.content{position: absolute;top:100%;left:0;right:0;z-index:2;}
 .topbtn{position: fixed;right:40px;bottom:40px;z-index:1;display:none;}
 .content_inner{max-width:1300px;margin:0 auto;background-color: #fff;
 position: relative;padding-bottom:60px;}
