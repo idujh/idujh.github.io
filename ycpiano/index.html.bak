@@ -1144,7 +1144,7 @@ $('.scroll>img').css({opacity:1})
 })
 
 $('.topbtn').on('click',function(){
-$('body,html').stop().animate({scrollTop:0},1000)
+$('body,html').stop().animate({scrollTop:0},800)
 return false
 })
 
