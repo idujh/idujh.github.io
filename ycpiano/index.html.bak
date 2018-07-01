@@ -84,8 +84,10 @@ $('.allmenu').removeClass('on')
 allmenu=true;
 })
 
+
 var now=1
 var total=$('.slide>li').length
+$(window).on('load',function(){
 var slide=setInterval(function(){
 if (now==total)
 {
@@ -101,6 +103,7 @@ $('.slide>li').eq(now-1).stop().animate({left:0},1000)
 $('.pager>a').removeClass('on')
 $('.pager>a').eq(now-1).addClass('on')
 },8000)
+})
 
 $('.slidebg').css({opacity:0})
 $(window).on('scroll',function(){
@@ -188,7 +191,8 @@ hdc=true;
 @import url(https://cdn.jsdelivr.net/font-notosans-kr/1.0.0-v1004/NotoSansKR-2350.css);
 *{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:62.5%;}
-body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;}
+body{font-family:'NotoSansKR',sans-serif;font-size:1.4em;color:#333;
+background-color: #000;}
 li{list-style:none;}
 a{text-decoration:none;color:#333;}
 img{vertical-align: top;border:none;max-width:100%;}
@@ -290,8 +294,8 @@ transform: translate(-50%, -50%);}
 .movie_section>a:last-child{display:block;float:right;width:50%;}
 .movie_section>a:last-child>img{border:1px solid #dcdcdc;border-top:none;}
 .footer_section{}
-.footer_section_top{padding:2% 16% 1%;background:url(image/footer.gif) 0 0 no-repeat;-webkit-background-size: contain;
-background-size: contain;}
+.footer_section_top{padding:2% 16% 1%;background:url(image/footer.gif) 0 0 no-repeat;-webkit-background-size: cover;
+background-size: cover;}
 .footer_section_top::after{content:'';clear:both;display:block;}
 .fleft{float:left;}
 .fleft_nav>a{color:#555555;}
