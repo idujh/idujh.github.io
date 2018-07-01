@@ -58,9 +58,8 @@ border: 1px solid transparent;}
 .slide>a:focus{text-shadow:0 0 5px yellow;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
-.tab>a{width:19%;display:block;float:left;overflow: hidden;margin-right:1%;
+.tab>a{width:24%;display:block;float:left;overflow: hidden;margin-right:1%;
 outline:none;position: relative;margin-bottom:1%;}
-.tab>a:nth-child(5n+5){border: 3px solid red;}
 #tab1{display:block;}
 .over{position: absolute;left:0;top:0;width:100%;height:100%;
 padding-top:33.33%;opacity:0;border: 3px solid orangered;
@@ -218,6 +217,7 @@ background-color:rgba(0,0,0,0.6);}
 <a href="http://idujh86.dothome.co.kr/asaweb1/" target='_black' data-speak='아사웹1'><img src="image/asaweb1.jpg" alt="Asaweb(일반)"></a>
 <a href="http://idujh86.dothome.co.kr/asaweb/" target='_black' data-speak='아사웹2'><img src="image/asaweb2.jpg" alt="Asaweb(게시판)"></a>
 <a href="http://idujh.dothome.co.kr/hurom/" target='_black' data-speak='휴롬'><img src="image/hurom.jpg" alt="Hurom(반응형)"></a>
+<a href="https://idujh.github.io/ycpiano/" target='_black' data-speak='영창피아노'><img src="image/ycpiano.jpg" alt="Ycpiano(반응형)"></a>
 </div><!-- tab1 -->
 
 <div id='tab2' class='tab'>
@@ -227,6 +227,7 @@ background-color:rgba(0,0,0,0.6);}
 <a href="http://idujh8668.dothome.co.kr/" target='_black' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
 <a href="https://idujh.github.io/blank/" target='_black' data-speak='블랭크코퍼레이션'><img src="image/blank.jpg" alt="Blank(반응형)"></a>
 <a href="http://idujh.dothome.co.kr/hurom/" target='_black' data-speak='휴롬'><img src="image/hurom.jpg" alt="Hurom(반응형)"></a>
+<a href="https://idujh.github.io/ycpiano/" target='_black' data-speak='영창피아노'><img src="image/ycpiano.jpg" alt="Ycpiano(반응형)"></a>
 </div><!-- tab2 -->
 
 <div id='tab3' class='tab'>
