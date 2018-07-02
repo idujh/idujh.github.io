@@ -58,7 +58,7 @@ border: 1px solid transparent;}
 .slide>a:focus{text-shadow:0 0 5px yellow;}
 .box{margin-top:20px;}
 .tab{overflow: hidden;display:none;position: relative;}
-.tab>a{width:24%;display:block;float:left;overflow: hidden;margin-right:1%;
+.tab>a{width:19%;display:block;float:left;overflow: hidden;margin-right:1%;
 outline:none;position: relative;margin-bottom:1%;}
 #tab1{display:block;}
 .over{position: absolute;left:0;top:0;width:100%;height:100%;
@@ -356,6 +356,7 @@ $('.over').stop().animate({opacity:0,scale:0,rotateX:'180deg'},1000)
 $('.title').css({opacity:0,left:50})
 $(this).find('.over').stop().animate({opacity:1,scale:1,rotateX:'0deg'},400,function(){
 $(this).find('.title').stop().animate({left:0,opacity:1})
+$(this).effect('size')
 })
 })
 $(this).on('click',function(){
