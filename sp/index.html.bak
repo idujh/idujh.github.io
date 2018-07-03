@@ -93,7 +93,13 @@ transform: translate(0, -50%);
 .np_btn:hover{background-color:#1f1f1f;}
 .move_text{position: absolute;left:50%;top:50%;padding:5px;display:none;
 color:#ddd;font-size:3rem;font-weight:400;border-radius:5px;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);background-color: #333;}
-
+.pop{position: fixed;left:10px;bottom:10px;width:200px;z-index:2;
+background-color: #333;border: 3px solid orangered;display:block;}
+.poptext{padding:4px 0;}
+.poptext h2{text-align: center;font-size:1.2rem;color:#ddd;font-weight:600;}
+.poptext button{position: absolute;right:0;top:0;background-color: #333;
+border-radius:2px;border-color:#ddd;}
+.poptext button img{width:15px;}
 
 
 /* 1300 */
@@ -121,6 +127,7 @@ background-color:rgba(0,0,0,0.6);}
 .title>span{font-size:1.2rem;}
 .introtext>li{position: absolute;top:-100px;left:0;right:0;text-align: center;
 font-size:3.0rem;padding-top:14px;color:#ddd;text-shadow: 0 0 5px #333;}
+.pop{display:none;}
 
 }
 
@@ -198,59 +205,59 @@ background-color:rgba(0,0,0,0.6);}
 
 <div class='box'>
 <div id='tab1' class='tab'>
-<a href="http://idujh.dothome.co.kr/musicisland/" target='_black' data-speak='뮤직아일랜드'><img src="image/music.jpg" alt="Musicisland(반응형)"></a>
-<a href="http://idujh.dothome.co.kr/Pizzahut/" target='_black' data-speak='피자헛'><img src="image/pizza.jpg" alt="Pizzahut(반응형)"></a>
-<a href="http://idujh.dothome.co.kr/celltrion/" target='_black' data-speak='셀트리온'><img src="image/cell.jpg" alt="Celltrion(반응형)"></a>
-<a href="http://idujh8668.dothome.co.kr/" target='_black' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
-<a href="http://idujh.dothome.co.kr/thinkbig/" target='_black' data-speak='웅진싱크빅'><img src="image/thinkbig.jpg" alt="Thinkbig(특이한,재미있는)"></a>
-<a href="http://idujh86.dothome.co.kr/samsung/" target='_black' data-speak='삼성디스플레이'><img src="image/samsung.jpg" alt="Samsung"></a>
-<a href="http://idujh86.dothome.co.kr/kunyoung/" target='_black' data-speak='건영건설'><img src="image/kunyoung.jpg" alt="Kunyoung"></a>
-<a href="http://idujh86.dothome.co.kr/hyundai/" target='_black' data-speak='현대모터스튜디오'><img src="image/hyundai.jpg" alt="Hyundai"></a>
-<a href="http://idujh86.dothome.co.kr/xid/" target='_black' data-speak='엑스아이디'><img src="image/xid.jpg" alt="X.I.D"></a>
-<a href="http://idujh86.dothome.co.kr/haatz/" target='_black' data-speak='하츠'><img src="image/haatz.jpg" alt="Haatz"></a>
-<a href="https://idujh.github.io/iloom/" target='_black' data-speak='일룸'><img src="image/iloom.jpg" alt="Iloom"></a>
-<a href="https://idujh.github.io/mnet/" target='_black' data-speak='엠넷'><img src="image/mnet.jpg" alt="Mnet"></a>
-<a href="https://idujh.github.io/flight/" target='_black' data-speak='플라이트'><img src="image/flight.jpg" alt="Flight"></a>
-<a href="https://idujh.github.io/etudehouse/" target='_black' data-speak='에뛰드하우스'><img src="image/etudehouse.jpg" alt="Etudehouse"></a>
-<a href="https://idujh.github.io/oci/" target='_black' data-speak='오씨아이'><img src="image/oci.jpg" alt="O.C.I"></a>
-<a href="https://idujh.github.io/blank/" target='_black' data-speak='블랭크코퍼레이션'><img src="image/blank.jpg" alt="Blank(반응형)"></a>
-<a href="http://idujh86.dothome.co.kr/asaweb1/" target='_black' data-speak='아사웹1'><img src="image/asaweb1.jpg" alt="Asaweb(일반)"></a>
-<a href="http://idujh86.dothome.co.kr/asaweb/" target='_black' data-speak='아사웹2'><img src="image/asaweb2.jpg" alt="Asaweb(게시판)"></a>
-<a href="http://idujh.dothome.co.kr/hurom/" target='_black' data-speak='휴롬'><img src="image/hurom.jpg" alt="Hurom(반응형)"></a>
-<a href="https://idujh.github.io/ycpiano/" target='_black' data-speak='영창피아노'><img src="image/ycpiano.jpg" alt="Ycpiano(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/musicisland/" target='_blank' data-speak='뮤직아일랜드'><img src="image/music.jpg" alt="Musicisland(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/Pizzahut/" target='_blank' data-speak='피자헛'><img src="image/pizza.jpg" alt="Pizzahut(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/celltrion/" target='_blank' data-speak='셀트리온'><img src="image/cell.jpg" alt="Celltrion(반응형)"></a>
+<a href="http://idujh8668.dothome.co.kr/" target='_blank' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
+<a href="http://idujh.dothome.co.kr/thinkbig/" target='_blank' data-speak='웅진싱크빅'><img src="image/thinkbig.jpg" alt="Thinkbig(특이한,재미있는)"></a>
+<a href="http://idujh86.dothome.co.kr/samsung/" target='_blank' data-speak='삼성디스플레이'><img src="image/samsung.jpg" alt="Samsung"></a>
+<a href="http://idujh86.dothome.co.kr/kunyoung/" target='_blank' data-speak='건영건설'><img src="image/kunyoung.jpg" alt="Kunyoung"></a>
+<a href="http://idujh86.dothome.co.kr/hyundai/" target='_blank' data-speak='현대모터스튜디오'><img src="image/hyundai.jpg" alt="Hyundai"></a>
+<a href="http://idujh86.dothome.co.kr/xid/" target='_blank' data-speak='엑스아이디'><img src="image/xid.jpg" alt="X.I.D"></a>
+<a href="http://idujh86.dothome.co.kr/haatz/" target='_blank' data-speak='하츠'><img src="image/haatz.jpg" alt="Haatz"></a>
+<a href="https://idujh.github.io/iloom/" target='_blank' data-speak='일룸'><img src="image/iloom.jpg" alt="Iloom"></a>
+<a href="https://idujh.github.io/mnet/" target='_blank' data-speak='엠넷'><img src="image/mnet.jpg" alt="Mnet"></a>
+<a href="https://idujh.github.io/flight/" target='_blank' data-speak='플라이트'><img src="image/flight.jpg" alt="Flight"></a>
+<a href="https://idujh.github.io/etudehouse/" target='_blank' data-speak='에뛰드하우스'><img src="image/etudehouse.jpg" alt="Etudehouse"></a>
+<a href="https://idujh.github.io/oci/" target='_blank' data-speak='오씨아이'><img src="image/oci.jpg" alt="O.C.I"></a>
+<a href="https://idujh.github.io/blank/" target='_blank' data-speak='블랭크코퍼레이션'><img src="image/blank.jpg" alt="Blank(반응형)"></a>
+<a href="http://idujh86.dothome.co.kr/asaweb1/" target='_blank' data-speak='아사웹1'><img src="image/asaweb1.jpg" alt="Asaweb(일반)"></a>
+<a href="http://idujh86.dothome.co.kr/asaweb/" target='_blank' data-speak='아사웹2'><img src="image/asaweb2.jpg" alt="Asaweb(게시판)"></a>
+<a href="http://idujh.dothome.co.kr/hurom/" target='_blank' data-speak='휴롬'><img src="image/hurom.jpg" alt="Hurom(반응형)"></a>
+<a href="https://idujh.github.io/ycpiano/" target='_blank' data-speak='영창피아노'><img src="image/ycpiano.jpg" alt="Ycpiano(반응형)"></a>
 </div><!-- tab1 -->
 
 <div id='tab2' class='tab'>
-<a href="http://idujh.dothome.co.kr/musicisland/" target='_black' data-speak='뮤직아일랜드'><img src="image/music.jpg" alt="Musicisland(반응형)"></a>
-<a href="http://idujh.dothome.co.kr/Pizzahut/" target='_black' data-speak='피자헛'><img src="image/pizza.jpg" alt="Pizzahut(반응형)"></a>
-<a href="http://idujh.dothome.co.kr/celltrion/" target='_black' data-speak='셀트리온'><img src="image/cell.jpg" alt="Celltrion(반응형)"></a>
-<a href="http://idujh8668.dothome.co.kr/" target='_black' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
-<a href="https://idujh.github.io/blank/" target='_black' data-speak='블랭크코퍼레이션'><img src="image/blank.jpg" alt="Blank(반응형)"></a>
-<a href="http://idujh.dothome.co.kr/hurom/" target='_black' data-speak='휴롬'><img src="image/hurom.jpg" alt="Hurom(반응형)"></a>
-<a href="https://idujh.github.io/ycpiano/" target='_black' data-speak='영창피아노'><img src="image/ycpiano.jpg" alt="Ycpiano(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/musicisland/" target='_blank' data-speak='뮤직아일랜드'><img src="image/music.jpg" alt="Musicisland(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/Pizzahut/" target='_blank' data-speak='피자헛'><img src="image/pizza.jpg" alt="Pizzahut(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/celltrion/" target='_blank' data-speak='셀트리온'><img src="image/cell.jpg" alt="Celltrion(반응형)"></a>
+<a href="http://idujh8668.dothome.co.kr/" target='_blank' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
+<a href="https://idujh.github.io/blank/" target='_blank' data-speak='블랭크코퍼레이션'><img src="image/blank.jpg" alt="Blank(반응형)"></a>
+<a href="http://idujh.dothome.co.kr/hurom/" target='_blank' data-speak='휴롬'><img src="image/hurom.jpg" alt="Hurom(반응형)"></a>
+<a href="https://idujh.github.io/ycpiano/" target='_blank' data-speak='영창피아노'><img src="image/ycpiano.jpg" alt="Ycpiano(반응형)"></a>
 </div><!-- tab2 -->
 
 <div id='tab3' class='tab'>
-<a href="http://idujh86.dothome.co.kr/asaweb/" target='_black' data-speak='아사웹2'><img src="image/asaweb2.jpg" alt="Asaweb(게시판)"></a>
-<a href="http://idujh8668.dothome.co.kr/" target='_black' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
+<a href="http://idujh86.dothome.co.kr/asaweb/" target='_blank' data-speak='아사웹2'><img src="image/asaweb2.jpg" alt="Asaweb(게시판)"></a>
+<a href="http://idujh8668.dothome.co.kr/" target='_blank' data-speak='클리어'><img src="image/clear.jpg" alt="Clear(반응형+게시판)"></a>
 </div><!-- tab3 -->
 
 <div id='tab4' class='tab'>
-<a href="http://idujh86.dothome.co.kr/samsung/" target='_black' data-speak='삼성디스플레이'><img src="image/samsung.jpg" alt="Samsung"></a>
-<a href="http://idujh86.dothome.co.kr/kunyoung/" target='_black' data-speak='건영건설'><img src="image/kunyoung.jpg" alt="Kunyoung"></a>
-<a href="http://idujh86.dothome.co.kr/hyundai/" target='_black' data-speak='현대모터스튜디오'><img src="image/hyundai.jpg" alt="Hyundai"></a>
-<a href="http://idujh86.dothome.co.kr/xid/" target='_black' data-speak='엑스아이디'><img src="image/xid.jpg" alt="X.I.D"></a>
-<a href="http://idujh86.dothome.co.kr/haatz/" target='_black' data-speak='하츠'><img src="image/haatz.jpg" alt="Haatz"></a>
-<a href="https://idujh.github.io/iloom/" target='_black' data-speak='일룸'><img src="image/iloom.jpg" alt="Iloom"></a>
-<a href="https://idujh.github.io/mnet/" target='_black' data-speak='엠넷'><img src="image/mnet.jpg" alt="Mnet"></a>
-<a href="https://idujh.github.io/flight/" target='_black' data-speak='플라이트'><img src="image/flight.jpg" alt="Flight"></a>
-<a href="https://idujh.github.io/etudehouse/" target='_black' data-speak='에뛰드하우스'><img src="image/etudehouse.jpg" alt="Etudehouse"></a>
-<a href="https://idujh.github.io/oci/" target='_black' data-speak='오씨아이'><img src="image/oci.jpg" alt="O.C.I"></a>
-<a href="http://idujh86.dothome.co.kr/asaweb1/" target='_black' data-speak='아사웹1'><img src="image/asaweb1.jpg" alt="Asaweb(일반)"></a>
+<a href="http://idujh86.dothome.co.kr/samsung/" target='_blank' data-speak='삼성디스플레이'><img src="image/samsung.jpg" alt="Samsung"></a>
+<a href="http://idujh86.dothome.co.kr/kunyoung/" target='_blank' data-speak='건영건설'><img src="image/kunyoung.jpg" alt="Kunyoung"></a>
+<a href="http://idujh86.dothome.co.kr/hyundai/" target='_blank' data-speak='현대모터스튜디오'><img src="image/hyundai.jpg" alt="Hyundai"></a>
+<a href="http://idujh86.dothome.co.kr/xid/" target='_blank' data-speak='엑스아이디'><img src="image/xid.jpg" alt="X.I.D"></a>
+<a href="http://idujh86.dothome.co.kr/haatz/" target='_blank' data-speak='하츠'><img src="image/haatz.jpg" alt="Haatz"></a>
+<a href="https://idujh.github.io/iloom/" target='_blank' data-speak='일룸'><img src="image/iloom.jpg" alt="Iloom"></a>
+<a href="https://idujh.github.io/mnet/" target='_blank' data-speak='엠넷'><img src="image/mnet.jpg" alt="Mnet"></a>
+<a href="https://idujh.github.io/flight/" target='_blank' data-speak='플라이트'><img src="image/flight.jpg" alt="Flight"></a>
+<a href="https://idujh.github.io/etudehouse/" target='_blank' data-speak='에뛰드하우스'><img src="image/etudehouse.jpg" alt="Etudehouse"></a>
+<a href="https://idujh.github.io/oci/" target='_blank' data-speak='오씨아이'><img src="image/oci.jpg" alt="O.C.I"></a>
+<a href="http://idujh86.dothome.co.kr/asaweb1/" target='_blank' data-speak='아사웹1'><img src="image/asaweb1.jpg" alt="Asaweb(일반)"></a>
 </div><!-- tab4 -->
 
 <div id='tab5' class='tab'>
-<a href="http://idujh.dothome.co.kr/thinkbig/" target='_black' data-speak='웅진싱크빅'><img src="image/thinkbig.jpg" alt="Thinkbig(특이한,재미있는)"></a>
+<a href="http://idujh.dothome.co.kr/thinkbig/" target='_blank' data-speak='웅진싱크빅'><img src="image/thinkbig.jpg" alt="Thinkbig(특이한,재미있는)"></a>
 </div><!-- tab5 -->
 
 </div><!-- box -->
@@ -288,6 +295,10 @@ H.P:010-5761-5646</div><!-- hp -->
 <a href="#" class='next np_btn'><img src="image/next.png" alt="다음"></a>
 <div class='hpbd'>라인애니메이션</div>
 <strong class='move_text'>클릭이벤트</strong>
+<div class='pop'>
+<div class='poptext'><h2>W3C 웹표준 유효성 검사</h2><button class='popclosebtn' title='닫기'><img src="image/close.png" alt="팝업닫기"></button></div>
+<a href='image/w3cc.png' class='popbtn' target='_blank' title='크게보기'><img src="image/w3c.png" alt="w3c"></a>
+</div>
 
 
 <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
@@ -356,7 +367,6 @@ $('.over').stop().animate({opacity:0,scale:0,rotateX:'180deg'},1000)
 $('.title').css({opacity:0,left:50})
 $(this).find('.over').stop().animate({opacity:1,scale:1,rotateX:'0deg'},400,function(){
 $(this).find('.title').stop().animate({left:0,opacity:1})
-$(this).effect('size')
 })
 })
 $(this).on('click',function(){
@@ -504,8 +514,13 @@ $('.slide').stop().animate({left:'-=160'},5000,'linear')
 },5000)
 })
 
-
-
+$('.popclosebtn').on('click',function(){
+if (confirm('"W3C 웹표준 유효성검사" 창을 닫으시겠습니까?'))
+{
+$('.pop').hide()
+}
+return false
+})
 
 
 
