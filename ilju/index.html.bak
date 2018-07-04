@@ -21,6 +21,8 @@ $('.gnbbg').css({top:hh,height:gh})
 $('.gnb>li>ul').css({top:hh-glh})
 })
 
+$(window).on('load',function(){
+
 $('.gnb>li>a').on('mouseenter focus',function(){
 var w=$(window).width()
 if (w>1000)
@@ -40,7 +42,6 @@ $('.gnbbg,.gnb>li>ul').stop().slideUp()
 var min=1
 var max=$('.slide>li').length
 var slide=setInterval(function(){
-$(window).on('load',function(){
 if (min==max)
 {
 	min=0
@@ -51,7 +52,6 @@ $('.pager>i').eq(min-1).addClass('on')
 $('.slide').stop().animate({left:'-=100%'},1000,function(){
 $('.slide>li').first().appendTo('.slide')
 $('.slide').css({left:0})
-})
 })
 },10000)
 
@@ -110,8 +110,17 @@ $('.slide').stop().animate({left:'+=100%'},1000)
 return false
 })
 
+})//load
 
-
+$('.tabbtn>a').each(function(index){
+$(this).on('click',function(){
+$('.tab').hide()
+$('.tab').eq(index).show()
+$('.tabbtn>a').removeClass('on')
+$(this).addClass('on')
+return false
+})
+})
 
 
 
@@ -180,10 +189,48 @@ margin-top:-1.5px;}
 background:url(image/bx02_pager_play.png) 0 0 no-repeat;display:block;
 margin-left:10px;}
 .pager>i.on{background:url(image/bx02_pager_play_active.png) 0 0 no-repeat;}
-
-
-
-
+.content{padding-bottom:400px;}
+.section1{background-color:#f6f6f6;}
+.section1_inner{overflow: hidden;position: relative;padding:40px 0;}
+.section1_inner>h2{font-size:3.0rem;font-weight:400;text-align: center;}
+.section1_inner>h2>span{border-bottom:2px solid #8bc53d;}
+.tabbtn{float:right;}
+.tabbtn>a{float:left;font-size:1.3rem;color:#8c8c8c;border-bottom: 2px solid #c5c5c5;margin:0 0 0 20px;padding:0 0 6px 0;}
+.tabbtn>a.on{color:#333;border-bottom:2px solid #333;}
+.tab{margin-top:50px;clear:both;}
+#tab1{display:block;}
+#tab2{display:none;}
+#tab3{display:none;}
+.tab ul{overflow: hidden;}
+.tab ul>li{float:left;width:25%;}
+.tab ul>li>a{display:block;border-right:1px solid #ddd;font-size:1.5rem;}
+.image{position: relative;width:100%;height:136px;}
+.more{position: absolute;bottom:-19px;left:50%;margin-left:-19px;}
+.text{margin-top:30px;text-align: center;}
+#a1{padding-right:10px;}
+#a1 .image{background:url(image/20180411143739651.png) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a2{padding:0 10px;}
+#a2 .image{background:url(image/20180405164419541.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a3{padding:0 10px;}
+#a3 .image{background:url(image/20180511181506361.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a4{padding-left:10px;border-right:none;}
+#a4 .image{background:url(image/20180406174925881.png) 50% 70% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a5{padding-right:10px;}
+#a5 .image{background:url(image/20180411143739651.png) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a6{padding:0 10px;}
+#a6 .image{background:url(image/20180405164419541.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a7{padding:0 10px;}
+#a7 .image{background:url(image/20180125162412921.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a8{padding-left:10px;border-right:none;}
+#a8 .image{background:url(image/20180109173459741.jpg) 50% 70% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a9{padding-right:10px;}
+#a9 .image{background:url(image/20180511181506361.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a10{padding:0 10px;}
+#a10 .image{background:url(image/20180406174925881.png) 50% 70% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a11{padding:0 10px;}
+#a11 .image{background:url(image/20180406170108471.png) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
+#a12{padding-left:10px;border-right:none;}
+#a12 .image{background:url(image/20180405175143201.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
 
 
 
@@ -286,11 +333,100 @@ margin-left:10px;}
 </div><!-- pager -->
 </div><!-- controlwrap -->
 </div><!-- mask -->
+<div class='content'>
+<div class='section1 section'>
+<div class='section1_inner wd1000'>
+<h2><span>장학생 이야기</span></h2>
+<div class='tabbtn'>
+<a href="#tab1" class='on'>전체</a>
+<a href="#tab2">그룹홈 학습지도</a>
+<a href="#tab3">장학생 소식</a>
+</div><!-- tabbtn -->
+
+<div id='tab1' class='tab'>
+<ul>
+	<li><a href="#" id='a1'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>이런 멘토링 활동 어때요? (2탄: 체험활동 편)</div>
+	</a></li>
+	<li><a href="#" id='a2'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>우수멘토 '신승훈' 장학생의 빌결인듯 비결 아닌 비결 같은 이야기</div>
+	</a></li>
+	<li><a href="#" id='a3'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>[위촉및 수상소식]1기박상인 교수,5기임지봉 교수,12기홍석철 교수</div>
+	</a></li>
+	<li><a href="#" id='a4'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>우수멘토 '신슬아' 장학생 인터뷰 : 삶의 목표와 행복</div>
+	</a></li>
+</ul>
+</div><!-- tab1 -->
+
+<div id='tab2' class='tab'>
+<ul>
+	<li><a href="#" id='a5'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>이런 멘토링 활동 어때요? (2탄: 체험활동 편)</div>
+	</a></li>
+	<li><a href="#" id='a6'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>우수멘토 '신승훈' 장학생의 빌결인듯 비결 아닌 비결 같은 이야기</div>
+	</a></li>
+	<li><a href="#" id='a7'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>멘토링은 끝나지 않는다<br><br></div>
+	</a></li>
+	<li><a href="#" id='a8'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>좋아해줘서 고마워♡<br><br></div>
+	</a></li>
+</ul>
+</div><!-- tab2 -->
+
+<div id='tab3' class='tab'>
+<ul>
+	<li><a href="#" id='a9'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>[위촉및 수상소식]1기박상인 교수,5기임지봉 교수,12기홍석철 교수</div>
+	</a></li>
+	<li><a href="#" id='a10'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>우수멘토 '신슬아' 장학생 인터뷰 : 삶의 목표와 행복</div>
+	</a></li>
+	<li><a href="#" id='a11'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>제3기 장학생 기자단의 따뜻 했던 시간들</div>
+	</a></li>
+	<li><a href="#" id='a12'>
+	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
+	<div class='text'>일주동문의 같은 직장 합격스토리★ 우리 이렇게 만났어요.</div>
+	</a></li>
+</ul>
+</div><!-- tab3 -->
+
+</div><!-- section_inner -->
+</div><!-- section1 -->
 
 
 
 
-<div class='content'></div><!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- content -->
 
 
 
