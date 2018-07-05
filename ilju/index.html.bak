@@ -231,7 +231,25 @@ margin-left:10px;}
 #a11 .image{background:url(image/20180406170108471.png) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
 #a12{padding-left:10px;border-right:none;}
 #a12 .image{background:url(image/20180405175143201.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size: cover;}
-
+.section2{}
+.section2_inner{padding:40px 0;overflow: hidden;}
+.section2_left{width:50%;float:left;padding-right:5%;text-align: center;}
+.section2_left>h2>a{color:#666;font-weight:400;font-size:2.5rem;letter-spacing:-3px;word-spacing:-1px;}
+.section2_left>h2>a:hover{text-decoration: underline;}
+.section2_left>p{margin-top:10px;font-size:1.3rem;color:#777;line-height: 180%;}
+.section2_left_list{margin-top:20px;border-top:1px dotted #999;}
+.section2_left_list>a{font-size:1.3rem;color:#999;display:block;line-height:200%;
+border-bottom:1px dotted #999;}
+.section2_left_list>a:hover{text-decoration: underline;}
+.section2_right{width:50%;float:left;text-align: center;
+background-image: url(image/bx01_prev.png),url(image/b01_next.png);
+background-position: 0 50%,100% 50%;background-repeat: no-repeat;}
+.section2_right>h2{color:#333;font-size:2.8rem;text-align: center;
+font-weight:400;letter-spacing:-1px;}
+.section2_right>a{border: 1px solid #999;color:#222;margin-top:20px;
+display:inline-block;padding:1% 8%;font-size:1.3rem;}
+.section3{background-color: #f6f6f6;}
+.section3_inner{padding:40px 0;}
 
 
 
@@ -397,7 +415,7 @@ margin-left:10px;}
 	</a></li>
 	<li><a href="#" id='a11'>
 	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
-	<div class='text'>제3기 장학생 기자단의 따뜻 했던 시간들</div>
+	<div class='text'>3기 장학생 기자단의 따뜻했던 시간들<br><br></div>
 	</a></li>
 	<li><a href="#" id='a12'>
 	<div class='image'><span class='more'><img src="image/go01.png" alt="바로가기버튼"></span></div>
@@ -408,8 +426,32 @@ margin-left:10px;}
 
 </div><!-- section_inner -->
 </div><!-- section1 -->
+<div class='section2'>
+<div class='section2_inner wd1000'>
+<div class='section2_left'>
+<h2><a href="#">제26기 해외박사 장학증서 수여식 보도자료</a></h2>
+<p>일주학술문화재단 제26기 해외박사 장학증서 수여식 개최 보도자료 - 온라인 기사 (총 20건) : 머니투데이 외 19건 관련 링크 : http://news.mt.co.kr/mtview.php?no=2018062509383306791 - 지면 기사 (...</p>
+<div class='section2_left_list'>
+<a href="#">2018년도 해외박사 장학생 선발결과 안내</a>
+<a href="#">2018년도 해외박사장학생 선발 면접대상자 안내</a>
+</div><!-- section2_left_list -->
+</div><!-- section2_left -->
+<div class='section2_right'>
+<h2>2018학년도 해외박사 장학생<br>최종합격자 조회</h2>	
+<a href="#">보러가기</a>
+</div><!-- section2_right -->
+</div><!-- section2_inner -->
+</div><!-- section2 -->
+<div class='section3'>
+<div class='section3_inner wd1000'>
 
 
+
+
+
+
+</div><!-- section3_inner -->
+</div><!-- section3 -->
 
 
 
